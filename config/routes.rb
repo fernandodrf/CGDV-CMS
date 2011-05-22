@@ -1,5 +1,5 @@
 Cgdv::Application.routes.draw do
-  #get "pages/home"
+  match '/patient',	:to =>'pages#patient'
   root :to => "pages#home"
 
   # The priority is based upon order of creation:
