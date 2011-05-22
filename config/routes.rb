@@ -1,4 +1,5 @@
 Cgdv::Application.routes.draw do
+  
   match '/patient',	:to =>'pages#patient'
   root :to => "pages#home"
 
