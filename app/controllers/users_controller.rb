@@ -1,9 +1,8 @@
 class UsersController < ApplicationController
   # Added show protection in this case, only the user can see its profile.
   before_filter :authenticate, :only => [:index, :show, :edit, :update]
-  # Add roles so only admins can index users.
-  # Add delete users.
   before_filter :correct_user, :only => [:show, :edit, :update]
+  before_filter :admin_user,   :only => [:index, :destroy]
 
   def index
     @title = "All users"
@@ -47,6 +46,12 @@ class UsersController < ApplicationController
     end
   end
   
+  def destroy
+    User.find(params[:id]).destroy
+    flash[:success] = "User destroyed."
+    redirect_to users_path
+  end
+  
   private
 
     def authenticate
@@ -56,5 +61,9 @@ class UsersController < ApplicationController
     def correct_user
       @user = User.find(params[:id])
       redirect_to(root_path) unless current_user?(@user)
+    end
+    
+    def admin_user
+      redirect_to(root_path) unless current_user.admin?
     end
 end
