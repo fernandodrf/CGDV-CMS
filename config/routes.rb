@@ -1,9 +1,11 @@
 Cgdv::Application.routes.draw do
-  
   resources :users
+  resources :sessions, :only => [:new, :create, :destroy]
 
   match '/patient',	:to =>'pages#patient'
-  match 'signup',	:to =>'users#new'
+  match '/signup',  :to => 'users#new'
+  match '/signin',  :to => 'sessions#new'
+  match '/signout', :to => 'sessions#destroy'
   
   root :to => "pages#home"
 
