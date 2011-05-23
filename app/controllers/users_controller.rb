@@ -1,6 +1,8 @@
 class UsersController < ApplicationController
   # Added show protection in this case, only the user can see its profile.
   before_filter :authenticate, :only => [:index, :show, :edit, :update]
+  # Add roles so only admins can index users.
+  # Add delete users.
   before_filter :correct_user, :only => [:show, :edit, :update]
 
   def index
