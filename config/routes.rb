@@ -1,6 +1,6 @@
 Cgdv::Application.routes.draw do
   
-  get "users/new"
+  resources :users
 
   match '/patient',	:to =>'pages#patient'
   match 'signup',	:to =>'users#new'
