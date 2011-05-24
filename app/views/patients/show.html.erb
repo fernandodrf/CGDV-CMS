@@ -1,2 +1,14 @@
-<h1>Patient</h1>
-<%= @patient.name %>, <%= @patient.cgdvcode %>
+<table class="profile" summary="Patient information">
+  <tr>
+    <td class="main">
+      <h1>
+        <%= @patient.name %>
+      </h1>
+    </td>
+    <td class="sidebar round">
+      <strong>Name:</strong> <%= @patient.name %><br />
+      <strong>CGDV Code:</strong> <%= @patient.cgdvcode %><br />
+      <strong>URL</strong>  <%= link_to patient_path(@patient), @patient %>
+    </td>
+  </tr>
+</table>
