@@ -1,0 +1,21 @@
+# == Schema Information
+# Schema version: 20110524164246
+#
+# Table name: patients
+#
+#  id         :integer         not null, primary key
+#  name       :string(255)
+#  cgdvcode   :integer
+#  created_at :datetime
+#  updated_at :datetime
+#
+
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  name: MyString
+  cgdvcode: 
+
+two:
+  name: MyString
+  cgdvcode: 
