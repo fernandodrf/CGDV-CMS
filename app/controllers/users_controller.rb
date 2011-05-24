@@ -22,7 +22,6 @@ class UsersController < ApplicationController
   #This method is being modified so only admins can create new users.
   def create
     @user = User.new(params[:user])
-    #@newuser = User.new(params[:newuser])
     if @user.save
       #sign_in @user
       flash[:success] = "User succesfully created."
