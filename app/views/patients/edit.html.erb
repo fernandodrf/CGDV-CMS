@@ -1,0 +1,15 @@
+<h1>Edit Patient</h1>
+<%= form_for(@patient) do |f| %>
+  <%= render 'shared/error_messages', :object => f.object %>
+  <div class="field">
+    <%= f.label :name %><br />
+    <%= f.text_field :name %>
+  </div>
+  <div class="field">
+    <%= f.label :cgdvcode %><br />
+    <%= f.text_field :cgdvcode %>
+  </div>
+  <div class="actions">
+    <%= f.submit "Update" %>
+  </div>
+<% end %>
