@@ -1,8 +1,8 @@
-<h1>Edit user</h1>
+<h1><%= t('helpers.submit.update', :model => User.to_s) %></h1>
 
 <%= form_for(@user) do |f| %>
   <%= render 'fields', :f => f %>
   <div class="actions">
-    <%= f.submit "Update" %>
+    <%= f.submit t('helpers.edit') %>
   </div>
 <% end %>

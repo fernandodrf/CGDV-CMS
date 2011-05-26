@@ -6,8 +6,8 @@
       </h1>
     </td>
     <td class="sidebar round">
-      <strong>Name:</strong> <%= @patient.name %><br />
-      <strong>CGDV Code:</strong> <%= @patient.cgdvcode %><br />
+      <strong><%= t('patient.name') %>:</strong> <%= @patient.name %><br />
+      <strong><%= t('patient.cgdvcode') %>:</strong> <%= @patient.cgdvcode %><br />
       <strong>URL</strong>  <%= link_to patient_path(@patient), @patient %>
     </td>
   </tr>

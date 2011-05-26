@@ -1,5 +1,5 @@
 # == Schema Information
-# Schema version: 20110524164246
+# Schema version: 20110526155853
 #
 # Table name: users
 #
@@ -11,11 +11,12 @@
 #  encrypted_password :string(255)
 #  salt               :string(255)
 #  admin              :boolean
+#  language           :string(255)
 #
 
 class User < ActiveRecord::Base
   attr_accessor :password
-  attr_accessible :name, :email, :password, :password_confirmation
+  attr_accessible :name, :email, :password, :password_confirmation, :language
 
   email_regex = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
   
@@ -27,6 +28,7 @@ class User < ActiveRecord::Base
   validates :password, :presence     => true,
                        :confirmation => true,
                        :length       => { :within => 6..40 }
+  validates :language, :presence => true
   
   before_save :encrypt_password
 

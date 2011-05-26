@@ -2,7 +2,7 @@ class PatientsController < ApplicationController
   before_filter :authenticate, :only => [:new, :create, :index, :show, :edit, :update]
   
   def index
-  	@title = "All Patients"
+  	@title = t('patient.index')
   	@patients = Patient.paginate(:page => params[:page])
   end
   
@@ -13,18 +13,18 @@ class PatientsController < ApplicationController
 	
   def new
   	@patient = Patient.new
-  	@title = "New Patient"
+  	@title = t('helpers.submit.create', :model => Patient.to_s)
   end
   
   def edit
     @patient = Patient.find(params[:id])
-    @title = "Edit Patient"
+    @title = t('helpers.submit.update', :model => Patient.to_s)
   end
   
   def create
   	@patient = Patient.new(params[:patient])
   	if @patient.save
-  	  flash[:success] = "Patient Succesfully created."
+  	  flash[:success] = t('flash.success.create', :model => Patient.to_s)
   	  redirect_to @patient
   	else
   	  @title = "New Patient"
@@ -35,7 +35,7 @@ class PatientsController < ApplicationController
   def update
     @patient = Patient.find(params[:id])
     if @patient.update_attributes(params[:patient])
-      flash[:success] = "Patient updated."
+      flash[:success] = t('flash.success.edit', :model => Patient.to_s)
       redirect_to @patient
     else
       @title = "Edit Patient"
@@ -45,7 +45,7 @@ class PatientsController < ApplicationController
   
   def destroy
     Patient.find(params[:id]).destroy
-    flash[:success] = "Patient destroyed."
+    flash[:success] = t('flash.success.destroy', :model => Patient.to_s)
     redirect_to patients_path
   end
   

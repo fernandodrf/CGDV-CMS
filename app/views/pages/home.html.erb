@@ -1,6 +1,6 @@
-<h1>Home</h1>
+<h1><%= t('home.title') %></h1>
 <p>
-  Sistema de Manejo de Informacion de CGDV
+  <%= t('home.paragraph') %>
 </p>
 
-<%= link_to "Log In", signup_path, :class => "signup_button round" %>
+<%= link_to t('session.login'), signup_path, :class => "signup_button round" %>

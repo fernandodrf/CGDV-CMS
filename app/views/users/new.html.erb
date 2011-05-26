@@ -1,4 +1,4 @@
-<h1>Sign up</h1>
+<h1><%= t('helpers.submit.create', :model => User.to_s) %></h1>
 
 <%= form_for(@user) do |f| %>
   <%= render 'fields', :f => f %>

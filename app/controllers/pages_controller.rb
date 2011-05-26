@@ -1,10 +1,10 @@
 class PagesController < ApplicationController
   def home
-  	@title = "Home"
+  	@title = t('home.title')
   end
   
   def patient
-  	@title = "Patient"
+  	@title = t('patient.title')
   end
 
 end

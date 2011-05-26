@@ -5,7 +5,7 @@ class UsersController < ApplicationController
   before_filter :admin_user,   :only => [:new, :create, :index, :destroy]
 
   def index
-    @title = "All users"
+    @title = t('user.index')
     @users = User.paginate(:page => params[:page])
   end
 	
@@ -16,7 +16,7 @@ class UsersController < ApplicationController
 	
   def new
   	@user = User.new
-    @title = "Sign up"
+    @title = t('helpers.submit.create', :model => User.to_s)
   end
 
   #This method is being modified so only admins can create new users.
@@ -24,33 +24,33 @@ class UsersController < ApplicationController
     @user = User.new(params[:user])
     if @user.save
       #sign_in @user
-      flash[:success] = "User succesfully created."
+      flash[:success] = t('flash.success.create', :model => User.to_s)
       #redirect_to @user
       redirect_to root_path
     else
-      @title = "Sign up"
+      @title = t('helpers.submit.create', :model => User.to_s)
       render 'new'
     end
   end
   
   def edit
-    @title = "Edit user"
+    @title = t('helpers.submit.update', :model => User.to_s)
   end
   
   def update
     @user = User.find(params[:id])
     if @user.update_attributes(params[:user])
-      flash[:success] = "Profile updated."
+      flash[:success] = t('flash.success.edit', :model => User.to_s)
       redirect_to @user
     else
-      @title = "Edit user"
+      @title = t('helpers.submit.update', :model => User.to_s)
       render 'edit'
     end
   end
   
   def destroy
     User.find(params[:id]).destroy
-    flash[:success] = "User destroyed."
+    flash[:success] = t('flash.success.destroy', :model => User.to_s)
     redirect_to users_path
   end
   
