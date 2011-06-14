@@ -4,11 +4,9 @@
       <h1>
         <%= @patient.name %>
       </h1>
-    </td>
-    <td class="sidebar round">
+      <h6><%= link_to t('helpers.submit.update', :model => "Patient"), edit_patient_path(@patient) %></h6><br />
       <strong><%= t('patient.name') %>:</strong> <%= @patient.name %><br />
       <strong><%= t('patient.cgdvcode') %>:</strong> <%= @patient.cgdvcode %><br />
-      <strong>URL</strong>  <%= link_to patient_path(@patient), @patient %>
     </td>
   </tr>
 </table>

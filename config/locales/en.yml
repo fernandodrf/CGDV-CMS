@@ -8,7 +8,7 @@ en:
     
   header:
     home: "Home"
-    patient: "Patient"
+    patient: "Patients"
     users: "Users"
     profile: "Profile"
     settings: "Settings"
@@ -173,6 +173,7 @@ en:
       second: "Seconds"
 
   helpers:
+    new: "New"
     edit: "Edit"
     create: "Create"
     

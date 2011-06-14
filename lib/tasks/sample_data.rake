@@ -20,5 +20,11 @@ namespace :db do
                    :password_confirmation => password,
                    :language =>"sp")
     end
+    100.times do |n|
+      name  = Faker::Name.name
+      cgdvcode = "#{n+1}"
+      Patient.create!(:name => name,
+                   :cgdvcode => cgdvcode)
+    end
   end
 end

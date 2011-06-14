@@ -13,7 +13,16 @@
       	<% flash.each do |key, value| %>
           <div class="flash <%= key %>"><%= value %></div>
         <% end %>
-        <%= yield %>
+        <table class="layout">
+		  <tr>
+		    <td class="main">
+			  <%= yield %>
+		    </td>
+		    <td class="sidebar round sb">
+		      <%= render 'layouts/navigation' %>
+		    </td>
+		  </tr>
+		</table>
       </section>
       <%= render 'layouts/footer' %>
       <%= debug(params) if Rails.env.development? %>

@@ -1,6 +1,9 @@
 <h1><%= t('home.title') %></h1>
-<p>
-  <%= t('home.paragraph') %>
-</p>
+<% if signed_in? %>
+<% else %>
+  <p>
+    <%= t('home.paragraph') %>
+  </p>
 
-<%= link_to t('session.login'), signup_path, :class => "signup_button round" %>
+  <%= link_to t('session.login'), signup_path, :class => "signup_button round" %>
+<% end %>

@@ -14,7 +14,7 @@ sp:
     
   header:
     home: "Casa"
-    patient: "Paciente"
+    patient: "Pacientes"
     users: "Usuarios"
     profile: "Perfil"
     settings: "Opciones"
@@ -172,6 +172,7 @@ sp:
       second: 'Segundos'
 
   helpers:
+    new: "Nuevo"
     edit: "Editar"
     create: "Crear"
   

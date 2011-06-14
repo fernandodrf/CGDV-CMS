@@ -48,6 +48,58 @@ nav {
   float: right;
 }
 
+/* Main Layout */
+.layout {
+
+}
+
+.layout table {
+  width: 100%;
+  margin-bottom: 0;
+}
+
+.layout td.main {
+  width: 85%;
+  padding: 1em;
+}
+
+.layout td.sidebar {
+  width: 15%;
+  padding: 1em;
+  vertical-align: top;
+  background: #ffc;
+  white-space: nowrap;
+}
+
+/* Sidebar */
+
+
+.layout ul {
+  margin: 0;
+  padding: 0;
+}
+
+.layout ul li {
+  list-style-type: none;
+  display: list-item;
+  padding: 0.2em 0;
+}
+
+.layout ul li a {
+  padding: 0 5px;
+  font-weight: normal;
+}
+
+.layout ul li a:visited {
+  color: #09c;
+}
+
+.layout ul li a:hover {
+  text-decoration: underline;
+}
+
+/* Navigation */
+
 nav {
   background-color: white;
   padding: 0 0.7em;
