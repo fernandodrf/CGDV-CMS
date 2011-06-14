@@ -38,6 +38,9 @@ sp:
     name: "Nombre"
     cgdvcode: "Registro CGDV"
     index: "Todos los Pacientes"
+    sex: "Sexo"
+    blod: "Tipo de Sangre"
+    birthdate: "Fecha de Nacimiento"
 
   user:
     index: "Todos los Usuarios"

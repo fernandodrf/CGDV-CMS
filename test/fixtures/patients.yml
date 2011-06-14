@@ -1,5 +1,5 @@
 # == Schema Information
-# Schema version: 20110524164246
+# Schema version: 20110614033259
 #
 # Table name: patients
 #
@@ -8,6 +8,9 @@
 #  cgdvcode   :integer
 #  created_at :datetime
 #  updated_at :datetime
+#  sex        :string(255)
+#  birthdate  :date
+#  blod       :string(255)
 #
 
 # Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html

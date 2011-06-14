@@ -5,8 +5,11 @@
         <%= @patient.name %>
       </h1>
       <h6><%= link_to t('helpers.submit.update', :model => "Patient"), edit_patient_path(@patient) %></h6><br />
-      <strong><%= t('patient.name') %>:</strong> <%= @patient.name %><br />
       <strong><%= t('patient.cgdvcode') %>:</strong> <%= @patient.cgdvcode %><br />
+      <strong><%= t('patient.name') %>:</strong> <%= @patient.name %><br />
+      <strong><%= t('patient.sex') %>:</strong> <%= @patient.sex %><br />
+      <strong><%= t('patient.blod') %>:</strong> <%= @patient.blod %><br />
+      <strong><%= t('patient.birthdate') %>:</strong> <%= l @patient.birthdate, :format => :long %><br />
     </td>
   </tr>
 </table>

@@ -1,5 +1,5 @@
 # == Schema Information
-# Schema version: 20110524164246
+# Schema version: 20110614033259
 #
 # Table name: patients
 #
@@ -8,10 +8,13 @@
 #  cgdvcode   :integer
 #  created_at :datetime
 #  updated_at :datetime
+#  sex        :string(255)
+#  birthdate  :date
+#  blod       :string(255)
 #
 
 class Patient < ActiveRecord::Base
-  attr_accessible :name, :cgdvcode
+  attr_accessible :name, :cgdvcode, :sex, :blod, :birthdate
   
   validates :name, :presence => true, 
             :length => { :maximum => 250}
@@ -19,4 +22,11 @@ class Patient < ActiveRecord::Base
   			:length => { :maximum => 20},
 			:numericality => true, 
             :uniqueness => true
+  validates :sex, :presence => true,
+  			:length => { :maximum => 5}
+  validates :blod, :presence => true,
+    		:length => { :maximum => 5}
+  validates :birthdate, :presence => true
+
+  BLOODTYPES = ['NS', 'A+', 'A-', 'B+', 'B-', 'AB+', 'AB-', 'O+', 'O-']
 end

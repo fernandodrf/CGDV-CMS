@@ -10,13 +10,16 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110526155853) do
+ActiveRecord::Schema.define(:version => 20110614033259) do
 
   create_table "patients", :force => true do |t|
     t.string   "name"
     t.integer  "cgdvcode"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "sex"
+    t.date     "birthdate"
+    t.string   "blod"
   end
 
   add_index "patients", ["cgdvcode"], :name => "index_patients_on_cgdvcode", :unique => true

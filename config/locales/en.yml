@@ -32,6 +32,9 @@ en:
     name: "Name"
     cgdvcode: "CGDV code"
     index: 'All Patients'
+    sex: "Sex"
+    blod: "Blod type"
+    birthdate: "Date of Birth"
 
   user:
     index: "All Users"

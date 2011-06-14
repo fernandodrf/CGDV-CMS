@@ -1,9 +1,21 @@
 <%= render 'shared/error_messages', :object => f.object %>
-  <div class="field">
-    <%= f.label :name, t('patient.name') %><br />
-    <%= f.text_field :name %>
-  </div>
-  <div class="field">
-    <%= f.label :cgdvcode, t('patient.cgdvcode') %><br />
-    <%= f.text_field :cgdvcode %>
-  </div>
+<div class="field">
+  <%= f.label :name, t('patient.name') %><br />
+  <%= f.text_field :name %>
+</div>
+<div class="field">
+  <%= f.label :cgdvcode, t('patient.cgdvcode') %><br />
+  <%= f.text_field :cgdvcode %>
+</div>
+<div>
+  <%= f.label :birthdate, t('patient.birthdate') %><br />
+  <%= f.date_select :birthdate, :order => [:day, :month, :year],:start_year => Time.now.year - 90 %>
+</div>
+<div>
+  <%= f.label :sex, t('patient.sex') %><br />
+  <%= f.select :sex, ['F', 'M'] %>
+</div>
+<div>
+  <%= f.label :blod, t('patient.blod') %><br />
+  <%= f.select :blod, Patient::BLOODTYPES %>
+</div>
