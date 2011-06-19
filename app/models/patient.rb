@@ -29,4 +29,5 @@ class Patient < ActiveRecord::Base
   validates :birthdate, :presence => true
 
   BLOODTYPES = ['NS', 'A+', 'A-', 'B+', 'B-', 'AB+', 'AB-', 'O+', 'O-']
+  
 end

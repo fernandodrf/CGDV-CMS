@@ -13,11 +13,13 @@ class PatientsController < ApplicationController
 	
   def new
   	@patient = Patient.new
+  	@cgdvcode = Patient.last.cgdvcode + 1
   	@title = t('helpers.submit.create', :model => Patient.to_s)
   end
   
   def edit
     @patient = Patient.find(params[:id])
+    @cgdvcode = @patient.cgdvcode
     @title = t('helpers.submit.update', :model => Patient.to_s)
   end
   

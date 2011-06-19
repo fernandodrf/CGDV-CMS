@@ -30,8 +30,14 @@ namespace :db do
     100.times do |n|
       name  = Faker::Name.name
       cgdvcode = "#{n+1}"
+      sex = 'M'
+      birthdate = Time.now
+      blod = 'NS'
       Patient.create!(:name => name,
-                   :cgdvcode => cgdvcode)
+                   :cgdvcode => cgdvcode,
+                   :sex => sex,
+                   :birthdate => birthdate,
+                   :blod => blod)
     end
   end
 end
