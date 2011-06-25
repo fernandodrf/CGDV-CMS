@@ -33,8 +33,11 @@ en:
     cgdvcode: "CGDV code"
     index: 'All Patients'
     sex: "Sex"
-    blod: "Blod type"
+    blod: "Blood type"
     birthdate: "Date of Birth"
+    place: "Place"
+    number: "Number"
+    tels: "Telephones"
 
   user:
     index: "All Users"

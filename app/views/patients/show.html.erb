@@ -9,7 +9,20 @@
       <strong><%= t('patient.name') %>:</strong> <%= @patient.name %><br />
       <strong><%= t('patient.sex') %>:</strong> <%= @patient.sex %><br />
       <strong><%= t('patient.blod') %>:</strong> <%= @patient.blod %><br />
-      <strong><%= t('patient.birthdate') %>:</strong> <%= l @patient.birthdate, :format => :long %><br />
+      <strong><%= t('patient.birthdate') %>:</strong> <%= l @patient.birthdate, :format => :long %><br /><br />
+      <% unless @patient.patientphones.empty? %>
+        <table class="patientphones">
+          <tr>
+          	<td>
+          	  <strong><%= t('patient.tels') %></strong>
+          	</td>
+          	<td>
+          	  <%= link_to t('helpers.submit.create', :model => "Telefono"), new_patient_patientphone_path(@patient) %>
+          	</td>
+          </tr>	
+          <%= render @patientphones %>
+        </table>
+      <% end %>
     </td>
   </tr>
 </table>

@@ -41,6 +41,9 @@ sp:
     sex: "Sexo"
     blod: "Tipo de Sangre"
     birthdate: "Fecha de Nacimiento"
+    place: "Lugar"
+    number: "Numero"
+    tels: "Telefonos"
 
   user:
     index: "Todos los Usuarios"

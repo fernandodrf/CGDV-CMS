@@ -1,0 +1,15 @@
+<tr>
+  <td>
+    <strong><%= patientphone.place %>:</strong> 
+  </td>
+  <td>
+  	<%= patientphone.number %>
+  </td>
+  <td>
+    <%= link_to t('helpers.edit'), edit_patient_patientphone_path(@patient, patientphone) %>
+  </td>
+  <td>
+  	<%= link_to t('helpers.delete.msg'), patient_patientphone_path(@patient,patientphone), :method => :delete, :confirm => t('helpers.delete.conf'),
+                                :title => "#{t('helpers.delete.msg')} #{patientphone.number}" %>
+  </td>
+</tr>

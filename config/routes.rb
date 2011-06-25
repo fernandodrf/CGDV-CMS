@@ -1,8 +1,14 @@
 Cgdv::Application.routes.draw do
 
-  resources :patients
+  get "patientphones/create"
+
+  get "patientphones/destroy"
+	
   resources :users
   resources :sessions, :only => [:new, :create, :destroy]
+  resources :patients do
+    resources :patientphones, :only => [:new, :edit, :update, :create, :destroy]	
+  end
 
   #match '/patient',	:to =>'pages#patient'
   #match '/patient',	:to =>'patients#new'

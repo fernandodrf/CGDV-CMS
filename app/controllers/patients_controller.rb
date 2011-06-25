@@ -1,5 +1,5 @@
 class PatientsController < ApplicationController
-  before_filter :authenticate, :only => [:new, :create, :index, :show, :edit, :update]
+  before_filter :authenticate
   
   def index
   	@title = t('patient.index')
@@ -8,6 +8,7 @@ class PatientsController < ApplicationController
   
   def show
     @patient = Patient.find(params[:id])
+    @patientphones = @patient.patientphones
     @title = @patient.cgdvcode
   end
 	
@@ -40,7 +41,7 @@ class PatientsController < ApplicationController
       flash[:success] = t('flash.success.edit', :model => Patient.to_s)
       redirect_to @patient
     else
-      @title = "Edit Patient"
+      @title = t('helpers.submit.create', :model => Patient.to_s)
       render 'edit'
     end
   end
@@ -51,9 +52,4 @@ class PatientsController < ApplicationController
     redirect_to patients_path
   end
   
-  private
-
-    def authenticate
-      deny_access unless signed_in?
-    end
 end

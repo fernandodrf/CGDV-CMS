@@ -55,10 +55,6 @@ class UsersController < ApplicationController
   end
   
   private
-
-    def authenticate
-      deny_access unless signed_in?
-    end
     
     #This method was modified to be overriden by admins.
     def correct_user
