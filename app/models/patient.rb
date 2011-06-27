@@ -17,6 +17,7 @@ class Patient < ActiveRecord::Base
   attr_accessible :name, :cgdvcode, :sex, :blod, :birthdate
   
   has_many :patientphones, :dependent => :destroy
+  has_many :addresses, :dependent => :destroy
   
   validates :name, :presence => true, 
             :length => { :maximum => 250}

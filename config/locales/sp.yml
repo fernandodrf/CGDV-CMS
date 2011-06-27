@@ -45,6 +45,15 @@ sp:
     number: "Numero"
     tels: "Telefonos"
 
+  address:
+    title: "Domicilios"
+    place: "Lugar"
+    codigopostal: "Codigo Postal"
+    estado: "Estado"
+    municipio: "Municipio"
+    colonia: "Colonia"
+    domicilio: "Domicilio"
+
   user:
     index: "Todos los Usuarios"
     name: "Nombre"

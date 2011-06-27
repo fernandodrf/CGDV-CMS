@@ -4,25 +4,10 @@
       <h1>
         <%= @patient.name %>
       </h1>
-      <h6><%= link_to t('helpers.submit.update', :model => "Patient"), edit_patient_path(@patient) %></h6><br />
-      <strong><%= t('patient.cgdvcode') %>:</strong> <%= @patient.cgdvcode %><br />
-      <strong><%= t('patient.name') %>:</strong> <%= @patient.name %><br />
-      <strong><%= t('patient.sex') %>:</strong> <%= @patient.sex %><br />
-      <strong><%= t('patient.blod') %>:</strong> <%= @patient.blod %><br />
-      <strong><%= t('patient.birthdate') %>:</strong> <%= l @patient.birthdate, :format => :long %><br /><br />
-      <% unless @patient.patientphones.empty? %>
-        <table class="patientphones">
-          <tr>
-          	<td>
-          	  <strong><%= t('patient.tels') %></strong>
-          	</td>
-          	<td>
-          	  <%= link_to t('helpers.submit.create', :model => "Telefono"), new_patient_patientphone_path(@patient) %>
-          	</td>
-          </tr>	
-          <%= render @patientphones %>
-        </table>
-      <% end %>
+      <br /><%= link_to t('helpers.submit.update', :model => "Datos Principales del Paciente"), edit_patient_path(@patient) %><br />
+      <%= render 'personalinformation' %>
+      <%= render 'patientphones/telephoneinformation' %>
+      <%= render 'addresses/addressinformation' %>
     </td>
   </tr>
 </table>

@@ -1,0 +1,10 @@
+<tr><td><%= t('address.place') %>:</td><td><%= address.place %></td></tr>
+<tr><td><%= t('address.domicilio') %>:</td><td><%= address.domicilio %></td></tr>
+<tr><td><%= t('address.estado') %>:</td><td><%= address.estado %></td></tr>
+<tr><td><%= t('address.municipio') %>:</td><td><%= address.municipio %></td></tr>
+<tr><td><%= t('address.colonia') %>:</td><td><%= address.colonia %></td></tr>
+<tr><td><%= t('address.codigopostal') %>:</td><td><%= address.codigopostal %></td></tr>
+<tr>
+  <td><%= link_to t('helpers.edit'), edit_patient_address_path(@patient, address) %></td><td><%= link_to t('helpers.delete.msg'), patient_address_path(@patient,address), :method => :delete, :confirm => t('helpers.delete.conf') %></td>
+</tr>
+

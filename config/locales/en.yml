@@ -39,6 +39,15 @@ en:
     number: "Number"
     tels: "Telephones"
 
+  address: 
+    title: "Addresses"
+    place: "Place"
+    codigopostal: "Postal Code"
+    estado: "State"
+    municipio: "Town"
+    colonia: "Block"
+    domicilio: "Address"
+
   user:
     index: "All Users"
     name: "Name"

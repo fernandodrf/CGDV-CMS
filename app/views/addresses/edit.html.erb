@@ -1,0 +1,7 @@
+<h1><%= t('helpers.submit.update', :model => "Direccion") %></h1>
+<%= form_for([@patient, @address]) do |f| %>
+  <%= render 'fields', :f => f %>
+  <div class="actions">
+    <%= f.submit t('helpers.edit') %>
+  </div>
+<% end %>

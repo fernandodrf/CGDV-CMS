@@ -1,0 +1,25 @@
+<%= render 'shared/error_messages', :object => f.object %>
+<div class="field">
+  <%= f.label :place, t('address.place') %><br />
+  <%= f.text_field :place %>
+</div>
+<div class="field">
+  <%= f.label :domicilio, t('address.domicilio') %><br />
+  <%= f.text_field :domicilio %>
+</div>
+<div class="field">
+  <%= f.label :estado, t('address.estado') %><br />
+  <%= f.text_field :estado %>
+</div>
+<div class="field">
+  <%= f.label :municipio, t('address.municipio') %><br />
+  <%= f.text_field :municipio %>
+</div>
+<div class="field">
+  <%= f.label :colonia, t('address.colonia') %><br />
+  <%= f.text_field :colonia %>
+</div>
+<div class="field">
+  <%= f.label :codigopostal, t('address.codigopostal') %><br />
+  <%= f.text_field :codigopostal %>
+</div>
