@@ -22,6 +22,4 @@ class Derechohabiente < ActiveRecord::Base
   validates :afiliacion, :presence => true, :length => { :maximum => 50 }
   validates :patient_id, :presence => true
   
-  TIPOS = ['IMSS', 'ISSSTE', 'Sedena', 'Beneficencia', 'Sector Salud Estatal', 'Semar', 'Privado', 'SSGDF', 'SSA', 'Otros', 'ISSEMYM', 'Seguro Popular']
-  
 end

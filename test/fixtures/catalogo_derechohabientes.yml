@@ -1,0 +1,18 @@
+# == Schema Information
+# Schema version: 20110628183037
+#
+# Table name: catalogo_derechohabientes
+#
+#  id         :integer         not null, primary key
+#  seguro     :string(255)
+#  created_at :datetime
+#  updated_at :datetime
+#
+
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  seguro: MyString
+
+two:
+  seguro: MyString
