@@ -28,7 +28,6 @@ GEM
       activemodel (= 3.0.9)
       activesupport (= 3.0.9)
     activesupport (3.0.9)
-    annotate-models (1.0.4)
     arel (2.0.10)
     builder (2.1.2)
     erubis (2.6.6)
@@ -77,7 +76,6 @@ PLATFORMS
   x86-mingw32
 
 DEPENDENCIES
-  annotate-models (= 1.0.4)
   faker (= 0.3.1)
   rails (= 3.0.9)
   rake (= 0.9.2)
