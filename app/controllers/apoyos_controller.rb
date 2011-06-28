@@ -44,5 +44,4 @@ class ApoyosController < ApplicationController
   	redirect_to @patient
   end
 
-	
 end

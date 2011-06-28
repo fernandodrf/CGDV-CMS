@@ -1,0 +1,14 @@
+<table class="tratamientos">
+  <tr>
+    <td>
+      <strong><%= t('patient.tratamientos') %></strong>
+	</td>
+	<td>
+      <%= link_to t('helpers.submit.create', :model => "Tratamiento"), new_patient_tratamiento_path(@patient) %>
+	</td>
+  </tr>
+  <% unless @patient.tratamientos.empty? %>
+  <%= render @tratamientos %>
+  <% end %>
+</table>
+<br />

@@ -1,0 +1,21 @@
+# == Schema Information
+# Schema version: 20110628211104
+#
+# Table name: tratamientos
+#
+#  id         :integer         not null, primary key
+#  tipo       :string(255)
+#  patient_id :integer
+#  created_at :datetime
+#  updated_at :datetime
+#
+
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  tipo: MyString
+  patient: 
+
+two:
+  tipo: MyString
+  patient: 

@@ -1,0 +1,5 @@
+<%= render 'shared/error_messages', :object => f.object %>
+<div>
+  <%= f.label :tipo, t('patient.tipo') %><br />
+  <%= f.select :tipo, Tratamiento::TIPOS  %>
+</div>

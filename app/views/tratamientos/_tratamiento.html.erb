@@ -1,0 +1,11 @@
+<tr>
+  <td>
+    <%= tratamiento.tipo %>
+  </td>
+  <td>
+    <%= link_to t('helpers.edit'), edit_patient_tratamiento_path(@patient, tratamiento) %>
+  </td>
+  <td>
+  	<%= link_to t('helpers.delete.msg'), patient_tratamiento_path(@patient,tratamiento), :method => :delete, :confirm => t('helpers.delete.conf'), :title => "#{t('helpers.delete.msg')} #{tratamiento.tipo}" %>
+  </td>
+</tr>
