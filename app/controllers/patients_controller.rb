@@ -10,6 +10,7 @@ class PatientsController < ApplicationController
     @patient = Patient.find(params[:id])
     @patientphones = @patient.patientphones
     @addresses = @patient.addresses
+    @seguros = @patient.derechohabientes
     @title = @patient.cgdvcode
   end
 	

@@ -54,6 +54,11 @@ sp:
     colonia: "Colonia"
     domicilio: "Domicilio"
 
+  derechohabiente:
+    title: "Derechohabientes"
+    seguro: "Institucion"
+    afiliacion: "Afiliacion"
+
   user:
     index: "Todos los Usuarios"
     name: "Nombre"

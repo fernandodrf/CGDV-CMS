@@ -1,0 +1,9 @@
+<%= render 'shared/error_messages', :object => f.object %>
+<div>
+  <%= f.label :seguro, t('derechohabiente.seguro') %><br />
+  <%= f.select :seguro, Derechohabiente::TIPOS %>
+</div>
+<div class="field">
+  <%= f.label :afiliacion, t('derechohabiente.afiliacion') %><br />
+  <%= f.text_field :afiliacion %>
+</div>

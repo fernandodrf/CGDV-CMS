@@ -1,0 +1,14 @@
+<tr>
+  <td>
+    <%= derechohabiente.seguro %>:
+  </td>
+  <td>
+  	<%= derechohabiente.afiliacion %>
+  </td>
+  <td>
+    <%= link_to t('helpers.edit'), edit_patient_derechohabiente_path(@patient, derechohabiente) %>
+  </td>
+  <td>
+  	<%= link_to t('helpers.delete.msg'), patient_derechohabiente_path(@patient,derechohabiente), :method => :delete, :confirm => t('helpers.delete.conf') %>
+  </td>
+</tr>

@@ -2,7 +2,7 @@ Cgdv::Application.routes.draw do
   resources :users
   resources :sessions, :only => [:new, :create, :destroy]
   resources :patients do
-    resources :addresses, :patientphones, :only => [:new, :edit, :update, :create, :destroy]
+    resources :addresses, :patientphones, :derechohabientes, :only => [:new, :edit, :update, :create, :destroy]
     
   end
 

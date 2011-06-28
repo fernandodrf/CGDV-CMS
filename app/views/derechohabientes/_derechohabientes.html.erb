@@ -1,0 +1,14 @@
+<table>
+  <tr>
+    <td>
+      <strong><%= t('derechohabiente.title') %></strong>
+	</td>
+	<td>
+	  <%= link_to t('helpers.submit.create', :model => "Derechohabiente"), new_patient_derechohabiente_path(@patient) %>
+	</td>
+  </tr>
+  <% unless @patient.derechohabientes.empty? %>
+  <%= render @seguros %>
+  <% end %>
+</table>
+<br />

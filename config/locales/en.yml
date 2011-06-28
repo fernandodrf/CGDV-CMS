@@ -48,6 +48,12 @@ en:
     colonia: "Block"
     domicilio: "Address"
 
+  derechohabiente:
+    title: "Insurances"
+    seguro: "Company"
+    afiliacion: "Number"
+    
+
   user:
     index: "All Users"
     name: "Name"
