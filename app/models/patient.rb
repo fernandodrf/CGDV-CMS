@@ -19,6 +19,7 @@ class Patient < ActiveRecord::Base
   has_many :patientphones, :dependent => :destroy
   has_many :addresses, :dependent => :destroy
   has_many :derechohabientes, :dependent => :destroy
+  has_many :apoyos, :dependent => :destroy
   
   validates :name, :presence => true, 
             :length => { :maximum => 250}

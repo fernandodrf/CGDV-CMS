@@ -44,6 +44,9 @@ sp:
     place: "Lugar"
     number: "Numero"
     tels: "Telefonos"
+    apoyos: "Apoyos"
+    apoyo: "Apoyo"
+    tipo: "Tipo"
 
   address:
     title: "Domicilios"

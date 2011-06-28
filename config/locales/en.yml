@@ -38,6 +38,9 @@ en:
     place: "Place"
     number: "Number"
     tels: "Telephones"
+    apoyos: "Supports"
+    apoyo: "Support"
+    tipo: "Type"
 
   address: 
     title: "Addresses"
