@@ -11,6 +11,8 @@
 #  updated_at :datetime
 #
 
+# Derechohabiente.all.collect {|d| [d.seguro] } 
+
 class Derechohabiente < ActiveRecord::Base
   attr_accessible :seguro, :afiliacion
   
