@@ -1,0 +1,21 @@
+# == Schema Information
+# Schema version: 20110628215344
+#
+# Table name: comments
+#
+#  id         :integer         not null, primary key
+#  comment    :text
+#  patient_id :integer
+#  created_at :datetime
+#  updated_at :datetime
+#
+
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  comment: MyText
+  patient: 
+
+two:
+  comment: MyText
+  patient: 

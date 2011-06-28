@@ -47,6 +47,8 @@ sp:
     apoyos: "Apoyos que Solicita"
     apoyo: "Apoyo"
     tipo: "Tipo"
+    comment: "Comentario"
+    comments: "Comentarios"
 
   address:
     title: "Domicilios"

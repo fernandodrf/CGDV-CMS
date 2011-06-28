@@ -21,6 +21,7 @@ class Patient < ActiveRecord::Base
   has_many :derechohabientes, :dependent => :destroy
   has_many :apoyos, :dependent => :destroy
   has_many :tratamientos, :dependent => :destroy
+  has_many :comments, :dependent => :destroy
   
   validates :name, :presence => true, 
             :length => { :maximum => 250}

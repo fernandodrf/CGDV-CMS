@@ -1,0 +1,14 @@
+<table class="comments">
+  <tr>
+    <td>
+      <strong><%= t('patient.comments') %></strong>
+	</td>
+	<td colspan="2" nowrap="nowrap">
+      <%= link_to t('helpers.submit.create', :model => "Comentarios"), new_patient_comment_path(@patient) %>
+	</td>
+  </tr>
+  <% unless @patient.comments.empty? %>
+  <%= render @comments %>
+  <% end %>
+</table>
+<br />

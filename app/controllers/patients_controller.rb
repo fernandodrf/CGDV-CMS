@@ -13,6 +13,7 @@ class PatientsController < ApplicationController
     @seguros = @patient.derechohabientes
     @apoyos = @patient.apoyos
     @tratamientos = @patient.tratamientos
+    @comments = @patient.comments
     @title = @patient.cgdvcode
   end
 	
