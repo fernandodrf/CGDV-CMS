@@ -6,3 +6,14 @@ class CatalogoDerechohabienteTest < ActiveSupport::TestCase
     assert true
   end
 end
+
+# == Schema Information
+#
+# Table name: catalogo_derechohabientes
+#
+#  id         :integer         not null, primary key
+#  seguro     :string(255)
+#  created_at :datetime
+#  updated_at :datetime
+#
+

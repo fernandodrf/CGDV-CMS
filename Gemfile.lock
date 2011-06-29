@@ -28,12 +28,13 @@ GEM
       activemodel (= 3.0.9)
       activesupport (= 3.0.9)
     activesupport (3.0.9)
-    annotate-models (1.0.4)
+    annotate (2.4.0)
     arel (2.0.10)
     builder (2.1.2)
     erubis (2.6.6)
       abstract (>= 1.0.0)
     faker (0.3.1)
+    fastercsv (1.5.4)
     i18n (0.5.0)
     mail (2.2.19)
       activesupport (>= 2.3.6)
@@ -77,8 +78,9 @@ PLATFORMS
   x86-mingw32
 
 DEPENDENCIES
-  annotate-models (= 1.0.4)
+  annotate (= 2.4.0)
   faker (= 0.3.1)
+  fastercsv (= 1.5.4)
   rails (= 3.0.9)
   rake (= 0.8.7)
   sqlite3-ruby

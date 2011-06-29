@@ -6,3 +6,18 @@ class PatientTest < ActiveSupport::TestCase
     assert true
   end
 end
+
+# == Schema Information
+#
+# Table name: patients
+#
+#  id         :integer         not null, primary key
+#  name       :string(255)
+#  cgdvcode   :integer
+#  created_at :datetime
+#  updated_at :datetime
+#  sex        :string(255)
+#  birthdate  :date
+#  blod       :string(255)
+#
+

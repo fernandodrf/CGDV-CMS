@@ -7,12 +7,11 @@
 #   Mayor.create(:name => 'Daley', :city => cities.first)
 
 #Catalogo Diagnosticos
-require 'csv'
-CSV::Reader.parse(File.open('c:\rubyrev\diagnosticos.csv', 'rb')) do |row|
+FasterCSV.foreach("#{RAILS_ROOT}/db/catalogos/diagnosticos.csv") do |row|
  if CatalogoDiagnostico.create(:diagnostico => row[0].to_s)
- 	puts row[0]
+ 	puts "Diagnostico: #{row} cargado."
  else
- 	puts "Error al cargar #{row}"
+ 	puts "Error al cargar #{row}."
  end
 end
 
