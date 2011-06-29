@@ -1,14 +1,15 @@
 source 'http://rubygems.org'
 
 gem 'rails', '3.0.9'
-gem 'rake', '0.9.2'
+# gem 'rake', '0.9.2'
+gem 'rake', '0.8.7'
 gem 'sqlite3-ruby', :require => 'sqlite3'
 gem 'will_paginate', '3.0.pre2'
 gem 'yaml_db', '0.2.1'
 
 group :development do
   gem 'faker', '0.3.1'
-  gem 'annotate-models', '1.0.4'
+  # gem 'annotate-models', '1.0.4'
 end
 
 # Bundle edge Rails instead:
