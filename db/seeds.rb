@@ -6,16 +6,26 @@
 #   cities = City.create([{ :name => 'Chicago' }, { :name => 'Copenhagen' }])
 #   Mayor.create(:name => 'Daley', :city => cities.first)
 
+#Catalogo Diagnosticos
+require 'csv'
+CSV::Reader.parse(File.open('c:\rubyrev\diagnosticos.csv', 'rb')) do |row|
+ if CatalogoDiagnostico.create(:diagnostico => row[0].to_s)
+ 	puts row[0]
+ else
+ 	puts "Error al cargar #{row}"
+ end
+end
+
 #Catalogo de Derechohabientes
-CatalogoDerechohabiente.create!(:seguro => "IMSS")
-CatalogoDerechohabiente.create!(:seguro => "ISSSTE")
-CatalogoDerechohabiente.create!(:seguro => "Sedena")
-CatalogoDerechohabiente.create!(:seguro => "Beneficencia")
-CatalogoDerechohabiente.create!(:seguro => "Sector Salud Estatal")
-CatalogoDerechohabiente.create!(:seguro => "Semar")
-CatalogoDerechohabiente.create!(:seguro => "Privado")
-CatalogoDerechohabiente.create!(:seguro => "SSGDF")
-CatalogoDerechohabiente.create!(:seguro => "SSA")
-CatalogoDerechohabiente.create!(:seguro => "Otros")
-CatalogoDerechohabiente.create!(:seguro => "ISSEMYM")
-CatalogoDerechohabiente.create!(:seguro => "Seguro Popular")
+#CatalogoDerechohabiente.create!(:seguro => "IMSS")
+#CatalogoDerechohabiente.create!(:seguro => "ISSSTE")
+#CatalogoDerechohabiente.create!(:seguro => "Sedena")
+#CatalogoDerechohabiente.create!(:seguro => "Beneficencia")
+#CatalogoDerechohabiente.create!(:seguro => "Sector Salud Estatal")
+#CatalogoDerechohabiente.create!(:seguro => "Semar")
+#CatalogoDerechohabiente.create!(:seguro => "Privado")
+#CatalogoDerechohabiente.create!(:seguro => "SSGDF")
+#CatalogoDerechohabiente.create!(:seguro => "SSA")
+#CatalogoDerechohabiente.create!(:seguro => "Otros")
+#CatalogoDerechohabiente.create!(:seguro => "ISSEMYM")
+#CatalogoDerechohabiente.create!(:seguro => "Seguro Popular")
