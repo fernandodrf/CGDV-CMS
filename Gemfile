@@ -9,7 +9,7 @@ gem 'yaml_db', '0.2.1'
 
 group :development do
   gem 'faker', '0.3.1'
-  # gem 'annotate-models', '1.0.4' #because of heroku
+  gem 'annotate-models', '1.0.4' #because of heroku
 end
 
 # Bundle edge Rails instead:
