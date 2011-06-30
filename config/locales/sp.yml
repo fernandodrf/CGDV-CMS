@@ -64,6 +64,14 @@ sp:
     seguro: "Institucion"
     afiliacion: "Afiliacion"
 
+  refclinica:
+    title: "Referencias Clinicas"
+    hospital: "Hospital"
+    medico: "Medico Tratante"
+    referencia: "Fecha de Referencia"
+    aceptado: "Aceptado por"
+    ayudas: "Recibe ayuda de"  
+
   user:
     index: "Todos los Usuarios"
     name: "Nombre"

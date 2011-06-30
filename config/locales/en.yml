@@ -57,7 +57,14 @@ en:
     title: "Insurances"
     seguro: "Company"
     afiliacion: "Number"
-    
+
+  refclinica:
+    title: "Clinical References"
+    hospital: "Hospital"
+    medico: "Doctor in Charge"
+    referencia: "Date of Reference"
+    aceptado: "Acepted by"
+    ayudas: "External Support"    
 
   user:
     index: "All Users"

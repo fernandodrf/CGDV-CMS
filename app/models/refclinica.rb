@@ -1,0 +1,29 @@
+class Refclinica < ActiveRecord::Base
+  
+  attr_accessible :hospital, :medico, :referencia, :aceptado, :ayudas
+  
+  belongs_to :patient
+  
+  validates :hospital, :presence => true, :length => { :maximum => 50}
+  validates :medico, :presence => true, :length => { :maximum => 250}
+  validates :referencia, :presence => true
+  validates :aceptado, :presence => true, :length => { :maximum => 250}
+  validates :ayudas, :presence => true, :length => { :maximum => 250}
+    
+end
+
+# == Schema Information
+#
+# Table name: refclinicas
+#
+#  id         :integer         not null, primary key
+#  hospital   :string(255)
+#  medico     :string(255)
+#  referencia :date
+#  aceptado   :string(255)
+#  ayudas     :string(255)
+#  patient_id :integer
+#  created_at :datetime
+#  updated_at :datetime
+#
+

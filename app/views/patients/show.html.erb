@@ -6,6 +6,7 @@
       </h1>
       <br /><%= link_to t('helpers.submit.update', :model => "Datos Principales del Paciente"), edit_patient_path(@patient) %><br />
       <%= render 'personalinformation' %>
+      <%= render 'refclinicas/refclinicainfo' %>
       <%= render 'patientphones/telephoneinformation' %>
       <%= render 'addresses/addressinformation' %>
       <%= render 'derechohabientes/derechohabientes' %>

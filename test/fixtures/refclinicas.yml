@@ -1,0 +1,33 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  hospital: MyString
+  medico: MyString
+  referencia: 2011-06-29
+  aceptado: MyString
+  ayudas: MyString
+  patient: 
+
+two:
+  hospital: MyString
+  medico: MyString
+  referencia: 2011-06-29
+  aceptado: MyString
+  ayudas: MyString
+  patient: 
+
+# == Schema Information
+#
+# Table name: refclinicas
+#
+#  id         :integer         not null, primary key
+#  hospital   :string(255)
+#  medico     :string(255)
+#  referencia :date
+#  aceptado   :string(255)
+#  ayudas     :string(255)
+#  patient_id :integer
+#  created_at :datetime
+#  updated_at :datetime
+#
+

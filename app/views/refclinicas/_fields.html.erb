@@ -1,0 +1,21 @@
+<%= render 'shared/error_messages', :object => f.object %>
+<div class="field">
+  <%= f.label :hospital, t('refclinica.hospital') %><br />
+  <%= f.text_field :hospital %>
+</div>
+<div class="field">
+  <%= f.label :medico, t('refclinica.medico') %><br />
+  <%= f.text_field :medico %>
+</div>
+<div class="field">
+  <%= f.label :aceptado, t('refclinica.aceptado') %><br />
+  <%= f.text_field :aceptado %>
+</div>
+<div>
+  <%= f.label :referencia, t('refclinica.referencia') %><br />
+  <%= f.date_select :referencia, :order => [:day, :month, :year],:start_year => Time.now.year - 20 %>
+</div>
+<div class="field">
+  <%= f.label :ayudas, t('refclinica.ayudas') %><br />
+  <%= f.text_field :ayudas %>
+</div>

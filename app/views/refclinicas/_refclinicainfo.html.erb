@@ -1,0 +1,18 @@
+<table class="refclinica">
+  <tr>
+    <td>
+      <strong><%= t('refclinica.title') %></strong>
+	</td>
+	<td>
+	  <% if @refclinica == nil %>
+	  <%= link_to t('helpers.submit.create', :model => "Referencia Clinica"), new_patient_refclinica_path(@patient) %>
+	  <% else %>
+	  <%= link_to t('helpers.edit'), edit_patient_refclinica_path(@patient, @refclinica) %>
+	  <% end %>
+	</td>
+  </tr>
+  <% if @refclinica != nil %>
+  <%= render @refclinica %>
+  <% end %>
+</table>
+<br />
