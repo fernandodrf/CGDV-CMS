@@ -24,6 +24,7 @@ class Patient < ActiveRecord::Base
   has_many :comments, :dependent => :destroy
   has_many :diagnosticos, :dependent => :destroy
   has_one :refclinica, :dependent => :destroy
+  has_one :house, :dependent => :destroy
   
   validates :name, :presence => true, :length => { :maximum => 250}
   validates :cgdvcode, :presence => true, 

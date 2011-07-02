@@ -1,0 +1,18 @@
+<table class="house">
+  <tr>
+    <td>
+      <strong><%= t('house.title') %></strong>
+	</td>
+	<td>
+	  <% if @house == nil %>
+	  <%= link_to t('helpers.submit.create', :model => "Informacion de Vivienda"), new_patient_house_path(@patient) %>
+	  <% else %>
+	  <%= link_to t('helpers.edit'), edit_patient_house_path(@patient, @house) %>
+	  <% end %>
+	</td>
+  </tr>
+  <% if @house != nil %>
+  <%= render @house %>
+  <% end %>
+</table>
+<br />

@@ -1,0 +1,25 @@
+<%= render 'shared/error_messages', :object => f.object %>
+<div class="field">
+  <%= f.label :tipo, t('house.tipo') %><br />
+  <%= f.select :tipo, House::TIPOS %>
+</div>
+<div class="field">
+  <%= f.label :habitaciones, t('house.habitaciones') %><br />
+  <%= f.text_field :habitaciones %>
+</div>
+<div class="field">
+  <%= f.label :habitantes, t('house.habitantes') %><br />
+  <%= f.text_field :habitantes %>
+</div>
+<div class="field">
+  <%= f.label :familiares, t('house.familiares') %><br />
+  <%= f.text_field :familiares %>
+</div>
+<div class="field">
+  <%= f.label :menores, t('house.menores') %><br />
+  <%= f.text_field :menores %>
+</div>
+<div class="field">
+  <%= f.label :economicaactivas, t('house.economicaactivas') %><br />
+  <%= f.text_field :economicaactivas %>
+</div>

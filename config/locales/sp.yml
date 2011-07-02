@@ -72,6 +72,15 @@ sp:
     aceptado: "Aceptado por"
     ayudas: "Recibe ayuda de"  
 
+  house:
+    title: "Informacion de Vivienda"
+    habitaciones: "Numero de Habitaciones"
+    tipo: "Lugar"
+    habitantes: "Numero de Habitantes"
+    familiares: "Miembros de la Familia"
+    menores: "Menores de Edad"
+    economicaactivas: "Personas Economicamente Activas"
+
   user:
     index: "Todos los Usuarios"
     name: "Nombre"

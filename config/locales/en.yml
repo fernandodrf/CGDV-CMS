@@ -64,7 +64,16 @@ en:
     medico: "Doctor in Charge"
     referencia: "Date of Reference"
     aceptado: "Acepted by"
-    ayudas: "External Support"    
+    ayudas: "External Support"
+
+  house:
+    title: "Housing Information"
+    habitaciones: "Number of Rooms"
+    tipo: "Place"
+    habitantes: "Habitant Number"
+    familiares: "Family Members"
+    menores: "Number of Minors"
+    economicaactivas: "Economically Active People"
 
   user:
     index: "All Users"

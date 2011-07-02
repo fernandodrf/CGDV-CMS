@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110629225638) do
+ActiveRecord::Schema.define(:version => 20110630185620) do
 
   create_table "addresses", :force => true do |t|
     t.string   "place"
@@ -74,6 +74,20 @@ ActiveRecord::Schema.define(:version => 20110629225638) do
   end
 
   add_index "diagnosticos", ["patient_id"], :name => "index_diagnosticos_on_patient_id"
+
+  create_table "houses", :force => true do |t|
+    t.integer  "habitaciones"
+    t.string   "tipo"
+    t.integer  "habitantes"
+    t.integer  "familiares"
+    t.integer  "menores"
+    t.integer  "economicaactivas"
+    t.integer  "patient_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "houses", ["patient_id"], :name => "index_houses_on_patient_id"
 
   create_table "patientphones", :force => true do |t|
     t.string   "place"

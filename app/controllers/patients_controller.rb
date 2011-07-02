@@ -15,6 +15,7 @@ class PatientsController < ApplicationController
     @tratamientos = @patient.tratamientos
     @diagnosticos = @patient.diagnosticos
     @refclinica = @patient.refclinica
+    @house = @patient.house
     @comments = @patient.comments
     @title = @patient.cgdvcode
   end
