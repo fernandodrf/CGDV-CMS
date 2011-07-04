@@ -1,6 +1,5 @@
 <li>
   <%= link_to patient.name, patient %>
-  | <%= link_to t('helpers.edit'), edit_patient_path(patient) %>
   | <%= link_to t('helpers.delete.msg'), patient, :method => :delete, :confirm => t('helpers.delete.conf'),
                                 :title => "#{t('helpers.delete.msg')} #{patient.name}" %>
 </li>

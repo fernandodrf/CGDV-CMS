@@ -28,6 +28,7 @@ en:
       destroy: "%{model} destroyed."
         
   patient:
+    info: "Main Information"
     title: "Paciente"
     name: "Name"
     cgdvcode: "CGDV code"
