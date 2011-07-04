@@ -1,0 +1,18 @@
+<table class="socioeco">
+  <tr>
+    <td>
+      <strong><%= t('socioeco.title') %></strong>
+	</td>
+	<td>
+	  <% if @socioeco == nil %>
+	  <%= link_to t('helpers.submit.create', :model => "Informacion Socioeconomica"), new_patient_socioeco_path(@patient) %>
+	  <% else %>
+	  <%= link_to t('helpers.edit'), edit_patient_socioeco_path(@patient, @socioeco) %>
+	  <% end %>
+	</td>
+  </tr>
+  <% if @socioeco != nil %>
+  <%= render @socioeco %>
+  <% end %>
+</table>
+<br />

@@ -4,7 +4,7 @@ Cgdv::Application.routes.draw do
   resources :sessions, :only => [:new, :create, :destroy]
   
   resources :patients do
-    resources :addresses, :patientphones, :derechohabientes, :apoyos, :tratamientos, :comments, :diagnosticos, :refclinicas, :houses, :only => [:new, :edit, :update, :create, :destroy]  
+    resources :addresses, :patientphones, :derechohabientes, :apoyos, :tratamientos, :comments, :diagnosticos, :refclinicas, :houses, :socioecos, :only => [:new, :edit, :update, :create, :destroy]  
   end
 
   #match '/patient',	:to =>'pages#patient'

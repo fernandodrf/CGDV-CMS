@@ -81,6 +81,18 @@ sp:
     menores: "Menores de Edad"
     economicaactivas: "Personas Economicamente Activas"
 
+  socioeco:
+    title: "Informacion Socioeconomica"
+    ingresos: "Ingresos totales"
+    gastos: "Gastos totales"
+    remanente: "Remanente economico"
+    televisiones: "Numero de Televisiones"
+    vehiculos: "Numero de vehiculos"
+    nivel: "Nivel Socioeconomico"
+    serviciosurbanos: "¿Cuenta con Servicios Urbanos?"
+    televisionpaga: "Servicio de Television de Paga?"
+    sgmm: "¿Seguro de Gastos Medicos Mayores?"
+
   user:
     index: "Todos los Usuarios"
     name: "Nombre"

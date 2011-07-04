@@ -1,0 +1,33 @@
+<%= render 'shared/error_messages', :object => f.object %>
+<div class="field">
+  <%= f.label :ingresos, t('socioeco.ingresos') %><br />
+  <%= f.text_field :ingresos %>
+</div>
+<div class="field">
+  <%= f.label :gastos, t('socioeco.gastos') %><br />
+  <%= f.text_field :gastos %>
+</div>
+<div class="field">
+  <%= f.label :televisiones, t('socioeco.televisiones') %><br />
+  <%= f.text_field :televisiones %>
+</div>
+<div class="field">
+  <%= f.label :vehiculos, t('socioeco.vehiculos') %><br />
+  <%= f.text_field :vehiculos %>
+</div>
+<div class="field">
+  <%= f.label :nivel, t('socioeco.nivel') %><br />
+  <%= f.text_field :nivel %>
+</div>
+<div class="field">
+  <%= f.label :serviciosurbanos, t('socioeco.serviciosurbanos') %><br />
+  <%= f.select :serviciosurbanos, ['Si', 'No'] %>
+</div>
+<div class="field">
+  <%= f.label :televisionpaga, t('socioeco.televisionpaga') %><br />
+  <%= f.select :televisionpaga, ['Si', 'No'] %>
+</div>
+<div class="field">
+  <%= f.label :sgmm, t('socioeco.sgmm') %><br />
+  <%= f.select :sgmm, ['Si', 'No'] %>
+</div>

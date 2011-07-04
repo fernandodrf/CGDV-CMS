@@ -1,0 +1,7 @@
+<h1><%= t('helpers.submit.create', :model => "Informacion Socioeconomica") %></h1>
+<%= form_for([@patient, @socioeco]) do |f| %>
+  <%= render 'fields', :f => f %>
+  <div class="actions">
+    <%= f.submit t('helpers.create') %>
+  </div>
+<% end %>

@@ -75,6 +75,18 @@ en:
     menores: "Number of Minors"
     economicaactivas: "Economically Active People"
 
+  socioeco:
+    title: "Socioeconomic Information"
+    ingresos: "Tola Incomes"
+    gastos: "Total Expenses"
+    remanente: "Remains"
+    televisiones: "Number of TV's"
+    vehiculos: "Number of Vehicles"
+    nivel: "Socioeconomic Level"
+    serviciosurbanos: "Urban services available?"
+    televisionpaga: "Paid TV service?"
+    sgmm: "Medical Insurance?"
+
   user:
     index: "All Users"
     name: "Name"
