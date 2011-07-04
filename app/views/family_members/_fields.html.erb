@@ -1,0 +1,21 @@
+<%= render 'shared/error_messages', :object => f.object %>
+<div class="field">
+  <%= f.label :parentesco, t('familymember.parentesco') %><br />
+  <%= f.select :parentesco, FamilyMember::FAM %>
+</div>
+<div class="field">
+  <%= f.label :nombre, t('familymember.nombre') %><br />
+  <%= f.text_field :nombre %>
+</div>
+<div class="field">
+  <%= f.label :edad, t('familymember.edad') %><br />
+  <%= f.text_field :edad %>
+</div>
+<div class="field">
+  <%= f.label :derechohabiente, t('familymember.derechohabiente') %><br />
+  <%= f.select :derechohabiente, FamilyMember::DH %>
+</div>
+<div class="field">
+  <%= f.label :comentarios, t('familymember.comentarios') %><br />
+  <%= f.text_field :comentarios %>
+</div>

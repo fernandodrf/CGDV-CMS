@@ -1,0 +1,9 @@
+<tr><td><%= t('familymember.parentesco') %>:</td><td><%= family_member.parentesco %></td></tr>
+<tr><td><%= t('familymember.nombre') %>:</td><td><%= family_member.nombre %></td></tr>
+<tr><td><%= t('familymember.edad') %>:</td><td><%= family_member.edad %></td></tr>
+<tr><td><%= t('familymember.derechohabiente') %>:</td><td><%= family_member.derechohabiente %></td></tr>
+<tr><td><%= t('familymember.comentarios') %>:</td><td><%= family_member.comentarios %></td></tr>
+<tr>
+  <td><%= link_to t('helpers.edit'), edit_patient_family_member_path(@patient, family_member) %></td><td><%= link_to t('helpers.delete.msg'), patient_family_member_path(@patient,family_member), :method => :delete, :confirm => t('helpers.delete.conf') %></td>
+</tr>
+

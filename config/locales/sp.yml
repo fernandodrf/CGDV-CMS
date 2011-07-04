@@ -93,6 +93,14 @@ sp:
     televisionpaga: "Servicio de Television de Paga?"
     sgmm: "¿Seguro de Gastos Medicos Mayores?"
 
+  familymember:
+    title: "Familiares"
+    parentesco: "Parentesco"
+    name: "Nombre"
+    edad: "Edad"
+    derechohabiente: "Derechohabiente"
+    comentarios: "Comentarios"
+
   user:
     index: "Todos los Usuarios"
     name: "Nombre"

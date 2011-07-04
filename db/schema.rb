@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110702172643) do
+ActiveRecord::Schema.define(:version => 20110704222523) do
 
   create_table "addresses", :force => true do |t|
     t.string   "place"
@@ -74,6 +74,19 @@ ActiveRecord::Schema.define(:version => 20110702172643) do
   end
 
   add_index "diagnosticos", ["patient_id"], :name => "index_diagnosticos_on_patient_id"
+
+  create_table "family_members", :force => true do |t|
+    t.string   "parentesco"
+    t.string   "nombre"
+    t.integer  "edad"
+    t.string   "derechohabiente"
+    t.string   "comentarios"
+    t.integer  "patient_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "family_members", ["patient_id"], :name => "index_family_members_on_patient_id"
 
   create_table "houses", :force => true do |t|
     t.integer  "habitaciones"

@@ -14,8 +14,9 @@ class Diagnostico < ActiveRecord::Base
   
   attr_accessible :diagnostico
   
-  validates :diagnostico, :presence => true
-  
   belongs_to :patient
+  
+  validates :diagnostico, :presence => true
+  validates :patient_id, :presence => true
   
 end

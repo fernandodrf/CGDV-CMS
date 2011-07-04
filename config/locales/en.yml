@@ -87,6 +87,14 @@ en:
     televisionpaga: "Paid TV service?"
     sgmm: "Medical Insurance?"
 
+  familymember:
+    title: "Family Members"
+    parentesco: "Affinity"
+    name: "Name"
+    edad: "Age"
+    derechohabiente: "Medical Insurance"
+    comentarios: "Comments"
+
   user:
     index: "All Users"
     name: "Name"

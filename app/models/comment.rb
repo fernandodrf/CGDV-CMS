@@ -15,6 +15,7 @@ class Comment < ActiveRecord::Base
   
   belongs_to :patient
   
+  validates :patient_id, :presence => true
   validates :comment, :presence => true
   
 end

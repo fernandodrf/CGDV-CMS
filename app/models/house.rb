@@ -2,7 +2,8 @@ class House < ActiveRecord::Base
   attr_accessible :habitaciones, :tipo, :habitantes, :familiares, :menores, :economicaactivas
   
   belongs_to :patient
-  
+
+  validates :patient_id, :presence => true
   validates :habitaciones, :presence => true,
   			:length => { :maximum => 10},
 			:numericality => true

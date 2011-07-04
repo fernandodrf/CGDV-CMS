@@ -1,0 +1,14 @@
+<table class="Family Members">
+  <tr>
+    <td>
+      <strong><%= t('familymember.title') %></strong>
+	</td>
+	<td>
+	  <%= link_to t('helpers.submit.create', :model => "Familiar"), new_patient_family_member_path(@patient) %>
+	</td>
+  </tr>
+  <% unless @patient.family_members.empty? %>
+  <%= render @familymembers %>
+  <% end %>
+</table>
+<br />

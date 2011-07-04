@@ -3,7 +3,8 @@ class Refclinica < ActiveRecord::Base
   attr_accessible :hospital, :medico, :referencia, :aceptado, :ayudas
   
   belongs_to :patient
-  
+
+  validates :patient_id, :presence => true
   validates :hospital, :presence => true, :length => { :maximum => 50}
   validates :medico, :presence => true, :length => { :maximum => 250}
   validates :referencia, :presence => true

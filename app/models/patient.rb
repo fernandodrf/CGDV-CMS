@@ -23,6 +23,7 @@ class Patient < ActiveRecord::Base
   has_many :tratamientos, :dependent => :destroy
   has_many :comments, :dependent => :destroy
   has_many :diagnosticos, :dependent => :destroy
+  has_many :family_members, :dependent => :destroy
   has_one :refclinica, :dependent => :destroy
   has_one :house, :dependent => :destroy
   has_one :socioeco, :dependent => :destroy

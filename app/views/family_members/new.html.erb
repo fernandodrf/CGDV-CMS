@@ -1,0 +1,7 @@
+<h1><%= t('helpers.submit.create', :model => "Familiar") %></h1>
+<%= form_for([@patient, @family_member]) do |f| %>
+  <%= render 'fields', :f => f %>
+  <div class="actions">
+    <%= f.submit t('helpers.create') %>
+  </div>
+<% end %>
