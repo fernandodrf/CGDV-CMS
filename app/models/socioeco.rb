@@ -1,5 +1,5 @@
 class Socioeco < ActiveRecord::Base
-  attr_accessible :ingresos, :gastos, :gastos, :televisiones, :vehiculos, :nivel, :serviciosurbanos, :televisionpaga, :sgmm
+  attr_accessible :ingresos, :gastos, :televisiones, :vehiculos, :nivel, :serviciosurbanos, :televisionpaga, :sgmm
   
   belongs_to :patient
 
