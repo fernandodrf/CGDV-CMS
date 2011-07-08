@@ -1,6 +1,6 @@
 <li>
-  <%= link_to patient.name, patient %>
-  | <%= link_to t('helpers.delete.msg'), patient, :method => :delete, :confirm => t('helpers.delete.conf'),
-                                :title => "#{t('helpers.delete.msg')} #{patient.name}" %>
+  <%= link_to "#{patient.cgdvcode}: #{patient.name}", patient %>
+  | <%= link_to t('helpers.delete.msg'), patient, :method => :delete, :confirm => t('helpers.delete.conf'), :title => "#{t('helpers.delete.msg')} #{patient.name}" %>
+  | <%= link_to t('helpers.print'), print_patient_path(patient) %>
 </li>
 

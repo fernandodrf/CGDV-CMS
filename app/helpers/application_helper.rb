@@ -14,4 +14,8 @@ module ApplicationHelper
     image_tag("logo.jpg", :alt => "CGDV",:size => "152x62", :class => "round")
   end
   
+    def logoprint
+    image_tag("logo.jpg", :alt => "CGDV",:size => "98x40", :class => "round")
+  end
+  
 end

@@ -13,6 +13,6 @@
   </tr>
   <% if @refclinica != nil %>
   <%= render @refclinica %>
+  <tr><td><%= link_to t('helpers.delete.msg'), patient_refclinica_path(@patient,@refclinica), :method => :delete, :confirm => t('helpers.delete.conf') %></td></tr>
   <% end %>
 </table>
-<br />

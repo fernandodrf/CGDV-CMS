@@ -1,6 +1,6 @@
 class PatientsController < ApplicationController
   before_filter :authenticate
-  
+      
   def index
   	@title = t('patient.index')
   	@patients = Patient.paginate(:page => params[:page])
@@ -20,6 +20,23 @@ class PatientsController < ApplicationController
     @familymembers = @patient.family_members
     @comments = @patient.comments
     @title = @patient.cgdvcode
+  end
+  
+  def print 
+    @patient = Patient.find(params[:id])
+    @patientphones = @patient.patientphones
+    @addresses = @patient.addresses
+    @seguros = @patient.derechohabientes
+    @apoyos = @patient.apoyos
+    @tratamientos = @patient.tratamientos
+    @diagnosticos = @patient.diagnosticos
+    @refclinica = @patient.refclinica
+    @house = @patient.house
+    @socioeco = @patient.socioeco
+    @familymembers = @patient.family_members
+    @comments = @patient.comments
+    @title = @patient.cgdvcode
+  	render :layout => false 
   end
 	
   def new

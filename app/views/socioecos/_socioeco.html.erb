@@ -1,6 +1,6 @@
-<tr><td><%= t('socioeco.ingresos') %>:</td><td><%= socioeco.ingresos %></td></tr>
-<tr><td><%= t('socioeco.gastos') %>:</td><td><%= socioeco.gastos %></td></tr>
-<tr><td><%= t('socioeco.remanente') %>:</td><td><%= remanente(socioeco) %></td></tr>
+<tr><td><%= t('socioeco.ingresos') %>:</td><td><%= number_to_currency(socioeco.ingresos) %></td></tr>
+<tr><td><%= t('socioeco.gastos') %>:</td><td><%= number_to_currency(socioeco.gastos) %></td></tr>
+<tr><td><%= t('socioeco.remanente') %>:</td><td><%= number_to_currency(remanente(socioeco)) %></td></tr>
 <tr><td><%= t('socioeco.televisiones') %>:</td><td><%= socioeco.televisiones %></td></tr>
 <tr><td><%= t('socioeco.vehiculos') %>:</td><td><%= socioeco.vehiculos %></td></tr>
 <tr><td><%= t('socioeco.nivel') %>:</td><td><%= socioeco.nivel %></td></tr>

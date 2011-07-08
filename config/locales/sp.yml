@@ -238,7 +238,8 @@ sp:
     new: "Nuevo"
     edit: "Editar"
     create: "Crear"
-  
+    print: "Vista de Impresion"
+    
     select:
       prompt: "Por favor selecciona"
 

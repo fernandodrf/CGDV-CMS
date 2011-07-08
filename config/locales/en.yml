@@ -239,6 +239,7 @@ en:
     new: "New"
     edit: "Edit"
     create: "Create"
+    print: "Print View"
     
     select:
       prompt: "Please select"
