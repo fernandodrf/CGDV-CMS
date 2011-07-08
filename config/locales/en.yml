@@ -104,6 +104,12 @@ en:
     confirmation: "Password Confirmation"
     language: "Language"
     
+  search:
+    title: "Search"
+    name: "Name:"
+    cgdvcode: "CGDVcode:"
+    sort: "Sort by:"
+    
 # From: https://github.com/svenfuchs/rails-i18n/blob/master/rails/locale/en-US.yml
 
   date:
@@ -240,6 +246,7 @@ en:
     edit: "Edit"
     create: "Create"
     print: "Print View"
+    search: "Search"
     
     select:
       prompt: "Please select"

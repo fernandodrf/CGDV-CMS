@@ -34,7 +34,7 @@ sp:
       destroy: "%{model} eliminado."
               
   patient:
-    info: "Informacion Princial"
+    info: "Informacion Principal"
     title: "Paciente"
     name: "Nombre"
     cgdvcode: "Registro CGDV"
@@ -110,6 +110,12 @@ sp:
     confirmation: "Confirmar Contraseña"
     language: "Lenguaje"
     
+  search:
+    title: "Busqueda"
+    name: "Nombre:"
+    cgdvcode: "Clave CGDV:"
+    sort: "Ordernar por:"
+
 # De https://github.com/svenfuchs/rails-i18n/blob/master/rails/locale/es-MX.yml
 
   number:
@@ -239,6 +245,7 @@ sp:
     edit: "Editar"
     create: "Crear"
     print: "Vista de Impresion"
+    search: "Buscar"
     
     select:
       prompt: "Por favor selecciona"

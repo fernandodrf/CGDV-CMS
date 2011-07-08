@@ -2,8 +2,10 @@ class PatientsController < ApplicationController
   before_filter :authenticate
       
   def index
+  	@search = Patient.search(params[:search])
   	@title = t('patient.index')
-  	@patients = Patient.paginate(:page => params[:page])
+  	#@patients = Patient.paginate(:page => params[:page])
+  	@patients = @search.paginate(:page => params[:page]) 
   end
   
   def show
