@@ -43,7 +43,7 @@ class PatientsController < ApplicationController
 	
   def new
   	@patient = Patient.new
-  	@cgdvcode = Patient.last.cgdvcode + 1
+  	@cgdvcode = cgdvcode
   	@title = t('helpers.submit.create', :model => Patient.to_s)
   end
   
@@ -60,6 +60,7 @@ class PatientsController < ApplicationController
   	  redirect_to @patient
   	else
   	  @title = "New Patient"
+  	  @cgdvcode = cgdvcode
   	  render 'new'
   	end
   end
@@ -81,4 +82,12 @@ class PatientsController < ApplicationController
     redirect_to patients_path
   end
   
+  private
+    def cgdvcode
+      if Patient.last == nil
+  	    @cgdvcode = 1
+  	  else
+  	    @cgdvcode = Patient.last.cgdvcode + 1
+  	  end
+    end
 end
