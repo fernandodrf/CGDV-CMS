@@ -1,5 +1,5 @@
 <table>
-  <tr><td><strong><%= t('patient.info') %></strong></td><td><%= link_to t('helpers.submit.update', :model => "Datos Principales"), edit_patient_path(@patient) %></td></tr>
+  <tr><td nowrap><strong><%= t('patient.info') %></strong></td><td><%= link_to t('helpers.submit.update', :model => "Datos Principales"), edit_patient_path(@patient) %></td></tr>
   <tr><td><%= t('patient.cgdvcode') %>:</td><td> <%= @patient.cgdvcode %></td></tr>
   <tr><td><%= t('patient.name') %>:</td><td> <%= @patient.name %></td></tr>
   <tr><td><%= t('patient.sex') %>:</td><td> <%= @patient.sex %></td></tr>
