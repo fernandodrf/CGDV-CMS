@@ -18,6 +18,7 @@ sp:
     users: "Usuarios"
     profile: "Perfil"
     settings: "Opciones"
+    note: "Notas"
         
   session:
     login: "Iniciar Sesión"
@@ -115,6 +116,16 @@ sp:
     name: "Nombre:"
     cgdvcode: "Clave CGDV:"
     sort: "Ordernar por:"
+
+  note:
+    index: "Todas las Notas"
+    folio: "Folio"
+    fecha: "Fecha"
+    adeudo: "Adeudo"
+    acuenta: "Acuenta"
+    restan: "Restan"
+    subtotal: "Subtotal"
+    total: "Total"
 
 # De https://github.com/svenfuchs/rails-i18n/blob/master/rails/locale/es-MX.yml
 

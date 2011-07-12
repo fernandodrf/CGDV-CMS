@@ -1,0 +1,20 @@
+<h1><%= t('note.index') %></h1>
+<h6><%= link_to t('helpers.submit.create', :model => "Nueva Nota"), new_note_path %></h6><br />
+
+<%= form_for @search, :url => notes_path, :html => {:method => :get} do |f| %>
+  
+  <h6><%= t('search.title') %></h6>	
+  <%= f.label :folio_contains, "Folio" %>
+  <%= f.text_field :folio_equals %>
+  <%= f.submit t('helpers.search') %><br /><br />
+<% end %>
+<%= t('search.sort') %>
+<%= sort_link @search, :folio, t('note.folio') %>
+
+<%= will_paginate %>
+
+<ul class="users">
+  <%= render @notes %>
+</ul>
+
+<%= will_paginate %>

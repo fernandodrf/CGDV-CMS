@@ -12,6 +12,7 @@ en:
     users: "Users"
     profile: "Profile"
     settings: "Settings"
+    note: "Notes"
     
   session:
     login: "Log in"
@@ -109,6 +110,16 @@ en:
     name: "Name:"
     cgdvcode: "CGDVcode:"
     sort: "Sort by:"
+
+  note:
+    index: "All Notes"
+    folio: "Folio"
+    fecha: "Date"
+    adeudo: "Debt"
+    acuenta: "Paid"
+    restan: "To be Paid"
+    subtotal: "Subtotal"
+    total: "Total"
     
 # From: https://github.com/svenfuchs/rails-i18n/blob/master/rails/locale/en-US.yml
 

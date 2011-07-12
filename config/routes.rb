@@ -2,10 +2,11 @@ Cgdv::Application.routes.draw do
 	
   resources :users
   resources :sessions, :only => [:new, :create, :destroy]
- 
+  resources :notes do
+    get :print, :on => :member	
+  end
   resources :patients do
     get :print, :on => :member
-      
   	resources :addresses, :patientphones, :derechohabientes, :apoyos, :tratamientos, :comments, :diagnosticos, :refclinicas, :houses, :socioecos, :family_members, :only => [:new, :edit, :update, :create, :destroy]  
   end
 

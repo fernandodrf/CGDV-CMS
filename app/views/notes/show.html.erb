@@ -1,0 +1,11 @@
+<table summary="Notes information">
+  <tr>
+    <td>
+      <h1>
+        <%= @note.folio %>
+      </h1>
+      <%= link_to t('helpers.print'), print_note_path(@note) %>
+      <%= render 'notes' %><br />
+    </td>
+  </tr>
+</table>

@@ -1,0 +1,12 @@
+<table>
+  <tr><td nowrap><strong><%= t('note.title') %></strong></td><td><%= link_to t('helpers.submit.update', :model => "Nota"), edit_note_path(@note) %></td></tr>
+  <tr><td><%= t('note.fecha') %>:</td><td> <%= l @note.fecha, :format => :long %></td></tr>
+  <tr><td><%= t('note.folio') %>:</td><td> <%= @note.folio %></td></tr>
+  <tr><td><%= t('patient.cgdvcode') %>:</td><td> <%= cgdvcode(@note) %></td></tr>
+  <tr><td><%= t('patient.name') %>:</td><td> <%= name(@note) %></td></tr>  
+  <tr><td><%= t('note.adeudo') %>:</td><td> <%= @note.adeudo %></td></tr>
+  <tr><td><%= t('note.acuenta') %>:</td><td> <%= @note.acuenta %></td></tr>
+  <tr><td><%= t('note.restan') %>:</td><td> <%= @note.restan %></td></tr>
+  <tr><td><%= t('note.subtotal') %>:</td><td> <%= @note.subtotal %></td></tr>
+  <tr><td><%= t('note.total') %>:</td><td> <%= @note.total %></td></tr>
+</table>

@@ -1,0 +1,47 @@
+<%= render 'shared/error_messages', :object => f.object %>
+<table width="500">
+  <tr>
+  	<td><%= f.label :patient_id, t('patient.cgdvcode') %></td>
+    <td><%= f.label :fecha, t('note.fecha') %></td>
+    <td><%= f.label :folio, t('note.folio') %></td>
+  </tr>
+  <tr>
+  	<td><%= f.select :patient_id, Patient.all.collect {|p| [p.cgdvcode, p.id] } %></td>
+    <td><%= f.date_select :fecha, :order => [:day, :month, :year],:start_year => Time.now.year - 10 %></td>
+	<td><%= f.text_field :folio, :value => @folio, :size => 3 %></td>
+  </tr>
+</table>
+<table width="500" border="0">
+  <tr>
+    <td><strong><%= t('element.codigo') %></strong></td>
+    <td><strong><%= t('element.descripcion') %></strong></td>
+    <td><strong><%= t('element.cuota') %></strong></td>
+    <td><strong><%= t('element.cantidad') %></strong></td>		
+  </tr>
+	<%= f.fields_for :elements do |e| %>
+	  <tr>
+	    <td><%= e.text_field :codigo, :size => 5 %></td>
+	    <td><%= e.text_field :descripcion, :size => 30 %></td>
+	    <td><%= e.text_field :cuota, :size => 3 %></td>
+	    <td><%= e.text_field :cantidad, :size => 3 %></td>
+	  </tr>	  	  
+  	<% end %>
+</table>
+<table width="500">
+  <tr>
+    <td><strong><%= t('note.subtotal') %></strong></td>
+    <td><strong><%= t('note.adeudo') %></strong></td>
+    <td><strong><%= t('note.total') %></strong></td>
+    <td><strong><%= t('note.acuenta') %></strong></td>
+    <td><strong><%= t('note.restan') %></strong></td>
+  </tr>
+</table>
+<table width="500">
+  <tr>
+    <td><%= f.text_field :subtotal, :size => 5 %></td>
+    <td><%= f.text_field :adeudo, :size => 5 %></td>
+    <td><%= f.text_field :total, :size => 5 %></td>
+    <td><%= f.text_field :acuenta, :size => 5 %></td>
+    <td><%= f.text_field :restan, :size => 5 %></td>
+  </tr>
+</table>

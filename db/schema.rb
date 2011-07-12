@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110704222523) do
+ActiveRecord::Schema.define(:version => 20110709210200) do
 
   create_table "addresses", :force => true do |t|
     t.string   "place"
@@ -75,6 +75,18 @@ ActiveRecord::Schema.define(:version => 20110704222523) do
 
   add_index "diagnosticos", ["patient_id"], :name => "index_diagnosticos_on_patient_id"
 
+  create_table "elements", :force => true do |t|
+    t.string   "codigo"
+    t.integer  "cantidad"
+    t.decimal  "cuota",       :precision => 22, :scale => 2
+    t.string   "descripcion"
+    t.integer  "note_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "elements", ["note_id"], :name => "index_elements_on_note_id"
+
   create_table "family_members", :force => true do |t|
     t.string   "parentesco"
     t.string   "nombre"
@@ -101,6 +113,22 @@ ActiveRecord::Schema.define(:version => 20110704222523) do
   end
 
   add_index "houses", ["patient_id"], :name => "index_houses_on_patient_id"
+
+  create_table "notes", :force => true do |t|
+    t.integer  "folio"
+    t.decimal  "adeudo",     :precision => 22, :scale => 2
+    t.decimal  "acuenta",    :precision => 22, :scale => 2
+    t.decimal  "restan",     :precision => 22, :scale => 2
+    t.decimal  "subtotal",   :precision => 22, :scale => 2
+    t.decimal  "total",      :precision => 22, :scale => 2
+    t.date     "fecha"
+    t.integer  "patient_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "notes", ["folio"], :name => "index_notes_on_folio", :unique => true
+  add_index "notes", ["patient_id"], :name => "index_notes_on_patient_id"
 
   create_table "patientphones", :force => true do |t|
     t.string   "place"
