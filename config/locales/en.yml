@@ -113,6 +113,7 @@ en:
 
   note:
     index: "All Notes"
+    title: "Note"
     folio: "Folio"
     fecha: "Date"
     adeudo: "Debt"
@@ -120,6 +121,11 @@ en:
     restan: "To be Paid"
     subtotal: "Subtotal"
     total: "Total"
+    codigo: "Code"
+    descripcion: "Description"
+    cuota: "Fee"
+    Cantidad: "Quantity"
+    
     
 # From: https://github.com/svenfuchs/rails-i18n/blob/master/rails/locale/en-US.yml
 

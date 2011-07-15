@@ -1,2 +1,87 @@
 // Place your application-specific JavaScript functions and classes here
 // This file is automatically included by javascript_include_tag :defaults
+
+//Para clases es con .
+//Para ids es con #
+
+$(document).ready(function() {
+
+  var subtotal = new Array(0,0,0,0,0,0);
+  var cuota = new Array(0,0,0,0,0,0);
+  var cantidad = new Array(0,0,0,0,0,0);
+  var adeudo = restan = total = 0;
+  var r = buffer = 0;
+  var str_pre1 = "#note_elements_attributes_";
+  var str_pre2 = ".note_container tr:nth-child(";
+  var str_postab = "td:nth-child(5)";
+
+  //Metodo que calcula subtotales y totales	
+  $(".note_container").change(function(){
+  var ST = 0;
+  
+	for( i=0; i < 6; i++){
+	  //Lee valores de cuotas y cantidades y revisa que sea numero.
+	  cuota[i] = parseFloat($(str_pre1 + i + "_cuota").val());
+	  cantidad[i] = parseFloat($(str_pre1 + i + "_cantidad").val());
+	  //Calcula subtotales
+	  subtotal[i] = cantidad[i]*cuota[i];
+	if (isNaN(subtotal[i])){
+	  subtotal[i] = 0;
+	}
+	//Despliega subtotales
+	r = 2+i;
+	$(str_pre2 + r + ") " + str_postab).html(subtotal[i]);
+	ST += subtotal[i];
+	}
+    //Escribe subtotal
+    $('#note_subtotal').val(ST); 
+    //Le adeudo
+    adeudo = parseFloat($("#note_adeudo").val());
+    if(isNaN(adeudo)){ adeudo = 0; }
+    //Escribe total    
+    total = parseFloat(ST) + parseFloat(adeudo);
+    $('#note_total').val(total);
+    //Le acuenta
+    acuenta = parseFloat($("#note_acuenta").val());
+    if(isNaN(acuenta)){ acuenta = 0; }
+    //Escribe restan
+    restan = parseFloat(total) - parseFloat(acuenta);
+    $('#note_restan').val(restan);       
+  });
+
+  //Metodo que calcula totales
+  $(".note_container2").change(function(){
+  var ST2 = 0;
+    //Lee subtotal
+    ST2 = parseFloat($("#note_subtotal").val());
+    if(isNaN(ST2)){ 
+      //HACER ALGO!!!
+    } 
+    //Lee adeudo
+    adeudo = parseFloat($("#note_adeudo").val());
+    if(isNaN(adeudo)){ adeudo = 0; }
+    //Escribe total   
+    total = parseFloat(ST2) + parseFloat(adeudo);
+    $('#note_total').val(total);
+    //Le acuenta
+    acuenta = parseFloat($("#note_acuenta").val());
+    if(isNaN(acuenta)){ acuenta = 0; }
+    //Escribe restan
+    restan = parseFloat(total) - parseFloat(acuenta);
+    $('#note_restan').val(restan);       
+  });
+
+  //Metodo que actualiza adeudo  
+  $("#note_patient_id").change(function(){
+    var patid;
+    //Lee patient_id
+    patid = parseFloat($("#note_patient_id").val());
+    //Manda patient_id y Fija el adeudo
+    $.getJSON('/notes/new.json', { id: patid }, function(data) {
+      $('#note_adeudo').val(data); 
+    });    
+  });
+
+ });
+
+

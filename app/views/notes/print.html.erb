@@ -1,26 +1,13 @@
 <!--[if lt IE 8]><%= stylesheet_link_tag 'blueprint/ie' %><![endif]-->
 <%= stylesheet_link_tag 'customprint', :media => "screen, print, projection" %>
+<%= csrf_meta_tag %>
 <div id="wrap">
-  <div id="header">
-  	<table align=center border=0>
-  	  <tr><td><%= logoprint %></td><td><h1><%= @patient.cgdvcode %>: <%= @patient.name %></h1></td></tr>
-  	</table>
-  	</div>
-  <div id="mainleft">
-  	<%= render 'personalinformation' %>
-    <%= render 'houses/houseinfo' %>
-    <%= render 'diagnosticos/diagnosticosinfo' %>
-	<%= render 'tratamientos/tratamientosinfo' %>
-	<%= render 'derechohabientes/derechohabientes' %>
-	<%= render 'patientphones/telephoneinformation' %>
-	<%= render 'addresses/addressinformation' %>
+  <div id="header" align="center">
+    <%= render 'noteprint' %>
+    <%= render 'noteprint' %>
+    <%= render 'noteprint' %>
   </div>
-  <div id="mainright">
-    <%= render 'refclinicas/refclinicainfo' %>
-    <%= render 'socioecos/socioecoinfo' %>
-    <%= render 'apoyos/apoyosinfo' %>
-    <%= render 'family_members/familymembers' %>
-    <%= render 'comments/comments' %>
-  </div>
+  <div id="mainleft"></div>
+  <div id="mainright"></div>
   <div id="footer"></div>
 </div>

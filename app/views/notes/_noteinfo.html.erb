@@ -1,0 +1,13 @@
+<table>
+  <tr>
+  	<td><strong><%= t('patient.cgdvcode') %>:</strong> <%= cgdvcode(@note) %></td>
+    <td><strong><%= t('patient.name') %>:</strong> <%= name(@note) %></td>
+  </tr>
+  <tr>
+    <td><strong><%= t('note.folio') %>:</strong> <%= @note.folio %></td>
+    <td><strong><%= t('note.fecha') %>:</strong> <%= l @note.fecha, :format => :long %></td>
+  </tr>
+</table>
+<table>
+<%= render 'cuerponota' %>
+</table>

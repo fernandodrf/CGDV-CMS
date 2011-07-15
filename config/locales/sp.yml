@@ -22,7 +22,7 @@ sp:
         
   session:
     login: "Iniciar Sesión"
-    logut: "Cerrar Sesión"
+    logout: "Cerrar Sesión"
     
     flash:
       error: "Combinación de email/password incorrecta."
@@ -119,6 +119,7 @@ sp:
 
   note:
     index: "Todas las Notas"
+    title: "Nota"
     folio: "Folio"
     fecha: "Fecha"
     adeudo: "Adeudo"
@@ -126,6 +127,10 @@ sp:
     restan: "Restan"
     subtotal: "Subtotal"
     total: "Total"
+    codigo: "Codigo"
+    descripcion: "Descripcion"
+    cuota: "Cuota"
+    Cantidad: "Cantidad"
 
 # De https://github.com/svenfuchs/rails-i18n/blob/master/rails/locale/es-MX.yml
 

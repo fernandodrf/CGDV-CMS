@@ -11,21 +11,25 @@
 	<td><%= f.text_field :folio, :value => @folio, :size => 3 %></td>
   </tr>
 </table>
-<table width="500" border="0">
+<table class="note_container" width="500">
   <tr>
-    <td><strong><%= t('element.codigo') %></strong></td>
-    <td><strong><%= t('element.descripcion') %></strong></td>
-    <td><strong><%= t('element.cuota') %></strong></td>
-    <td><strong><%= t('element.cantidad') %></strong></td>		
+    <td><strong><%= t('note.codigo') %></strong></td>
+    <td><strong><%= t('note.descripcion') %></strong></td>
+    <td><strong><%= t('note.cuota') %></strong></td>
+    <td><strong><%= t('note.cantidad') %></strong></td>
+    <td><strong>Subtotal</strong></td>	
   </tr>
-	<%= f.fields_for :elements do |e| %>
-	  <tr>
-	    <td><%= e.text_field :codigo, :size => 5 %></td>
-	    <td><%= e.text_field :descripcion, :size => 30 %></td>
-	    <td><%= e.text_field :cuota, :size => 3 %></td>
-	    <td><%= e.text_field :cantidad, :size => 3 %></td>
-	  </tr>	  	  
-  	<% end %>
+  <% index = 0 %>
+  <%= f.fields_for :elements do |e| %>
+  <tr>
+    <td><%= e.text_field :codigo, :size => 5 %></td>
+    <td><%= e.text_field :descripcion, :size => 30 %></td>
+    <td><%= e.text_field :cuota, :size => 3 %></td>
+    <td><%= e.text_field :cantidad, :size => 3 %></td>
+    <td><%= subtotal(@note.elements[index]) %></td>
+  </tr>
+    <% index += 1 %>	  	  
+  <% end %>
 </table>
 <table width="500">
   <tr>
@@ -36,7 +40,7 @@
     <td><strong><%= t('note.restan') %></strong></td>
   </tr>
 </table>
-<table width="500">
+<table class="note_container2" width="500">
   <tr>
     <td><%= f.text_field :subtotal, :size => 5 %></td>
     <td><%= f.text_field :adeudo, :size => 5 %></td>

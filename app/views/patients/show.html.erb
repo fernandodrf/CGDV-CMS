@@ -1,23 +1,15 @@
-<table class="profile" summary="Patient information">
-  <tr>
-    <td class="main">
-      <h1>
-        <%= @patient.name %>
-      </h1>
-      <%= link_to t('helpers.print'), print_patient_path(@patient) %>
-      <%= render 'personalinformation' %><br />
-      <%= render 'refclinicas/refclinicainfo' %><br />
-      <%= render 'patientphones/telephoneinformation' %><br />
-      <%= render 'addresses/addressinformation' %><br />
-      <%= render 'derechohabientes/derechohabientes' %><br />
-      <%= render 'apoyos/apoyosinfo' %><br />
-      <%= render 'tratamientos/tratamientosinfo' %><br />
-      <%= render 'diagnosticos/diagnosticosinfo' %><br />
-      <%= render 'houses/houseinfo' %><br />
-      <%= render 'socioecos/socioecoinfo' %><br />
-      <%= render 'family_members/familymembers' %><br />
-      <%= render 'comments/comments' %><br />
-      <%= link_to t('helpers.print'), print_patient_path(@patient) %>
-    </td>
-  </tr>
-</table>
+<h1><%= @patient.name %></h1>
+<%= link_to t('helpers.print'), print_patient_path(@patient) %>
+<%= render 'personalinformation' %><br />
+<%= render 'refclinicas/refclinicainfo' %><br />
+<%= render 'patientphones/telephoneinformation' %><br />
+<%= render 'addresses/addressinformation' %><br />
+<%= render 'derechohabientes/derechohabientes' %><br />
+<%= render 'apoyos/apoyosinfo' %><br />
+<%= render 'tratamientos/tratamientosinfo' %><br />
+<%= render 'diagnosticos/diagnosticosinfo' %><br />
+<%= render 'houses/houseinfo' %><br />
+<%= render 'socioecos/socioecoinfo' %><br />
+<%= render 'family_members/familymembers' %><br />
+<%= render 'comments/comments' %><br />
+<%= link_to t('helpers.print'), print_patient_path(@patient) %>

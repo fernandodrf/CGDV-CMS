@@ -8,6 +8,7 @@ gem 'will_paginate', '3.0.pre2'
 gem 'yaml_db', '0.2.1'
 gem 'fastercsv', '1.5.4'
 gem 'meta_search', '1.0.6'
+gem 'jquery-rails', '>= 1.0.12'
 
 group :development do
   gem 'faker', '0.3.1'

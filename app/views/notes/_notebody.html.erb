@@ -1,0 +1,30 @@
+<tr>
+<td><strong><%= t('note.codigo') %></strong></td>
+<td><strong><%= t('note.descripcion') %></strong></td>
+<td><strong><%= t('note.cuota') %></strong></td>
+<td><strong><%= t('note.cantidad') %></strong></td>
+<td><strong>Subtotal</strong></td>
+</tr>
+<% for element in @note.elements %>  
+<tr>
+<td><%= element.codigo %></td>
+<td><%= element.descripcion %></td>
+<td><%= number_to_currency(element.cuota) %></td>
+<td><%= element.cantidad %></td>
+<td><%= number_to_currency(element.cuota*element.cantidad) %></td>
+</tr>
+<% end %>  
+<tr>
+	<td><strong><%= t('note.subtotal') %></strong></td>
+	<td><strong><%= t('note.adeudo') %></strong></td>
+<td><strong><%= t('note.total') %></strong></td>
+<td><strong><%= t('note.acuenta') %></strong></td>
+<td><strong><%= t('note.restan') %></strong></td>
+</tr>
+<tr>
+	<td><%= number_to_currency(@note.subtotal) %></td>
+	<td><%= number_to_currency(@note.adeudo) %></td>
+<td><%= number_to_currency(@note.total) %></td>
+<td><%= number_to_currency(@note.acuenta) %></td>
+<td><%= number_to_currency(@note.restan) %></td>
+</tr>

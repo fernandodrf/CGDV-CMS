@@ -16,6 +16,38 @@ h1 {
   margin:0.25em .25em 0.25em;
 }
 
+.nota {
+  font-size: 10pt;
+  border-spacing: 0px;
+  border-color: black;
+}
+
+.nota th td {
+  border-width: 1px;
+  border-color: red;
+  padding: 3px;
+  border-style: solid;
+}
+
+.nota_datos {
+  font-size: 7.5pt;
+}
+
+.nota_leyenda {
+  font-size: 7pt;
+}
+
+.nota_title {
+  font-size: 13pt;
+}
+
+hr {
+  height: 0;
+  border-width: 1px 0 0 0;
+  border-style: dashed;
+  border-color: black;
+}
+
 #wrap {
   width:750px;
   margin:0 auto;

@@ -1,0 +1,24 @@
+<tr align="left">
+  <th width="129" align="center"><%= t('patient.name') %>:</th>
+  <td width="466" align="center"><%= name(@note) %></td>
+  <th width="117" align="center" >Registro</th>
+  <td width="98" align="center"><%= cgdvcode(@note) %></td>
+</tr>
+<tr align="center">
+  <td><strong><%= t('note.codigo') %></strong></td>
+  <td><strong><%= t('note.descripcion') %></strong></td>
+  <td><strong><%= t('note.cuota') %></strong></td>
+  <td><strong><%= t('note.cantidad') %></strong></td>
+</tr>
+<% for element in @note.elements %>  
+<tr>
+  <td align="center"><%= element.codigo %></td>
+  <td align="left"><%= element.descripcion %></td>
+  <td align="center"><%= number_to_currency(element.cuota) %></td>
+  <td align="center"><%= element.cantidad %></td>
+</tr>
+<% end %>
+<tr align="center">
+  <th CELLPADDING=10 colspan="3" align="right"><%= t('note.subtotal') %></th>
+  <td><%= number_to_currency(@note.subtotal) %></td>
+</tr>
