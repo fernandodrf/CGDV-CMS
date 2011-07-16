@@ -3,6 +3,11 @@ class ApplicationController < ActionController::Base
   include SessionsHelper
   before_filter :set_user_language
   
+  rescue_from CanCan::AccessDenied do |exception|
+    flash[:error] = t('session.flash.denied')
+    redirect_to root_path
+  end
+
   private
   
     def set_user_language

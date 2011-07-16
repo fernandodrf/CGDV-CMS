@@ -27,6 +27,7 @@ sp:
     flash:
       error: "Combinación de email/password incorrecta."
       notice: "Por favor inicie sesión para ver esta pagina."
+      denied: "Acceso Denegado."
       
   flash:
     success:

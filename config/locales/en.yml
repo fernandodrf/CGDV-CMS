@@ -21,6 +21,7 @@ en:
     flash:
       error: "Invalid email/password combination."
       notice: "Please log in to access this page."
+      denied: "Access Denied."
       
   flash:
     success:

@@ -1,6 +1,8 @@
 <li>
   <%= link_to "#{note.folio}", note %>
+  <% if can? :delete, @note %>
   | <%= link_to t('helpers.delete.msg'), note, :method => :delete, :confirm => t('helpers.delete.conf'), :title => "#{t('helpers.delete.msg')} #{note.folio}" %>
+  <% end %>
   | <%= link_to t('helpers.print'), print_note_path(note) %>
 </li>
 

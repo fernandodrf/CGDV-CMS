@@ -1,5 +1,6 @@
 class NotesController < ApplicationController
- before_filter :authenticate
+  load_and_authorize_resource	
+  before_filter :authenticate
       
   def index
   	@search = Note.search(params[:search])
@@ -39,7 +40,6 @@ class NotesController < ApplicationController
   
   def create
   	@note = Note.new(params[:note])
-  	@note = calculos(@note)
   	if @note.save
   	  flash[:success] = t('flash.success.create', :model => Note.to_s)
   	  redirect_to @note

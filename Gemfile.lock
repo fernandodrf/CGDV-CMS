@@ -31,6 +31,7 @@ GEM
     annotate (2.4.0)
     arel (2.0.10)
     builder (2.1.2)
+    cancan (1.6.5)
     erubis (2.6.6)
       abstract (>= 1.0.0)
     faker (0.3.1)
@@ -87,6 +88,7 @@ PLATFORMS
 
 DEPENDENCIES
   annotate (= 2.4.0)
+  cancan (>= 1.6.5)
   faker (= 0.3.1)
   fastercsv (= 1.5.4)
   jquery-rails (>= 1.0.12)
