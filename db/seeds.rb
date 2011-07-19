@@ -6,6 +6,8 @@
 #   cities = City.create([{ :name => 'Chicago' }, { :name => 'Copenhagen' }])
 #   Mayor.create(:name => 'Daley', :city => cities.first)
 
+# Corregir para ruby 1.9.2
+
 #Catalogo Diagnosticos
 require 'csv'
 CSV::Reader.parse(File.open("#{RAILS_ROOT}/db/catalogos/diagnosticos.csv", 'r')) do |row|
