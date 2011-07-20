@@ -1,5 +1,14 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  name: MyString
+  cgdvcode: 
+
+two:
+  name: MyString
+  cgdvcode: 
+
 # == Schema Information
-# Schema version: 20110614033259
 #
 # Table name: patients
 #
@@ -11,14 +20,6 @@
 #  sex        :string(255)
 #  birthdate  :date
 #  blod       :string(255)
+#  oldid      :string(255)
 #
 
-# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
-
-one:
-  name: MyString
-  cgdvcode: 
-
-two:
-  name: MyString
-  cgdvcode: 

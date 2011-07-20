@@ -7,6 +7,7 @@ class PatientTest < ActiveSupport::TestCase
   end
 end
 
+
 # == Schema Information
 #
 # Table name: patients
@@ -19,5 +20,6 @@ end
 #  sex        :string(255)
 #  birthdate  :date
 #  blod       :string(255)
+#  oldid      :string(255)
 #
 

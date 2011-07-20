@@ -1,18 +1,3 @@
-# == Schema Information
-# Schema version: 20110614033259
-#
-# Table name: patients
-#
-#  id         :integer         not null, primary key
-#  name       :string(255)
-#  cgdvcode   :integer
-#  created_at :datetime
-#  updated_at :datetime
-#  sex        :string(255)
-#  birthdate  :date
-#  blod       :string(255)
-#
-
 class Patient < ActiveRecord::Base
   attr_accessible :name, :cgdvcode, :sex, :blod, :birthdate
   
@@ -41,3 +26,19 @@ class Patient < ActiveRecord::Base
   BLOODTYPES = ['NS', 'A+', 'A-', 'B+', 'B-', 'AB+', 'AB-', 'O+', 'O-']
   
 end
+
+# == Schema Information
+#
+# Table name: patients
+#
+#  id         :integer         not null, primary key
+#  name       :string(255)
+#  cgdvcode   :integer
+#  created_at :datetime
+#  updated_at :datetime
+#  sex        :string(255)
+#  birthdate  :date
+#  blod       :string(255)
+#  oldid      :string(255)
+#
+
