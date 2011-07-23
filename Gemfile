@@ -3,13 +3,14 @@ source 'http://rubygems.org'
 gem 'rails', '3.0.9'
 # gem 'rake', '0.9.2' #because of heroku
 gem 'rake', '0.8.7'
-gem 'sqlite3-ruby', :require => 'sqlite3'
+# gem 'sqlite3-ruby', :require => 'sqlite3'
 gem 'will_paginate', '3.0.pre2'
 gem 'yaml_db', '0.2.1'
 # gem 'fastercsv', '1.5.4'
 gem 'meta_search', '1.0.6'
 gem 'jquery-rails', '>= 1.0.12'
 gem 'cancan', '>=1.6.5'
+gem 'pg', '>=0.11.0'
 
 group :development do
   gem 'faker', '0.3.1'
