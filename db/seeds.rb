@@ -10,9 +10,10 @@
 
 require 'csv'
 
-=begin 
+=begin
 #Revisar Pacientes
-CSV::Reader.parse(File.open("#{RAILS_ROOT}/db/catalogos/patients.csv", "r")) do |row|
+CSV.foreach("#{RAILS_ROOT}/db/catalogos/patients.csv") do |row|
+#CSV::Reader.parse(File.open("#{RAILS_ROOT}/db/catalogos/patients.csv", "r")) do |row|
 
   #Informacion basica
   #Revisa oldid Paciente
@@ -21,8 +22,9 @@ CSV::Reader.parse(File.open("#{RAILS_ROOT}/db/catalogos/patients.csv", "r")) do 
     puts "#{row[0]}"
     #break
   end
-
-
+  
+  puts "#{row[11]} #{row[11].to_date} #{row[9].to_date}"
+  
   #Telefonos
   if row[12].match(/\D/)
     puts "Error id: #{row[0]} Telefono #{row[12]}"
@@ -50,10 +52,11 @@ CSV::Reader.parse(File.open("#{RAILS_ROOT}/db/catalogos/patients.csv", "r")) do 
     puts "Error id: #{row[0]} Domicilio Alterno #{row[7]}"
   end  
 end
-
+=end
 
 #Cargar Pacientes
-CSV::Reader.parse(File.open("#{RAILS_ROOT}/db/catalogos/patients.csv", 'r')) do |row|
+CSV.foreach("#{RAILS_ROOT}/db/catalogos/patients.csv") do |row|
+#CSV::Reader.parse(File.open("#{RAILS_ROOT}/db/catalogos/patients.csv", 'r')) do |row|
 
   #Nuevo Paciente
   p = Patient.new
@@ -63,8 +66,8 @@ CSV::Reader.parse(File.open("#{RAILS_ROOT}/db/catalogos/patients.csv", 'r')) do 
   p.cgdvcode = row[10]
   p.sex = "#{row[5]}"
   p.blod = "#{row[6]}"
-  p.birthdate = (row[11][3,2] + "/" + row[11][0,2] + "/" + row[11][6,4]).to_date
-  p.created_at = (row[9][3,2] + "/" + row[9][0,2] + "/" + row[9][6,4]).to_date
+  p.birthdate = !row[11].match(/\\N/) ? row[11].to_date : Time.now.to_date
+  p.created_at = !row[9].match(/\\N/) ? row[9].to_date : Time.now.to_date
   
   #Si no puede salvar le paciente
   if !p.save
@@ -114,16 +117,17 @@ end
 puts "Todos los Pacientes Cargados"
  
 #Familiares
-CSV::Reader.parse(File.open("#{RAILS_ROOT}/db/catalogos/patients_fam.csv", "r")) do |row|
+CSV.foreach("#{RAILS_ROOT}/db/catalogos/patients_fam.csv") do |row|
+#CSV::Reader.parse(File.open("#{RAILS_ROOT}/db/catalogos/patients_fam.csv", "r")) do |row|
 	
   FAM = ['Padre o Madre', 'Herman@', 'Hij@', 'Conyuge', 'Ti@', 'Sobrin@', 'Otr@', 'No se Sabe']
 
   #Revisa oldid Paciente
-  if row[0].to_s.match(/[^A-Z\d]/)
+  #if row[0].to_s.match(/[^A-Z\d]/)
     #puts "Acentos o Caracteres Raros, revisar archivo"
-    puts "#{row[0]}"
+    #puts "#{row[0]}"
     #break
-  end 
+  #end 
   
   p = Patient.find_by_oldid(row[0])
   if p.nil?
@@ -153,23 +157,24 @@ CSV::Reader.parse(File.open("#{RAILS_ROOT}/db/catalogos/patients_fam.csv", "r"))
     puts "Error en Familiar con id: #{row[0]}"
     break
   end
-  #puts "Familiar con id: #{row[0]} #{row[3]} #{row[4]} añadido"
+  #puts "Familiar con id: #{row[0]} #{row[3]} #{row[4]} aniadido"
 end
 puts "Todos los familiares cargados"
 
 
 #Habitacion
 #num_habitaciones, tipo, num_habitantes, num_familiares, menores, economica_activas, idpaciente
-CSV::Reader.parse(File.open("#{RAILS_ROOT}/db/catalogos/patients_hab.csv", "r")) do |row|
+CSV.foreach("#{RAILS_ROOT}/db/catalogos/patients_hab.csv") do |row|
+#CSV::Reader.parse(File.open("#{RAILS_ROOT}/db/catalogos/patients_hab.csv", "r")) do |row|
 	
   TIPOS = ['Albergue', 'Alquiler', 'Prestada', 'Rentada', 'Propia', 'Institucion Medica', 'Sin Vivienda', 'No se Sabe']
 
   #Revisa oldid Paciente
-  if row[6].to_s.match(/[^A-Z\d]/)
+  #if row[6].to_s.match(/[^A-Z\d]/)
     #puts "Acentos o Caracteres Raros, revisar archivo"
-    puts "#{row[6]}"
+    #puts "#{row[6]}"
     #break
-  end   
+  #end   
   
   p = Patient.find_by_oldid(row[6])
   if p.nil?
@@ -207,15 +212,15 @@ puts "Todos los datos de Habitacion cargados"
 
 #Socioeconomico
 #num_televisiones, num_vehiculos, nivel_socioeco, idpaciente, servicios_urbanos, television_paga, sgmm
-
-CSV::Reader.parse(File.open("#{RAILS_ROOT}/db/catalogos/patients_socioeco.csv", "r")) do |row|
+CSV.foreach("#{RAILS_ROOT}/db/catalogos/patients_socioeco.csv") do |row|
+#CSV::Reader.parse(File.open("#{RAILS_ROOT}/db/catalogos/patients_socioeco.csv", "r")) do |row|
     
   #Revisa oldid Paciente
-  if row[3].to_s.match(/[^A-Z\d]/)
+  #if row[3].to_s.match(/[^A-Z\d]/)
     #puts "Acentos o Caracteres Raros, revisar archivo"
     #puts "#{row[3]}"
     #break
-  end    
+  #end    
     
   p = Patient.find_by_oldid(row[3])
   if p.nil?
@@ -258,7 +263,8 @@ puts "Todos los datos Socioeconomicos cargados"
 
 #Ingresos
 #ingreso_familiar, gastos_manutencion, idpaciente
-CSV::Reader.parse(File.open("#{RAILS_ROOT}/db/catalogos/patients_ing.csv", "r")) do |row|
+CSV.foreach("#{RAILS_ROOT}/db/catalogos/patients_ing.csv") do |row|
+#CSV::Reader.parse(File.open("#{RAILS_ROOT}/db/catalogos/patients_ing.csv", "r")) do |row|
     
   #Revisa oldid Paciente
   #if row[2].to_s.match(/[^A-Z\d]/)
@@ -307,7 +313,8 @@ end
 puts "Todos los datos de Ingresos cargados"
 
 #Referencia Clinica
-CSV::Reader.parse(File.open("#{RAILS_ROOT}/db/catalogos/patients_refclinica.csv", "r")) do |row|
+CSV.foreach("#{RAILS_ROOT}/db/catalogos/patients_refclinica.csv") do |row|
+#CSV::Reader.parse(File.open("#{RAILS_ROOT}/db/catalogos/patients_refclinica.csv", "r")) do |row|
   
   DH = ['IMSS','ISSSTE','Sedena','No Tiene','Beneficencia','Sec Salud Estatal','Semar','Privado','SSGDF','SSA','Otros','ISSEMYM', 'No se Sabe']
   
@@ -333,28 +340,28 @@ CSV::Reader.parse(File.open("#{RAILS_ROOT}/db/catalogos/patients_refclinica.csv"
   
   #Crea derechohabiente
   if !p.derechohabientes.create(:seguro => seguro, :afiliacion => afiliacion)
-    puts "Error al añadir DH de #{row[0]}"
+    puts "Error al aniadir DH de #{row[0]}"
     break
   end
 
   diagnostico = !row[5].match(/\\N/) ? row[5].to_s : '---'
   #Diagnostico
   if !p.diagnosticos.create(:diagnostico => diagnostico)
-  	puts "Error al añadir Diagnostico: #{diagnostico} de: #{row[0]}"
+  	puts "Error al aniadir Diagnostico: #{diagnostico} de: #{row[0]}"
     break
   end
   
   tipo = !row[6].match(/\\N/) ? row[6].to_s : '---'
   #Tratamiento
   if !p.tratamientos.create(:tipo => tipo)
-  	puts "Error al añadir Tratamiento: #{tipo} de #{row[0]}"
+  	puts "Error al aniadir Tratamiento: #{tipo} de #{row[0]}"
     break
   end  
   
   #idpaciente	iddh	afiliacion	hospital	nombre_medico	diagnostico	tratamiento	remite	fecha_referencia	aceptado	otras_ayudas	apoyo
   hospital = !row[3].match(/\\N/) ? row[3].to_s : '---'
   medico = !row[4].match(/\\N/) ? row[4].to_s : '---'
-  referencia = !row[8].match(/\\N/) ? (row[8][3,2] + "/" + row[8][0,2] + "/" + row[8][6,4]).to_date : Time.now.to_date
+  referencia = !row[8].match(/\\N/) ? row[8].to_date : Time.now.to_date
   aceptado = !row[9].match(/\\N/) ? row[9].to_s : 'No se Sabe'
   ayudas = !row[11].match(/\\N/) ? row[11].to_s : '---'
   
@@ -372,7 +379,8 @@ puts "Todos las Referencias Clinicas cargadas"
 
 #Notas
 #idpaciente	idnota	subtotal	total	adeudo	acuenta	restan	fecha_registro
-CSV::Reader.parse(File.open("#{RAILS_ROOT}/db/catalogos/notas.csv", "r")) do |row|
+CSV.foreach("#{RAILS_ROOT}/db/catalogos/notas.csv") do |row|
+#CSV::Reader.parse(File.open("#{RAILS_ROOT}/db/catalogos/notas.csv", "r")) do |row|
     
   #Revisa oldid Paciente
   #if row[0].to_s.match(/[^A-Z\d]/)
@@ -407,7 +415,7 @@ CSV::Reader.parse(File.open("#{RAILS_ROOT}/db/catalogos/notas.csv", "r")) do |ro
   #restan
   restan = !row[6].match(/\D/) ? row[6].to_f : 0
   #fecha_registro
-  reg = !row[7].match(/\\N/) ? (row[7][3,2] + "/" + row[7][0,2] + "/" + row[7][6,4]).to_date : Time.now.to_date
+  reg = !row[7].match(/\\N/) ? row[7].to_date : Time.now.to_date
 
   #Si no puede salvar el Socioeco
   if !p.notes.create(:folio => folio,
@@ -422,10 +430,11 @@ CSV::Reader.parse(File.open("#{RAILS_ROOT}/db/catalogos/notas.csv", "r")) do |ro
   end
 end
 puts "Todas las Notas cargadas"
-=end
+
 #Notas Elementos
 #idnota,codigo,cantidad,cuota,descripcion
-CSV::Reader.parse(File.open("#{RAILS_ROOT}/db/catalogos/notas_elem.csv", "r")) do |row|
+CSV.foreach("#{RAILS_ROOT}/db/catalogos/notas_elem.csv") do |row|
+#CSV::Reader.parse(File.open("#{RAILS_ROOT}/db/catalogos/notas_elem.csv", "r")) do |row|
      
   n = Note.find_by_folio(row[0])
   if n.nil?
@@ -454,15 +463,16 @@ CSV::Reader.parse(File.open("#{RAILS_ROOT}/db/catalogos/notas_elem.csv", "r")) d
   end
 end
 puts "Todas los Elementos de Notas cargados"
-=begin
+
 #Admin
 admin = User.create!(:name => "Demo", :email => "test@example.com", :password => "tecolote", :password_confirmation => "tecolote", :language =>"en")
 admin.toggle!(:admin)
 
 #Catalogo Diagnosticos
-CSV::Reader.parse(File.open("#{RAILS_ROOT}/db/catalogos/diagnosticos.csv", 'r')) do |row|
+CSV.foreach("#{RAILS_ROOT}/db/catalogos/diagnosticos.csv") do |row|
+#CSV::Reader.parse(File.open("#{RAILS_ROOT}/db/catalogos/diagnosticos.csv", 'r')) do |row|
  if CatalogoDiagnostico.create(:diagnostico => row[0].to_s)
- 	puts "Cargado Diagnostico: #{row[0].to_s}"
+ 	#puts "Cargado Diagnostico: #{row[0].to_s}"
  else
  	puts "Error al cargar: #{row[0].to_s}"
  end
@@ -483,4 +493,3 @@ CatalogoDerechohabiente.create(:seguro => "Otros") ? true : puts("Error al carga
 CatalogoDerechohabiente.create(:seguro => "ISSEMYM") ? true : puts("Error al cargar ISSEMYM")
 CatalogoDerechohabiente.create(:seguro => "Seguro Popular") ? true : puts("Error al cargar Seguro Popular")
 puts "Cargado Catalogo de Derechohabientes"
-=end
