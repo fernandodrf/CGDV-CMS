@@ -57,7 +57,7 @@ CSV.foreach("#{RAILS_ROOT}/db/catalogos/patients.csv") do |row|
     puts "Error id: #{row[0]} Domicilio Alterno #{row[7]}"
   end   
 end
-=end
+
 
 #Cargar Pacientes
 CSV.foreach("#{RAILS_ROOT}/db/catalogos/patients.csv") do |row|
@@ -471,7 +471,7 @@ CSV.foreach("#{RAILS_ROOT}/db/catalogos/notas_elem.csv") do |row|
 end
 puts "Todas los Elementos de Notas cargados"
 
-=begin
+
 #Admin
 admin = User.create!(:name => "Demo", :email => "test@example.com", :password => "tecolote", :password_confirmation => "tecolote", :language =>"en")
 admin.toggle!(:admin)
