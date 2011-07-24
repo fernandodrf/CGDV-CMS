@@ -4,7 +4,7 @@
 <%= form_for @search, :url => notes_path, :html => {:method => :get} do |f| %>
   
   <h6><%= t('search.title') %></h6>	
-  <%= f.label :folio_contains, "Folio" %>
+  <%= f.label :folio_contains, t('note.folio') %>
   <%= f.text_field :folio_equals %>
   <%= f.submit t('helpers.search') %><br /><br />
 <% end %>

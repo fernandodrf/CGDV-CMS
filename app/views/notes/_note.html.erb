@@ -1,5 +1,5 @@
 <li>
-  <%= link_to "#{note.folio}", note %>
+  <%= link_to "#{note.folio}", note %> | <%= link_to "#{t('patient.cgdvcode')}: #{cgdvcode(note)}", note %>
   <% if can? :delete, @note %>
   | <%= link_to t('helpers.delete.msg'), note, :method => :delete, :confirm => t('helpers.delete.conf'), :title => "#{t('helpers.delete.msg')} #{note.folio}" %>
   <% end %>
