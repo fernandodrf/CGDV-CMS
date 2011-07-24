@@ -9,7 +9,6 @@
 # Corregir para ruby 1.9.2
 
 require 'csv'
-
 =begin
 #Revisar Pacientes
 CSV.foreach("#{RAILS_ROOT}/db/catalogos/patients.csv") do |row|
@@ -17,13 +16,19 @@ CSV.foreach("#{RAILS_ROOT}/db/catalogos/patients.csv") do |row|
 
   #Informacion basica
   #Revisa oldid Paciente
-  if row[0].to_s.match(/[^A-Z\d]/)
+ #if row[0].to_s.match(/[^A-Z\d]/)
     #puts "Acentos o Caracteres Raros, revisar archivo"
-    puts "#{row[0]}"
+    #puts "#{row[0]}"
     #break
+  #end
+ 
+  if row[11].to_date
+  	puts "#{row[11]} #{row[11].to_date}"
   end
   
-  puts "#{row[11]} #{row[11].to_date} #{row[9].to_date}"
+  if row[9].to_date
+  	puts "#{row[9]} #{row[9].to_date}"
+  end
   
   #Telefonos
   if row[12].match(/\D/)
@@ -50,7 +55,7 @@ CSV.foreach("#{RAILS_ROOT}/db/catalogos/patients.csv") do |row|
   if row[7].match(/\\N/) 
     cp  = 0
     puts "Error id: #{row[0]} Domicilio Alterno #{row[7]}"
-  end  
+  end   
 end
 =end
 
@@ -85,7 +90,7 @@ CSV.foreach("#{RAILS_ROOT}/db/catalogos/patients.csv") do |row|
   
   #Comentarios
   if !row[8].match(/\\N/)
-    if !p.comments.create(:comment => row[8])
+    if !p.comments.create(:comment => row[8].to_s)
       puts "Error en Paciente con id: #{row[0]} Comentario #{row[8]}"
   	  break
   	end
@@ -115,7 +120,8 @@ CSV.foreach("#{RAILS_ROOT}/db/catalogos/patients.csv") do |row|
   
 end
 puts "Todos los Pacientes Cargados"
- 
+
+
 #Familiares
 CSV.foreach("#{RAILS_ROOT}/db/catalogos/patients_fam.csv") do |row|
 #CSV::Reader.parse(File.open("#{RAILS_ROOT}/db/catalogos/patients_fam.csv", "r")) do |row|
@@ -160,7 +166,6 @@ CSV.foreach("#{RAILS_ROOT}/db/catalogos/patients_fam.csv") do |row|
   #puts "Familiar con id: #{row[0]} #{row[3]} #{row[4]} aniadido"
 end
 puts "Todos los familiares cargados"
-
 
 #Habitacion
 #num_habitaciones, tipo, num_habitantes, num_familiares, menores, economica_activas, idpaciente
@@ -377,6 +382,7 @@ CSV.foreach("#{RAILS_ROOT}/db/catalogos/patients_refclinica.csv") do |row|
 end
 puts "Todos las Referencias Clinicas cargadas"
 
+
 #Notas
 #idpaciente	idnota	subtotal	total	adeudo	acuenta	restan	fecha_registro
 CSV.foreach("#{RAILS_ROOT}/db/catalogos/notas.csv") do |row|
@@ -431,6 +437,7 @@ CSV.foreach("#{RAILS_ROOT}/db/catalogos/notas.csv") do |row|
 end
 puts "Todas las Notas cargadas"
 
+
 #Notas Elementos
 #idnota,codigo,cantidad,cuota,descripcion
 CSV.foreach("#{RAILS_ROOT}/db/catalogos/notas_elem.csv") do |row|
@@ -464,6 +471,7 @@ CSV.foreach("#{RAILS_ROOT}/db/catalogos/notas_elem.csv") do |row|
 end
 puts "Todas los Elementos de Notas cargados"
 
+=begin
 #Admin
 admin = User.create!(:name => "Demo", :email => "test@example.com", :password => "tecolote", :password_confirmation => "tecolote", :language =>"en")
 admin.toggle!(:admin)
@@ -493,3 +501,4 @@ CatalogoDerechohabiente.create(:seguro => "Otros") ? true : puts("Error al carga
 CatalogoDerechohabiente.create(:seguro => "ISSEMYM") ? true : puts("Error al cargar ISSEMYM")
 CatalogoDerechohabiente.create(:seguro => "Seguro Popular") ? true : puts("Error al cargar Seguro Popular")
 puts "Cargado Catalogo de Derechohabientes"
+=end

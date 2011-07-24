@@ -6,13 +6,13 @@
   <th width="175" align="center"><%= t('note.restan') %></th>
 </tr>
 <tr align="center">
-  <td><%= number_to_currency(@note.subtotal) %></td>
-  <td><%= number_to_currency(@note.adeudo) %></td>
-  <td><%= number_to_currency(@note.total) %></td>
-  <td><%= number_to_currency(@note.acuenta) %></td>
-  <td><%= number_to_currency(@note.restan) %></td>
+  <td><% number_to_currency(@note.subtotal) %></td>
+  <td><% number_to_currency(@note.adeudo) %></td>
+  <td><% number_to_currency(@note.total) %></td>
+  <td><% number_to_currency(@note.acuenta) %></td>
+  <td><% number_to_currency(@note.restan) %></td>
 </tr>
 <tr>
- <th height="35" align="right">Recibí</th>
+ <th height="35" align="right">RecibÃ­</th>
  <td height="35" colspan="4"></td>
 </tr>
