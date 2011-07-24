@@ -1,7 +1,7 @@
 module NotesHelper
 
 	def cgdvcode(note)
-	  @cgdvcode = note.patient.id
+	  @cgdvcode = note.patient.cgdvcode
 	end
 	
 	def name(note)

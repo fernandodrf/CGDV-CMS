@@ -6,7 +6,7 @@
     <td><%= f.label :folio, t('note.folio') %></td>
   </tr>
   <tr>
-  	<td><%= f.select :patient_id, Patient.all.collect {|p| [p.cgdvcode, p.id] } %></td>
+  	<td><%= f.collection_select :patient_id, Patient.order('cgdvcode'), :id, :cgdvcode %></td>
     <td><%= f.date_select :fecha, :order => [:day, :month, :year],:start_year => Time.now.year - 10 %></td>
 	<td><%= f.text_field :folio, :value => @folio, :size => 3 %></td>
   </tr>
