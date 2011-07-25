@@ -8,7 +8,7 @@ class Ability
     if user.admin?
       can :manage, :all
     else
-      can [:read, :create, :update, :print], :all
+      can [:read, :create, ,:edit, :update, :print], :all
       cannot [:destroy], [Note, Element, Patient]
     end
   end
