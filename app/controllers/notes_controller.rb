@@ -86,7 +86,7 @@ class NotesController < ApplicationController
     
     def getadeudo
       if !params[:id].nil?
-  	    Patient.find(params[:id]).notes.last.nil? ? @adeudo = 0 : @adeudo = Patient.find(params[:id]).notes.last.adeudo
+  	    Patient.find(params[:id]).notes.last.nil? ? @adeudo = 0 : @adeudo = Patient.find(params[:id]).notes.last.restan
   	  end
     end
 
