@@ -5,7 +5,7 @@
     <%= render 'layouts/stylesheets' %>
     <%= javascript_include_tag 'jquery', 'rails', 'application' %>
     <%= csrf_meta_tag %>
-    <%= render :partial => 'layouts/ga' if RAILS_ENV == 'production' %>
+    <%= render 'layouts/ga' if RAILS_ENV == 'production' %>
   </head>
   <body>
     <div class="container">
