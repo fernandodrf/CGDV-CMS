@@ -5,8 +5,7 @@ class NotesController < ApplicationController
   def index
   	@search = Note.search(params[:search])
   	@title = t('note.index')
-  	#@notes = Note.paginate(:page => params[:page])
-  	@notes = @search.paginate(:page => params[:page]) 
+  	@notes = @search.page(params[:page]).per(10)
   end
   
   def show

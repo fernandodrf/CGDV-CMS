@@ -1,4 +1,4 @@
 <h1><%= t('note.title') %>: <%= @note.folio %></h1>
-<%= link_to t('helpers.submit.update', :model => "Nota"), edit_note_path(@note) %> | 
-<%= link_to t('helpers.print'), print_note_path(@note) %><br /><br />
+<strong><%= link_to t('helpers.submit.update', :model => "Nota"), edit_note_path(@note) %></strong> | 
+<strong><%= link_to t('helpers.print'), print_note_path(@note) %></strong><br /><br />
 <%= render 'noteinfo' %>

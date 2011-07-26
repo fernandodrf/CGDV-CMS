@@ -132,6 +132,14 @@ sp:
     descripcion: "Descripcion"
     cuota: "Cuota"
     Cantidad: "Cantidad"
+    
+  views:
+    pagination:
+      first: "Inicio"
+      last: "Fin"
+      previous: "&laquo; Anterior"
+      next: "Siguiente &raquo;"
+      truncate: "..."
 
 # De https://github.com/svenfuchs/rails-i18n/blob/master/rails/locale/es-MX.yml
 

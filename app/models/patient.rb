@@ -1,5 +1,8 @@
 class Patient < ActiveRecord::Base
+
   attr_accessible :name, :cgdvcode, :sex, :blod, :birthdate
+
+  default_scope order("cgdvcode DESC")  
   
   has_many :patientphones, :dependent => :destroy
   has_many :addresses, :dependent => :destroy

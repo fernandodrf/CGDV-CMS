@@ -5,8 +5,7 @@ class PatientsController < ApplicationController
   def index
   	@search = Patient.search(params[:search])
   	@title = t('patient.index')
-  	#@patients = Patient.paginate(:page => params[:page])
-  	@patients = @search.paginate(:page => params[:page]) 
+  	@patients = @search.page(params[:page]).per(10)
   end
   
   def show

@@ -1,5 +1,5 @@
 <h1><%= @patient.name %></h1>
-<%= link_to t('helpers.print'), print_patient_path(@patient) %>
+<strong><%= link_to t('helpers.print'), print_patient_path(@patient) %></strong>
 <%= render 'personalinformation' %><br />
 <%= render 'refclinicas/refclinicainfo' %><br />
 <%= render 'patientphones/telephoneinformation' %><br />
@@ -12,4 +12,4 @@
 <%= render 'socioecos/socioecoinfo' %><br />
 <%= render 'family_members/familymembers' %><br />
 <%= render 'comments/comments' %><br />
-<%= link_to t('helpers.print'), print_patient_path(@patient) %>
+<strong><%= link_to t('helpers.print'), print_patient_path(@patient) %></strong>

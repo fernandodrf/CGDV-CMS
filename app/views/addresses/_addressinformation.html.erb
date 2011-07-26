@@ -3,11 +3,14 @@
     <td>
       <strong><%= t('address.title') %></strong>
 	</td>
-	<td>
+	<td><strong>
 	  <%= link_to t('helpers.submit.create', :model => "Direccion"), new_patient_address_path(@patient) %>
-	</td>
+	</strong></td>
   </tr>
   <% unless @patient.addresses.empty? %>
   <%= render @addresses %>
   <% end %>
 </table>
+<% unless @patient.addresses.empty? %>
+  <strong><%= link_to t('helpers.submit.create', :model => "Direccion"), new_patient_address_path(@patient) %></strong><br />
+<% end %>

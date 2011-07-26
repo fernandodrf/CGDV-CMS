@@ -11,10 +11,10 @@
 <%= t('search.sort') %>
 <%= sort_link @search, :folio, t('note.folio') %>
 
-<%= will_paginate %>
+<%= paginate @notes %>
 
 <ul class="users">
   <%= render @notes %>
 </ul>
 
-<%= will_paginate %>
+<%= paginate @notes %>

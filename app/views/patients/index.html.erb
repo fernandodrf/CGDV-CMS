@@ -14,10 +14,10 @@
 <%= sort_link @search, :cgdvcode, t('patient.cgdvcode') %> | 
 <%= sort_link @search, :name, t('patient.name') %>
 
-<%= will_paginate %>
+<%= paginate @patients %>
 
 <ul class="users">
   <%= render @patients %>
 </ul>
 
-<%= will_paginate %>
+<%= paginate @patients %>

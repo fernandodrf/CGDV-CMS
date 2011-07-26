@@ -1,9 +1,9 @@
 <h1><%= t('user.index') %></h1>
 
-<%= will_paginate %>
+<%= paginate @users %>
 
 <ul class="users">
   <%= render @users %>
 </ul>
 
-<%= will_paginate %>
+<%= paginate @users %>

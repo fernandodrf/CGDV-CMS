@@ -6,7 +6,7 @@ class UsersController < ApplicationController
 
   def index
     @title = t('user.index')
-    @users = User.paginate(:page => params[:page])
+    @users = User.page(params[:page]).per(10)
   end
 	
   def show
