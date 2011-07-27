@@ -35,7 +35,7 @@ class PatientsController < ApplicationController
     @refclinica = @patient.refclinica
     @house = @patient.house
     @socioeco = @patient.socioeco
-    @familymembers = @patient.family_members.family_members.order('created_at ASC')
+    @familymembers = @patient.family_members.order('created_at ASC')
     @comments = @patient.comments
     @title = @patient.cgdvcode
   	render :layout => false 
