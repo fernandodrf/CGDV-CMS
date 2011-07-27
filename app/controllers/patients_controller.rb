@@ -10,7 +10,7 @@ class PatientsController < ApplicationController
   
   def show
     @patient = Patient.find(params[:id])
-    @patientphones = @patient.patientphones
+    @telephones = @patient.telephones
     @addresses = @patient.addresses
     @seguros = @patient.derechohabientes
     @apoyos = @patient.apoyos
@@ -26,7 +26,7 @@ class PatientsController < ApplicationController
   
   def print 
     @patient = Patient.find(params[:id])
-    @patientphones = @patient.patientphones
+    @telephones = @patient.telephones
     @addresses = @patient.addresses
     @seguros = @patient.derechohabientes
     @apoyos = @patient.apoyos

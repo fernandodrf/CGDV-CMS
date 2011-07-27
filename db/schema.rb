@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110720000317) do
+ActiveRecord::Schema.define(:version => 20110727221011) do
 
   create_table "addresses", :force => true do |t|
     t.string   "place"
@@ -24,16 +24,12 @@ ActiveRecord::Schema.define(:version => 20110720000317) do
     t.datetime "updated_at"
   end
 
-  add_index "addresses", ["patient_id"], :name => "index_addresses_on_patient_id"
-
   create_table "apoyos", :force => true do |t|
     t.string   "tipo"
     t.integer  "patient_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
-
-  add_index "apoyos", ["patient_id"], :name => "index_apoyos_on_patient_id"
 
   create_table "catalogo_derechohabientes", :force => true do |t|
     t.string   "seguro"
@@ -54,8 +50,6 @@ ActiveRecord::Schema.define(:version => 20110720000317) do
     t.datetime "updated_at"
   end
 
-  add_index "comments", ["patient_id"], :name => "index_comments_on_patient_id"
-
   create_table "derechohabientes", :force => true do |t|
     t.string   "seguro"
     t.string   "afiliacion"
@@ -64,16 +58,12 @@ ActiveRecord::Schema.define(:version => 20110720000317) do
     t.datetime "updated_at"
   end
 
-  add_index "derechohabientes", ["patient_id"], :name => "index_derechohabientes_on_patient_id"
-
   create_table "diagnosticos", :force => true do |t|
     t.string   "diagnostico"
     t.integer  "patient_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
-
-  add_index "diagnosticos", ["patient_id"], :name => "index_diagnosticos_on_patient_id"
 
   create_table "elements", :force => true do |t|
     t.string   "codigo"
@@ -84,8 +74,6 @@ ActiveRecord::Schema.define(:version => 20110720000317) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
-
-  add_index "elements", ["note_id"], :name => "index_elements_on_note_id"
 
   create_table "family_members", :force => true do |t|
     t.string   "parentesco"
@@ -98,8 +86,6 @@ ActiveRecord::Schema.define(:version => 20110720000317) do
     t.datetime "updated_at"
   end
 
-  add_index "family_members", ["patient_id"], :name => "index_family_members_on_patient_id"
-
   create_table "houses", :force => true do |t|
     t.integer  "habitaciones"
     t.string   "tipo"
@@ -111,8 +97,6 @@ ActiveRecord::Schema.define(:version => 20110720000317) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
-
-  add_index "houses", ["patient_id"], :name => "index_houses_on_patient_id"
 
   create_table "notes", :force => true do |t|
     t.integer  "folio"
@@ -129,16 +113,6 @@ ActiveRecord::Schema.define(:version => 20110720000317) do
 
   add_index "notes", ["folio"], :name => "index_notes_on_folio", :unique => true
   add_index "notes", ["patient_id"], :name => "index_notes_on_patient_id"
-
-  create_table "patientphones", :force => true do |t|
-    t.string   "place"
-    t.string   "number"
-    t.integer  "patient_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  add_index "patientphones", ["patient_id"], :name => "index_patientphones_on_patient_id"
 
   create_table "patients", :force => true do |t|
     t.string   "name"
@@ -164,8 +138,6 @@ ActiveRecord::Schema.define(:version => 20110720000317) do
     t.datetime "updated_at"
   end
 
-  add_index "refclinicas", ["patient_id"], :name => "index_refclinicas_on_patient_id"
-
   create_table "socioecos", :force => true do |t|
     t.integer  "ingresos"
     t.integer  "gastos"
@@ -180,7 +152,13 @@ ActiveRecord::Schema.define(:version => 20110720000317) do
     t.datetime "updated_at"
   end
 
-  add_index "socioecos", ["patient_id"], :name => "index_socioecos_on_patient_id"
+  create_table "telephones", :force => true do |t|
+    t.string   "place"
+    t.string   "number"
+    t.integer  "patient_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "tratamientos", :force => true do |t|
     t.string   "tipo"
@@ -188,8 +166,6 @@ ActiveRecord::Schema.define(:version => 20110720000317) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
-
-  add_index "tratamientos", ["patient_id"], :name => "index_tratamientos_on_patient_id"
 
   create_table "users", :force => true do |t|
     t.string   "name"

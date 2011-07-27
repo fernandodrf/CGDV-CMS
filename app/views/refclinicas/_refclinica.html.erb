@@ -1,7 +1,13 @@
-<tr><td><%= t('refclinica.hospital') %>:</td><td><%= refclinica.hospital %></td></tr>
-<tr><td><%= t('refclinica.medico') %>:</td><td><%= refclinica.medico %></td></tr>
-<tr><td><%= t('refclinica.referencia') %>:</td><td><%= refclinica.referencia %></td></tr>
-<tr><td><%= t('refclinica.aceptado') %>:</td><td><%= refclinica.aceptado %></td></tr>
-<tr><td><%= t('refclinica.ayudas') %>:</td><td><%= refclinica.ayudas %></td></tr>
+<tr>
+  <td><%= t('refclinica.hospital') %>:</td><td><%= refclinica.hospital %></td>
+  <td><%= t('refclinica.referencia') %>:</td><td><%= l refclinica.referencia %></td>  
+</tr>
+<tr>
+  <td><%= t('refclinica.medico') %>:</td><td><%= refclinica.medico %></td>
+  <td><%= t('refclinica.aceptado') %>:</td><td><%= refclinica.aceptado %></td>
+</tr>
+<tr>
+  <td><%= t('refclinica.ayudas') %>:</td><td colspan=3><%= refclinica.ayudas %></td>
+</tr>
 
 

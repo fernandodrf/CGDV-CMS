@@ -27,6 +27,16 @@ section h1 {
   font-size: 200%;
 }
 
+/*
+  Tables
+  You can zebra-stripe your tables in outdated browsers by adding
+  the class "even" to every other table row.
+ */
+tbody tr:nth-child(even) td,
+tbody tr.even td  {
+  background: #FFEECC;
+}
+
 /* Links */
 
 a {

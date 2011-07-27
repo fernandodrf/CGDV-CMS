@@ -2,7 +2,7 @@ class Patient < ActiveRecord::Base
 
   attr_accessible :name, :cgdvcode, :sex, :blod, :birthdate
   
-  has_many :patientphones, :dependent => :destroy
+  has_many :telephones, :dependent => :destroy
   has_many :addresses, :dependent => :destroy
   has_many :derechohabientes, :dependent => :destroy
   has_many :apoyos, :dependent => :destroy

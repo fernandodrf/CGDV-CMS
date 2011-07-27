@@ -35,9 +35,9 @@ namespace :db do
       patient.create_refclinica(:hospital => "H General", :medico => "Dr. Villemon Cuasar", :referencia => Time.now, :aceptado => "Alfonso Aguilar", :ayudas => "Ninguna")
       #2 telefonos
       phone = Faker::PhoneNumber.phone_number
-      patient.patientphones.create!(:place => "Casa", :number => phone)
+      patient.telephones.create!(:place => "Casa", :number => phone)
       phone = Faker::PhoneNumber.phone_number
-      patient.patientphones.create!(:place => "Trabajo", :number => phone)
+      patient.telephones.create!(:place => "Trabajo", :number => phone)
       #Direccion
       patient.addresses.create!(:place => "Casa", :codigopostal => '98761', :estado => "Estado de Mexico", :municipio => "Toluca", :colonia => "El alfalfar", :domicilio => Faker::Address.street_address)
       #Derechohabiente

@@ -82,7 +82,7 @@ CSV.foreach("#{RAILS_ROOT}/db/catalogos/patients.csv") do |row|
   
   #Telefonos
   if !row[12].match(/\D/)
-    if !p.patientphones.create(:place => "Principal", :number => row[12])
+    if !p.telephones.create(:place => "Principal", :number => row[12])
       puts "Error en Paciente con id: #{row[0]} Telefono #{row[12]}"
   	  break
   	end

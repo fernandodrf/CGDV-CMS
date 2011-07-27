@@ -41,9 +41,9 @@ namespace :db do
     end
     Patient.all.each do |patient|
       phone = Faker::PhoneNumber.phone_number
-      patient.patientphones.create!(:place => "Casa", :number => phone)
+      patient.telephones.create!(:place => "Casa", :number => phone)
       phone = Faker::PhoneNumber.phone_number
-      patient.patientphones.create!(:place => "Trabajo", :number => phone)
+      patient.telephones.create!(:place => "Trabajo", :number => phone)
     end
   end
 end

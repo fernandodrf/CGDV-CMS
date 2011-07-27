@@ -1,8 +1,13 @@
 <table>
   <tr><td nowrap><strong><%= t('patient.info') %></strong></td><td><strong><%= link_to t('helpers.submit.update', :model => "Datos Principales"), edit_patient_path(@patient) %></strong></td></tr>
-  <tr><td><%= t('patient.cgdvcode') %>:</td><td> <%= @patient.cgdvcode %></td></tr>
-  <tr><td><%= t('patient.name') %>:</td><td> <%= @patient.name %></td></tr>
-  <tr><td><%= t('patient.sex') %>:</td><td> <%= @patient.sex %></td></tr>
-  <tr><td><%= t('patient.blod') %>:</td><td> <%= @patient.blod %></td></tr>
-  <tr><td><%= t('patient.birthdate') %>:</td><td> <%= l @patient.birthdate, :format => :long %></td></tr>
+  <tr>
+  	<td><%= t('patient.cgdvcode') %>:</td><td><%= @patient.cgdvcode %></td>
+  	<td><%= t('all.created_at') %>:</td><td><%= l @patient.created_at, :format => :small %></td>
+  </tr>
+  <tr><td><%= t('patient.name') %>:</td><td colspan=3><%= @patient.name %></td></tr>
+  <tr>
+  	<td><%= t('patient.sex') %>:</td><td> <%= @patient.sex %></td>
+    <td><%= t('patient.blod') %>:</td><td> <%= @patient.blod %></td>
+  </tr>
+  <tr><td><%= t('patient.birthdate') %>:</td><td colspan=3><%= l @patient.birthdate, :format => :long %></td></tr>
 </table>

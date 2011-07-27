@@ -1,0 +1,10 @@
+<table class="telephones">
+  <tr><td><strong><%= t('patient.tels') %></strong></td>
+	<td><strong><%= link_to t('helpers.submit.create', :model => "Telefono"), new_patient_telephone_path(@patient) %></strong></td></tr>
+  <% unless @patient.telephones.empty? %>
+  <%= render @telephones %>
+  <% end %>
+</table>
+<% unless @patient.telephones.empty? %>
+  <strong><%= link_to t('helpers.submit.create', :model => "Telefono"), new_patient_telephone_path(@patient) %></strong><br />
+<% end %>
