@@ -9,7 +9,8 @@
   <%= f.submit t('helpers.search') %><br /><br />
 <% end %>
 <%= t('search.sort') %>
-<%= sort_link @search, :folio, t('note.folio') %>
+<%= sort_link @search, :folio, t('note.folio') %> | 
+<%= sort_link @search, :created_at, t('all.created_at') %>
 
 <%= paginate @notes %>
 

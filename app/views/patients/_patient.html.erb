@@ -1,5 +1,5 @@
 <li>
-  <%= link_to "#{patient.cgdvcode}: #{patient.name}", patient %>
+  <%= link_to "#{patient.cgdvcode}: #{patient.name}", patient %> |  <%= l patient.created_at, :format => :small %>
   <% if can? :destroy, @patient %>
   | <%= link_to t('helpers.delete.msg'), patient, :method => :delete, :confirm => t('helpers.delete.conf'), :title => "#{t('helpers.delete.msg')} #{patient.name}" %>
   <% end %>

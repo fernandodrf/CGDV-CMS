@@ -8,6 +8,9 @@
 # by Carlos González ( carlosdavid.gonzalez@gmail.com)
 
 sp:
+  all:
+    created_at: "Fecha de Creación"
+
   home: 
     title: "Casa"
     paragraph: "Sistema de manejo de informacion de CGDV."
@@ -207,6 +210,7 @@ sp:
   time:
     formats:
       short: "%d de %b a las %H:%M hrs"
+      small: "%d/%b/%y"
       default: "%a, %d de %b de %Y a las %H:%M:%S %Z"
       long: "%A, %d de %B de %Y a las %I:%M %p"
     am: "am"
