@@ -1,5 +1,15 @@
 <header>
-   <%= link_to logo, root_path %>
+   <%= link_to logoprint, root_path %> 	
+    <nav class='inline round'>
+  	<ul>
+      <% if signed_in? %>  		
+  	  <li><strong><%= t('user.name') %>:</strong> <%= current_user.name %>, No?</li>
+      <li><%= link_to t('session.logout'), signout_path, :method => :delete %></li>
+      <% else %>
+      <li><%= link_to t('session.login'), signin_path %></li>
+      <% end %>
+  	</ul>
+  </nav>
   <nav class='round'>
     <ul>
       <% if signed_in? %>
@@ -10,11 +20,7 @@
       <li><%= link_to t('header.profile'), current_user %></li>
       <li><%= link_to t('header.settings'), edit_user_path(current_user) %></li>
       <% end %>
-      <% if signed_in? %>
-      <li><%= link_to t('session.logout'), signout_path, :method => :delete %></li>
-      <% else %>
-      <li><%= link_to t('session.login'), signin_path %></li>
-      <% end %>
-    </ul>	
-  </nav>
+    </ul>
+    </nav>
+
 </header>

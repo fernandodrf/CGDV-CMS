@@ -3,7 +3,7 @@
 }
 
 body {
-  background: #cff;
+  background: #ffbf40;
 }
 
 header {
@@ -17,6 +17,7 @@ header img {
 
 section {
   margin-top: 1em;
+  margin-bottom: 1em;
   font-size: 120%;
   padding: 20px;
   background: #fff;
@@ -29,80 +30,90 @@ section h1 {
 /* Links */
 
 a {
-  color: #09c;
+  color: #a66f00;
   text-decoration: none;
 }
 
 a:hover {
-  color: #069;
+  color: #a66f00;
   text-decoration: underline;
 }
 
 a:visited {
-  color: #069;
-}
-
-/* Navigation Buttons */
-
-nav {
-  float: right;
+  color: #a66f00;
 }
 
 /* Main Layout */
-.layout {
-
+.main {
+  padding: 0.5em;
 }
 
-.layout table {
-  width: 100%;
-  margin-bottom: 0;
-}
-
-.layout td.main {
-  width: 85%;
-  padding: 1em;
-}
-
-.layout td.sidebar {
-  width: 15%;
-  padding: 1em;
-  vertical-align: top;
-  background: #ffc;
-  white-space: nowrap;
-}
-
-/* Layout */
-
-.layout ul {
+.main ul {
   margin: 0;
   padding: 0;
 }
 
-.layout ul li {
+.main ul li {
   list-style-type: none;
   display: list-item;
   padding: 0.2em 0;
 }
 
-.layout ul li a {
+.main ul li a {
   padding: 0 5px;
   font-weight: normal;
 }
 
-.layout ul li a:visited {
-  color: #09c;
+.main ul li a:visited {
+  color: #a66f00;
 }
 
-.layout ul li a:hover {
+.main ul li a:hover {
   text-decoration: underline;
 }
 
-/* Navigation */
+/* Navigation Bar */
+.navbar {
+  text-align: center;
+  margin-top: 0.5em; 	
+  background-color: white;
+  padding: 0 0.7em;
+  font-size: 120%;
+}
+
+.navbar ul {
+  margin: 0;
+  padding: 0;	
+}
+
+.navbar ul li {
+  list-style-type: none;
+  display: inline-block;
+  padding: 0.2em 0;
+}
+
+.navbar ul li a {
+  padding: 0 5px;
+  font-weight: bold;
+}
+
+.navbar ul li a:visited {
+  color: #a66f00;
+}
+
+.navbar ul li a:hover {
+  text-decoration: underline;
+}
+
+/* Navigation for Users */
 
 nav {
   background-color: white;
   padding: 0 0.7em;
   white-space: nowrap;
+  float: right;
+  clear: right;
+  margin-bottom: 5px;
 }
 
 nav ul {
@@ -122,7 +133,7 @@ nav ul li a {
 }
 
 nav ul li a:visited {
-  color: #09c;
+  color: #a66f00;
 }
 
 nav ul li a:hover {
@@ -136,12 +147,12 @@ a.signup_button {
   margin-right: auto;
   display: block;
   text-align: center;
-  width: 120px;
+  width: 190px;
   color: #fff;
-  background: #006400;
+  background: #bf8f30;
   font-size: 150%;
   font-weight: bold;
-  padding: 5px;
+  padding: 10px;
 }
 
 /* Round corners */
@@ -155,10 +166,10 @@ a.signup_button {
 /* Footer */
 footer {
   text-align: center;
-  margin-top: 10px;
   width: 750px;
   margin-left: auto;
   margin-right: auto;
+  font-size: 120%;
 }
 
 footer nav {
@@ -167,27 +178,6 @@ footer nav {
 
 /* User show page */
 
-table.profile {
-  width: 100%;
-  margin-bottom: 0;
-}
-
-td.main {
-  width: 70%;
-  padding: 1em;
-}
-
-td.sidebar {
-  width: 30%;
-  padding: 1em;
-  vertical-align: top;
-  background: #ffc;
-}
-
-.profile img.gravatar {
-  border: 1px solid #999;
-  margin-bottom: -15px;
-}
 
 div.field, div.actions {
   margin-bottom: 10px;
@@ -240,59 +230,4 @@ ul.users {
 
 .users li {
   list-style: none;
-}
-
-h1.micropost {
-  margin-bottom: 0.3em;
-}
-
-table.microposts {
-  margin-top: 1em;
-}
-
-table.microposts tr {
-  height: 70px;
-}
-
-table.microposts tr td.gravatar {
-  border-top: 1px solid #ccc;
-  vertical-align: top;
-  width: 50px;
-}
-
-table.microposts tr td.micropost {
-  border-top: 1px solid #ccc;
-  vertical-align: top;
-  padding-top: 10px;
-}
-
-table.microposts tr td.micropost span.timestamp {
-  display: block;
-  font-size: 85%;
-  color: #666;
-}
-
-div.user_info img {
-  padding-right: 0.1em;
-}
-
-div.user_info a {
-  text-decoration: none;
-}
-
-div.user_info span.user_name {
-  position: absolute;
-}
-
-div.user_info span.microposts {
-  font-size: 80%;
-}
-
-form.new_micropost {
-  margin-bottom: 2em;
-}
-
-form.new_micropost textarea {
-  height: 4em;
-  margin-bottom: 0;
 }

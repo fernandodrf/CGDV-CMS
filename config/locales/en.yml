@@ -100,7 +100,7 @@ en:
 
   user:
     index: "All Users"
-    name: "Name"
+    name: "User Name"
     email: "Email"
     password: "Password"
     confirmation: "Password Confirmation"

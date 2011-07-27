@@ -1,12 +1,20 @@
-<tr><td><%= t('socioeco.ingresos') %>:</td><td><%= number_to_currency(socioeco.ingresos) %></td></tr>
-<tr><td><%= t('socioeco.gastos') %>:</td><td><%= number_to_currency(socioeco.gastos) %></td></tr>
-<tr><td><%= t('socioeco.remanente') %>:</td><td><%= number_to_currency(remanente(socioeco)) %></td></tr>
-<tr><td><%= t('socioeco.televisiones') %>:</td><td><%= socioeco.televisiones %></td></tr>
-<tr><td><%= t('socioeco.vehiculos') %>:</td><td><%= socioeco.vehiculos %></td></tr>
-<tr><td><%= t('socioeco.nivel') %>:</td><td><%= socioeco.nivel %></td></tr>
-<tr><td><%= t('socioeco.serviciosurbanos') %>:</td><td><%= socioeco.serviciosurbanos %></td></tr>
-<tr><td><%= t('socioeco.televisionpaga') %>:</td><td><%= socioeco.televisionpaga %></td></tr>
-<tr><td><%= t('socioeco.sgmm') %>:</td><td><%= socioeco.sgmm %></td></tr>
+<tr>
+  <td><%= t('socioeco.ingresos') %>:</td><td><%= number_to_currency(socioeco.ingresos) %></td>
+  <td><%= t('socioeco.gastos') %>:</td><td><%= number_to_currency(socioeco.gastos) %></td>
+</tr>
+<tr><td COLSPAN=2><%= t('socioeco.remanente') %>:</td><td COLSPAN=2><%= number_to_currency(remanente(socioeco)) %></td></tr>
+<tr>
+  <td><%= t('socioeco.televisiones') %>:</td><td><%= socioeco.televisiones %></td>
+  <td><%= t('socioeco.vehiculos') %>:</td><td><%= socioeco.vehiculos %></td>
+</tr>
+<tr>
+  <td><%= t('socioeco.nivel') %>:</td><td><%= socioeco.nivel %></td>
+  <td><%= t('socioeco.serviciosurbanos') %>:</td><td><%= socioeco.serviciosurbanos %></td>
+</tr>
+<tr>
+  <td><%= t('socioeco.televisionpaga') %>:</td><td><%= socioeco.televisionpaga %></td>
+  <td><%= t('socioeco.sgmm') %>:</td><td><%= socioeco.sgmm %></td>
+</tr>
 <tr>
   <td><%= link_to t('helpers.delete.msg'), patient_socioeco_path(@patient,socioeco), :method => :delete, :confirm => t('helpers.delete.conf') %></td>
 </tr>

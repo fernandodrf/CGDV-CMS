@@ -1,6 +1,11 @@
 <footer>
-  <nav class="round">
+  <nav class="round">	  	
     <ul>
+    <li><%= link_to t('header.home'), root_path %></li>
+    <% if signed_in? %>
+      <li><%= link_to t('header.patient'), patients_path %></li>
+      <li><%= link_to t('header.note'), notes_path %></li>
+    <% end %>
       <li><a href="http://www.conganas.org.mx/">CGDV</a></li>
       <li><a href="http://www.rodandoporlavida.org/">Rodando</a></li>
     </ul>

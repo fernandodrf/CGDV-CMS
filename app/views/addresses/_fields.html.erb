@@ -9,7 +9,8 @@
 </div>
 <div class="field">
   <%= f.label :estado, t('address.estado') %><br />
-  <%= f.text_field :estado %>
+  <%= f.select :estado, Address::EDOS %>
+  
 </div>
 <div class="field">
   <%= f.label :municipio, t('address.municipio') %><br />

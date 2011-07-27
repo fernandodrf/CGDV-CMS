@@ -1,7 +1,5 @@
 class Note < ActiveRecord::Base
   attr_accessible :folio, :adeudo, :acuenta, :restan, :subtotal, :total, :fecha, :patient_id, :elements_attributes
-
-  default_scope order("folio DESC")  
   
   belongs_to :patient
   has_many :elements, :dependent => :destroy

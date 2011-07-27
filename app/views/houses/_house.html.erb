@@ -1,9 +1,15 @@
-<tr><td><%= t('house.tipo') %>:</td><td><%= house.tipo %></td></tr>
-<tr><td><%= t('house.habitaciones') %>:</td><td><%= house.habitaciones %></td></tr>
-<tr><td><%= t('house.habitantes') %>:</td><td><%= house.habitantes %></td></tr>
-<tr><td><%= t('house.familiares') %>:</td><td><%= house.familiares %></td></tr>
-<tr><td><%= t('house.menores') %>:</td><td><%= house.menores %></td></tr>
-<tr><td><%= t('house.economicaactivas') %>:</td><td><%= house.economicaactivas %></td></tr>
+<tr>
+  <td><%= t('house.tipo') %>:</td><td><%= house.tipo %></td>
+  <td><%= t('house.habitaciones') %>:</td><td><%= house.habitaciones %></td>
+</tr>
+<tr>
+  <td><%= t('house.habitantes') %>:</td><td><%= house.habitantes %></td>
+  <td><%= t('house.familiares') %>:</td><td><%= house.familiares %></td>
+</tr>
+<tr>
+  <td><%= t('house.menores') %>:</td><td><%= house.menores %></td>
+  <td><%= t('house.economicaactivas') %>:</td><td><%= house.economicaactivas %></td>
+</tr>
 <tr>
   <td><%= link_to t('helpers.delete.msg'), patient_house_path(@patient,house), :method => :delete, :confirm => t('helpers.delete.conf') %></td>
 </tr>

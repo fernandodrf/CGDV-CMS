@@ -106,7 +106,7 @@ sp:
 
   user:
     index: "Todos los Usuarios"
-    name: "Nombre"
+    name: "Nombre de Usuario"
     email: "Email"
     password: "Contraseña"
     confirmation: "Confirmar Contraseña"

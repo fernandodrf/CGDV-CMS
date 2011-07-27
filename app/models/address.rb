@@ -27,5 +27,7 @@ class Address < ActiveRecord::Base
   validates :municipio, :presence => true, :length => { :maximum => 50 }
   validates :colonia, :presence => true, :length => { :maximum => 50 }
   validates :domicilio, :presence => true
-  
+
+  EDOS = ['Aguascalientes','Baja California','Baja California Sur','Campeche','Chiapas','Chihuahua','Coahuila','Colima','Distrito Federal','Durango','Estado de Mexico','Guanajuato','Guerrero','Hidalgo','Jalisco','Michoacan','Morelos','Nayarit','Nuevo Leon','Oaxaca','Puebla','Queretaro','Quintana Roo','San Luis Potosi','Sinaloa','Sonora','Tabasco','Tamaulipas','Tlaxcala','Veracruz','Yucatan','Zacatecas']
+
 end
