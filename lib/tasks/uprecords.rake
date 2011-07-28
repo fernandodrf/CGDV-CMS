@@ -14,7 +14,8 @@ namespace :db do
         puts "Error en Comment id: #{comment.id}"
       end      	
     end
-=end    
+    puts "Cometarios Actualizados "
+   
     Telephone.all.each do |telephone|	
       #Update id's
       telephone.telephoneable_id = telephone.patient_id
@@ -22,7 +23,8 @@ namespace :db do
       if !telephone.save
         puts "Error en Telephone id: #{comment.id}"
       end	
-    end    
-    
+    end
+    puts "Telefonos Actualizados"    
+=end   
   end
 end
