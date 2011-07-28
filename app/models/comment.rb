@@ -1,21 +1,23 @@
-# == Schema Information
-# Schema version: 20110628215344
-#
-# Table name: comments
-#
-#  id         :integer         not null, primary key
-#  comment    :text
-#  patient_id :integer
-#  created_at :datetime
-#  updated_at :datetime
-#
-
 class Comment < ActiveRecord::Base
   attr_accessible :comment
   
-  belongs_to :patient
+  belongs_to :commentable, :polymorphic => true
   
-  validates :patient_id, :presence => true
+  #validates :patient_id, :presence => true
   validates :comment, :presence => true
   
 end
+
+# == Schema Information
+#
+# Table name: comments
+#
+#  id               :integer         not null, primary key
+#  comment          :text
+#  patient_id       :integer
+#  created_at       :datetime
+#  updated_at       :datetime
+#  commentable_id   :integer
+#  commentable_type :string(255)
+#
+

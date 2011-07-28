@@ -7,14 +7,17 @@ class CommentTest < ActiveSupport::TestCase
   end
 end
 
+
 # == Schema Information
 #
 # Table name: comments
 #
-#  id         :integer         not null, primary key
-#  comment    :text
-#  patient_id :integer
-#  created_at :datetime
-#  updated_at :datetime
+#  id               :integer         not null, primary key
+#  comment          :text
+#  patient_id       :integer
+#  created_at       :datetime
+#  updated_at       :datetime
+#  commentable_id   :integer
+#  commentable_type :string(255)
 #
 
