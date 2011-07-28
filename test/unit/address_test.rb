@@ -7,19 +7,22 @@ class AddressTest < ActiveSupport::TestCase
   end
 end
 
+
 # == Schema Information
 #
 # Table name: addresses
 #
-#  id           :integer         not null, primary key
-#  place        :string(255)
-#  codigopostal :integer
-#  estado       :string(255)
-#  municipio    :string(255)
-#  colonia      :string(255)
-#  domicilio    :string(255)
-#  patient_id   :integer
-#  created_at   :datetime
-#  updated_at   :datetime
+#  id                :integer         not null, primary key
+#  place             :string(255)
+#  codigopostal      :integer
+#  estado            :string(255)
+#  municipio         :string(255)
+#  colonia           :string(255)
+#  domicilio         :string(255)
+#  patient_id        :integer
+#  created_at        :datetime
+#  updated_at        :datetime
+#  addresseable_id   :integer
+#  addresseable_type :string(255)
 #
 

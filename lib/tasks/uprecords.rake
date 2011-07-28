@@ -3,7 +3,7 @@
 #Comments
 namespace :db do
 	
-  desc "Update Comments to Polymorphic"
+  desc "Update Models to Polymorphic"
   task :uprecords => :environment do
 =begin  	
     Comment.all.each do |comment|    	
@@ -25,6 +25,15 @@ namespace :db do
       end	
     end
     puts "Telefonos Actualizados"    
-=end   
+=end
+    Address.all.each do |address|	
+      #Update id's
+      address.addresseable_id = address.patient_id
+      address.addresseable_type = Patient.to_s
+      if !address.save
+        puts "Error en Address id: #{comment.id}"
+      end	
+    end
+    puts "Direcciones Actualizados"
   end
 end
