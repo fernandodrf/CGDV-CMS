@@ -5,8 +5,6 @@ class ConvertCommentsToPoly < ActiveRecord::Migration
     end
   end
 
-
-
   def self.down
     remove_column :comments, :commentable_id
     remove_column :comments, :commentable_type

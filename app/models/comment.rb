@@ -3,7 +3,8 @@ class Comment < ActiveRecord::Base
   
   belongs_to :commentable, :polymorphic => true
   
-  #validates :patient_id, :presence => true
+  validates :commentable_id, :presence => true
+  validates :commentable_type, :presence => true  
   validates :comment, :presence => true
   
 end
