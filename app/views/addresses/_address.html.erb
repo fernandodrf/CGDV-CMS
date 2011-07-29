@@ -10,3 +10,4 @@
   <td colspan=2><%= link_to t('helpers.edit'), edit_patient_address_path(@patient, address) %></td>
   <td colspan=2><%= link_to t('helpers.delete.msg'), patient_address_path(@patient,address), :method => :delete, :confirm => t('helpers.delete.conf') %></td>
 </tr>
+<tr><td colspan=4><strong><%= link_to t('helpers.submit.create', :model => "Direccion"), new_patient_address_path(@patient) %></strong></td><tr>

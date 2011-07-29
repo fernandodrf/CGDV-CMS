@@ -5,5 +5,5 @@
 <tr><td colspan=2><%= t('refclinica.medico') %>: <%= refclinica.medico %></td></tr>
  <tr><td colspan=2><%= t('refclinica.aceptado') %>: <%= refclinica.aceptado %></td></tr>
 <tr><td colspan=2><%= t('refclinica.ayudas') %>: <%= refclinica.ayudas %></td></tr>
-
+<tr><td colspan=2><%= link_to t('helpers.delete.msg'), patient_refclinica_path(@patient,@refclinica), :method => :delete, :confirm => t('helpers.delete.conf') %></td></tr>
 

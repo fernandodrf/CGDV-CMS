@@ -7,6 +7,5 @@
   </tr>
   <% unless @patient.addresses.empty? %>
   <%= render @addresses %>
-  <tr><td colspan=4><strong><%= link_to t('helpers.submit.create', :model => "Direccion"), new_patient_address_path(@patient) %></strong></td><tr>
   <% end %>
 </table>
