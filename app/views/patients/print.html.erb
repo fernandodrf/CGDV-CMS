@@ -1,27 +1,33 @@
-<!--[if lt IE 8]><%= stylesheet_link_tag 'blueprint/ie' %><![endif]-->
-<%= stylesheet_link_tag 'customprint', :media => "screen, print, projection" %>
-<%= csrf_meta_tag %>
-<div id="wrap">
-  <div id="header">
-  	<table align=center border=0>
-  	  <tr><td><%= logoprint %></td><td><h1><%= @patient.cgdvcode %>: <%= @patient.name %></h1></td></tr>
-  	</table>
-  	</div>
-  <div id="mainleft">
-  	<%= render 'personalinformation' %>
-    <%= render 'houses/houseinfo' %>
-    <%= render 'diagnosticos/diagnosticosinfo' %>
-	<%= render 'tratamientos/tratamientosinfo' %>
-	<%= render 'derechohabientes/derechohabientes' %>
-	<%= render 'telephones/telephoneinformation' %>
-	<%= render 'addresses/addressinformation' %>
-	<%= render 'comments/comments' %>
-  </div>
-  <div id="mainright">
-    <%= render 'refclinicas/refclinicainfo' %>
-    <%= render 'socioecos/socioecoinfo' %>
-    <%= render 'apoyos/apoyosinfo' %>
-    <%= render 'family_members/familymembers' %>
-  </div>
-  <div id="footer"></div>
-</div>
+<!DOCTYPE html>
+<html>
+  <head>
+    <!--[if lt IE 8]><%= stylesheet_link_tag 'blueprint/ie' %><![endif]-->
+	<%= stylesheet_link_tag 'customprint', :media => "screen, print, projection" %>
+	<%= csrf_meta_tag %>
+	</head>
+    <body>	
+	<div id="wrap">
+	  <div id="header">
+	    <table align=center border=0>
+		  <tr><td><%= logoprint %></td><td><h1><%= @patient.cgdvcode %>: <%= @patient.name %></h1></td></tr>
+	    </table>
+	  </div>
+	  <div class="patientprint" id="mainleft">
+		<%= render 'personalinformation' %>
+		<%= render 'houses/houseinfo' %>
+	    <%= render 'family_members/familymembers' %>
+	  </div>
+	  <div class="patientprint" id="mainright">
+	    <%= render 'refclinicas/refclinicainfo' %>
+	    <%= render 'socioecos/socioecoinfo' %>
+	    <%= render 'diagnosticos/diagnosticosinfo' %>
+		<%= render 'tratamientos/tratamientosinfo' %>
+		<%= render 'derechohabientes/derechohabientes' %>
+		<%= render 'telephones/telephoneinformation' %>
+		<%= render 'addresses/addressinformation' %>
+	    <%= render 'apoyos/apoyosinfo' %>
+		<%= render 'comments/comments' %>
+	  </div>
+    </div>
+  </body>
+</html>

@@ -1,11 +1,7 @@
-<table class="apoyos">
+<table class="apoyos" align=center>
   <tr>
-    <td>
-      <strong><%= t('patient.apoyos') %></strong>
-	</td>
-	<td>
-      <%= link_to t('helpers.submit.create', :model => "Apoyo"), new_patient_apoyo_path(@patient) %>
-	</td>
+    <th><%= t('patient.apoyos') %></th>
+	<td><%= link_to t('helpers.submit.create', :model => "Apoyo"), new_patient_apoyo_path(@patient) %></td>
   </tr>
   <% unless @patient.apoyos.empty? %>
   <%= render @apoyos %>

@@ -1,11 +1,5 @@
 <tr>
-  <td>
-    <%= comment.comment %>
-  </td>
-  <td>
-    <%= link_to t('helpers.edit'), edit_patient_comment_path(@patient, comment) %>
-  </td>
-  <td>
-  	<%= link_to t('helpers.delete.msg'), patient_comment_path(@patient,comment), :method => :delete, :confirm => t('helpers.delete.conf'), :title => "#{t('helpers.delete.msg')} #{comment.comment}" %>
-  </td>
+  <td><%= comment.comment %></td>
+  <td><%= link_to t('helpers.edit'), edit_patient_comment_path(@patient, comment) %></td>
+  <td><%= link_to t('helpers.delete.msg'), patient_comment_path(@patient,comment), :method => :delete, :confirm => t('helpers.delete.conf'), :title => "#{t('helpers.delete.msg')} #{comment.comment}" %></td>
 </tr>

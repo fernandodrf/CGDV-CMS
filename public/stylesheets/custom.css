@@ -32,6 +32,8 @@ section h1 {
   You can zebra-stripe your tables in outdated browsers by adding
   the class "even" to every other table row.
  */
+
+thead th      { background: #FFCC66; }
 tbody tr:nth-child(even) td,
 tbody tr.even td  {
   background: #FFEECC;

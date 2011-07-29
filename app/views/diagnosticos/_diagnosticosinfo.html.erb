@@ -1,13 +1,9 @@
-<table class="diagnosticos">
+<table class="diagnosticos" align=center>
   <tr>
-    <td>
-      <strong><%= t('patient.diagnosticos') %></strong>
-	</td>
-	<td colspan="2" nowrap="nowrap">
-      <%= link_to t('helpers.submit.create', :model => "Diagnostico"), new_patient_diagnostico_path(@patient) %>
-	</td>
+    <th ><%= t('patient.diagnosticos') %></th>
+	<td colspan=2><%= link_to t('helpers.submit.create', :model => "Diagnostico"), new_patient_diagnostico_path(@patient) %></td>
   </tr>
   <% unless @patient.diagnosticos.empty? %>
-  <%= render @diagnosticos %>
+    <%= render @diagnosticos %>
   <% end %>
 </table>

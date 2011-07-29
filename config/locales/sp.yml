@@ -95,9 +95,9 @@ sp:
     televisiones: "Numero de Televisiones"
     vehiculos: "Numero de vehiculos"
     nivel: "Nivel Socioeconomico"
-    serviciosurbanos: "¿Cuenta con Servicios Urbanos?"
-    televisionpaga: "Servicio de Television de Paga?"
-    sgmm: "¿Seguro de Gastos Medicos Mayores?"
+    serviciosurbanos: "¿Servicios Urbanos?"
+    televisionpaga: "¿Television de Paga?"
+    sgmm: "¿S. G. M. M.?"
 
   familymember:
     title: "Familiares"

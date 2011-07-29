@@ -1,9 +1,8 @@
-a{
+a, br {
   display:none;
 }
 
-body,
-html {
+body {
   margin:0;
   padding:0;
   color:#000;
@@ -16,6 +15,9 @@ h1 {
   margin:0.25em .25em 0.25em;
 }
 
+.patientprint {
+  font-size: 11pt;
+}
 .nota {
   font-size: 8pt;
   border-spacing: 0px;

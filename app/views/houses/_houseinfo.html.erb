@@ -1,9 +1,7 @@
 <table class="house">
+  <tr><th colspan=2><%= t('house.title') %></strong></th></tr>
   <tr>
-    <td>
-      <strong><%= t('house.title') %></strong>
-	</td>
-	<td>
+	<td colspan=2>
 	  <% if @house == nil %>
 	  <%= link_to t('helpers.submit.create', :model => "Informacion de Vivienda"), new_patient_house_path(@patient) %>
 	  <% else %>
@@ -13,5 +11,6 @@
   </tr>
   <% if @house != nil %>
   <%= render @house %>
+  <tr><td colspan=2><%= link_to t('helpers.delete.msg'), patient_house_path(@patient,@house), :method => :delete, :confirm => t('helpers.delete.conf') %></td></tr>
   <% end %>
 </table>

@@ -1,16 +1,10 @@
 <table class="Family Members">
-  <tr>
-    <td>
-      <strong><%= t('familymember.title') %></strong>
-	</td>
-	<td><strong>
-	  <%= link_to t('helpers.submit.create', :model => "Familiar"), new_patient_family_member_path(@patient) %>
-	</strong></td>
-  </tr>
+  <tr><th colspan=2><%= t('familymember.title') %></th></tr>
+  <tr><td colspan=2><strong><%= link_to t('helpers.submit.create', :model => "Familiar"), new_patient_family_member_path(@patient) %></strong></td></tr>
   <% unless @patient.family_members.empty? %>
-  <%= render @familymembers %>
+    <%= render @familymembers %>
   <% end %>
-</table>
-<% unless @patient.family_members.empty? %>
-  <strong><%= link_to t('helpers.submit.create', :model => "Familiar"), new_patient_family_member_path(@patient) %></strong><br />
+  <% unless @patient.family_members.empty? %>
+  <tr><td colspan=2><strong><%= link_to t('helpers.submit.create', :model => "Familiar"), new_patient_family_member_path(@patient) %></strong></td></tr>
 <% end %>
+</table>

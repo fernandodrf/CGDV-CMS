@@ -89,8 +89,8 @@ en:
     televisiones: "Number of TV's"
     vehiculos: "Number of Vehicles"
     nivel: "Socioeconomic Level"
-    serviciosurbanos: "Urban services available?"
-    televisionpaga: "Paid TV service?"
+    serviciosurbanos: "Urban Services?"
+    televisionpaga: "Paid TV?"
     sgmm: "Medical Insurance?"
 
   familymember:

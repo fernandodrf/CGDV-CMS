@@ -1,11 +1,7 @@
-<table class="comments">
+<table class="comments" align=center>
   <tr>
-    <td>
-      <strong><%= t('patient.comments') %></strong>
-	</td>
-	<td colspan="2" nowrap="nowrap">
-      <%= link_to t('helpers.submit.create', :model => "Comentarios"), new_patient_comment_path(@patient) %>
-	</td>
+    <th><%= t('patient.comments') %></th>
+	<td colspan=2 nowrap><%= link_to t('helpers.submit.create', :model => "Comentarios"), new_patient_comment_path(@patient) %></td>
   </tr>
   <% unless @patient.comments.empty? %>
   <%= render @comments %>

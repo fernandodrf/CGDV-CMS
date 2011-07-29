@@ -1,9 +1,11 @@
 <table class="socioeco">
   <tr>
-    <td>
-      <strong><%= t('socioeco.title') %></strong>
-	</td>
-	<td>
+    <th colspan=2>
+      <%= t('socioeco.title') %>
+	</th>
+  </tr>
+  <tr>
+  	<td colspan=2>
 	  <% if @socioeco == nil %>
 	  <%= link_to t('helpers.submit.create', :model => "Informacion Socioeconomica"), new_patient_socioeco_path(@patient) %>
 	  <% else %>
@@ -13,5 +15,10 @@
   </tr>
   <% if @socioeco != nil %>
   <%= render @socioeco %>
+  <tr>
+    <td colspan=2>
+      <%= link_to t('helpers.delete.msg'), patient_socioeco_path(@patient,@socioeco), :method => :delete, :confirm => t('helpers.delete.conf') %>	   
+    </td>
+  </tr>
   <% end %>
 </table>
