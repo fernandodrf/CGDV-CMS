@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110728172211) do
+ActiveRecord::Schema.define(:version => 20110729025813) do
 
   create_table "addresses", :force => true do |t|
     t.string   "place"
@@ -19,7 +19,6 @@ ActiveRecord::Schema.define(:version => 20110728172211) do
     t.string   "municipio"
     t.string   "colonia"
     t.string   "domicilio"
-    t.integer  "patient_id"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "addresseable_id"
@@ -47,7 +46,6 @@ ActiveRecord::Schema.define(:version => 20110728172211) do
 
   create_table "comments", :force => true do |t|
     t.text     "comment"
-    t.integer  "patient_id"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "commentable_id"
@@ -126,7 +124,6 @@ ActiveRecord::Schema.define(:version => 20110728172211) do
     t.string   "sex"
     t.date     "birthdate"
     t.string   "blod"
-    t.string   "oldid"
   end
 
   add_index "patients", ["cgdvcode"], :name => "index_patients_on_cgdvcode", :unique => true
@@ -159,7 +156,6 @@ ActiveRecord::Schema.define(:version => 20110728172211) do
   create_table "telephones", :force => true do |t|
     t.string   "place"
     t.string   "number"
-    t.integer  "patient_id"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "telephoneable_id"

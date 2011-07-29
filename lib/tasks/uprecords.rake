@@ -25,7 +25,7 @@ namespace :db do
       end	
     end
     puts "Telefonos Actualizados"    
-=end
+
     Address.all.each do |address|	
       #Update id's
       address.addresseable_id = address.patient_id
@@ -35,5 +35,6 @@ namespace :db do
       end	
     end
     puts "Direcciones Actualizados"
+=end
   end
 end
