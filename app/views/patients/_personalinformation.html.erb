@@ -6,6 +6,9 @@
     <td colspan=2><strong><%= link_to t('helpers.submit.update', :model => "Datos Principales"), edit_patient_path(@patient) %></strong></td>
   </tr>
   <tr>
+  	<td colspan=2><%= t('patient.status') %>: <%= text_status(@patient.status) %></td>
+  </tr>
+  <tr>
   	<td><%= t('patient.cgdvcode') %>: <%= @patient.cgdvcode %></td>
   	<td><%= t('all.created_at') %>: <%= l @patient.created_at, :format => :small %></td>
   </tr>

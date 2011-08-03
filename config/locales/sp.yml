@@ -37,8 +37,9 @@ sp:
       create: "%{model} creado exitosamente."
       edit: "%{model} actualizado."
       destroy: "%{model} eliminado."
-              
+                  
   patient:
+    status: "Estatus del Expediente"
     info: "Informacion Principal"
     title: "Paciente"
     name: "Nombre"
@@ -54,8 +55,9 @@ sp:
     apoyo: "Apoyo"
     tipo: "Tipo"
     comment: "Comentario"
-    comments: "Comentarios"
-
+    comments: "Comentarios"    
+    not: "No se puede cambiar el Estatus."
+    
   address:
     title: "Domicilios"
     place: "Lugar"
@@ -135,6 +137,7 @@ sp:
     descripcion: "Descripcion"
     cuota: "Cuota"
     Cantidad: "Cantidad"
+    error_pat: ": Imposible generar Nota, el Estatus del Paciente lo prohibe."
     
   views:
     pagination:

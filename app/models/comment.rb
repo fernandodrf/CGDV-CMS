@@ -9,13 +9,13 @@ class Comment < ActiveRecord::Base
   
 end
 
+
 # == Schema Information
 #
 # Table name: comments
 #
 #  id               :integer         not null, primary key
 #  comment          :text
-#  patient_id       :integer
 #  created_at       :datetime
 #  updated_at       :datetime
 #  commentable_id   :integer

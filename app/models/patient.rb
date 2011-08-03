@@ -1,6 +1,8 @@
 class Patient < ActiveRecord::Base
 
-  attr_accessible :name, :cgdvcode, :sex, :blod, :birthdate
+  include SessionsHelper
+
+  attr_accessible :name, :cgdvcode, :sex, :blod, :birthdate, :status
   
   has_many :telephones, :as => :telephoneable, :dependent => :destroy
   has_many :addresses, :as => :addresseable, :dependent => :destroy
@@ -23,8 +25,10 @@ class Patient < ActiveRecord::Base
   validates :sex, :presence => true, :length => { :maximum => 5}
   validates :blod, :presence => true, :length => { :maximum => 5}
   validates :birthdate, :presence => true
+  validates :status, :presence => true, :numericality => true
 
   BLOODTYPES = ['NS', 'A+', 'A-', 'B+', 'B-', 'AB+', 'AB-', 'O+', 'O-']
+  STATUS = [['Activo',1],['Abandono',2],['Reglamentaria',3],['Defuncion',4],['Remision',5],['Acceso Seguridad Social',6]]
   
 end
 
@@ -40,6 +44,6 @@ end
 #  sex        :string(255)
 #  birthdate  :date
 #  blod       :string(255)
-#  oldid      :string(255)
+#  status     :integer         default(1)
 #
 

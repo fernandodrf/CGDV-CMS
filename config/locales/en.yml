@@ -33,6 +33,7 @@ en:
       destroy: "%{model} destroyed."
         
   patient:
+    status: "Expedient Status"
     info: "Main Information"
     title: "Paciente"
     name: "Name"
@@ -49,7 +50,8 @@ en:
     tipo: "Type"
     comment: "Comment"
     comments: "Comments"
-
+    not: "Unable to change status."
+    
   address: 
     title: "Addresses"
     place: "Place"
@@ -129,6 +131,7 @@ en:
     descripcion: "Description"
     cuota: "Fee"
     Cantidad: "Quantity"
+    error_pat: ": Unable to generate Note, Patient Status forbids it."
     
     
 # From: https://github.com/svenfuchs/rails-i18n/blob/master/rails/locale/en-US.yml

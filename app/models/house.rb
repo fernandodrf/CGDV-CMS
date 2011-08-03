@@ -22,6 +22,7 @@ class House < ActiveRecord::Base
 			:numericality => true
 
   TIPOS = ['Albergue', 'Alquiler', 'Prestada', 'Rentada', 'Propia', 'Institucion Medica', 'Sin Vivienda']
+  
 end
 
 # == Schema Information

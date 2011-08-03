@@ -8,6 +8,7 @@ class AddressTest < ActiveSupport::TestCase
 end
 
 
+
 # == Schema Information
 #
 # Table name: addresses
@@ -19,7 +20,6 @@ end
 #  municipio         :string(255)
 #  colonia           :string(255)
 #  domicilio         :string(255)
-#  patient_id        :integer
 #  created_at        :datetime
 #  updated_at        :datetime
 #  addresseable_id   :integer

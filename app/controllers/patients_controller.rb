@@ -67,12 +67,21 @@ class PatientsController < ApplicationController
   
   def update
     @patient = Patient.find(params[:id])
-    if @patient.update_attributes(params[:patient])
-      flash[:success] = t('flash.success.edit', :model => Patient.to_s)
-      redirect_to @patient
-    else
+    #Para evitar que los pacientes cambien status de REGLAMENTARIA
+    if @patient.status == 3 && !current_user.admin?
+      flash[:error] = t('patient.not')	
       @title = t('helpers.submit.create', :model => Patient.to_s)
+      @cgdvcode = @patient.cgdvcode
       render 'edit'
+    else    	
+      if @patient.update_attributes(params[:patient])
+        flash[:success] = t('flash.success.edit', :model => Patient.to_s)
+        redirect_to @patient
+      else
+        @title = t('helpers.submit.create', :model => Patient.to_s)
+        @cgdvcode = @patient.cgdvcode
+        render 'edit'
+      end
     end
   end
   

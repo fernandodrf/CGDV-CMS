@@ -1,5 +1,7 @@
 class Note < ActiveRecord::Base
   attr_accessible :folio, :adeudo, :acuenta, :restan, :subtotal, :total, :fecha, :patient_id, :elements_attributes
+
+  before_save :check_status
   
   belongs_to :patient
   has_many :elements, :dependent => :destroy
@@ -14,6 +16,15 @@ class Note < ActiveRecord::Base
   validates :subtotal, :presence => true, :length => { :maximum => 20}, :numericality => true
   validates :total, :presence => true, :length => { :maximum => 20}, :numericality => true
   validates :fecha, :presence => true
+  
+  protected
+    def check_status
+      @patient = Patient.find(patient_id) 
+      if @patient.status != 1
+      	errors[:patient_id] << I18n.t('note.error_pat')	
+        false
+      end
+	end  
 end
 
 

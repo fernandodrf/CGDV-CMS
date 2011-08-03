@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110729025813) do
+ActiveRecord::Schema.define(:version => 20110801191415) do
 
   create_table "addresses", :force => true do |t|
     t.string   "place"
@@ -124,6 +124,7 @@ ActiveRecord::Schema.define(:version => 20110729025813) do
     t.string   "sex"
     t.date     "birthdate"
     t.string   "blod"
+    t.integer  "status",     :default => 1
   end
 
   add_index "patients", ["cgdvcode"], :name => "index_patients_on_cgdvcode", :unique => true

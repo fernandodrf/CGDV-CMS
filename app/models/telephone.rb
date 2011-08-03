@@ -10,6 +10,7 @@ class Telephone < ActiveRecord::Base
   
 end
 
+
 # == Schema Information
 #
 # Table name: telephones
@@ -17,7 +18,6 @@ end
 #  id                 :integer         not null, primary key
 #  place              :string(255)
 #  number             :string(255)
-#  patient_id         :integer
 #  created_at         :datetime
 #  updated_at         :datetime
 #  telephoneable_id   :integer
