@@ -7,8 +7,7 @@ one:
   familiares: 1
   menores: 1
   economicaactivas: 1
-  patient: 
-
+  
 two:
   habitaciones: 1
   tipo: MyString
@@ -16,8 +15,7 @@ two:
   familiares: 1
   menores: 1
   economicaactivas: 1
-  patient: 
-
+  
 # == Schema Information
 #
 # Table name: houses

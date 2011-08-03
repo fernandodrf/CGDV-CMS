@@ -1,26 +1,24 @@
 # Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
 
 one:
-  ingreso: 1
+  ingresos: 1
   gastos: 1
   televisiones: 1
   vehiculos: 1
   nivel: MyString
   serviciosurbanos: MyString
   televisionpaga: MyString
-  sgmm: 
-  patient: 
+  sgmm: No
 
 two:
-  ingreso: 1
+  ingresos: 1
   gastos: 1
   televisiones: 1
   vehiculos: 1
   nivel: MyString
   serviciosurbanos: MyString
   televisionpaga: MyString
-  sgmm: 
-  patient: 
+  sgmm: Si 
 
 
 # == Schema Information

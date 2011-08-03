@@ -8,18 +8,15 @@ one:
   subtotal: 9.99
   total: 9.99
   fecha: 2011-07-09
-  patient: 
 
 two:
-  folio: 1
+  folio: 2
   adeudo: 9.99
   acuenta: 9.99
   restan: 9.99
   subtotal: 9.99
   total: 9.99
   fecha: 2011-07-09
-  patient: 
-
 
 # == Schema Information
 #

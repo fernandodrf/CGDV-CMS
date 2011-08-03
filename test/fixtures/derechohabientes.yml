@@ -16,9 +16,8 @@
 one:
   seguro: MyString
   afiliacion: MyString
-  references: 
 
 two:
   seguro: MyString
   afiliacion: MyString
-  references: 
+

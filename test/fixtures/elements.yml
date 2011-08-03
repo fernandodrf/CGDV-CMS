@@ -5,14 +5,12 @@ one:
   cantidad: 1
   cuota: 9.99
   descripcion: MyString
-  note: 
 
 two:
   codigo: MyString
   cantidad: 1
   cuota: 9.99
   descripcion: MyString
-  note: 
 
 
 # == Schema Information

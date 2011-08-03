@@ -6,15 +6,14 @@ one:
   referencia: 2011-06-29
   aceptado: MyString
   ayudas: MyString
-  patient: 
-
+  
 two:
   hospital: MyString
   medico: MyString
   referencia: 2011-06-29
   aceptado: MyString
   ayudas: MyString
-  patient: 
+
 
 # == Schema Information
 #

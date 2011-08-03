@@ -14,8 +14,6 @@
 
 one:
   diagnostico: MyString
-  patient: 
 
 two:
   diagnostico: MyString
-  patient: 
