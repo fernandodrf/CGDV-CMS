@@ -5,9 +5,13 @@ class PatientTest < ActiveSupport::TestCase
   test "the truth" do
     assert true
   end
+  
+  test "no guardar sin informacion" do
+  	p = Patient.new
+  	assert !p.save, "Guardo paciente sin informacion"
+  end
+  
 end
-
-
 
 
 # == Schema Information
