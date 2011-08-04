@@ -10,15 +10,18 @@
   <%= f.text_field :cgdvcode_equals, :size => 10 %>
   <%= f.submit t('helpers.search') %><br /><br />
 <% end %>
-<%= t('search.sort') %>
-<%= sort_link @search, :cgdvcode, t('patient.cgdvcode') %> | 
-<%= sort_link @search, :name, t('patient.name') %> | 
-<%= sort_link @search, :created_at, t('all.created_at') %>
+
+<strong><%= t('search.sort') %>	</strong>
 
 <%= paginate @patients %>
 
-<ul class="users">
-  <%= render @patients %>
-</ul>
+<table>
+	<tr>
+	  <td><strong><%= sort_link @search, :cgdvcode, t('patient.cgdvcode') %></strong></td>
+	  <td><strong><%= sort_link @search, :name, t('patient.name') %></strong></td>
+	  <td><strong><%= sort_link @search, :created_at, t('all.created_at') %></strong></td>
+    </tr>
+	<%= render @patients %>
+</table>
 
 <%= paginate @patients %>

@@ -51,6 +51,7 @@ en:
     comment: "Comment"
     comments: "Comments"
     not: "Unable to change status."
+    age: "Age"
     
   address: 
     title: "Addresses"
@@ -249,6 +250,9 @@ en:
       x_months:
         one:   "1 month"
         other: "%{count} months"
+      x_years:
+        one:   "1 year"
+        other: "%{count} years"        
       about_x_years:
         one:   "about 1 year"
         other: "about %{count} years"

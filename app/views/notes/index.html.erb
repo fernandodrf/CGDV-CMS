@@ -8,14 +8,19 @@
   <%= f.text_field :folio_equals %>
   <%= f.submit t('helpers.search') %><br /><br />
 <% end %>
-<%= t('search.sort') %>
-<%= sort_link @search, :folio, t('note.folio') %> | 
-<%= sort_link @search, :created_at, t('all.created_at') %>
+
+<strong><%= t('search.sort') %>	</strong>
 
 <%= paginate @notes %>
 
-<ul class="users">
-  <%= render @notes %>
-</ul>
+<table>
+	<tr>
+	  <td><strong><%= sort_link @search, :folio, t('note.folio') %></strong></td>
+	  <td><strong><%= t('patient.cgdvcode') %></strong></td>
+	  <td><strong><%= sort_link @search, :created_at, t('all.created_at') %></strong></td>
+    </tr>
+	<%= render @notes %>
+</table>
+
 
 <%= paginate @notes %>

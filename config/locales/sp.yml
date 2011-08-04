@@ -57,6 +57,7 @@ sp:
     comment: "Comentario"
     comments: "Comentarios"    
     not: "No se puede cambiar el Estatus."
+    age: "Edad"
     
   address:
     title: "Domicilios"
@@ -255,6 +256,9 @@ sp:
       x_months:
         one: "1 mes"
         other: "%{count} meses"
+      x_years:
+        one: "1 año"
+        other: "%{count} años"
       about_x_years:
         other: "cerca de %{count} años"
         one: "cerca de 1 año"
