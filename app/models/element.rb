@@ -1,5 +1,6 @@
 class Element < ActiveRecord::Base
   attr_accessible :codigo, :cantidad, :cuota, :descripcion
+  
   belongs_to :note
   
   validates :codigo, :presence => true,:length => { :maximum => 250}

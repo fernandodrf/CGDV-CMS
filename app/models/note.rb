@@ -5,7 +5,7 @@ class Note < ActiveRecord::Base
   
   belongs_to :patient
   has_many :elements, :dependent => :destroy
-  accepts_nested_attributes_for :elements
+  accepts_nested_attributes_for :elements, :allow_destroy => true
 
   validates :patient_id, :presence => true
   validates :folio, :presence => true,:length => { :maximum => 20},

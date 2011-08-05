@@ -14,9 +14,24 @@ $(document).ready(function() {
   var str_pre1 = "#note_elements_attributes_";
   var str_pre2 = ".note_container tr:nth-child(";
   var str_postab = "td:nth-child(5)";
-
+  var addclicks = parseInt($("#note_count").val());
+  
+  //Hide Añadir Elementos al inicio de la pagina
+  if (addclicks >= 6){
+  	  $('.add_nested_fields').hide();
+  }
+  
+  //Hide Añadir Elementos
+  $(".add_nested_fields").click(function(){
+  	//alert("Añadido " + addclicks + " elementos");
+  	addclicks += 1;
+  	if (addclicks >= 6){
+  	  $('.add_nested_fields').hide();
+  	}
+  });
+  
   //Metodo que calcula subtotales y totales	
-  $(".note_container").change(function(){
+  $(".note_container").bind('change click', function(){
   var ST = 0;
   
 	for( i=0; i < 6; i++){
@@ -25,13 +40,14 @@ $(document).ready(function() {
 	  cantidad[i] = parseFloat($(str_pre1 + i + "_cantidad").val());
 	  //Calcula subtotales
 	  subtotal[i] = cantidad[i]*cuota[i];
-	if (isNaN(subtotal[i])){
-	  subtotal[i] = 0;
-	}
-	//Despliega subtotales
-	r = 2+i;
-	$(str_pre2 + r + ") " + str_postab).html(subtotal[i]);
-	ST += subtotal[i];
+ 	  if (isNaN(subtotal[i])){
+	    subtotal[i] = 0;
+	  }
+	  //Despliega subtotales
+	  r = 2+i;
+	  //$(str_pre2 + r + ") " + str_postab).html(subtotal[i]);
+	  $("#subtotal_"+i).html(subtotal[i]);
+	  ST += subtotal[i];
 	}
     //Escribe subtotal
     $('#note_subtotal').val(ST); 
@@ -50,7 +66,7 @@ $(document).ready(function() {
   });
 
   //Metodo que calcula totales
-  $(".note_container2").change(function(){
+  $(".note_container2").bind('change click', function(){
   var ST2 = 0;
     //Lee subtotal
     ST2 = parseFloat($("#note_subtotal").val());
@@ -72,7 +88,7 @@ $(document).ready(function() {
   });
 
   //Metodo que actualiza adeudo  
-  $("#note_patient_id").change(function(){
+  $("#note_patient_id").bind('change click', function(){
     var patid;
     //Lee patient_id
     patid = parseFloat($("#note_patient_id").val());

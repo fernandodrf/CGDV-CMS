@@ -17,19 +17,16 @@
     <td><strong><%= t('note.descripcion') %></strong></td>
     <td><strong><%= t('note.cuota') %></strong></td>
     <td><strong><%= t('note.cantidad') %></strong></td>
-    <td><strong>Subtotal</strong></td>	
+    <td><strong>Subtotal</strong></td>
+    <td></td>
+    <td><%= f.hidden_field :count, :value => @note.elements.count %></td>	
   </tr>
   <% index = 0 %>
   <%= f.fields_for :elements do |e| %>
-  <tr>
-    <td><%= e.text_field :codigo, :size => 5 %></td>
-    <td><%= e.text_field :descripcion, :size => 30 %></td>
-    <td><%= e.text_field :cuota, :size => 3 %></td>
-    <td><%= e.text_field :cantidad, :size => 3 %></td>
-    <td><%= subtotal(@note.elements[index]) %></td>
-  </tr>
-    <% index += 1 %>	  	  
+  <%= render "element_fields", :f => e, :index => index %>
+    <% index += 1 %> 	  
   <% end %>
+  <tr><td id="#add_element" colspan=7><%= f.link_to_add t('note.add'), :elements %></td></tr>
 </table>
 <table width="500">
   <tr>

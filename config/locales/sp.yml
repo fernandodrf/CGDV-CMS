@@ -139,6 +139,8 @@ sp:
     cuota: "Cuota"
     Cantidad: "Cantidad"
     error_pat: ": Imposible generar Nota, el Estatus del Paciente lo prohibe."
+    del: "¿Eliminar?"
+    add: "Añadir Elemento"
     
   views:
     pagination:

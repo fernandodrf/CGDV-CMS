@@ -8,6 +8,7 @@ gem 'meta_search', '>= 1.0.6'
 gem 'jquery-rails', '>= 1.0.12'
 gem 'cancan', '>= 1.6.5'
 gem 'pg', '>= 0.11.0'
+gem 'nested_form', '~> 0.1.1'
 
 group :development do
   gem 'faker', '0.3.1'

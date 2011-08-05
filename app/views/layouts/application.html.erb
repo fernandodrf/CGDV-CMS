@@ -3,7 +3,7 @@
   <head>
     <title><%= title %></title>
     <%= render 'layouts/stylesheets' %>
-    <%= javascript_include_tag 'jquery', 'rails', 'application' %>
+    <%= javascript_include_tag 'jquery', 'nested_form', 'rails', 'application' %>
     <%= csrf_meta_tag %>
     <%= render 'layouts/ga' if RAILS_ENV == 'production' %>
   </head>

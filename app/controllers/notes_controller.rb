@@ -22,7 +22,6 @@ class NotesController < ApplicationController
   	@note = Note.new
     @folio = notefolio
   	@title = t('helpers.submit.create', :model => Note.to_s)
-  	6.times { @note.elements.build }
   	#JSON Data
     @adeudo = getadeudo
   	respond_to do |format|
@@ -40,8 +39,15 @@ class NotesController < ApplicationController
   def create
   	@note = Note.new(params[:note])
   	if @note.save
-  	  flash[:success] = t('flash.success.create', :model => Note.to_s)
-  	  redirect_to @note
+  	  @note = calculos(@note)
+  	  if @note.save	
+  	    flash[:success] = t('flash.success.create', :model => Note.to_s)
+  	    redirect_to @note
+  	  else
+  	    @title = "New Note"
+  	    @folio = notefolio
+  	    render 'new'
+  	  end
   	else
   	  @title = "New Note"
   	  @folio = notefolio

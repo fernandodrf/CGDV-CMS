@@ -133,6 +133,8 @@ en:
     cuota: "Fee"
     Cantidad: "Quantity"
     error_pat: ": Unable to generate Note, Patient Status forbids it."
+    del: "Delete?"
+    add: "Add Element"
     
     
 # From: https://github.com/svenfuchs/rails-i18n/blob/master/rails/locale/en-US.yml
