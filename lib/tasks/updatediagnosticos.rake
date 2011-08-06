@@ -9,7 +9,7 @@ namespace :db do
       	p.diagnosticos.all.each do |d|
       	  #puts "#{d.diagnostico}"
       	  
-      	  if d.diagnostico == "Otros"
+      	 if d.diagnostico == "Otros"
       	  	d.diagnostico = 188
   	     end
 =begin      	  
