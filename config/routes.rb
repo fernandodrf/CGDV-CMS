@@ -7,7 +7,7 @@ Cgdv::Application.routes.draw do
   end
   resources :patients do
     get :print, :on => :member
-  	resources :addresses, :telephones, :derechohabientes, :apoyos, :tratamientos, :comments, :diagnosticos, :refclinicas, :houses, :socioecos, :family_members, :only => [:new, :edit, :update, :create, :destroy]  
+  	resources :addresses, :telephones, :emails, :derechohabientes, :apoyos, :tratamientos, :comments, :diagnosticos, :refclinicas, :houses, :socioecos, :family_members, :only => [:new, :edit, :update, :create, :destroy]  
   end
 
   #match '/patient',	:to =>'pages#patient'

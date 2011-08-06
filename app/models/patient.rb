@@ -6,6 +6,7 @@ class Patient < ActiveRecord::Base
   
   has_many :telephones, :as => :telephoneable, :dependent => :destroy
   has_many :addresses, :as => :addresseable, :dependent => :destroy
+  has_many :emails, :as => :emailable, :dependent => :destroy
   has_many :derechohabientes, :dependent => :destroy
   has_many :apoyos, :dependent => :destroy
   has_many :tratamientos, :dependent => :destroy

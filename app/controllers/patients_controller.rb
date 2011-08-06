@@ -85,6 +85,7 @@ class PatientsController < ApplicationController
   
   def load_info
     @patient = Patient.find(params[:id])
+    @emails = @patient.emails
     @telephones = @patient.telephones
     @addresses = @patient.addresses
     @seguros = @patient.derechohabientes

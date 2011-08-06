@@ -1,0 +1,6 @@
+<tr>
+  <td><%= email.email %></td>
+  <td><%= link_to t('helpers.edit'), edit_patient_email_path(@patient, email) %></td>
+  <td><%= link_to t('helpers.delete.msg'), patient_email_path(@patient,email), :method => :delete, :confirm => t('helpers.delete.conf'),
+                                :title => "#{t('helpers.delete.msg')} #{email.email}" %></td>
+</tr>

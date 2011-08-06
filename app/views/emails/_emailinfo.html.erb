@@ -1,0 +1,10 @@
+<table class="emails">
+  <tr>
+  	<th>Emails</th>
+  	<td><strong><%= link_to t('helpers.submit.create', :model => "Emails"), new_patient_email_path(@patient) %></strong></td>
+  </tr>
+  <% unless @patient.emails.empty? %>
+  <%= render @emails %>
+  <tr><td colspan=3><strong><%= link_to t('helpers.submit.create', :model => "Emails"), new_patient_email_path(@patient) %></strong></td></tr>
+  <% end %>
+</table>
