@@ -12,8 +12,6 @@ $(document).ready(function() {
   var adeudo = restan = total = 0;
   var r = buffer = 0;
   var str_pre1 = "#note_elements_attributes_";
-  var str_pre2 = ".note_container tr:nth-child(";
-  var str_postab = "td:nth-child(5)";
   var addclicks = parseInt($("#note_count").val());
   
   //Hide Añadir Elementos al inicio de la pagina
@@ -23,7 +21,6 @@ $(document).ready(function() {
   
   //Hide Añadir Elementos
   $(".add_nested_fields").click(function(){
-  	//alert("Añadido " + addclicks + " elementos");
   	addclicks += 1;
   	if (addclicks >= 6){
   	  $('.add_nested_fields').hide();
@@ -45,7 +42,6 @@ $(document).ready(function() {
 	  }
 	  //Despliega subtotales
 	  r = 2+i;
-	  //$(str_pre2 + r + ") " + str_postab).html(subtotal[i]);
 	  $("#subtotal_"+i).html(subtotal[i]);
 	  ST += subtotal[i];
 	}
