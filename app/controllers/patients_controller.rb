@@ -1,6 +1,9 @@
 class PatientsController < ApplicationController
+  include PatientsHelper
   load_and_authorize_resource	
   before_filter :authenticate
+  before_filter :load_info, :only => [:show, :print]
+  before_filter :check_status, :only => :update
       
   def index
   	@search = Patient.search(params[:search])
@@ -9,35 +12,9 @@ class PatientsController < ApplicationController
   end
   
   def show
-    @patient = Patient.find(params[:id])
-    @telephones = @patient.telephones
-    @addresses = @patient.addresses
-    @seguros = @patient.derechohabientes
-    @apoyos = @patient.apoyos
-    @tratamientos = @patient.tratamientos
-    @diagnosticos = @patient.diagnosticos
-    @refclinica = @patient.refclinica
-    @house = @patient.house
-    @socioeco = @patient.socioeco
-    @familymembers = @patient.family_members.order('created_at ASC')
-    @comments = @patient.comments
-    @title = @patient.cgdvcode
   end
   
   def print 
-    @patient = Patient.find(params[:id])
-    @telephones = @patient.telephones
-    @addresses = @patient.addresses
-    @seguros = @patient.derechohabientes
-    @apoyos = @patient.apoyos
-    @tratamientos = @patient.tratamientos
-    @diagnosticos = @patient.diagnosticos
-    @refclinica = @patient.refclinica
-    @house = @patient.house
-    @socioeco = @patient.socioeco
-    @familymembers = @patient.family_members.order('created_at ASC')
-    @comments = @patient.comments
-    @title = @patient.cgdvcode
   	render :layout => false 
   end
 	
@@ -66,22 +43,13 @@ class PatientsController < ApplicationController
   end
   
   def update
-    @patient = Patient.find(params[:id])
-    #Para evitar que los pacientes cambien status de REGLAMENTARIA
-    if @patient.status == 3 && !current_user.admin?
-      flash[:error] = t('patient.not')	
+    if @patient.update_attributes(params[:patient])
+      flash[:success] = t('flash.success.edit', :model => Patient.to_s)
+      redirect_to @patient
+    else
       @title = t('helpers.submit.create', :model => Patient.to_s)
       @cgdvcode = @patient.cgdvcode
       render 'edit'
-    else    	
-      if @patient.update_attributes(params[:patient])
-        flash[:success] = t('flash.success.edit', :model => Patient.to_s)
-        redirect_to @patient
-      else
-        @title = t('helpers.submit.create', :model => Patient.to_s)
-        @cgdvcode = @patient.cgdvcode
-        render 'edit'
-      end
     end
   end
   
@@ -92,6 +60,45 @@ class PatientsController < ApplicationController
   end
   
   private
+
+  #Para evitar que los pacientes cambien status de REGLAMENTARIA  
+  def check_status	
+  	@patient = Patient.find(params[:id])
+  	#Si el paciente tiene baja REGLAMENTARIA o es Menor de edad o tiene Adeudo y el usuario no es admin
+  	prueba1 = @patient.status == 3
+  	prueba2 = edad(@patient.birthdate) < 18
+  	#Por si no tiene notas
+  	prueba3 = @patient.notes.empty? ? false : @patient.notes.last.restan > 0.0
+  	if prueba1 && !current_user.admin?
+      flash[:error] = t('patient.not', :s => "Baja Reglamentaria")	
+    elsif prueba2 && !current_user.admin?
+      flash[:error] = t('patient.not', :s => "Menor de Edad")	
+    elsif prueba3 && !current_user.admin?	
+      flash[:error] = t('patient.not', :s => "Adeudo")		
+	end
+	if (prueba1 || prueba2 || prueba3) && !current_user.admin?
+	  @title = t('helpers.submit.create', :model => Patient.to_s)
+      @cgdvcode = @patient.cgdvcode
+      render 'edit'
+    end
+  end
+  
+  def load_info
+    @patient = Patient.find(params[:id])
+    @telephones = @patient.telephones
+    @addresses = @patient.addresses
+    @seguros = @patient.derechohabientes
+    @apoyos = @patient.apoyos
+    @tratamientos = @patient.tratamientos
+    @diagnosticos = @patient.diagnosticos
+    @refclinica = @patient.refclinica
+    @house = @patient.house
+    @socioeco = @patient.socioeco
+    @familymembers = @patient.family_members.order('created_at ASC')
+    @comments = @patient.comments
+    @title = @patient.cgdvcode
+  end
+  
     def cgdvcode
       if Patient.last == nil
   	    @cgdvcode = 1

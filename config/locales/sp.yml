@@ -56,7 +56,7 @@ sp:
     tipo: "Tipo"
     comment: "Comentario"
     comments: "Comentarios"    
-    not: "No se puede cambiar el Estatus."
+    not: "No se puede cambiar el Estatus: %{s}"
     age: "Edad"
     
   address:

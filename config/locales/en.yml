@@ -50,7 +50,7 @@ en:
     tipo: "Type"
     comment: "Comment"
     comments: "Comments"
-    not: "Unable to change status."
+    not: "Unable to change status: %{s}"
     age: "Age"
     
   address: 
