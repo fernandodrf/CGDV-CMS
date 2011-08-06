@@ -13,16 +13,22 @@ $(document).ready(function() {
   var r = buffer = 0;
   var str_pre1 = "#note_elements_attributes_";
   var addclicks = parseInt($("#note_count").val());
+  var rowCount = $('.note_container tr').length; 
   
   //Hide Añadir Elementos al inicio de la pagina
-  if (addclicks >= 6){
+  rowCount -= 2;
+  if ((addclicks >= 6)||(rowCount >= 6)){
   	  $('.add_nested_fields').hide();
+  }
+  
+  if (rowCount > 0){
+  	addclicks = rowCount;
   }
   
   //Hide Añadir Elementos
   $(".add_nested_fields").click(function(){
   	addclicks += 1;
-  	if (addclicks >= 6){
+  	if ((addclicks >= 6)||(rowCount >= 6)){
   	  $('.add_nested_fields').hide();
   	}
   });
