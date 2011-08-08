@@ -1,0 +1,7 @@
+<h1><%= @contact.name %></h1>
+<strong><%= link_to t('helpers.submit.update', :model => "Contacto"), edit_contact_path(@contact) %></strong>
+<table>
+<%= render 'contactinfo' %>
+<%= render 'telephones/telephoneinformation', :model => @contact %>
+
+</table>

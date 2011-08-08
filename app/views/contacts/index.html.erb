@@ -1,0 +1,27 @@
+<h1><%= t('contact.index') %></h1>
+<h6><%= link_to t('helpers.submit.create', :model => "Nuevo Contacto"), new_contact_path %></h6><br />
+
+<%= form_for @search, :url => contacts_path, :html => {:method => :get} do |f| %>
+  
+  <h6><%= t('search.title') %></h6>	
+  <%= f.label :name_contains, t('contact.name') %>
+  <%= f.text_field :name_equals %>
+  <%= f.label :company_contains, t('contact.company') %>
+  <%= f.text_field :company_equals %>
+  <%= f.submit t('helpers.search') %><br /><br />
+<% end %>
+
+<strong><%= t('search.sort') %>	</strong>
+
+<%= paginate @contacts %>
+
+<table>
+	<tr>
+	  <td><strong><%= sort_link @search, :name, t('contact.name') %></strong></td>
+	  <td><strong><%= sort_link @search, :company, t('contact.company') %></strong></td>
+    </tr>
+	<%= render @contacts %>
+</table>
+
+
+<%= paginate @contacts %>

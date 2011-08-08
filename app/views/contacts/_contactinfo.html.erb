@@ -1,0 +1,17 @@
+<table>
+  <tr>
+  	<th colspan=2><%= t('patient.info') %></th>
+  </tr>
+  <tr>
+    <td colspan=2><strong><%= link_to t('helpers.submit.update', :model => "Datos Principales"), edit_contact_path(@contact) %></strong></td>
+  </tr>
+  <tr><td colspan=2><%= t('patient.name') %>: <%= @contact.name %></td></tr>
+  <tr>
+    <td><%= t('contact.company') %>: <%= @contact.company %></td>
+    <td><%= t('contact.position') %>: <%= @contact.position %></td>
+  </tr>
+  <tr>
+    <td ><%= t('patient.birthdate') %>: <%= l @contact.birth, :format => :long %></td>
+    <td><%= t('patient.age') %>: <%= t('datetime.distance_in_words.x_years', :count => edad(@contact.birth)) %></td>
+  </tr>
+</table>

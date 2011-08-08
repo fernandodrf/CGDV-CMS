@@ -22,6 +22,7 @@ sp:
     profile: "Perfil"
     settings: "Opciones"
     note: "Notas"
+    contact: "Contactos"
         
   session:
     login: "Iniciar Sesión"
@@ -149,6 +150,10 @@ sp:
       previous: "&laquo; Anterior"
       next: "Siguiente &raquo;"
       truncate: "..."
+
+  contact:
+    company: "Empresa"
+    position: "Puesto"
 
 # De https://github.com/svenfuchs/rails-i18n/blob/master/rails/locale/es-MX.yml
 

@@ -1,5 +1,5 @@
 class PatientsController < ApplicationController
-  include PatientsHelper
+  include ApplicationHelper
   load_and_authorize_resource	
   before_filter :authenticate
   before_filter :load_info, :only => [:show, :print]

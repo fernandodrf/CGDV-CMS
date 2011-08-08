@@ -16,6 +16,7 @@ en:
     profile: "Profile"
     settings: "Settings"
     note: "Notes"
+    contact: "Contacts"
     
   session:
     login: "Log in"
@@ -136,6 +137,9 @@ en:
     del: "Delete?"
     add: "Add Element"
     
+  contact:
+    company: "Company"
+    position: "Position"
     
 # From: https://github.com/svenfuchs/rails-i18n/blob/master/rails/locale/en-US.yml
 

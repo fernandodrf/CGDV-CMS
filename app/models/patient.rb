@@ -1,7 +1,5 @@
 class Patient < ActiveRecord::Base
 
-  include SessionsHelper
-
   attr_accessible :name, :cgdvcode, :sex, :blod, :birthdate, :status
   
   has_many :telephones, :as => :telephoneable, :dependent => :destroy
@@ -18,7 +16,7 @@ class Patient < ActiveRecord::Base
   has_one :house, :dependent => :destroy
   has_one :socioeco, :dependent => :destroy
   
-  validates :name, :presence => true, :length => { :maximum => 250}
+  validates :name, :presence => true
   validates :cgdvcode, :presence => true, 
   			:length => { :maximum => 20},
 			:numericality => true, 

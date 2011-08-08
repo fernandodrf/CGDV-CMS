@@ -1,0 +1,17 @@
+<%= render 'shared/error_messages', :object => f.object %>
+<div class="field">
+  <%= f.label :name, t('patient.name') %><br />
+  <%= f.text_field :name %>
+</div>
+<div class="field">
+  <%= f.label :company, t('contact.company') %><br />
+  <%= f.text_field :company %>
+</div>
+<div class="field">
+  <%= f.label :position, t('contact.position') %><br />
+  <%= f.text_field :position %>
+</div>
+<div>
+  <%= f.label :birth, t('patient.birthdate') %><br />
+  <%= f.date_select :birth, :order => [:day, :month, :year],:start_year => Time.now.year - 90 %>
+</div>

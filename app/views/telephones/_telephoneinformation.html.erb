@@ -1,10 +1,10 @@
 <table class="telephones">
   <tr>
   	<th><%= t('patient.tels') %></th>
-  	<td><strong><%= link_to t('helpers.submit.create', :model => "Telefono"), new_patient_telephone_path(@patient) %></strong></td>
+  	<td><strong><%= link_to t('helpers.submit.create', :model => "Telefono"), new_polymorphic_path([model,Telephone]) %></strong></td>
   </tr>
-  <% unless @patient.telephones.empty? %>
-  <%= render @telephones %>
-  <tr><td colspan=3><strong><%= link_to t('helpers.submit.create', :model => "Telefono"), new_patient_telephone_path(@patient) %></strong></td></tr>
+  <% unless model.telephones.empty? %>
+  <%= render @telephones, :model => model %>
+  <tr><td colspan=3><strong><%= link_to t('helpers.submit.create', :model => "Telefono"), new_polymorphic_path([model,Telephone]) %></strong></td></tr>
   <% end %>
 </table>

@@ -10,6 +10,10 @@ Cgdv::Application.routes.draw do
   	resources :addresses, :telephones, :emails, :derechohabientes, :apoyos, :tratamientos, :comments, :diagnosticos, :refclinicas, :houses, :socioecos, :family_members, :only => [:new, :edit, :update, :create, :destroy]  
   end
 
+  resources :contacts do
+    resources :addresses, :telephones, :emails, :comments, :only => [:new, :edit, :update, :create, :destroy]
+  end
+
   #match '/patient',	:to =>'pages#patient'
   #match '/patient',	:to =>'patients#new'
   

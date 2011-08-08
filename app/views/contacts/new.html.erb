@@ -1,5 +1,5 @@
-<h1><%= t('helpers.submit.create', :model => "Telefono") %></h1>
-<%= form_for([@parent, @phone]) do |f| %>
+<h1><%= t('helpers.submit.create', :model => Contact.to_s) %></h1>
+<%= nested_form_for(@contact) do |f| %>
   <%= render 'fields', :f => f %>
   <div class="actions">
     <%= f.submit t('helpers.create') %>

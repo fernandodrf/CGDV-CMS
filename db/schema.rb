@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110806195711) do
+ActiveRecord::Schema.define(:version => 20110808192048) do
 
   create_table "addresses", :force => true do |t|
     t.string   "place"
@@ -50,6 +50,15 @@ ActiveRecord::Schema.define(:version => 20110806195711) do
     t.datetime "updated_at"
     t.integer  "commentable_id"
     t.string   "commentable_type"
+  end
+
+  create_table "contacts", :force => true do |t|
+    t.string   "name"
+    t.string   "company"
+    t.string   "position"
+    t.date     "birth"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "derechohabientes", :force => true do |t|

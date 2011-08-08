@@ -17,5 +17,11 @@ module ApplicationHelper
     def logoprint
     image_tag("logo.jpg", :alt => "CGDV",:size => "98x40", :class => "round")
   end
-  
+ 
+  def edad(birthdate)
+    age = Date.today.year - birthdate.year
+    age -= 1 if Date.today < birthdate + age.years #for days before birthdate
+    return age
+  end  
+   
 end
