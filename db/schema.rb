@@ -10,7 +10,16 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110808192048) do
+ActiveRecord::Schema.define(:version => 20110808234731) do
+
+  create_table "addinfos", :force => true do |t|
+    t.integer  "tipo"
+    t.string   "info"
+    t.integer  "addinformation_id"
+    t.string   "addinformation_type"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "addresses", :force => true do |t|
     t.string   "place"

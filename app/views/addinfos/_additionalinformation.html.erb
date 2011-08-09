@@ -1,0 +1,10 @@
+<table class="addinfos">
+  <tr>
+  	<th><%= t('patient.addinfo') %></th>
+  	<td><strong><%= link_to t('helpers.submit.create', :model => "Informacion Adicional"), new_polymorphic_path([model,Addinfo]) %></strong></td>
+  </tr>
+  <% unless model.addinfos.empty? %>
+  <%= render @addinfos, :model => model %>
+  <tr><td colspan=3><strong><%= link_to t('helpers.submit.create', :model => "Informacion Adicional"), new_polymorphic_path([model,Addinfo]) %></strong></td></tr>
+  <% end %>
+</table>

@@ -7,7 +7,7 @@
 <tr><td><%= t('address.municipio') %>:</td><td colspan=3><%= address.municipio %></td></tr>
 <tr><td><%= t('address.colonia') %>:</td><td colspan=3><%= address.colonia %></td></tr>
 <tr>
-  <td colspan=2><%= link_to t('helpers.edit'), edit_patient_address_path(@patient, address) %></td>
-  <td colspan=2><%= link_to t('helpers.delete.msg'), patient_address_path(@patient,address), :method => :delete, :confirm => t('helpers.delete.conf') %></td>
+  <td colspan=2><%= link_to t('helpers.edit'), edit_polymorphic_path([model,address]) %></td>
+  <td colspan=2><%= link_to t('helpers.delete.msg'), polymorphic_path([model,address]), :method => :delete, :confirm => t('helpers.delete.conf') %></td>
 </tr>
-<tr><td colspan=4><strong><%= link_to t('helpers.submit.create', :model => "Direccion"), new_patient_address_path(@patient) %></strong></td><tr>
+<tr><td colspan=4><strong><%= link_to t('helpers.submit.create', :model => "Direccion"), new_polymorphic_path([model,Address]) %></strong></td><tr>

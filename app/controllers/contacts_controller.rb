@@ -58,6 +58,7 @@ class ContactsController < ApplicationController
   def load_info
     @contact = Contact.find(params[:id])
     @emails = @contact.emails
+    @addinfos = @contact.addinfos
     @telephones = @contact.telephones
     @addresses = @contact.addresses
     @comments = @contact.comments

@@ -2,6 +2,10 @@
 <strong><%= link_to t('helpers.submit.update', :model => "Contacto"), edit_contact_path(@contact) %></strong>
 <table>
 <%= render 'contactinfo' %>
+<%= render 'addinfos/additionalinformation', :model => @contact  %>
 <%= render 'telephones/telephoneinformation', :model => @contact %>
+<%= render 'addresses/addressinformation', :model => @contact %>
+<%= render 'emails/emailinfo', :model => @contact  %>
+<%= render 'comments/comments', :model => @contact  %>
 
 </table>

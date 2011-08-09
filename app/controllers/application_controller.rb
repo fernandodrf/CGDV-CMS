@@ -14,4 +14,11 @@ class ApplicationController < ActionController::Base
       I18n.locale = current_user.language if signed_in?
     end
 
+    def find_parent
+      case
+  	    when params[:patient_id] then Patient.find(params[:patient_id])
+  	    when params[:contact_id] then Contact.find(params[:contact_id])
+  	  end  	
+    end
+
 end

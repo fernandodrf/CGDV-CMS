@@ -3,8 +3,8 @@
 <%= render 'personalinformation' %>
 <%= render 'refclinicas/refclinicainfo' %>
 <%= render 'telephones/telephoneinformation', :model => @patient %>
-<%= render 'emails/emailinfo' %>
-<%= render 'addresses/addressinformation' %>
+<%= render 'emails/emailinfo', :model => @patient %>
+<%= render 'addresses/addressinformation', :model => @patient %>
 <%= render 'derechohabientes/derechohabientes' %>
 <%= render 'apoyos/apoyosinfo' %>
 <%= render 'tratamientos/tratamientosinfo' %>
@@ -12,5 +12,6 @@
 <%= render 'houses/houseinfo' %>
 <%= render 'socioecos/socioecoinfo' %>
 <%= render 'family_members/familymembers' %>
-<%= render 'comments/comments' %>
+<%= render 'addinfos/additionalinformation', :model => @patient %>
+<%= render 'comments/comments', :model => @patient %>
 <strong><%= link_to t('helpers.print'), print_patient_path(@patient) %></strong>

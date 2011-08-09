@@ -4,7 +4,7 @@
 <%= form_for @search, :url => contacts_path, :html => {:method => :get} do |f| %>
   
   <h6><%= t('search.title') %></h6>	
-  <%= f.label :name_contains, t('contact.name') %>
+  <%= f.label :name_contains, t('patient.name') %>
   <%= f.text_field :name_equals %>
   <%= f.label :company_contains, t('contact.company') %>
   <%= f.text_field :company_equals %>

@@ -59,6 +59,8 @@ sp:
     comments: "Comentarios"    
     not: "No se puede cambiar el Estatus: %{s}"
     age: "Edad"
+    addinfo: "Información Adicional"
+    info2: "Información"
     
   address:
     title: "Domicilios"
@@ -152,6 +154,7 @@ sp:
       truncate: "..."
 
   contact:
+    index: "Contactos"
     company: "Empresa"
     position: "Puesto"
 

@@ -53,6 +53,8 @@ en:
     comments: "Comments"
     not: "Unable to change status: %{s}"
     age: "Age"
+    addinfo: "Additional Information"
+    info2: "Information"
     
   address: 
     title: "Addresses"
@@ -138,6 +140,7 @@ en:
     add: "Add Element"
     
   contact:
+    index: "Contacts"
     company: "Company"
     position: "Position"
     

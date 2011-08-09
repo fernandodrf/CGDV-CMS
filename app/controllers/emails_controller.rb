@@ -1,36 +1,37 @@
 class EmailsController < ApplicationController
   before_filter :authenticate
+  before_filter :find_parent
 
   def new
-  	@patient = Patient.find(params[:patient_id])
+  	@parent = find_parent
   	@email = Email.new
-  	@title = t('helpers.submit.create', :model => Patient.to_s)
+  	@title = t('helpers.submit.create', :model => Email.to_s)
   end
   	
   def create
-  	@patient = Patient.find(params[:patient_id])
-    @email  = @patient.emails.build(params[:email])
-    @title = t('helpers.submit.create', :model => Patient.to_s)
+  	@parent = find_parent
+    @email  = @parent.emails.build(params[:email])
+    @title = t('helpers.submit.create', :model => Email.to_s)
     if @email.save
       flash[:success] = t('flash.success.create', :model => Email.to_s)
-  	  redirect_to @patient
+  	  redirect_to @parent
     else
   	  render 'new'
     end
   end
 
   def edit
-  	@patient = Patient.find(params[:patient_id])
+  	@parent = find_parent
   	@email = Email.find(params[:id])
-  	@title = t('helpers.submit.update', :model => Patient.to_s)
+  	@title = t('helpers.submit.update', :model => Email.to_s)
   end
   
   def update
-  	@patient = Patient.find(params[:patient_id])
+  	@parent = find_parent
   	@email = Email.find(params[:id])
     if @email.update_attributes(params[:email])
       flash[:success] = t('flash.success.edit', :model => Email.to_s)
-      redirect_to @patient
+      redirect_to @parent
     else
       @title = t('helpers.submit.create', :model => Email.to_s)
       render 'edit'
@@ -38,10 +39,10 @@ class EmailsController < ApplicationController
   end
 
   def destroy
-  	@patient = Patient.find(params[:patient_id])
+  	@parent = find_parent
   	Email.find(params[:id]).destroy
     flash[:success] = t('flash.success.destroy', :model => Email.to_s)
-  	redirect_to @patient
+  	redirect_to @parent
   end
 
 end

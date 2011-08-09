@@ -2,10 +2,10 @@
   <tr><th colspan=4><%= t('address.title') %></th></tr>
   <tr>
 	<td colspan=4><strong>
-	  <%= link_to t('helpers.submit.create', :model => "Direccion"), new_patient_address_path(@patient) %>
+	  <%= link_to t('helpers.submit.create', :model => "Direccion"), new_polymorphic_path([model,Address]) %>
 	</strong></td>
   </tr>
-  <% unless @patient.addresses.empty? %>
-  <%= render @addresses %>
+  <% unless model.addresses.empty? %>
+  <%= render @addresses, :model => model %>
   <% end %>
 </table>

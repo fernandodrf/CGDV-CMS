@@ -1,9 +1,9 @@
 <table class="comments" align=center>
   <tr>
     <th><%= t('patient.comments') %></th>
-	<td colspan=2 nowrap><%= link_to t('helpers.submit.create', :model => "Comentarios"), new_patient_comment_path(@patient) %></td>
+	<td colspan=2 nowrap><%= link_to t('helpers.submit.create', :model => "Comentarios"), new_polymorphic_path([model,Comment]) %></td>
   </tr>
-  <% unless @patient.comments.empty? %>
-  <%= render @comments %>
+  <% unless model.comments.empty? %>
+  <%= render @comments, :model => model %>
   <% end %>
 </table>

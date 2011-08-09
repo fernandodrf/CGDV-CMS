@@ -1,36 +1,37 @@
 class CommentsController < ApplicationController
  before_filter :authenticate
+ before_filter :find_parent
 
   def new
-  	@patient = Patient.find(params[:patient_id])
+  	@parent = find_parent
   	@comment = Comment.new
-  	@title = t('helpers.submit.create', :model => Patient.to_s)
+  	@title = t('helpers.submit.create', :model => Comment.to_s)
   end
   	
   def create
-  	@patient = Patient.find(params[:patient_id])
-    @comment  = @patient.comments.build(params[:comment])
-    @title = t('helpers.submit.create', :model => Patient.to_s)
+  	@parent = find_parent
+    @comment  = @parent.comments.build(params[:comment])
+    @title = t('helpers.submit.create', :model => Comment.to_s)
     if @comment.save
       flash[:success] = t('flash.success.create', :model => Comment.to_s)
-  	  redirect_to @patient
+  	  redirect_to @parent
     else
   	  render 'new'
     end
   end
 
   def edit
-  	@patient = Patient.find(params[:patient_id])
+  	@parent = find_parent
   	@comment = Comment.find(params[:id])
-  	@title = t('helpers.submit.update', :model => Patient.to_s)
+  	@title = t('helpers.submit.update', :model => Comment.to_s)
   end
   
   def update
-  	@patient = Patient.find(params[:patient_id])
+  	@parent = find_parent
   	@comment = Comment.find(params[:id])
     if @comment.update_attributes(params[:comment])
       flash[:success] = t('flash.success.edit', :model => Comment.to_s)
-      redirect_to @patient
+      redirect_to @parent
     else
       @title = t('helpers.submit.create', :model => Comment.to_s)
       render 'edit'
@@ -38,10 +39,10 @@ class CommentsController < ApplicationController
   end
 
   def destroy
-  	@patient = Patient.find(params[:patient_id])
+  	@parent = find_parent
   	Comment.find(params[:id]).destroy
     flash[:success] = t('flash.success.destroy', :model => Comment.to_s)
-  	redirect_to @patient
+  	redirect_to @parent
   end
   
 end

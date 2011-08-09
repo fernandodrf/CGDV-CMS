@@ -1,0 +1,6 @@
+<tr>
+  <td><%= text_info(addinfo.tipo) %>: <%= addinfo.info %></td>
+  <td><%= link_to t('helpers.edit'), edit_polymorphic_path([model,addinfo]) %></td>
+  <td><%= link_to t('helpers.delete.msg'), polymorphic_path([model,addinfo]), :method => :delete, :confirm => t('helpers.delete.conf'),
+                                :title => "#{t('helpers.delete.msg')} #{addinfo.info}" %></td>
+</tr>
