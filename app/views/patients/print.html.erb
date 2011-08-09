@@ -23,11 +23,12 @@
 	    <%= render 'diagnosticos/diagnosticosinfo' %>
 		<%= render 'tratamientos/tratamientosinfo' %>
 		<%= render 'derechohabientes/derechohabientes' %>
-		<%= render 'emails/emailinfo' %>
-		<%= render 'telephones/telephoneinformation' %>
-		<%= render 'addresses/addressinformation' %>
+		<%= render 'telephones/telephoneinformation', :model => @patient %>
+		<%= render 'addresses/addressinformation', :model => @patient %>
 	    <%= render 'apoyos/apoyosinfo' %>
-		<%= render 'comments/comments' %>
+		<%= render 'emails/emailinfo', :model => @patient %>
+	    <%= render 'addinfos/additionalinformation', :model => @patient %>
+		<%= render 'comments/comments', :model => @patient %>
 	  </div>
     </div>
   </body>
