@@ -22,6 +22,7 @@ class NotesController < ApplicationController
   	@note = Note.new
     @folio = notefolio
   	@title = t('helpers.submit.create', :model => Note.to_s)
+  	6.times { @note.elements.build }
   	#JSON Data
     @adeudo = getadeudo
   	respond_to do |format|
