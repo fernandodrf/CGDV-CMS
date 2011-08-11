@@ -1,6 +1,6 @@
 <tr>
   <td><%= link_to "#{contact.name}", contact %></td>
-  <td><%= l contact.created_at, :format => :small %></td>
+  <td><%= link_to "#{contact.company}", contact %></td>
   <% if can? :destroy, @contact %>
   <td><%= link_to t('helpers.delete.msg'), contact, :method => :delete, :confirm => t('helpers.delete.conf'), :title => "#{t('helpers.delete.msg')} #{contact.name}" %></td>
   <% end %>
