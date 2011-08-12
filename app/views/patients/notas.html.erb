@@ -1,0 +1,4 @@
+<h1><%= @patient.name %></h1>
+<strong><%= link_to t('helpers.print'), print_patient_path(@patient) %></strong> | 
+<strong><%= link_to t('note.patient'), notas_patient_path(@patient) %></strong>
+<%= render 'notes/patient', :patient => @patient %>

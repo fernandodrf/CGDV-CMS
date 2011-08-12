@@ -138,6 +138,7 @@ en:
     error_pat: ": Unable to generate Note, Patient Status forbids it."
     del: "Delete?"
     add: "Add Element"
+    patient: "Patient Notes"
     
   contact:
     index: "Contacts"

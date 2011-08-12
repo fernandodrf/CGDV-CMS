@@ -6,8 +6,10 @@ Cgdv::Application.routes.draw do
     get :print, :on => :member	
   end
   resources :patients do
-    get :print, :on => :member
-  	resources :addresses, :telephones, :emails, :derechohabientes, :apoyos, :tratamientos, :comments, :diagnosticos, :refclinicas, :houses, :socioecos, :family_members, :addinfos, :only => [:new, :edit, :update, :create, :destroy]  
+    member do
+      get 'print', 'notas'
+    end
+  	resources :addresses, :telephones, :emails, :derechohabientes, :apoyos, :tratamientos, :comments, :diagnosticos, :refclinicas, :houses, :socioecos, :family_members, :addinfos, :only => [:new, :edit, :update, :create, :destroy] 
   end
 
   resources :contacts do

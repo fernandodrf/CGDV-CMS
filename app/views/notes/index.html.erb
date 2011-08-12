@@ -1,11 +1,15 @@
-<h1><%= t('note.index') %></h1>
+ <h1><%= t('note.index') %></h1>
 <h6><%= link_to t('helpers.submit.create', :model => "Nueva Nota"), new_note_path %></h6><br />
 
 <%= form_for @search, :url => notes_path, :html => {:method => :get} do |f| %>
   
   <h6><%= t('search.title') %></h6>	
   <%= f.label :folio_contains, t('note.folio') %>
-  <%= f.text_field :folio_equals %>
+  <%= f.text_field :folio_equals, :size => 3 %>
+  <%= f.label :cgdvcode_equals, t('search.cgdvcode') %>
+  <%= f.text_field :patient_cgdvcode_equals, :size => 3 %>
+  <%= f.label :folio_contains, t('search.name') %>
+  <%= f.text_field :patient_name_contains %>
   <%= f.submit t('helpers.search') %><br /><br />
 <% end %>
 
@@ -15,9 +19,9 @@
 
 <table>
 	<tr>
-	  <td><strong><%= sort_link @search, :folio, t('note.folio') %></strong></td>
+	  <td><strong><%= sort_link @search, :folio, t('note.folio'), :default_order => :desc %></strong></td>
 	  <td><strong><%= t('patient.cgdvcode') %></strong></td>
-	  <td><strong><%= sort_link @search, :created_at, t('all.created_at') %></strong></td>
+	  <td><strong><%= sort_link @search, :created_at, t('all.created_at'), :default_order => :desc %></strong></td>
     </tr>
 	<%= render @notes %>
 </table>

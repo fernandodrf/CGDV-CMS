@@ -1,7 +1,7 @@
 <tr>
   <td><%= link_to "#{note.folio}", note %></td>
   <td><%= link_to "#{t('patient.cgdvcode')}: #{cgdvcode(note)}", note %></td>
-  <td><%= l note.created_at, :format => :small %></td>
+  <td><%= l note.fecha %></td>
   <% if can? :delete, @note %>
   <td><%= link_to t('helpers.delete.msg'), note, :method => :delete, :confirm => t('helpers.delete.conf'), :title => "#{t('helpers.delete.msg')} #{note.folio}" %></td>
   <% end %>

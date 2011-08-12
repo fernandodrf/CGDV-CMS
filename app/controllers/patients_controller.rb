@@ -14,6 +14,12 @@ class PatientsController < ApplicationController
   def show
   end
   
+  def notas
+  	@patient = Patient.find(params[:id])
+  	@search = @patient.notes.search(params[:search])
+  	@notes = @search.page(params[:page]).per(10)
+  end
+  
   def print 
   	render :layout => false 
   end
