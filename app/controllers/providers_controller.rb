@@ -62,7 +62,7 @@ class ProvidersController < ApplicationController
     @telephones = @provider.telephones
     @addresses = @provider.addresses
     @comments = @provider.comments
-    @title = @provider.name
+    @title = @provider.proveedor
   end
 
 end
