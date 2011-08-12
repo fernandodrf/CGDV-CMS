@@ -1,0 +1,13 @@
+<table>
+  <tr>
+  	<th colspan=2><%= t('patient.info') %></th>
+  </tr>
+  <tr>
+    <td colspan=2><strong><%= link_to t('helpers.submit.update', :model => "Datos Principales"), edit_provider_path(@provider) %></strong></td>
+  </tr>
+  <tr><td colspan=2><%= t('provider.proveedor') %>: <%= @provider.proveedor %></td></tr>
+  <tr>
+    <td><%= t('patient.name') %>: <%= @provider.name %></td>
+    <td><%= t('patient.cgdvcode') %>: <%= @provider.cgdvcode %></td>
+  </tr>
+</table>

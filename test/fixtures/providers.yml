@@ -1,0 +1,24 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  proveedor: MyString
+  cgdvcode: MyString
+  name: MyString
+
+two:
+  proveedor: MyString
+  cgdvcode: MyString
+  name: MyString
+
+# == Schema Information
+#
+# Table name: providers
+#
+#  id         :integer         not null, primary key
+#  proveedor  :string(255)
+#  cgdvcode   :integer
+#  name       :string(255)
+#  created_at :datetime
+#  updated_at :datetime
+#
+

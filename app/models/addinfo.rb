@@ -8,7 +8,7 @@ class Addinfo < ActiveRecord::Base
   validates :tipo, :presence => true, :numericality => true
   validates :info, :presence => true
   
-  ADDINFO = [['MSN Messenger',1],['Pagina Web',2],['Facebook',3],['Twitter',4],['Skype',5],['Nombre de Asistente', 6],['Otro',7]]
+  ADDINFO = [['MSN Messenger',1],['Pagina Web',2],['Facebook',3],['Twitter',4],['Skype',5],['Nombre de Asistente', 6],['Otro',7],['R.F.C.',8]]
 end
 
 

@@ -6,10 +6,11 @@ class Patient < ActiveRecord::Base
   has_many :addresses, :as => :addresseable, :dependent => :destroy
   has_many :addinfos, :as => :addinformation, :dependent => :destroy
   has_many :emails, :as => :emailable, :dependent => :destroy
+  has_many :comments, :as => :commentable, :dependent => :destroy
+    
   has_many :derechohabientes, :dependent => :destroy
   has_many :apoyos, :dependent => :destroy
   has_many :tratamientos, :dependent => :destroy
-  has_many :comments, :as => :commentable, :dependent => :destroy
   has_many :diagnosticos, :dependent => :destroy
   has_many :family_members, :dependent => :destroy
   has_many :notes, :dependent => :destroy

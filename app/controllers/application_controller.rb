@@ -18,6 +18,7 @@ class ApplicationController < ActionController::Base
       case
   	    when params[:patient_id] then Patient.find(params[:patient_id])
   	    when params[:contact_id] then Contact.find(params[:contact_id])
+  	    when params[:provider_id] then Provider.find(params[:provider_id])
   	  end  	
     end
 

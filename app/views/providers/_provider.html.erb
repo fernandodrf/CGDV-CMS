@@ -1,0 +1,7 @@
+<tr>
+  <td><%= link_to "#{provider.proveedor}", provider %></td>
+  <td><%= link_to "#{provider.name}", provider %></td>
+  <% if can? :destroy, @provider %>
+  <td><%= link_to t('helpers.delete.msg'), provider, :method => :delete, :confirm => t('helpers.delete.conf'), :title => "#{t('helpers.delete.msg')} #{provider.name}" %></td>
+  <% end %>
+</tr>

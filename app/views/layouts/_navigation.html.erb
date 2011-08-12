@@ -3,6 +3,7 @@
   <% if signed_in? %>
    | <li><%= link_to t('header.patient'), patients_path %></li>
    | <li><%= link_to t('header.note'), notes_path %></li>
+   | <li><%= link_to t('header.provider'), providers_path %></li>
    | <li><%= link_to t('header.contact'), contacts_path %></li>
   <% end %>	
 </ul>

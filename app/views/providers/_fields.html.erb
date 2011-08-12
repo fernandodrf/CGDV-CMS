@@ -1,0 +1,13 @@
+<%= render 'shared/error_messages', :object => f.object %>
+<div class="field">
+  <%= f.label :proveedor, t('provider.proveedor') %><br />
+  <%= f.text_field :proveedor %>
+</div>
+<div class="field">
+  <%= f.label :name, t('patient.name') %><br />
+  <%= f.text_field :name %>
+</div>
+<div class="field">
+  <%= f.label :cgdvcode, t('patient.cgdvcode') %><br />
+  <%= f.text_field :cgdvcode %>
+</div>

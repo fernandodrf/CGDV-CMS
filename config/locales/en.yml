@@ -17,6 +17,7 @@ en:
     settings: "Settings"
     note: "Notes"
     contact: "Contacts"
+    provider: "Providers"
     
   session:
     login: "Log in"
@@ -55,6 +56,9 @@ en:
     age: "Age"
     addinfo: "Additional Information"
     info2: "Information"
+
+  provider:
+    proveedor: "Provider"
     
   address: 
     title: "Addresses"

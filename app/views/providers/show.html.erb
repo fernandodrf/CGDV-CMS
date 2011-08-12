@@ -1,0 +1,10 @@
+<h1><%= @provider.proveedor %></h1>
+<strong><%= link_to t('helpers.submit.update', :model => "Proveedor"), edit_provider_path(@provider) %></strong>
+<table>
+<%= render 'providerinfo' %>
+<%= render 'addinfos/additionalinformation', :model => @provider  %>
+<%= render 'telephones/telephoneinformation', :model => @provider %>
+<%= render 'addresses/addressinformation', :model => @provider %>
+<%= render 'emails/emailinfo', :model => @provider  %>
+<%= render 'comments/comments', :model => @provider  %>
+</table>

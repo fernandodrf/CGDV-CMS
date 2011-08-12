@@ -23,6 +23,7 @@ sp:
     settings: "Opciones"
     note: "Notas"
     contact: "Contactos"
+    provider: "Proveedores"
         
   session:
     login: "Iniciar Sesión"
@@ -61,6 +62,9 @@ sp:
     age: "Edad"
     addinfo: "Información Adicional"
     info2: "Información"
+
+  provider:
+    proveedor: "Proveedor"
     
   address:
     title: "Domicilios"
