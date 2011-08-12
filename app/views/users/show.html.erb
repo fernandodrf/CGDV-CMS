@@ -2,12 +2,13 @@
   <tr>
     <td class="main">
       <h1>
+      	<%= gravatar_for @user, :size => 100 %>
         <%= @user.name %>
       </h1>
     </td>
     <td class="sidebar round">
-      <strong><%= t('user.name') %>:</strong> <%= @user.name %><br />
-      <strong>e-mail:</strong>  <%= @user.email %>
+      <strong>e-mail:</strong>  <%= @user.email %><br />
+      <strong>Gravatar: </strong> <%= link_to "http://www.gravatar.com", "http://www.gravatar.com" %><br />
     </td>
   </tr>
 </table>
