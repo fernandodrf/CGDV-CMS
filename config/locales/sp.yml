@@ -24,6 +24,7 @@ sp:
     note: "Notas"
     contact: "Contactos"
     provider: "Proveedores"
+    volunteer: "Voluntarios"
         
   session:
     login: "Iniciar Sesión"
@@ -64,7 +65,11 @@ sp:
     info2: "Información"
 
   provider:
+    index: "Todos los Proveedores"
     proveedor: "Proveedor"
+
+  volunteer:
+    index: "Todos los Voluntarios"
     
   address:
     title: "Domicilios"

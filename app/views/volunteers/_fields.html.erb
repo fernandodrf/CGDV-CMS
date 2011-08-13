@@ -1,0 +1,25 @@
+<%= render 'shared/error_messages', :object => f.object %>
+<div class="field">
+  <%= f.label :status, t('patient.status') %><br />
+  <%= f.select :status, Volunteer::STATUS.collect %>
+</div>
+<div class="field">
+  <%= f.label :name, t('patient.name') %><br />
+  <%= f.text_field :name %>
+</div>
+<div class="field">
+  <%= f.label :cgdvcode, t('patient.cgdvcode') %><br />
+  <%= f.text_field :cgdvcode, :value => @cgdvcode %>
+</div>
+<div>
+  <%= f.label :sex, t('patient.sex') %><br />
+  <%= f.select :sex, ['F', 'M'] %>
+</div>
+<div>
+  <%= f.label :blood, t('patient.blod') %><br />
+  <%= f.select :blood, Volunteer::BLOODTYPES %>
+</div>
+<div>
+  <%= f.label :birth, t('patient.birthdate') %><br />
+  <%= f.date_select :birth, :order => [:day, :month, :year],:start_year => Time.now.year - 90 %>
+</div>

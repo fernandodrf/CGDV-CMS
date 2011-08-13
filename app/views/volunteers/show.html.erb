@@ -1,0 +1,10 @@
+<h1><%= @volunteer.name %></h1>
+<strong><%= link_to t('helpers.submit.update', :model => "Voluntario"), edit_volunteer_path(@volunteer) %></strong>
+<table>
+<%= render 'volunteerinfo' %>
+<%= render 'telephones/telephoneinformation', :model => @volunteer %>
+<%= render 'addresses/addressinformation', :model => @volunteer %>
+<%= render 'emails/emailinfo', :model => @volunteer  %>
+<%= render 'addinfos/additionalinformation', :model => @volunteer  %>
+<%= render 'comments/comments', :model => @volunteer  %>
+</table>

@@ -1,0 +1,14 @@
+<table>
+  <tr>
+  	<th colspan=3><%= t('patient.info') %></th>
+  </tr>
+  <tr>
+    <td colspan=3><strong><%= link_to t('helpers.submit.update', :model => "Datos Principales"), edit_volunteer_path(@volunteer) %></strong></td>
+  </tr>
+  <tr>
+    <td><%= t('patient.name') %>: <%= @volunteer.name %></td>
+    <td><%= t('patient.cgdvcode') %>: <%= @volunteer.cgdvcode %></td>
+    <td><%= t('patient.age') %>: <%= t('datetime.distance_in_words.x_years', :count => edad(@volunteer.birth)) %></td>
+  </tr>
+  <tr><td colspan=3><%= t('patient.birthdate') %>: <%= l @volunteer.birth, :format => :long %></td></tr> 
+</table>

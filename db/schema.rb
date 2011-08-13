@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110812160159) do
+ActiveRecord::Schema.define(:version => 20110812203156) do
 
   create_table "addinfos", :force => true do |t|
     t.integer  "tipo"
@@ -218,5 +218,18 @@ ActiveRecord::Schema.define(:version => 20110812160159) do
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true
+
+  create_table "volunteers", :force => true do |t|
+    t.string   "name"
+    t.integer  "cgdvcode"
+    t.string   "sex"
+    t.string   "blood"
+    t.integer  "status",     :default => 1
+    t.date     "birth"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "volunteers", ["cgdvcode"], :name => "index_volunteers_on_cgdvcode", :unique => true
 
 end
