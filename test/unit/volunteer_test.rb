@@ -7,6 +7,7 @@ class VolunteerTest < ActiveSupport::TestCase
   end
 end
 
+
 # == Schema Information
 #
 # Table name: volunteers
@@ -16,7 +17,8 @@ end
 #  cgdvcode   :integer
 #  sex        :string(255)
 #  blood      :string(255)
-#  status     :string(255)
+#  status     :integer         default(1)
+#  birth      :date
 #  created_at :datetime
 #  updated_at :datetime
 #

@@ -1,0 +1,7 @@
+<h1><%= t('helpers.submit.update', :model => "Subprogramas") %></h1>
+<%= form_for([@volunteer, @subprogram]) do |f| %>
+  <%= render 'fields', :f => f %>
+  <div class="actions">
+    <%= f.submit t('helpers.edit') %>
+  </div>
+<% end %>

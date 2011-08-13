@@ -1,0 +1,45 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  donador: false
+  eventos: false
+  hospitales: false
+  suedes: false
+  fondos: false
+  admon: false
+  autoayuda: false
+  sobrevivientes: false
+  fugarte: false
+  volunteer: 
+
+two:
+  donador: false
+  eventos: false
+  hospitales: false
+  suedes: false
+  fondos: false
+  admon: false
+  autoayuda: false
+  sobrevivientes: false
+  fugarte: false
+  volunteer: 
+
+# == Schema Information
+#
+# Table name: subprograms
+#
+#  id              :integer         not null, primary key
+#  donador         :boolean
+#  eventos         :boolean
+#  hospitales      :boolean
+#  suenosdeseos    :boolean
+#  fondos          :boolean
+#  administrativas :boolean
+#  autoayuda       :boolean
+#  sobrevivientes  :boolean
+#  fugarte         :boolean
+#  volunteer_id    :integer
+#  created_at      :datetime
+#  updated_at      :datetime
+#
+

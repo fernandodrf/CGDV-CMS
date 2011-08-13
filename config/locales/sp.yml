@@ -70,6 +70,18 @@ sp:
 
   volunteer:
     index: "Todos los Voluntarios"
+
+  subprogram:
+    title: "Subprogramas en los que Participa"
+    donador: "Donador de sangre y o plaquetas"
+    eventos: "Eventos Especiales"
+    hospitales: "Apoyo Intrahospitalario"
+    suenosdeseos: "Sueños y Deseos"
+    fondos: "Captación de Fondos"
+    administrativas: "Apoyo en Labores Administrativas"
+    autoayuda: "Grupos de Autoayuda"
+    sobrevivientes: "Sobrevivientes"
+    fugarte: "Fugarte"
     
   address:
     title: "Domicilios"

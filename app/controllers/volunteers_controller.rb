@@ -68,6 +68,7 @@ class VolunteersController < ApplicationController
     @telephones = @volunteer.telephones
     @addresses = @volunteer.addresses
     @comments = @volunteer.comments
+    @subprogram = @volunteer.subprogram
     @title = @volunteer.name
   end
 

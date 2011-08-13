@@ -64,6 +64,18 @@ en:
 
   volunteer:
     index: "All Volunteers"
+
+  subprogram:
+    title: "Subprograms"
+    donador: "Donador"
+    eventos: "Eventos"
+    hospitales: "Hospitales"
+    suenosdeseos: "Sueños y Deseos"
+    fondos: "Fondos"
+    administrativas: "Administrativas"
+    autoayuda: "Autoayuda"
+    sobrevivientes: "Sobrevivientes"
+    fugarte: "Fugarte"
     
   address: 
     title: "Addresses"

@@ -7,6 +7,8 @@ class Volunteer < ActiveRecord::Base
   has_many :emails, :as => :emailable, :dependent => :destroy
   has_many :comments, :as => :commentable, :dependent => :destroy
   
+  has_one :subprogram, :dependent => :destroy
+  
   validates :name, :presence => true
   validates :status, :presence => true
   validates :cgdvcode, :presence => true, 
@@ -22,6 +24,7 @@ class Volunteer < ActiveRecord::Base
   
 end
 
+
 # == Schema Information
 #
 # Table name: volunteers
@@ -31,7 +34,8 @@ end
 #  cgdvcode   :integer
 #  sex        :string(255)
 #  blood      :string(255)
-#  status     :string(255)
+#  status     :integer         default(1)
+#  birth      :date
 #  created_at :datetime
 #  updated_at :datetime
 #
