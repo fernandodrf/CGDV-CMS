@@ -2,6 +2,9 @@
   <td><%= link_to "#{patient.cgdvcode}", patient %></td>
   <td><%= link_to "#{patient.name}", patient %></td>
   <td><%= l patient.created_at, :format => :small %></td>
+  <td><%= text_status(patient.status) %></td>
+</tr>
+<tr>
   <td><%= link_to t('helpers.print'), print_patient_path(patient) %></td>
   <td><%= link_to "#{t('header.note')}: #{patient.notes.count}", notas_patient_path(patient) %></td>
   <% if can? :destroy, @patient %>
