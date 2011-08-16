@@ -77,12 +77,12 @@ class PatientsController < ApplicationController
   	prueba3 = @patient.notes.empty? ? false : @patient.notes.last.restan > 0.0
   	if prueba1 && !current_user.admin?
       flash[:error] = t('patient.not', :s => "Baja Reglamentaria")	
-    elsif prueba2 && !current_user.admin?
+    elsif prueba1 && prueba2 && !current_user.admin?
       flash[:error] = t('patient.not', :s => "Menor de Edad")	
-    elsif prueba3 && !current_user.admin?	
+    elsif prueba1 && prueba3 && !current_user.admin?	
       flash[:error] = t('patient.not', :s => "Adeudo")		
 	end
-	if (prueba1 || prueba2 || prueba3) && !current_user.admin?
+	if prueba1 && (prueba2 || prueba3) && !current_user.admin?
 	  @title = t('helpers.submit.create', :model => Patient.to_s)
       @cgdvcode = @patient.cgdvcode
       render 'edit'
