@@ -19,6 +19,7 @@ class VolunteersController < ApplicationController
 	
   def new
   	@volunteer = Volunteer.new
+  	@volunteer.extravolunteers.build
   	@cgdvcode = cgdvcode
   	@title = t('helpers.submit.create', :model => Volunteer.to_s)
   end
@@ -74,13 +75,16 @@ class VolunteersController < ApplicationController
 
   def check_status	
     @volunteer = Volunteer.find(params[:id])
-  	prueba1 = @volunteer.status == 1
-	if prueba1 && !current_user.admin?
-	  @title = t('helpers.submit.create', :model => Patient.to_s)
+    @status = params[:volunteer][:status]
+  	#No debe poder cambiar si tiene estatus 1 y cambia y el usuario no es admin.
+	if !(@status == '1') and (@volunteer.status == 1) and !current_user.admin?
+	  @title = t('helpers.submit.create', :model => Volunteer.to_s)
       flash[:error] = t('patient.not', :s => "Prestador de Servicio Social")		
       @cgdvcode = @volunteer.cgdvcode
       render 'edit'
+      return false
     end
+    return true
   end
   
     def cgdvcode

@@ -21,5 +21,24 @@
 </div>
 <div>
   <%= f.label :birth, t('patient.birthdate') %><br />
-  <%= f.date_select :birth, :order => [:day, :month, :year],:start_year => Time.now.year - 90 %>
+  <%= f.date_select :birth, :order => [:day, :month, :year], :start_year => Time.now.year - 90, :end_year => Time.now.year %>
 </div>
+
+<%= f.fields_for :extravolunteers do |e| %>
+  <div>
+    <%= e.label :profesion, t('volunteer.profesion') %><br />
+    <%= e.text_field :profesion %>
+  </div>
+  <div>
+    <%= e.check_box :sobreviviente%>
+	<%= e.label :sobreviviente, t('volunteer.sobreviviente') %>
+  </div>
+  <div>
+    <%= e.check_box :licencia%>
+	<%= e.label :licencia, t('volunteer.licencia') %>
+  </div>
+  <div>
+    <%= e.check_box :exposferias %>
+	<%= e.label :exposferias, t('volunteer.exposferias') %>
+  </div>
+<% end %>

@@ -70,6 +70,10 @@ sp:
 
   volunteer:
     index: "Todos los Voluntarios"
+    profesion: "Profesión"
+    sobreviviente: "¿Es Sobreviviente?"
+    licencia: "¿Cuenta con licencia de manejo?"
+    exposferias: "¿Esta dispuest@ a partipar en expos o ferias?"
 
   subprogram:
     title: "Subprogramas en los que Participa"

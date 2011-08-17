@@ -1,5 +1,5 @@
 class Volunteer < ActiveRecord::Base
-  attr_accessible :name, :cgdvcode, :blood, :sex, :status, :birth
+  attr_accessible :name, :cgdvcode, :blood, :sex, :status, :birth, :extravolunteers_attributes
 
   has_many :telephones, :as => :telephoneable, :dependent => :destroy
   has_many :addresses, :as => :addresseable, :dependent => :destroy
@@ -8,6 +8,9 @@ class Volunteer < ActiveRecord::Base
   has_many :comments, :as => :commentable, :dependent => :destroy
   
   has_one :subprogram, :dependent => :destroy
+  has_many :extravolunteers, :dependent => :destroy
+  
+  accepts_nested_attributes_for :extravolunteers, :allow_destroy => true
   
   validates :name, :presence => true
   validates :status, :presence => true
@@ -20,7 +23,7 @@ class Volunteer < ActiveRecord::Base
   validates :birth, :presence => true
 
   BLOODTYPES = ['NS', 'A+', 'A-', 'B+', 'B-', 'AB+', 'AB-', 'O+', 'O-']
-  STATUS = [['Servicio Social',1],['Voluntario',2]]
+  STATUS = [['Servicio Social',1],['Voluntario',2]]  
   
 end
 

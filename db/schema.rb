@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110813022544) do
+ActiveRecord::Schema.define(:version => 20110816231044) do
 
   create_table "addinfos", :force => true do |t|
     t.integer  "tipo"
@@ -99,6 +99,16 @@ ActiveRecord::Schema.define(:version => 20110813022544) do
     t.string   "email"
     t.integer  "emailable_id"
     t.string   "emailable_type"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "extravolunteers", :force => true do |t|
+    t.string   "profesion"
+    t.boolean  "sobreviviente"
+    t.boolean  "licencia"
+    t.boolean  "exposferias"
+    t.integer  "volunteer_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
