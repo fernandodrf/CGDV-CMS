@@ -1,9 +1,9 @@
 <table class="diagnosticos" align=center>
   <tr>
     <th ><%= t('patient.diagnosticos') %></th>
-	<td colspan=2><%= link_to t('helpers.submit.create', :model => "Diagnostico"), new_patient_diagnostico_path(@patient) %></td>
+	<td colspan=2><%= link_to t('helpers.submit.create', :model => "Diagnostico"), new_polymorphic_path([model,Diagnostico]) %></td>
   </tr>
-  <% unless @patient.diagnosticos.empty? %>
-    <%= render @diagnosticos %>
+  <% unless model.diagnosticos.empty? %>
+    <%= render @diagnosticos, :model => model %>
   <% end %>
 </table>

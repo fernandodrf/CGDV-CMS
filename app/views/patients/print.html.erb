@@ -20,7 +20,7 @@
 	  <div class="patientprint" id="mainright">
 	    <%= render 'refclinicas/refclinicainfo' %>
 	    <%= render 'socioecos/socioecoinfo' %>
-	    <%= render 'diagnosticos/diagnosticosinfo' %>
+	    <%= render 'diagnosticos/diagnosticosinfo', :model => @patient  %>
 		<%= render 'tratamientos/tratamientosinfo' %>
 		<%= render 'derechohabientes/derechohabientes' %>
 		<%= render 'telephones/telephoneinformation', :model => @patient %>

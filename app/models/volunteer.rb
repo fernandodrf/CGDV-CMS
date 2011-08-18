@@ -6,6 +6,7 @@ class Volunteer < ActiveRecord::Base
   has_many :addinfos, :as => :addinformation, :dependent => :destroy
   has_many :emails, :as => :emailable, :dependent => :destroy
   has_many :comments, :as => :commentable, :dependent => :destroy
+  has_many :diagnosticos, :as => :diagnosticable, :dependent => :destroy
   
   has_many :extravolunteers, :dependent => :destroy
   has_many :socialservices, :dependent => :destroy

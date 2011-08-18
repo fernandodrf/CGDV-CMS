@@ -13,7 +13,7 @@ Cgdv::Application.routes.draw do
   end
 
   resources :volunteers do
-    resources :addresses, :telephones, :emails, :comments, :addinfos, :subprograms, :only => [:new, :edit, :update, :create, :destroy]
+    resources :addresses, :telephones, :emails, :comments, :addinfos, :subprograms, :diagnosticos, :only => [:new, :edit, :update, :create, :destroy]
   end
 
   resources :providers do
