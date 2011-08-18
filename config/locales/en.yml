@@ -18,6 +18,7 @@ en:
     note: "Notes"
     contact: "Contacts"
     provider: "Providers"
+    volunteer: "Volunteers"
     
   session:
     login: "Log in"
@@ -58,7 +59,23 @@ en:
     info2: "Information"
 
   provider:
+    index: "All Providers"
     proveedor: "Provider"
+
+  volunteer:
+    index: "All Volunteers"
+
+  subprogram:
+    title: "Subprograms"
+    donador: "Donador"
+    eventos: "Eventos"
+    hospitales: "Hospitales"
+    suenosdeseos: "Sueños y Deseos"
+    fondos: "Fondos"
+    administrativas: "Administrativas"
+    autoayuda: "Autoayuda"
+    sobrevivientes: "Sobrevivientes"
+    fugarte: "Fugarte"
     
   address: 
     title: "Addresses"
@@ -148,6 +165,7 @@ en:
     index: "Contacts"
     company: "Company"
     position: "Position"
+    
     
 # From: https://github.com/svenfuchs/rails-i18n/blob/master/rails/locale/en-US.yml
 

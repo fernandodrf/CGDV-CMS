@@ -8,14 +8,17 @@ class DiagnosticoTest < ActiveSupport::TestCase
 end
 
 
+
 # == Schema Information
 #
 # Table name: diagnosticos
 #
-#  id          :integer         not null, primary key
-#  patient_id  :integer
-#  created_at  :datetime
-#  updated_at  :datetime
-#  diagnostico :integer
+#  id                  :integer         not null, primary key
+#  patient_id          :integer
+#  created_at          :datetime
+#  updated_at          :datetime
+#  diagnostico         :integer
+#  diagnosticable_id   :integer
+#  diagnosticable_type :string(255)
 #
 

@@ -1,0 +1,67 @@
+<%= render 'shared/error_messages', :object => f.object %>
+<table>
+  <tr>
+  	<td>
+	  <div class="field">
+	    <%= f.check_box :donador %>
+		<%= f.label :donador, t('subprogram.donador') %>
+	  </div>
+    </td>
+  	<td>
+	  <div class="field">
+	    <%= f.check_box :eventos %>
+	    <%= f.label :eventos, t('subprogram.eventos') %>
+	  </div>
+    </td>
+  </tr>
+  <tr>
+  	<td>
+	  <div class="field">
+	    <%= f.check_box :hospitales %>
+	    <%= f.label :hospitales, t('subprogram.hospitales') %>
+	  </div>
+    </td>
+  	<td>
+	  <div class="field">
+	    <%= f.check_box :suenosdeseos %>
+	    <%= f.label :suenosdeseos, t('subprogram.suenosdeseos') %>
+	  </div>
+    </td>
+  </tr>
+  <tr>
+  	<td>
+	  <div class="field">
+	    <%= f.check_box :fondos %>
+	    <%= f.label :fondos, t('subprogram.fondos') %>
+	  </div>
+    </td>
+  	<td>
+	  <div class="field">
+	    <%= f.check_box :administrativas %>
+	    <%= f.label :administrativas, t('subprogram.administrativas') %>
+	  </div>
+    </td>
+  </tr>
+  <tr>
+  	<td>
+	  <div class="field">
+	    <%= f.check_box :autoayuda %>
+	    <%= f.label :autoayuda, t('subprogram.autoayuda') %>
+	  </div>
+    </td>
+  	<td>
+	  <div class="field">
+	    <%= f.check_box :sobrevivientes %>
+	    <%= f.label :sobrevivientes, t('subprogram.sobrevivientes') %>
+	  </div>
+    </td>
+  </tr>
+  <tr>
+  	<td>	
+	  <div class="field">
+	    <%= f.check_box :fugarte %>
+	    <%= f.label :fugarte, t('subprogram.fugarte') %>
+	  </div>
+    </td>
+  </tr>
+</table>

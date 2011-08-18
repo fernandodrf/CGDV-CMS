@@ -1,0 +1,26 @@
+<table>
+  <tr>
+  	<th colspan=2><%= t('patient.info') %></th>
+  </tr>
+  <tr>
+  	<td colspan=2><%= t('patient.status') %>: <%= vol_status(@volunteer.status) %></td>
+  </tr>
+  <tr>
+    <td><%= t('patient.name') %>: <%= @volunteer.name %></td>
+    <td><%= t('patient.cgdvcode') %>: <%= @volunteer.cgdvcode %></td>
+  </tr>
+  <tr>
+    <td><%= t('patient.birthdate') %>: <%= l @volunteer.birth %></td>
+    <td><%= t('patient.age') %>: <%= t('datetime.distance_in_words.x_years', :count => edad(@volunteer.birth)) %></td>
+  </tr>
+  <% unless @volunteer.extravolunteers.empty? %>
+  <tr>
+  	<td><%= t('volunteer.profesion') %>: <%= @volunteer.extravolunteers.first.profesion %></td>
+  	<td><%= t('volunteer.sobreviviente') %>: <%= @volunteer.extravolunteers.first.sobreviviente ? "Si" : "No" %></td>
+  </tr>
+  <tr>
+    <td><%= t('volunteer.licencia') %>: <%= @volunteer.extravolunteers.first.licencia ? "Si" : "No" %></td>
+    <td><%= t('volunteer.exposferias') %>: <%= @volunteer.extravolunteers.first.exposferias ? "Si" : "No" %></td>
+  </tr>  
+  <% end %>
+</table>

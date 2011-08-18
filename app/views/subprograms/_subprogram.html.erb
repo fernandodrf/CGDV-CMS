@@ -1,0 +1,11 @@
+<% if subprogram.donador %><tr><td><%= t('subprogram.donador') %></td></tr><% end %>
+<% if subprogram.eventos %><tr><td><%= t('subprogram.eventos') %></td></tr><% end %>
+<% if subprogram.hospitales %><tr><td><%= t('subprogram.hospitales') %></td></tr><% end %>
+<% if subprogram.suenosdeseos %><tr><td><%= t('subprogram.suenosdeseos') %></td></tr><% end %>
+<% if subprogram.fondos %><tr><td><%= t('subprogram.fondos') %></td></tr><% end %>
+<% if subprogram.administrativas %><tr><td><%= t('subprogram.administrativas') %></td></tr><% end %>
+<% if subprogram.autoayuda %><tr><td><%= t('subprogram.autoayuda') %></td></tr><% end %>
+<% if subprogram.sobrevivientes %><tr><td><%= t('subprogram.sobrevivientes') %></td></tr><% end %>
+<% if subprogram.fugarte %><tr><td><%= t('subprogram.fugarte') %></td></tr><% end %>
+<tr><td colspan=3><%= link_to t('helpers.delete.msg'), volunteer_subprogram_path(@volunteer,@subprogram), :method => :delete, :confirm => t('helpers.delete.conf') %></td></tr>
+

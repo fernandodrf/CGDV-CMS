@@ -1,0 +1,69 @@
+<%= render 'shared/error_messages', :object => f.object %>
+<div class="field">
+  <%= f.label :status, t('patient.status') %><br />
+  <%= f.select :status, Volunteer::STATUS.collect %>
+</div>
+<div class="field">
+  <%= f.label :name, t('patient.name') %><br />
+  <%= f.text_field :name %>
+</div>
+<div class="field">
+  <%= f.label :cgdvcode, t('patient.cgdvcode') %><br />
+  <%= f.text_field :cgdvcode, :value => @cgdvcode %>
+</div>
+<div>
+  <%= f.label :sex, t('patient.sex') %><br />
+  <%= f.select :sex, ['F', 'M'] %>
+</div>
+<div>
+  <%= f.label :blood, t('patient.blod') %><br />
+  <%= f.select :blood, Volunteer::BLOODTYPES %>
+</div>
+<div>
+  <%= f.label :birth, t('patient.birthdate') %><br />
+  <%= f.date_select :birth, :order => [:day, :month, :year], :start_year => Time.now.year - 90, :end_year => Time.now.year %>
+</div>
+
+<%= f.fields_for :extravolunteers do |e| %>
+  <div>
+    <%= e.label :profesion, t('volunteer.profesion') %><br />
+    <%= e.text_field :profesion %>
+  </div>
+  <div>
+    <%= e.check_box :sobreviviente%>
+	<%= e.label :sobreviviente, t('volunteer.sobreviviente') %>
+  </div>
+  <div>
+    <%= e.check_box :licencia%>
+	<%= e.label :licencia, t('volunteer.licencia') %>
+  </div>
+  <div>
+    <%= e.check_box :exposferias %>
+	<%= e.label :exposferias, t('volunteer.exposferias') %><br /><br />
+  </div>
+<% end %>
+<%= f.fields_for :socialservices do |ss| %>
+  <div class="serviciosocial">
+    <%= ss.label :horas, t('volunteer.horas') %><br />
+    <%= ss.text_field :horas %><br />
+
+    <%= ss.label :escuela, t('volunteer.escuela') %><br />
+    <%= ss.text_field :escuela %><br />
+
+    <%= ss.label :carrera, t('volunteer.carrera') %><br />
+    <%= ss.text_field :carrera %><br />
+
+    <%= ss.label :matricula, t('volunteer.matricula') %><br />
+    <%= ss.text_field :matricula %><br />
+
+    <%= ss.label :semestre, t('volunteer.semestre') %><br />
+    <%= ss.text_field :semestre %><br />
+
+    <%= ss.label :inicio, t('volunteer.inicio') %><br />
+    <%= ss.date_select :inicio, :order => [:day, :month, :year] %><br />
+
+    <%= ss.label :fin, t('volunteer.fin') %><br />
+    <%= ss.date_select :fin, :order => [:day, :month, :year] %><br />
+  </div>
+<% end %>
+

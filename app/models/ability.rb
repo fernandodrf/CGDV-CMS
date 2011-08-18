@@ -10,6 +10,7 @@ class Ability
     else
       can [:read, :create, :edit, :update, :print, :notas], :all
       cannot [:destroy], [Note, Element, Patient]
+      cannot :manage, Volunteer
     end
   end
 end

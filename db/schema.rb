@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110812160159) do
+ActiveRecord::Schema.define(:version => 20110818180557) do
 
   create_table "addinfos", :force => true do |t|
     t.integer  "tipo"
@@ -83,6 +83,8 @@ ActiveRecord::Schema.define(:version => 20110812160159) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "diagnostico"
+    t.integer  "diagnosticable_id"
+    t.string   "diagnosticable_type"
   end
 
   create_table "elements", :force => true do |t|
@@ -99,6 +101,16 @@ ActiveRecord::Schema.define(:version => 20110812160159) do
     t.string   "email"
     t.integer  "emailable_id"
     t.string   "emailable_type"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "extravolunteers", :force => true do |t|
+    t.string   "profesion"
+    t.boolean  "sobreviviente"
+    t.boolean  "licencia"
+    t.boolean  "exposferias"
+    t.integer  "volunteer_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -176,6 +188,19 @@ ActiveRecord::Schema.define(:version => 20110812160159) do
     t.datetime "updated_at"
   end
 
+  create_table "socialservices", :force => true do |t|
+    t.string   "horas"
+    t.string   "escuela"
+    t.string   "carrera"
+    t.string   "matricula"
+    t.string   "semestre"
+    t.date     "inicio"
+    t.date     "fin"
+    t.integer  "volunteer_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "socioecos", :force => true do |t|
     t.integer  "ingresos"
     t.integer  "gastos"
@@ -186,6 +211,21 @@ ActiveRecord::Schema.define(:version => 20110812160159) do
     t.string   "televisionpaga"
     t.string   "sgmm"
     t.integer  "patient_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "subprograms", :force => true do |t|
+    t.boolean  "donador"
+    t.boolean  "eventos"
+    t.boolean  "hospitales"
+    t.boolean  "suenosdeseos"
+    t.boolean  "fondos"
+    t.boolean  "administrativas"
+    t.boolean  "autoayuda"
+    t.boolean  "sobrevivientes"
+    t.boolean  "fugarte"
+    t.integer  "volunteer_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -218,5 +258,18 @@ ActiveRecord::Schema.define(:version => 20110812160159) do
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true
+
+  create_table "volunteers", :force => true do |t|
+    t.string   "name"
+    t.integer  "cgdvcode"
+    t.string   "sex"
+    t.string   "blood"
+    t.integer  "status",     :default => 1
+    t.date     "birth"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "volunteers", ["cgdvcode"], :name => "index_volunteers_on_cgdvcode", :unique => true
 
 end

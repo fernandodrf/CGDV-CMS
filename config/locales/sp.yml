@@ -24,6 +24,7 @@ sp:
     note: "Notas"
     contact: "Contactos"
     provider: "Proveedores"
+    volunteer: "Voluntarios"
         
   session:
     login: "Iniciar Sesión"
@@ -64,7 +65,35 @@ sp:
     info2: "Información"
 
   provider:
+    index: "Todos los Proveedores"
     proveedor: "Proveedor"
+
+  volunteer:
+    index: "Todos los Voluntarios"
+    profesion: "Profesión"
+    sobreviviente: "¿Es Sobreviviente?"
+    licencia: "¿Cuenta con licencia de manejo?"
+    exposferias: "¿Esta dispuest@ a participar en expos o ferias?"
+    horas: "Horas a cubrir"
+    escuela: "Escuela de Procedencia"
+    carrera: "Carrera"
+    matricula: "Matricula"
+    semestre: "Semestre que cursa"
+    inicio: "Inicio Periodo de Servicio"
+    fin: "Fin Periodo de Servicio"
+    ss: "Información de Servicio Social"
+
+  subprogram:
+    title: "Subprogramas en los que Participa"
+    donador: "Donador de sangre y o plaquetas"
+    eventos: "Eventos Especiales"
+    hospitales: "Apoyo Intrahospitalario"
+    suenosdeseos: "Sueños y Deseos"
+    fondos: "Captación de Fondos"
+    administrativas: "Apoyo en Labores Administrativas"
+    autoayuda: "Grupos de Autoayuda"
+    sobrevivientes: "Sobrevivientes"
+    fugarte: "Fugarte"
     
   address:
     title: "Domicilios"

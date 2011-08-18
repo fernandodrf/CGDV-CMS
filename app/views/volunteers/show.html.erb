@@ -1,0 +1,15 @@
+<h1><%= @volunteer.name %></h1>
+<strong><%= link_to t('helpers.submit.update', :model => "Voluntario"), edit_volunteer_path(@volunteer) %></strong>
+<table>
+<%= render 'volunteerinfo' %>
+<% if !(@volunteer.socialservices.empty?) and (@volunteer.status == 1) %>
+<%= render 'socialservice' %>
+<%= render 'diagnosticos/diagnosticosinfo', :model => @volunteer %>
+<% end %>
+<%= render 'telephones/telephoneinformation', :model => @volunteer %>
+<%= render 'addresses/addressinformation', :model => @volunteer %>
+<%= render 'emails/emailinfo', :model => @volunteer  %>
+<%= render 'addinfos/additionalinformation', :model => @volunteer %>
+<%= render 'subprograms/subprograminfo' %>
+<%= render 'comments/comments', :model => @volunteer %>
+</table>

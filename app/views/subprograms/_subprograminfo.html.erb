@@ -1,0 +1,19 @@
+<table class="subprogram">
+  <tr>
+    <th>
+      <strong><%= t('subprogram.title') %></strong>
+	</th>
+  </tr>	
+  <tr>
+	<td><strong>
+	  <% if @subprogram == nil %>
+	    <%= link_to t('helpers.submit.create', :model => "Subprogramas"), new_volunteer_subprogram_path(@volunteer) %>
+	  <% else %>
+	    <%= link_to t('helpers.edit'), edit_volunteer_subprogram_path(@volunteer, @subprogram) %>
+	  <% end %>
+	</strong></td>
+  </tr>
+  <% if @subprogram != nil %>
+  <%= render @subprogram %>
+  <% end %>
+</table>

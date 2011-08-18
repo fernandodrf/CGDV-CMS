@@ -100,6 +100,18 @@ $(document).ready(function() {
     });    
   });
 
+  //Metodo para mostrar/ocultar campos de Servicio Social en Voluntarios
+  $("#volunteer_status").change(function() {
+  	var status;
+  	status = parseFloat($("#volunteer_status").val());
+
+    if(status == 1){
+      $('.serviciosocial').show();	
+    } else {
+	  $('.serviciosocial').hide();	
+    }
+  });
+
  });
 
 

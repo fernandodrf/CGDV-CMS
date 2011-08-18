@@ -36,5 +36,14 @@ namespace :db do
     end
     puts "Direcciones Actualizados"
 =end
+    Diagnostico.all.each do |diagnostico|    	
+      #Update id's
+      diagnostico.diagnosticable_id = diagnostico.patient_id
+      diagnostico.diagnosticable_type = Patient.to_s
+      if !diagnostico.save
+        puts "Error en Comment id: #{diagnostico.id}"
+      end      	
+    end
+    puts "Diagnosticos Actualizados"
   end
 end
