@@ -73,7 +73,15 @@ sp:
     profesion: "Profesión"
     sobreviviente: "¿Es Sobreviviente?"
     licencia: "¿Cuenta con licencia de manejo?"
-    exposferias: "¿Esta dispuest@ a partipar en expos o ferias?"
+    exposferias: "¿Esta dispuest@ a participar en expos o ferias?"
+    horas: "Horas a cubrir"
+    escuela: "Escuela de Procedencia"
+    carrera: "Carrera"
+    matricula: "Matricula"
+    semestre: "Semestre que cursa"
+    inicio: "Inicio Periodo de Servicio"
+    fin: "Fin Periodo de Servicio"
+    ss: "Información de Servicio Social"
 
   subprogram:
     title: "Subprogramas en los que Participa"

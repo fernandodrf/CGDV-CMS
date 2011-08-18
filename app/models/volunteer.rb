@@ -1,5 +1,5 @@
 class Volunteer < ActiveRecord::Base
-  attr_accessible :name, :cgdvcode, :blood, :sex, :status, :birth, :extravolunteers_attributes
+  attr_accessible :name, :cgdvcode, :blood, :sex, :status, :birth, :extravolunteers_attributes, :socialservices_attributes
 
   has_many :telephones, :as => :telephoneable, :dependent => :destroy
   has_many :addresses, :as => :addresseable, :dependent => :destroy
@@ -7,10 +7,12 @@ class Volunteer < ActiveRecord::Base
   has_many :emails, :as => :emailable, :dependent => :destroy
   has_many :comments, :as => :commentable, :dependent => :destroy
   
-  has_one :subprogram, :dependent => :destroy
   has_many :extravolunteers, :dependent => :destroy
+  has_many :socialservices, :dependent => :destroy
+  has_one :subprogram, :dependent => :destroy  
   
   accepts_nested_attributes_for :extravolunteers, :allow_destroy => true
+  accepts_nested_attributes_for :socialservices, :allow_destroy => true
   
   validates :name, :presence => true
   validates :status, :presence => true

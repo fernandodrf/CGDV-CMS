@@ -1,0 +1,20 @@
+<table>
+  <tr>
+  	<th colspan=2><%= t('volunteer.ss') %></th>
+  </tr>
+  <tr>
+  	<td colspan=2><%= t('volunteer.horas') %>: <%= @volunteer.socialservices.first.horas %></td>
+  </tr>
+  <tr>
+    <td><%= t('volunteer.escuela') %>: <%= @volunteer.socialservices.first.escuela %></td>
+    <td><%= t('volunteer.carrera') %>: <%= @volunteer.socialservices.first.carrera %></td>
+  </tr>
+  <tr>
+    <td><%= t('volunteer.matricula') %>: <%= @volunteer.socialservices.first.matricula %></td>
+    <td><%= t('volunteer.semestre') %>: <%= @volunteer.socialservices.first.semestre %></td>
+  </tr>
+  <tr>
+    <td><%= t('volunteer.inicio') %>: <%= @volunteer.socialservices.first.inicio %></td>
+    <td><%= t('volunteer.fin') %>: <%= @volunteer.socialservices.first.fin %></td>
+  </tr> 
+</table>

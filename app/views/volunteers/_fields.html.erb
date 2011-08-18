@@ -39,6 +39,31 @@
   </div>
   <div>
     <%= e.check_box :exposferias %>
-	<%= e.label :exposferias, t('volunteer.exposferias') %>
+	<%= e.label :exposferias, t('volunteer.exposferias') %><br /><br />
   </div>
 <% end %>
+<%= f.fields_for :socialservices do |ss| %>
+  <div class="serviciosocial">
+    <%= ss.label :horas, t('volunteer.horas') %><br />
+    <%= ss.text_field :horas %><br />
+
+    <%= ss.label :escuela, t('volunteer.escuela') %><br />
+    <%= ss.text_field :escuela %><br />
+
+    <%= ss.label :carrera, t('volunteer.carrera') %><br />
+    <%= ss.text_field :carrera %><br />
+
+    <%= ss.label :matricula, t('volunteer.matricula') %><br />
+    <%= ss.text_field :matricula %><br />
+
+    <%= ss.label :semestre, t('volunteer.semestre') %><br />
+    <%= ss.text_field :semestre %><br />
+
+    <%= ss.label :inicio, t('volunteer.inicio') %><br />
+    <%= ss.date_select :inicio, :order => [:day, :month, :year] %><br />
+
+    <%= ss.label :fin, t('volunteer.fin') %><br />
+    <%= ss.date_select :fin, :order => [:day, :month, :year] %><br />
+  </div>
+<% end %>
+

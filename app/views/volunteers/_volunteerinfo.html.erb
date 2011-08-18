@@ -3,9 +3,6 @@
   	<th colspan=2><%= t('patient.info') %></th>
   </tr>
   <tr>
-    <td colspan=2><strong><%= link_to t('helpers.submit.update', :model => "Datos Principales"), edit_volunteer_path(@volunteer) %></strong></td>
-  </tr>
-  <tr>
   	<td colspan=2><%= t('patient.status') %>: <%= text_status(@volunteer.status) %></td>
   </tr>
   <tr>
@@ -13,7 +10,7 @@
     <td><%= t('patient.cgdvcode') %>: <%= @volunteer.cgdvcode %></td>
   </tr>
   <tr>
-    <td><%= t('patient.birthdate') %>: <%= l @volunteer.birth, :format => :long %></td>
+    <td><%= t('patient.birthdate') %>: <%= l @volunteer.birth %></td>
     <td><%= t('patient.age') %>: <%= t('datetime.distance_in_words.x_years', :count => edad(@volunteer.birth)) %></td>
   </tr>
   <% unless @volunteer.extravolunteers.empty? %>
