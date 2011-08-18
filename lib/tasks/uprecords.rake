@@ -35,7 +35,7 @@ namespace :db do
       end	
     end
     puts "Direcciones Actualizados"
-=end
+
     Diagnostico.all.each do |diagnostico|    	
       #Update id's
       diagnostico.diagnosticable_id = diagnostico.patient_id
@@ -45,5 +45,6 @@ namespace :db do
       end      	
     end
     puts "Diagnosticos Actualizados"
+=end
   end
 end
