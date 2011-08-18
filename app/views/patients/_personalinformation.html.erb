@@ -6,7 +6,7 @@
     <td colspan=3><strong><%= link_to t('helpers.submit.update', :model => "Datos Principales"), edit_patient_path(@patient) %></strong></td>
   </tr>
   <tr>
-  	<td colspan=3><%= t('patient.status') %>: <%= text_status(@patient.status) %></td>
+  	<td colspan=3><%= t('patient.status') %>: <%= pat_status(@patient.status) %></td>
   </tr>
   <tr>
   	<td><%= t('patient.cgdvcode') %>: <%= @patient.cgdvcode %></td>

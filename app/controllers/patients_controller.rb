@@ -71,22 +71,40 @@ class PatientsController < ApplicationController
   def check_status	
   	@patient = Patient.find(params[:id])
   	#Si el paciente tiene baja REGLAMENTARIA o es Menor de edad o tiene Adeudo y el usuario no es admin
-  	prueba1 = @patient.status == 3
-  	prueba2 = edad(@patient.birthdate) < 18
+  	#Reglamentaria
+  	reglamentaria = @patient.status == 3
+  	#Nuevo Reglamentario
+  	reglamentaria_nueva = params[:patient][:status] == '3'
+  	#Activo
+  	activo = @patient.status == 1
+  	#Nuevo Activo
+  	activo_nuevo = params[:patient][:status] == '1'  	
+  	#menor
+  	menor = edad(@patient.birthdate) < 18
   	#Por si no tiene notas
-  	prueba3 = @patient.notes.empty? ? false : @patient.notes.last.restan > 0.0
-  	if prueba1 && !current_user.admin?
-      flash[:error] = t('patient.not', :s => "Baja Reglamentaria")	
-    elsif prueba1 && prueba2 && !current_user.admin?
-      flash[:error] = t('patient.not', :s => "Menor de Edad")	
-    elsif prueba1 && prueba3 && !current_user.admin?	
-      flash[:error] = t('patient.not', :s => "Adeudo")		
-	end
-	if prueba1 && (prueba2 || prueba3) && !current_user.admin?
-	  @title = t('helpers.submit.create', :model => Patient.to_s)
-      @cgdvcode = @patient.cgdvcode
-      render 'edit'
+  	adeudos = @patient.notes.empty? ? false : @patient.notes.last.restan > 0.0
+    if !current_user.admin?
+      error = false
+	  if reglamentaria and !reglamentaria_nueva
+	    flash[:error] = t('patient.not', :s => "Baja Reglamentaria")
+	    error = true
+	  end  	
+	  if activo and !activo_nuevo and menor
+	    flash[:error] = t('patient.not', :s => "Menor de Edad")
+	    error = true      	
+	  end
+	  if activo and !activo_nuevo and adeudos
+	    flash[:error] = t('patient.not', :s => "Adeudo")
+	    error = true		
+	  end	
+	  if error
+		@title = t('helpers.submit.create', :model => Patient.to_s)
+	    @cgdvcode = @patient.cgdvcode
+	    render 'edit'
+	    return false
+	  end
     end
+      return true
   end
   
   def load_info
