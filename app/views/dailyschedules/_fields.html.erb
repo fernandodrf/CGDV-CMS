@@ -1,0 +1,13 @@
+<%= render 'shared/error_messages', :object => f.object %>
+<div>
+  <%= f.label :day, t('volunteer.day') %><br />
+  <%= f.select :day, Dailyschedule::DAYS.collect %>
+</div>
+<div>
+  <%= f.label :begin, t('volunteer.begin') %><br />
+  <%= f.time_select :begin %>
+</div>
+<div>
+  <%= f.label :end, t('volunteer.end') %><br />
+  <%= f.time_select :end %>
+</div>

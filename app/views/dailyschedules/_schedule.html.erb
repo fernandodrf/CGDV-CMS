@@ -1,0 +1,9 @@
+<table class="schedules" align=center>
+  <tr>
+    <th><%= t('volunteer.horario') %></th>
+	<td colspan=5><%= link_to t('helpers.submit.create', :model => "Horario por Dia"), new_volunteer_dailyschedule_path(@volunteer) %></td>
+  </tr>
+  <% unless @volunteer.dailyschedules.empty? %>
+  <%= render @dailyschedules %>
+  <% end %>
+</table>

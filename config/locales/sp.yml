@@ -259,6 +259,7 @@ sp:
     formats:
       short: "%d de %b a las %H:%M hrs"
       small: "%d/%b/%y"
+      hourmin:  "%H:%M %p"
       default: "%a, %d de %b de %Y a las %H:%M:%S %Z"
       long: "%A, %d de %B de %Y a las %I:%M %p"
     am: "am"

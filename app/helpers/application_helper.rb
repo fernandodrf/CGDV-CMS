@@ -23,5 +23,11 @@ module ApplicationHelper
     age -= 1 if Date.today < birthdate + age.years #for days before birthdate
     return age
   end  
+
+  def tiempo(inicio,fin)
+  	horas = inicio.hour - fin.hour
+  	min = inicio.minutes - fin.minutes
+  	
+  end
    
 end

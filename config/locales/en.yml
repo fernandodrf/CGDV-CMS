@@ -189,6 +189,7 @@ en:
     formats:
       default: "%a, %d %b %Y %H:%M:%S %z"
       short: "%d %b %H:%M"
+      hourmin:  "%H:%M"
       small: "%b/%d/%y"
       long: "%B %d, %Y %H:%M"
     am: "am"

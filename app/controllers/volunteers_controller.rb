@@ -73,6 +73,7 @@ class VolunteersController < ApplicationController
     @comments = @volunteer.comments
     @subprogram = @volunteer.subprogram
     @diagnosticos = @volunteer.diagnosticos
+    @dailyschedules = @volunteer.dailyschedules
     @title = @volunteer.name
   end
 

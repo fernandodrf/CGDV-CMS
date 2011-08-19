@@ -1,5 +1,4 @@
 Cgdv::Application.routes.draw do
-	
   resources :users
   resources :sessions, :only => [:new, :create, :destroy]
   resources :notes do
@@ -13,7 +12,7 @@ Cgdv::Application.routes.draw do
   end
 
   resources :volunteers do
-    resources :addresses, :telephones, :emails, :comments, :addinfos, :subprograms, :diagnosticos, :only => [:new, :edit, :update, :create, :destroy]
+    resources :addresses, :telephones, :emails, :comments, :addinfos, :subprograms, :diagnosticos, :dailyschedules, :only => [:new, :edit, :update, :create, :destroy]
   end
 
   resources :providers do

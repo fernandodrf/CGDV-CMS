@@ -5,6 +5,7 @@
 <% if !(@volunteer.socialservices.empty?) and (@volunteer.status == 1) %>
 <%= render 'socialservice' %>
 <%= render 'diagnosticos/diagnosticosinfo', :model => @volunteer %>
+<%= render 'dailyschedules/schedule' %>
 <% end %>
 <%= render 'telephones/telephoneinformation', :model => @volunteer %>
 <%= render 'addresses/addressinformation', :model => @volunteer %>
