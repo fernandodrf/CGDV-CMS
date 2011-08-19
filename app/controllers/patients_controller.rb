@@ -92,10 +92,14 @@ class PatientsController < ApplicationController
 	    flash[:error] = t('patient.not', :s => "Baja Reglamentaria")
 	    error = true
 	  end  	
-	  if activo and (!activo_nuevo or !activo_nuevo_defuncion) and menor
-	    flash[:error] = t('patient.not', :s => "Menor de Edad")
+	  if activo and (!activo_nuevo and !activo_nuevo_defuncion) and menor
+	    flash[:error] = t('patient.not', :s => "Menor de Edad Nuevp")
 	    error = true      	
 	  end
+	  #if activo and !activo_nuevo_defuncion and menor
+	  #  flash[:error] = t('patient.not', :s => "Menor de Edad Def")
+	  #  error = true      	
+	  #end
 	  if activo and !activo_nuevo and adeudos
 	    flash[:error] = t('patient.not', :s => "Adeudo")
 	    error = true		
