@@ -25,9 +25,7 @@ module ApplicationHelper
   end  
 
   def tiempo(inicio,fin)
-  	horas = inicio.hour - fin.hour
-  	min = inicio.minutes - fin.minutes
-  	
+  	tiempo = (Time.mktime(0)+(fin - inicio)).strftime("%H hr. %M min.")
   end
    
 end
