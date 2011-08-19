@@ -78,7 +78,9 @@ class PatientsController < ApplicationController
   	#Activo
   	activo = @patient.status == 1
   	#Nuevo Activo
-  	activo_nuevo = params[:patient][:status] == '1'  	
+  	activo_nuevo = params[:patient][:status] == '1'
+  	#Solo de Menor a Defuncion
+  	activo_nuevo_defuncion = params[:patient][:status] == '4'
   	#menor
   	menor = edad(@patient.birthdate) < 18
   	#Por si no tiene notas
@@ -90,7 +92,7 @@ class PatientsController < ApplicationController
 	    flash[:error] = t('patient.not', :s => "Baja Reglamentaria")
 	    error = true
 	  end  	
-	  if activo and !activo_nuevo and menor
+	  if activo and !activo_nuevo_defuncion and menor
 	    flash[:error] = t('patient.not', :s => "Menor de Edad")
 	    error = true      	
 	  end
