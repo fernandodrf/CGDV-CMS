@@ -2,7 +2,7 @@
   <td><%= day_text(dailyschedule.day.to_i) %></td>
   <td><%= l dailyschedule.begin, :format => :hourmin %></td>
   <td><%= l dailyschedule.end, :format => :hourmin %></td>
-  <td><%= tiempo(dailyschedule.begin,dailyschedule.end) %></td>
+  <td><%= dailyschedule.tiempo %></td>
   <td><%= link_to t('helpers.edit'), edit_volunteer_dailyschedule_path(@volunteer,dailyschedule) %></td>
   <td>
   	<%= link_to t('helpers.delete.msg'), volunteer_dailyschedule_path(@volunteer,dailyschedule), :method => :delete, :confirm => t('helpers.delete.conf'), :title => "#{t('helpers.delete.msg')} #{dailyschedule.day}" %>

@@ -10,6 +10,10 @@ class Dailyschedule < ActiveRecord::Base
   
   DAYS = [['Lunes',1],['Martes',2],['Miercoles',3],['Jueves',4],['Viernes',5],['Sabado',6],['Domingo',7]]
   
+  def tiempo
+  	tiempo = (Time.mktime(0)+(self.end - self.begin)).strftime("%H hr. %M min.")
+  end
+  
 end
 
 # == Schema Information

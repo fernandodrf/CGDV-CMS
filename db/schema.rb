@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110819001626) do
+ActiveRecord::Schema.define(:version => 20110820012511) do
 
   create_table "addinfos", :force => true do |t|
     t.integer  "tipo"
@@ -71,12 +71,12 @@ ActiveRecord::Schema.define(:version => 20110819001626) do
   end
 
   create_table "dailyschedules", :force => true do |t|
-    t.string   "day"
     t.time     "begin"
     t.time     "end"
     t.integer  "volunteer_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "day"
   end
 
   create_table "derechohabientes", :force => true do |t|

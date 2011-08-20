@@ -12,11 +12,11 @@ sp:
     created_at: "Fecha de Creación"
 
   home: 
-    title: "Casa"
+    title: "Principal"
     paragraph: "Sistema de manejo de informacion de CGDV."
     
   header:
-    home: "Casa"
+    home: "Principal"
     patient: "Pacientes"
     users: "Usuarios"
     profile: "Perfil"
@@ -82,6 +82,11 @@ sp:
     inicio: "Inicio Periodo de Servicio"
     fin: "Fin Periodo de Servicio"
     ss: "Información de Servicio Social"
+    horario: "Horario"
+    day: "Dia"
+    begin: "Entrada"
+    end: "Salida"
+    tiempo: "Tiempo"
 
   subprogram:
     title: "Subprogramas en los que Participa"

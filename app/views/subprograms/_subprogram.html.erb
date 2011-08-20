@@ -1,11 +1,17 @@
-<% if subprogram.donador %><tr><td><%= t('subprogram.donador') %></td></tr><% end %>
-<% if subprogram.eventos %><tr><td><%= t('subprogram.eventos') %></td></tr><% end %>
-<% if subprogram.hospitales %><tr><td><%= t('subprogram.hospitales') %></td></tr><% end %>
-<% if subprogram.suenosdeseos %><tr><td><%= t('subprogram.suenosdeseos') %></td></tr><% end %>
-<% if subprogram.fondos %><tr><td><%= t('subprogram.fondos') %></td></tr><% end %>
-<% if subprogram.administrativas %><tr><td><%= t('subprogram.administrativas') %></td></tr><% end %>
-<% if subprogram.autoayuda %><tr><td><%= t('subprogram.autoayuda') %></td></tr><% end %>
-<% if subprogram.sobrevivientes %><tr><td><%= t('subprogram.sobrevivientes') %></td></tr><% end %>
-<% if subprogram.fugarte %><tr><td><%= t('subprogram.fugarte') %></td></tr><% end %>
+<tr>
+  <td><%= t('subprogram.donador') %>: <%= subprogram.donador ? "Si" : "No" %></td>
+  <td><%= t('subprogram.eventos') %>: <%= subprogram.eventos ? "Si" : "No" %></td>
+  <td><%= t('subprogram.hospitales') %>: <%= subprogram.hospitales ? "Si" : "No" %></td>
+</tr>
+<tr>
+  <td><%= t('subprogram.suenosdeseos') %>: <%= subprogram.suenosdeseos ? "Si" : "No" %></td>
+  <td><%= t('subprogram.fondos') %>: <%= subprogram.fondos ? "Si" : "No" %></td>
+  <td><%= t('subprogram.administrativas') %>: <%= subprogram.administrativas ? "Si" : "No" %></td> 
+</tr>
+<tr>
+  <td><%= t('subprogram.autoayuda') %>: <%= subprogram.autoayuda ? "Si" : "No" %></td>
+  <td><%= t('subprogram.sobrevivientes') %>: <%= subprogram.sobrevivientes ? "Si" : "No" %></td>
+  <td><%= t('subprogram.fugarte') %>: <%= subprogram.fugarte ? "Si" : "No" %></td> 
+</tr>
 <tr><td colspan=3><%= link_to t('helpers.delete.msg'), volunteer_subprogram_path(@volunteer,@subprogram), :method => :delete, :confirm => t('helpers.delete.conf') %></td></tr>
 

@@ -4,6 +4,14 @@
 	<td colspan=5><%= link_to t('helpers.submit.create', :model => "Horario por Dia"), new_volunteer_dailyschedule_path(@volunteer) %></td>
   </tr>
   <% unless @volunteer.dailyschedules.empty? %>
+<tr>
+  <td><%= t('volunteer.day') %></td>
+  <td><%= t('volunteer.begin') %></td>
+  <td><%= t('volunteer.end') %></td>
+  <td><%= t('volunteer.tiempo') %></td>
+  <td></td>
+  <td></td>
+</tr>
   <%= render @dailyschedules %>
   <% end %>
 </table>

@@ -24,8 +24,50 @@ module ApplicationHelper
     return age
   end  
 
-  def tiempo(inicio,fin)
-  	tiempo = (Time.mktime(0)+(fin - inicio)).strftime("%H hr. %M min.")
+  def text_info(id)
+    @text_status = Addinfo::ADDINFO[id-1][0]
   end
+
+  def day_text(id)
+  	@day = Dailyschedule::DAYS[id-1][0]
+  end
+
+  def text_diag(id)
+  	return diag = CatalogoDiagnostico.find(id).diagnostico
+  end
+  
+  def cgdvcode(note)
+  @cgdvcode = note.patient.cgdvcode
+  end
+	
+  def name(note)
+    @name = note.patient.name
+  end
+
+  def subtotal(e)
+    if !e.cuota.nil? && !e.cantidad.nil?
+	  @subtotal = e.cuota * e.cantidad
+    else
+      @subtotal = 0
+  	end
+  end  
    
+  def pat_status(status)
+    @text_status = Patient::STATUS[status-1][0]
+  end
+
+  def remanente(socioeco)
+    @remanente = socioeco.ingresos - socioeco.gastos
+  end
+
+  def gravatar_for(user, options = { :size => 50 })
+    gravatar_image_tag(user.email.downcase, :alt => user.name,
+                                            :class => 'gravatar',
+                                            :gravatar => options)
+  end
+
+  def vol_status(status)
+    @text_status = Volunteer::STATUS[status-1][0]
+  end
+
 end
