@@ -1,0 +1,11 @@
+<tr>
+  <td><%= cgdvcode_vol(timereport) %></td>
+  <td><%= l timereport.day %></td>
+  <td><%= l timereport.begin, :format => :hourmin %></td>
+  <td><%= l timereport.end, :format => :hourmin %></td>
+  <td><%= timereport.tiempo %></td>
+  <td><%= link_to t('helpers.edit'), edit_timereport_path(timereport) %></td>
+  <td>
+  	<%= link_to t('helpers.delete.msg'), timereport_path(timereport), :method => :delete, :confirm => t('helpers.delete.conf'), :title => "#{t('helpers.delete.msg')} #{timereport.begin}" %>
+  </td>
+</tr>	

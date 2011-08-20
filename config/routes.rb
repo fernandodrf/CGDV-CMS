@@ -1,5 +1,6 @@
 Cgdv::Application.routes.draw do
   resources :users
+  resources :timereports
   resources :sessions, :only => [:new, :create, :destroy]
   resources :notes do
     get :print, :on => :member	

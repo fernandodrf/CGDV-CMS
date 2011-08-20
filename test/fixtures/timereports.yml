@@ -1,26 +1,26 @@
 # Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
 
 one:
-  day: MyString
-  begin: 2011-08-18 19:16:26
-  end: 2011-08-18 19:16:26
+  begin: 2011-08-19 20:35:24
+  end: 2011-08-19 20:35:24
+  volunteer: 
 
 two:
-  day: MyString
-  begin: 2011-08-18 19:16:26
-  end: 2011-08-18 19:16:26
+  begin: 2011-08-19 20:35:24
+  end: 2011-08-19 20:35:24
+  volunteer: 
 
 
 # == Schema Information
 #
-# Table name: dailyschedules
+# Table name: timereports
 #
 #  id           :integer         not null, primary key
+#  day          :date
 #  begin        :time
 #  end          :time
 #  volunteer_id :integer
 #  created_at   :datetime
 #  updated_at   :datetime
-#  day          :integer
 #
 

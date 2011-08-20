@@ -1,4 +1,7 @@
 <h1><%= t('helpers.submit.update', :model => Note.to_s) %></h1>
+<p>
+En las notas aparecen los 6 campos por defecto. Si hay campos que no se van a utilizar, para que no se generen errores se debe de seleccionar la opción de <strong>¿Eliminar?</strong>. No los rellenes con '0' o 'xxx'.<br />
+</p>
 <%= nested_form_for(@note) do |f| %>
   <%= render 'fields', :f => f %>
   <div class="actions">

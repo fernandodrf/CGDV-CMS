@@ -1,0 +1,30 @@
+ <h1><%= t('timereport.index') %></h1>
+<h6><%= link_to t('helpers.submit.create', :model => "Nuevo Reporte"), new_timereport_path %></h6><br />
+
+<%= form_for @search, :url => timereports_path, :html => {:method => :get} do |f| %>
+  
+  <h6><%= t('search.title') %></h6>	
+  <%= f.label :cgdvcode_equals, t('search.cgdvcode') %>
+  <%= f.text_field :volunteer_cgdvcode_equals, :size => 3 %>
+  <%= f.submit t('helpers.search') %><br /><br />
+<% end %>
+
+<strong><%= t('search.sort') %>	</strong>
+
+<%= paginate @timereports %>
+
+<table>
+<tr>
+  <td><%= t('patient.cgdvcode') %></td>	
+  <td><%= t('volunteer.day') %></td>
+  <td><%= t('volunteer.begin') %></td>
+  <td><%= t('volunteer.end') %></td>
+  <td><%= t('volunteer.tiempo') %></td>
+  <td></td>
+  <td></td>
+</tr>
+	<%= render @timereports %>
+</table>
+
+
+<%= paginate @timereports %>

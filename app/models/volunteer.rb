@@ -8,6 +8,7 @@ class Volunteer < ActiveRecord::Base
   has_many :comments, :as => :commentable, :dependent => :destroy
   has_many :diagnosticos, :as => :diagnosticable, :dependent => :destroy
   
+  has_many :timereports, :dependent => :destroy
   has_many :dailyschedules, :dependent => :destroy	
   has_many :extravolunteers, :dependent => :destroy
   has_many :socialservices, :dependent => :destroy

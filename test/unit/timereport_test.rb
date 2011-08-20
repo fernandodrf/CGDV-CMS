@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class DailyscheduleTest < ActiveSupport::TestCase
+class TimereportTest < ActiveSupport::TestCase
   # Replace this with your real tests.
   test "the truth" do
     assert true
@@ -10,14 +10,14 @@ end
 
 # == Schema Information
 #
-# Table name: dailyschedules
+# Table name: timereports
 #
 #  id           :integer         not null, primary key
+#  day          :date
 #  begin        :time
 #  end          :time
 #  volunteer_id :integer
 #  created_at   :datetime
 #  updated_at   :datetime
-#  day          :integer
 #
 

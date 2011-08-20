@@ -1,0 +1,7 @@
+<h1><%= t('helpers.submit.create', :model => Timereport.to_s) %></h1>
+<%= nested_form_for(@timereport) do |f| %>
+  <%= render 'fields', :f => f %>
+  <div class="actions">
+    <%= f.submit t('helpers.create') %>
+  </div>
+<% end %>

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110820012511) do
+ActiveRecord::Schema.define(:version => 20110820014759) do
 
   create_table "addinfos", :force => true do |t|
     t.integer  "tipo"
@@ -104,6 +104,8 @@ ActiveRecord::Schema.define(:version => 20110820012511) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  add_index "elements", ["note_id"], :name => "index_elements_on_note_id"
 
   create_table "emails", :force => true do |t|
     t.string   "email"
@@ -246,6 +248,17 @@ ActiveRecord::Schema.define(:version => 20110820012511) do
     t.integer  "telephoneable_id"
     t.string   "telephoneable_type"
   end
+
+  create_table "timereports", :force => true do |t|
+    t.date     "day"
+    t.time     "begin"
+    t.time     "end"
+    t.integer  "volunteer_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "timereports", ["volunteer_id"], :name => "index_timereports_on_volunteer_id"
 
   create_table "tratamientos", :force => true do |t|
     t.string   "tipo"
