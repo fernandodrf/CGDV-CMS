@@ -43,6 +43,10 @@ module ApplicationHelper
   def cgdvcode_vol(timereport)
   	@cgdvcode = timereport.volunteer.cgdvcode
   end
+  
+  def name_vol(timereport)
+    @name = timereport.volunteer.name
+  end
 	
   def name(note)
     @name = note.patient.name

@@ -1,16 +1,8 @@
 <footer>
   <nav class="round">	  	
     <ul>
-    <li><%= link_to t('header.home'), root_path %></li>
-    <% if signed_in? %>
-       | <li><%= link_to t('header.patient'), patients_path %></li>
-       | <li><%= link_to t('header.note'), notes_path %></li>
-       | <li><%= link_to t('header.volunteer'), volunteers_path %></li>  
-       | <li><%= link_to t('header.provider'), providers_path %></li>
-       | <li><%= link_to t('header.contact'), contacts_path %></li>
-    <% end %>
+      <%= render 'layouts/links' %>
        | <li><a href="http://www.conganas.org.mx/">CGDV</a></li>
-       | <li><a href="http://www.rodandoporlavida.org/">Rodando</a></li>
     </ul>
   </nav>
 </footer>

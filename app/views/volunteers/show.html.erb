@@ -1,5 +1,6 @@
 <h1><%= @volunteer.name %></h1>
-<strong><%= link_to t('helpers.submit.update', :model => "Voluntario"), edit_volunteer_path(@volunteer) %></strong>
+<strong><%= link_to t('helpers.submit.update', :model => "Voluntario"), edit_volunteer_path(@volunteer) %></strong> | 
+<strong><%= link_to t('timereport.volunteer'), trep_volunteer_path(@volunteer) %></strong>
 <table>
 <%= render 'volunteerinfo' %>
 <% if !(@volunteer.socialservices.empty?) and (@volunteer.status == 1) %>

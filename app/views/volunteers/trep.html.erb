@@ -1,0 +1,13 @@
+<h1><%= @volunteer.name %></h1>
+<h4><%= t('volunteer.tt') %>: <%= @volunteer.tt %></h4>
+<table>
+	<tr>
+	  <td><strong><%= t('patient.cgdvcode') %></strong></td>
+	  <td><strong><%= t('volunteer.day') %></strong></td>
+	  <td><strong><%= t('volunteer.begin') %></strong></td>
+	  <td><strong><%= t('volunteer.end') %></strong></td>
+	  <td><strong><%= t('volunteer.tiempo') %></strong></td>
+	</tr>
+	<%= render 'timereports/volunteer', :volunteer => @volunteer %>
+</table>
+

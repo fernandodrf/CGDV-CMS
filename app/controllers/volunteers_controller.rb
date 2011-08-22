@@ -13,6 +13,11 @@ class VolunteersController < ApplicationController
   def show
   end
   
+  def trep
+  	@volunteer = Volunteer.find(params[:id])
+  	@timereports = @volunteer.timereports
+  end
+  
   def print 
     @volunteer = Volunteer.find(params[:id])
   	render :layout => false 

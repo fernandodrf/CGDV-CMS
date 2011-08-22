@@ -1,0 +1,10 @@
+<h1><%= name_vol(@timereport) %>: <%= l @timereport.day %></h1>
+<strong><%= link_to t('helpers.submit.update', :model => "Reporte de Tiempo"), edit_timereport_path(@timereport) %></strong>
+<table>
+<tr><td><strong><%= t('patient.cgdvcode') %>: </strong><%= cgdvcode_vol(@timereport) %></td></tr>
+<tr><td><strong><%= t('volunteer.day') %>: </strong><%= l @timereport.day %></td></tr>
+<tr><td><strong><%= t('volunteer.begin') %>: </strong><%= l @timereport.begin, :format => :hourmin %></td></tr>
+<tr><td><strong><%= t('volunteer.end') %>: </strong><%= l @timereport.end, :format => :hourmin %></td></tr>
+<tr><td><strong><%= t('volunteer.tiempo') %>: </strong><%= @timereport.tiempo %></td>
+</tr>	
+</table>

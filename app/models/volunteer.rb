@@ -28,7 +28,26 @@ class Volunteer < ActiveRecord::Base
   validates :birth, :presence => true
 
   BLOODTYPES = ['NS', 'A+', 'A-', 'B+', 'B-', 'AB+', 'AB-', 'O+', 'O-']
-  STATUS = [['Servicio Social',1],['Voluntario',2]]  
+  STATUS = [['Servicio Social',1],['Voluntario',2]] 
+
+  def tt
+  	total = tiempototal
+  	hrs = (total/3600).to_i
+  	mins = (total/60 - hrs * 60).to_i
+  	return "#{hrs} hrs, #{mins} mins"
+  end  
+
+  private
+  
+	def tiempototal
+	  trs = self.timereports
+	  total = 0
+	  
+	  trs.each do |tr|
+	    total += tr.end - tr.begin
+	  end
+	  return total
+	end
   
 end
 

@@ -1,6 +1,6 @@
 <%= render 'shared/error_messages', :object => f.object %>
 <div>
-  <%= f.label :volunteer_id, t('volunteer.cgdvcode') %>	
+  <%= f.label :volunteer_id, t('patient.cgdvcode') %>	
   <%= f.collection_select :volunteer_id, Volunteer.order('cgdvcode'), :id, :cgdvcode %>
 </div>
 <div>

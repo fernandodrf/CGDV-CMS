@@ -1,5 +1,5 @@
- <h1><%= t('timereport.index') %></h1>
-<h6><%= link_to t('helpers.submit.create', :model => "Nuevo Reporte"), new_timereport_path %></h6><br />
+<h1><%= t('timereport.title') %></h1>
+<h6><%= link_to t('helpers.submit.create', :model => "Nuevo Reporte de Tiempo"), new_timereport_path %></h6><br />
 
 <%= form_for @search, :url => timereports_path, :html => {:method => :get} do |f| %>
   
@@ -15,11 +15,11 @@
 
 <table>
 <tr>
-  <td><%= t('patient.cgdvcode') %></td>	
-  <td><%= t('volunteer.day') %></td>
-  <td><%= t('volunteer.begin') %></td>
-  <td><%= t('volunteer.end') %></td>
-  <td><%= t('volunteer.tiempo') %></td>
+  <td><strong><%= sort_link @search, :cgdvcode, t('patient.cgdvcode'), :default_order => :desc %></strong></td>	
+  <td><strong><%= sort_link @search, :day, t('volunteer.day'), :default_order => :desc %></strong></td>
+  <td><strong><%= t('volunteer.begin') %></strong></td>
+  <td><strong><%= t('volunteer.end') %></strong></td>
+  <td><strong><%= t('volunteer.tiempo') %></strong></td>
   <td></td>
   <td></td>
 </tr>

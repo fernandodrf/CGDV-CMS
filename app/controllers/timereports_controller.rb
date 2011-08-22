@@ -1,9 +1,10 @@
 class TimereportsController < ApplicationController
+  load_and_authorize_resource
   before_filter :authenticate
   
   def index
   	@search = Timereport.search(params[:search])
-  	@title = t('timereport.index')
+  	@title = t('header.timereport')
   	@timereports = @search.page(params[:page]).per(10)
   end
   

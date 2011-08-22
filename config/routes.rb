@@ -13,6 +13,9 @@ Cgdv::Application.routes.draw do
   end
 
   resources :volunteers do
+  	member do
+  	  get 'trep'
+  	end
     resources :addresses, :telephones, :emails, :comments, :addinfos, :subprograms, :diagnosticos, :dailyschedules, :only => [:new, :edit, :update, :create, :destroy]
   end
 
