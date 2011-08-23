@@ -1,8 +1,6 @@
 <h1><%= t('patient.index') %></h1>
 <h6><%= link_to t('helpers.submit.create', :model => "Nuevo Paciente"), new_patient_path %></h6><br />
-
 <%= form_for @search, :url => patients_path, :html => {:method => :get} do |f| %>
-  
   <h6><%= t('search.title') %></h6>	
   <%= f.label :name_contains, t('search.name') %>
   <%= f.text_field :name_contains %>
@@ -10,17 +8,15 @@
   <%= f.text_field :cgdvcode_equals, :size => 10 %>
   <%= f.submit t('helpers.search') %><br /><br />
 <% end %>
-
 <strong><%= t('search.sort') %>	</strong>
-
 <%= paginate @patients %>
-
 <table>
 	<tr>
 	  <td><strong><%= sort_link @search, :cgdvcode, t('patient.cgdvcode'), :default_order => :desc %></strong></td>
 	  <td><strong><%= sort_link @search, :name, t('patient.name'), :default_order => :desc %></strong></td>
-	  <td><strong><%= sort_link @search, :created_at, t('all.created_at'), :default_order => :desc %></strong></td>
+	  <td class="smally"><strong><%= sort_link @search, :created_at, t('all.created_at'), :default_order => :desc %></strong></td>
 	  <td><strong><%= sort_link @search, :status, "Estatus" %></strong></td>
+	  <td><strong><%= t('header.notas') %></strong></td>
     </tr>
 	<%= render @patients %>
 </table>

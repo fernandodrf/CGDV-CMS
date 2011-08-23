@@ -8,6 +8,7 @@ class TimereportTest < ActiveSupport::TestCase
 end
 
 
+
 # == Schema Information
 #
 # Table name: timereports
@@ -19,5 +20,6 @@ end
 #  volunteer_id :integer
 #  created_at   :datetime
 #  updated_at   :datetime
+#  evento       :string(255)
 #
 

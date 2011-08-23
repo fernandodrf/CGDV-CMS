@@ -1,7 +1,7 @@
 class Timereport < ActiveRecord::Base
   belongs_to :volunteer
   
-  attr_accessible :day, :begin, :end, :volunteer_id
+  attr_accessible :day, :begin, :end, :evento, :volunteer_id
 
   validates :day, :presence => true  
   validates :begin, :presence => true
@@ -20,6 +20,7 @@ class Timereport < ActiveRecord::Base
 end
 
 
+
 # == Schema Information
 #
 # Table name: timereports
@@ -31,5 +32,6 @@ end
 #  volunteer_id :integer
 #  created_at   :datetime
 #  updated_at   :datetime
+#  evento       :string(255)
 #
 

@@ -1,3 +1,4 @@
+# encoding: UTF-8
 # This file is auto-generated from the current state of the database. Instead
 # of editing this file, please use the migrations feature of Active Record to
 # incrementally modify your database, and then regenerate this schema definition.
@@ -10,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110820014759) do
+ActiveRecord::Schema.define(:version => 20110822231140) do
 
   create_table "addinfos", :force => true do |t|
     t.integer  "tipo"
@@ -256,6 +257,7 @@ ActiveRecord::Schema.define(:version => 20110820014759) do
     t.integer  "volunteer_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "evento"
   end
 
   add_index "timereports", ["volunteer_id"], :name => "index_timereports_on_volunteer_id"

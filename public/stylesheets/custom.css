@@ -1,5 +1,5 @@
 .container {
-  width: 750px;
+  width: 900px;
 }
 
 body {
@@ -27,6 +27,10 @@ section h1 {
   font-size: 200%;
 }
 
+
+.smally {
+  font-size: 85%;
+}
 /*
   Tables
   You can zebra-stripe your tables in outdated browsers by adding
@@ -178,7 +182,7 @@ a.signup_button {
 /* Footer */
 footer {
   text-align: center;
-  width: 750px;
+  width: 900px;
   margin-left: auto;
   margin-right: auto;
   font-size: 120%;

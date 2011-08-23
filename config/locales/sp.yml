@@ -51,7 +51,7 @@ sp:
     info: "Informacion Principal"
     title: "Paciente"
     name: "Nombre"
-    cgdvcode: "Registro CGDV"
+    cgdvcode: "Reg. CGDV"
     index: "Todos los Pacientes"
     sex: "Sexo"
     blod: "Tipo de Sangre"
@@ -93,6 +93,7 @@ sp:
     end: "Salida"
     tiempo: "Tiempo"
     tt: "Tiempo Acumulado"
+    evento: "Evento"
 
   subprogram:
     title: "Subprogramas en los que Participa"
@@ -336,7 +337,7 @@ sp:
     new: "Nuevo"
     edit: "Editar"
     create: "Crear"
-    print: "Vista de Impresion"
+    print: "Imprimir"
     search: "Buscar"
     
     select:

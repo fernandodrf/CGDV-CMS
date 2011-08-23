@@ -11,6 +11,7 @@ two:
   volunteer: 
 
 
+
 # == Schema Information
 #
 # Table name: timereports
@@ -22,5 +23,6 @@ two:
 #  volunteer_id :integer
 #  created_at   :datetime
 #  updated_at   :datetime
+#  evento       :string(255)
 #
 
