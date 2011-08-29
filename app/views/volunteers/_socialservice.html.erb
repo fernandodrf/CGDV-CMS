@@ -14,7 +14,7 @@
     <td><%= t('volunteer.semestre') %>: <%= @volunteer.socialservices.first.semestre %></td>
   </tr>
   <tr>
-    <td><%= t('volunteer.inicio') %>: <%= @volunteer.socialservices.first.inicio %></td>
-    <td><%= t('volunteer.fin') %>: <%= @volunteer.socialservices.first.fin %></td>
+    <td><%= t('volunteer.inicio') %>: <%= l @volunteer.socialservices.first.inicio %></td>
+    <td><%= t('volunteer.fin') %>: <%= l @volunteer.socialservices.first.fin %></td>
   </tr> 
 </table>

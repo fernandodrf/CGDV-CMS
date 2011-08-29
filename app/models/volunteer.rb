@@ -1,5 +1,5 @@
 class Volunteer < ActiveRecord::Base
-  attr_accessible :name, :cgdvcode, :blood, :sex, :status, :birth, :extravolunteers_attributes, :socialservices_attributes
+  attr_accessible :name, :cgdvcode, :blood, :sex, :status, :birth, :oldid, :extravolunteers_attributes, :socialservices_attributes
 
   has_many :telephones, :as => :telephoneable, :dependent => :destroy
   has_many :addresses, :as => :addresseable, :dependent => :destroy
@@ -37,6 +37,13 @@ class Volunteer < ActiveRecord::Base
   	return "#{hrs} hrs, #{mins} mins"
   end  
 
+  def dt
+  	total = tiempototal2
+  	hrs = (total/3600).to_i
+  	mins = (total/60 - hrs * 60).to_i
+  	return "#{hrs} hrs, #{mins} mins"
+  end 
+
   private
   
 	def tiempototal
@@ -48,9 +55,18 @@ class Volunteer < ActiveRecord::Base
 	  end
 	  return total
 	end
+	
+	def tiempototal2
+	  trs = self.dailyschedules	
+	  total = 0
+	  
+	  trs.each do |tr|
+	    total += tr.end - tr.begin
+	  end
+	  return total
+	end
   
 end
-
 
 # == Schema Information
 #
@@ -65,5 +81,6 @@ end
 #  birth      :date
 #  created_at :datetime
 #  updated_at :datetime
+#  oldid      :string(255)
 #
 

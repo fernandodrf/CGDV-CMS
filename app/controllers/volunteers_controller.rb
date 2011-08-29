@@ -7,7 +7,7 @@ class VolunteersController < ApplicationController
   def index
   	@search = Volunteer.search(params[:search])
   	@title = t('volunteer.index')
-  	@volunteers = @search.page(params[:page]).per(10)
+  	@volunteers = @search.page(params[:page]).per(15)
   end
   
   def show

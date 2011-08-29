@@ -1,11 +1,11 @@
 <tr>
   <td><%= link_to "#{volunteer.name}", volunteer %></td>
   <td><%= link_to "#{volunteer.cgdvcode}", volunteer %></td>
-  <td><%= link_to volunteer.tt, trep_volunteer_path(volunteer) %></td>
+  <td class="smally"><%= vol_status(volunteer.status) %></td>
   <% if can? :edit, @volunteer %>
-  <td><%= link_to t('helpers.submit.update', :model => "Voluntario"), edit_volunteer_path(volunteer) %></td>
+  <td class="smally"><%= link_to t('helpers.submit.update', :model => "Datos"), edit_volunteer_path(volunteer) %></td>
   <% end %>
   <% if can? :destroy, @volunteer %>
-  <td><%= link_to t('helpers.delete.msg'), volunteer, :method => :delete, :confirm => t('helpers.delete.conf'), :title => "#{t('helpers.delete.msg')} #{volunteer.name}" %></td>
+  <td class="smally"><%= link_to t('helpers.delete.msg'), volunteer, :method => :delete, :confirm => t('helpers.delete.conf'), :title => "#{t('helpers.delete.msg')} #{volunteer.name}" %></td>
   <% end %>
 </tr>

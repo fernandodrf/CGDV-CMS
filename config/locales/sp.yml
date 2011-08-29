@@ -94,6 +94,8 @@ sp:
     tiempo: "Tiempo"
     tt: "Tiempo Acumulado"
     evento: "Evento"
+    status: "Tipo de Expediente"
+    
 
   subprogram:
     title: "Subprogramas en los que Participa"

@@ -4,10 +4,10 @@
 <table>
 <%= render 'volunteerinfo' %>
 <% if !(@volunteer.socialservices.empty?) and (@volunteer.status == 1) %>
-<%= render 'socialservice' %>
-<%= render 'diagnosticos/diagnosticosinfo', :model => @volunteer %>
-<%= render 'dailyschedules/schedule' %>
+  <%= render 'socialservice' %>
+  <%= render 'dailyschedules/schedule' %>
 <% end %>
+  <%= render 'diagnosticos/diagnosticosinfo', :model => @volunteer %>
 <%= render 'telephones/telephoneinformation', :model => @volunteer %>
 <%= render 'addresses/addressinformation', :model => @volunteer %>
 <%= render 'emails/emailinfo', :model => @volunteer  %>

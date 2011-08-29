@@ -8,6 +8,7 @@ class VolunteerTest < ActiveSupport::TestCase
 end
 
 
+
 # == Schema Information
 #
 # Table name: volunteers
@@ -21,5 +22,6 @@ end
 #  birth      :date
 #  created_at :datetime
 #  updated_at :datetime
+#  oldid      :string(255)
 #
 

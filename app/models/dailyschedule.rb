@@ -16,6 +16,13 @@ class Dailyschedule < ActiveRecord::Base
   	  mins = (total/60 - hrs * 60).to_i
   	  return "#{hrs} hrs, #{mins} mins"
     end
+    
+    def tiempo_num
+      total = self.end - self.begin
+      hrs = (total/3600).to_i
+  	  mins = (total/60 - hrs * 60).to_i
+  	  return hrs+mins
+    end    
   
 end
 
