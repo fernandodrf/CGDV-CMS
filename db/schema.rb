@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110823031706) do
+ActiveRecord::Schema.define(:version => 20110830023405) do
 
   create_table "addinfos", :force => true do |t|
     t.integer  "tipo"
@@ -291,7 +291,6 @@ ActiveRecord::Schema.define(:version => 20110823031706) do
     t.date     "birth"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "oldid"
   end
 
   add_index "volunteers", ["cgdvcode"], :name => "index_volunteers_on_cgdvcode", :unique => true
