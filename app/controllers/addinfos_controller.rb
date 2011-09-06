@@ -1,5 +1,5 @@
 class AddinfosController < ApplicationController
-  before_filter [:authenticate, :find_parent]
+  before_filter [:authenticate_user!, :find_parent]
 
   def new
   	@parent = find_parent

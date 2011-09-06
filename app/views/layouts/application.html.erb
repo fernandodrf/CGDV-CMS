@@ -5,7 +5,7 @@
     <%= render 'layouts/stylesheets' %>
     <%= javascript_include_tag 'jquery', 'nested_form', 'rails', 'application' %>
     <%= csrf_meta_tag %>
-    <%= render 'layouts/ga' if RAILS_ENV == 'production' %>
+    <%= render 'layouts/ga' if Rails.env.production? %>
   </head>
   <body>
     <div class="container">

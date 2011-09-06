@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
+  load_and_authorize_resource
   # Added show protection in this case, only the user can see its profile.
-  before_filter :authenticate, :only => [:new, :create, :index, :show, :edit, :update]
+  before_filter :authenticate_user!, :only => [:new, :create, :index, :show, :edit, :update]
   before_filter :correct_user, :only => [:show, :edit, :update]
   before_filter :admin_user,   :only => [:new, :create, :index, :destroy]
 
@@ -39,6 +40,12 @@ class UsersController < ApplicationController
   
   def update
     @user = User.find(params[:id])
+    ###DEVISE
+    if params[:user][:password].blank?
+  	params[:user].delete(:password)
+  	params[:user].delete(:password_confirmation)
+	end
+	###
     if @user.update_attributes(params[:user])
       flash[:success] = t('flash.success.edit', :model => User.to_s)
       redirect_to @user
@@ -59,10 +66,11 @@ class UsersController < ApplicationController
     #This method was modified to be overriden by admins.
     def correct_user
       @user = User.find(params[:id])
-      redirect_to(root_path) unless current_user?(@user) || current_user.admin?
+      redirect_to(root_path) unless (current_user == @user) || current_user.admin?
     end
     
     def admin_user
       redirect_to(root_path) unless current_user.admin?
     end
+
 end

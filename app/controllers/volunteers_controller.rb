@@ -1,6 +1,6 @@
 class VolunteersController < ApplicationController
   load_and_authorize_resource
-  before_filter :authenticate
+  before_filter :authenticate_user!
   before_filter :load_info, :only => :show
   before_filter :check_status, :only => :update
 

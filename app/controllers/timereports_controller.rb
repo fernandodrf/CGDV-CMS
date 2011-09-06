@@ -1,6 +1,6 @@
 class TimereportsController < ApplicationController
   load_and_authorize_resource
-  before_filter :authenticate
+  before_filter :authenticate_user!
   
   def index
   	@search = Timereport.search(params[:search])

@@ -10,6 +10,7 @@ gem 'cancan', '~> 1.6.5'
 gem 'pg', '~> 0.11.0'
 gem 'nested_form', '~> 0.1.1'
 gem "gravatar_image_tag", "~> 1.0.0"
+gem "devise", "~> 1.4.4"
 
 group :development do
   gem 'faker', '~> 0.3.1'

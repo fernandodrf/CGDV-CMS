@@ -1,7 +1,9 @@
 Cgdv::Application.routes.draw do
+  devise_for :users, :path_prefix => 'd',:controllers => { :registrations => "registrations" }
   resources :users
+  
   resources :timereports
-  resources :sessions, :only => [:new, :create, :destroy]
+
   resources :notes do
     get :print, :on => :member	
   end
@@ -26,13 +28,6 @@ Cgdv::Application.routes.draw do
   resources :contacts do
     resources :addresses, :telephones, :emails, :comments, :addinfos, :only => [:new, :edit, :update, :create, :destroy]
   end
-
-  #match '/patient',	:to =>'pages#patient'
-  #match '/patient',	:to =>'patients#new'
-  
-  match '/signup',  :to => 'users#new'
-  match '/signin',  :to => 'sessions#new'
-  match '/signout', :to => 'sessions#destroy'
   
   root :to => "pages#home"
 
