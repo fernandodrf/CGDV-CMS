@@ -20,14 +20,16 @@ class NotesController < ApplicationController
 	
   def new
   	@note = Note.new
+  	@note.patient_id = 0
     @folio = notefolio
   	@title = t('helpers.submit.create', :model => Note.to_s)
   	6.times { @note.elements.build }
   	#JSON Data
     @adeudo = getadeudo
+    @name = getname
   	respond_to do |format|
   	  format.html
-      format.json{ render :json => @adeudo }
+      format.json{ render :json => [@adeudo,@name] }
     end
   end
   
@@ -93,6 +95,12 @@ class NotesController < ApplicationController
     def getadeudo
       if !params[:id].nil?
   	    Patient.find(params[:id]).notes.last.nil? ? @adeudo = 0 : @adeudo = Patient.find(params[:id]).notes.last.restan
+  	  end
+    end
+    
+    def getname
+      if !params[:id].nil?
+  	    Patient.find(params[:id]).name.nil? ? @name = "" : @name = Patient.find(params[:id]).name
   	  end
     end
 

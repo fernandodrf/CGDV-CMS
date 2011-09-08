@@ -1,13 +1,19 @@
 <li><%= link_to t('header.home'), root_path %></li>
-<% if signed_in? %>
+<% if signed_in? and can? :read, Patient %>
  | <li><%= link_to t('header.patient'), patients_path %></li>
+<% end %>
+<% if signed_in? and can? :read, Note %>
  | <li><%= link_to t('header.note'), notes_path %></li>
-<% if can? :manage, Volunteer %>
+<% end %>
+<% if signed_in? and can? :read, Volunteer %>
  | <li><%= link_to t('header.volunteer'), volunteers_path %></li>
 <% end %>
-<% if can? :manage, Timereport %>
+<% if signed_in? and can? :read, Timereport %>
  | <li><%= link_to t('header.timereport'), timereports_path %></li>
  <% end %>
+<% if signed_in? and can? :read, Provider %>
  | <li><%= link_to t('header.provider'), providers_path %></li>
+<% end %>
+<% if signed_in? and can? :read, Contact %>
  | <li><%= link_to t('header.contact'), contacts_path %></li>
 <% end %>

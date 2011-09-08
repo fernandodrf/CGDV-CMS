@@ -2,11 +2,13 @@
 <table width="500">
   <tr>
   	<td><%= f.label :patient_id, t('patient.cgdvcode') %></td>
+  	<td><%=f.label :name, t('patient.name') %></td>
     <td><%= f.label :fecha, t('note.fecha') %></td>
     <td><%= f.label :folio, t('note.folio') %></td>
   </tr>
   <tr>
   	<td><%= f.collection_select :patient_id, Patient.order('cgdvcode'), :id, :cgdvcode %></td>
+  	<td><div id="patient_name"> </div></td>
     <td><%= f.date_select :fecha, :order => [:day, :month, :year],:start_year => Time.now.year - 10 %></td>
 	<td><%= f.text_field :folio, :value => @folio, :size => 3 %></td>
   </tr>

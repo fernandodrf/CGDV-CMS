@@ -13,7 +13,7 @@ $(document).ready(function() {
   var r = buffer = 0;
   var str_pre1 = "#note_elements_attributes_";
   var addclicks = parseInt($("#note_count").val());
-  var rowCount = $('.note_container tr').length; 
+  var rowCount = $('.note_container tr').length;
   
   //Hide Añadir Elementos al inicio de la pagina
   rowCount -= 2;
@@ -89,16 +89,18 @@ $(document).ready(function() {
     $('#note_restan').val(restan);       
   });
 
-  //Metodo que actualiza adeudo  
-  $("#note_patient_id").bind('change click', function(){
+  //Metodo que actualiza el nombre de paciente y fija el adeudo  
+  $("#note_patient_id").change( function(){
     var patid;
     //Lee patient_id
     patid = parseFloat($("#note_patient_id").val());
     //Manda patient_id y Fija el adeudo
     $.getJSON('/notes/new.json', { id: patid }, function(data) {
-      $('#note_adeudo').val(data); 
-    });    
+      $('#note_adeudo').val(data[0]); 
+      $('#patient_name').html(data[1]); 
+    });   
   });
+  
 
   //Metodo para mostrar/ocultar campos de Servicio Social en Voluntarios
   $("#volunteer_status").change(function() {

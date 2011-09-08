@@ -7,10 +7,19 @@ class Ability
     
     if user.admin?
       can :manage, :all
-    else
+      
+	elsif user.is_oficina?
       can [:read, :create, :edit, :update, :print, :notas], :all
       cannot [:destroy], [Note, Element, Patient]
       cannot :manage, [Volunteer, Timereport]
+      
+	elsif user.is_timereport?
+	  can [:read, :create], [Timereport]
+	  can [:read], [Contact]
+	  
+	else
+	  #Nothing
     end
+    
   end
 end

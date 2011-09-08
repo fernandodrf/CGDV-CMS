@@ -1,4 +1,5 @@
 class ProvidersController < ApplicationController
+  load_and_authorize_resource
   before_filter :authenticate_user!
   before_filter :load_info, :only => :show
 

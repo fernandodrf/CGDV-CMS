@@ -5,6 +5,6 @@ En las notas aparecen los 6 campos por defecto. Si hay campos que no se van a ut
 <%= nested_form_for(@note) do |f| %>
   <%= render 'fields', :f => f %>
   <div class="actions">
-    <%= f.submit t('helpers.create') %>
+    <%= f.submit t('helpers.create'), :confirm => "¿El Registro CGDV del Paciente es el correcto?" %>
   </div>
 <% end %>
