@@ -15,6 +15,13 @@ $(document).ready(function() {
   var addclicks = parseInt($("#note_count").val());
   var rowCount = $('.note_container tr').length;
   
+  //Esconder Defuncion en carga depagina
+  var sts;
+  sts = parseFloat($("#patient_sts").val());
+  if(sts != 4){
+    $('.defunciones').hide();	
+  }
+  
   //Hide Añadir Elementos al inicio de la pagina
   rowCount -= 2;
   if ((addclicks >= 6)||(rowCount >= 6)){
@@ -113,6 +120,19 @@ $(document).ready(function() {
 	  $('.serviciosocial').hide();	
     }
   });
+
+  //Metodo para mostrar/ocultar campos de Servicio Social en Voluntarios
+  $("#patient_status").bind('change click', function() {
+  	var status;
+  	status = parseFloat($("#patient_status").val());
+
+    if(status == 4){
+      $('.defunciones').show();	
+    } else {
+	  $('.defunciones').hide();	
+    }
+  });
+
 
  });
 

@@ -1,6 +1,6 @@
 class Patient < ActiveRecord::Base
 
-  attr_accessible :name, :cgdvcode, :sex, :blod, :birthdate, :status
+  attr_accessible :name, :cgdvcode, :sex, :blod, :birthdate, :status, :montocon, :faviso, :fdefuncion
   
   has_many :telephones, :as => :telephoneable, :dependent => :destroy
   has_many :addresses, :as => :addresseable, :dependent => :destroy
@@ -34,6 +34,7 @@ class Patient < ActiveRecord::Base
   
 end
 
+
 # == Schema Information
 #
 # Table name: patients
@@ -47,5 +48,8 @@ end
 #  birthdate  :date
 #  blod       :string(255)
 #  status     :integer         default(1)
+#  fdefuncion :date
+#  faviso     :date
+#  montocon   :decimal(22, 2)
 #
 

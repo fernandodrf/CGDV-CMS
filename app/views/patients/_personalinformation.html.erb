@@ -19,4 +19,11 @@
     <td><%= t('patient.age') %>: <%= t('datetime.distance_in_words.x_years', :count => edad(@patient.birthdate)) %></td>
   </tr>
   <tr><td colspan=3><%= t('patient.birthdate') %>: <%= l @patient.birthdate, :format => :long %></td></tr>
+  <% if @patient.status == 4 %>
+  <tr>
+    <td><%= t('patient.fdefuncion') %>: <%= l @patient.fdefuncion %></td>
+    <td><%= t('patient.faviso') %>: <%= l @patient.faviso %></td>
+    <td><%= t('patient.montocon') %>: <%= @patient.montocon %></td>
+  </tr>
+  <% end %>
 </table>

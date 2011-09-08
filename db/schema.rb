@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110907193536) do
+ActiveRecord::Schema.define(:version => 20110908193527) do
 
   create_table "addinfos", :force => true do |t|
     t.integer  "tipo"
@@ -174,6 +174,9 @@ ActiveRecord::Schema.define(:version => 20110907193536) do
     t.date     "birthdate"
     t.string   "blod"
     t.integer  "status",     :default => 1
+    t.date     "fdefuncion"
+    t.date     "faviso"
+    t.string   "montocon"
   end
 
   add_index "patients", ["cgdvcode"], :name => "index_patients_on_cgdvcode", :unique => true

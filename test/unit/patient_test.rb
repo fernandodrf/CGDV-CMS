@@ -14,6 +14,7 @@ class PatientTest < ActiveSupport::TestCase
 end
 
 
+
 # == Schema Information
 #
 # Table name: patients
@@ -27,5 +28,8 @@ end
 #  birthdate  :date
 #  blod       :string(255)
 #  status     :integer         default(1)
+#  fdefuncion :date
+#  faviso     :date
+#  montocon   :decimal(22, 2)
 #
 

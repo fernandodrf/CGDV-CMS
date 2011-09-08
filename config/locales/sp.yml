@@ -68,6 +68,9 @@ sp:
     age: "Edad"
     addinfo: "Información Adicional"
     info2: "Información"
+    fdefuncion: "Fecha de Defunción"
+    faviso: "Fecha de Aviso"
+    montocon: "Monto Condonado"
 
   provider:
     index: "Todos los Proveedores"

@@ -9,6 +9,7 @@ two:
   email: MyString2
 
 
+
 # == Schema Information
 #
 # Table name: users
@@ -30,5 +31,6 @@ two:
 #  last_sign_in_at        :datetime
 #  current_sign_in_ip     :string(255)
 #  last_sign_in_ip        :string(255)
+#  roles                  :string(255)     default("--- []")
 #
 

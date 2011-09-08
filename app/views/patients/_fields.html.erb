@@ -23,3 +23,13 @@
   <%= f.label :blod, t('patient.blod') %><br />
   <%= f.select :blod, Patient::BLOODTYPES %>
 </div>
+<div class="defunciones">
+  <%= f.label :fdefuncion, t('patient.fdefuncion'), :type => "hidden" %><br />
+  <%= f.date_select :fdefuncion, :order => [:day, :month, :year] %><br />
+  
+  <%= f.label :faviso, t('patient.faviso') %><br />
+  <%= f.date_select :faviso, :order => [:day, :month, :year] %><br />
+  
+  <%= f.label :montocon, t('patient.montocon') %><br />
+  <%= f.text_field :montocon %><br />
+</div>
