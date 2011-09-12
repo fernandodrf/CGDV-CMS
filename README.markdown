@@ -2,6 +2,17 @@
 
 [Con Ganas de Vivir](http://www.conganas.org.mx) is a non-profit organization that supports Oncological patients, by [Fernando D. Ramirez F.](http://revomx.com/blog)
 
+ Version 1.2
+ 	- Donadores
+ 
+ Version 1.1
+ 	- Defunciones
+ 	- Roles
+ 	
+ Version 1.0
+ 	- Devise
+ 	- Arranque en Github
+
 # LICENSE
 
 Copyright (c) 2011 copyright [Con Ganas de Vivir](http://www.conganas.org.mx), [Fernando D. Ramirez F.](http://revomx.com/blog)
