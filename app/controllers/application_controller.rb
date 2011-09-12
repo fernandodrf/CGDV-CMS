@@ -20,6 +20,7 @@ class ApplicationController < ActionController::Base
   	    when params[:contact_id] then Contact.find(params[:contact_id])
   	    when params[:provider_id] then Provider.find(params[:provider_id])
   	    when params[:volunteer_id] then Volunteer.find(params[:volunteer_id])
+  	    when params[:donor_id] then Donor.find(params[:donor_id])
   	  end  	
     end
 

@@ -3,7 +3,11 @@ Cgdv::Application.routes.draw do
   resources :users
   
   resources :timereports
-
+  
+  resources :donors do
+    resources :telephones, :addresses, :emails, :comments, :addinfos, :only => [:new, :edit, :update, :create, :destroy]
+  end
+  
   resources :notes do
     get :print, :on => :member	
   end

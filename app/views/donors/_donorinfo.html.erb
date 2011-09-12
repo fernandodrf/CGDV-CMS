@@ -1,0 +1,23 @@
+<table>
+  <tr>
+  	<th colspan=3><%= t('patient.info') %></th>
+  </tr>
+  <tr>
+  	<td><%= t('donor.persona') %>: <%= donor_persona(@donor.persona) %></td>
+  	<td colspan=2><%= t('patient.name') %>: <%= @donor.name %></td>
+  </tr>
+  <tr>
+    <td><%= t('patient.cgdvcode') %>: <%= @donor.cgdvcode %></td>
+    <td colspan=2><%= t('donation.rfc') %>: <%= @donor.rfc %></td> 
+  </tr>
+  <tr>
+    <td colspan=2><%= "Fecha de Cumpleaños/Aniversario" %>: <%= l @donor.birth, :format => :long %></td>
+    <td><%= t('datetime.distance_in_words.x_years', :count => edad(@donor.birth)) %></td>
+  </tr>
+  <% if !@donor.extradonors.empty? and @donor.persona == 2 %>
+  <tr>
+    <td><%= t('donation.pautoriza') %>: <%= @donor.extradonors.first.pautoriza %></td>
+    <td colspan=2><%= t('donation.pcontacto') %>: <%= @donor.extradonors.first.pcontacto %></td>
+  </tr>  
+  <% end %>
+</table>

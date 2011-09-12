@@ -7,6 +7,7 @@ two:
   name: MyString
 
 
+
 # == Schema Information
 #
 # Table name: patients
@@ -22,6 +23,6 @@ two:
 #  status     :integer         default(1)
 #  fdefuncion :date
 #  faviso     :date
-#  montocon   :decimal(22, 2)
+#  montocon   :string(255)
 #
 

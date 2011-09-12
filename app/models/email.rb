@@ -1,5 +1,5 @@
 class Email < ActiveRecord::Base
-  attr_accessible :email
+  attr_accessible :email, :datos
   
   email_regex = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
   
@@ -9,6 +9,7 @@ class Email < ActiveRecord::Base
   validates :emailable_id, :presence => true
   validates :emailable_type, :presence => true
 end
+
 
 # == Schema Information
 #
@@ -20,5 +21,6 @@ end
 #  emailable_type :string(255)
 #  created_at     :datetime
 #  updated_at     :datetime
+#  datos          :string(255)
 #
 

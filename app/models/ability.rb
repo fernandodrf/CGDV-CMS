@@ -11,7 +11,7 @@ class Ability
 	elsif user.is_oficina?
       can [:read, :create, :edit, :update, :print, :notas], :all
       cannot [:destroy], [Note, Element, Patient]
-      cannot :manage, [Volunteer, Timereport]
+      cannot :manage, [Volunteer, Timereport, Donor]
       
 	elsif user.is_timereport?
 	  can [:read, :create], [Timereport]

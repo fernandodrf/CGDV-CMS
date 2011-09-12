@@ -78,5 +78,8 @@ module ApplicationHelper
     @text_status = Volunteer::STATUS[status-1][0]
   end
 
+  def donor_persona(per)
+    @persona = Donor::Persona[per-1][0]
+  end
 
 end

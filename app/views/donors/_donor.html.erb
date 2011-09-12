@@ -1,0 +1,8 @@
+<tr>
+  <td><%= link_to donor.name, donor %></td>
+  <td><%= link_to donor.cgdvcode, donor %></td>
+  <td><%= link_to donor_persona(donor.persona), donor %></td>
+  <% if can? :destroy, @donor %>
+  <td class="smally"><%= link_to t('helpers.delete.msg'), donor, :method => :delete, :confirm => t('helpers.delete.conf'), :title => "#{t('helpers.delete.msg')} #{donor.rfc}" %></td>
+  <% end %>
+</tr>

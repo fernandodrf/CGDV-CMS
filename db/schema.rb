@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110908193527) do
+ActiveRecord::Schema.define(:version => 20110912192306) do
 
   create_table "addinfos", :force => true do |t|
     t.integer  "tipo"
@@ -96,6 +96,18 @@ ActiveRecord::Schema.define(:version => 20110908193527) do
     t.string   "diagnosticable_type"
   end
 
+  create_table "donors", :force => true do |t|
+    t.integer  "cgdvcode"
+    t.integer  "persona"
+    t.string   "name"
+    t.string   "rfc"
+    t.date     "birth"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "donors", ["cgdvcode"], :name => "index_donors_on_cgdvcode", :unique => true
+
   create_table "elements", :force => true do |t|
     t.string   "codigo"
     t.integer  "cantidad"
@@ -112,6 +124,15 @@ ActiveRecord::Schema.define(:version => 20110908193527) do
     t.string   "email"
     t.integer  "emailable_id"
     t.string   "emailable_type"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "datos"
+  end
+
+  create_table "extradonors", :force => true do |t|
+    t.string   "pautoriza"
+    t.string   "pcontacto"
+    t.integer  "donor_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

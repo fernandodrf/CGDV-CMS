@@ -6,6 +6,7 @@ one:
 two:
   email: MyString
 
+
 # == Schema Information
 #
 # Table name: emails
@@ -16,5 +17,6 @@ two:
 #  emailable_type :string(255)
 #  created_at     :datetime
 #  updated_at     :datetime
+#  datos          :string(255)
 #
 

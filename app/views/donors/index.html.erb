@@ -1,0 +1,27 @@
+<h1><%= t('donation.index') %></h1>
+<h6><%= link_to t('helpers.submit.create', :model => "Nuevo Donador"), new_donor_path %></h6><br />
+
+<%= form_for @search, :url => donors_path, :html => {:method => :get} do |f| %>
+  
+  <h6><%= t('search.title') %></h6>	
+  <%= f.label :name_contains, t('patient.name') %>
+  <%= f.text_field :name_contains %>
+  <%= f.label :cgdvcode_equals, t('patient.cgdvcode') %>
+  <%= f.text_field :cgdvcode_equals %>
+  <%= f.submit t('helpers.search') %><br /><br />
+<% end %>
+
+<strong><%= t('search.sort') %>	</strong>
+
+<%= paginate @donors %>
+
+<table>
+	<tr>
+	  <td><strong><%= sort_link @search, :name, t('patient.name') %></strong></td>
+	  <td><strong><%= sort_link @search, :cgdvcode, t('patient.cgdvcode') %></strong></td>
+	  <td><strong><%= sort_link @search, :persona, t('donor.persona') %></strong></td>
+    </tr>
+	<%= render @donors %>
+</table>
+
+<%= paginate @donors %>

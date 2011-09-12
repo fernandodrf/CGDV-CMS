@@ -30,6 +30,7 @@ sp:
     provider: "Proveedores"
     volunteer: "Voluntarios"
     timereport: "Tiempo V/SS"
+    donor: "Donadores"
         
   session:
     login: "Iniciar Sesión"
@@ -45,6 +46,12 @@ sp:
       create: "%{model} creado exitosamente."
       edit: "%{model} actualizado."
       destroy: "%{model} eliminado."
+
+  donation:
+    index: "Todos los Donadores"
+    rfc: "R.F.C."
+    pautoriza: "Persona que Autoriza"
+    pcontacto: "Persona de Contacto"
                   
   patient:
     status: "Estatus del Expediente"

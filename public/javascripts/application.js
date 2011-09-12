@@ -21,6 +21,15 @@ $(document).ready(function() {
   if(sts != 4){
     $('.defunciones').hide();	
   }
+  //Esconder Parte Moral Donador
+  sts = parseFloat($("#donor_persona").val());
+  if(sts == 1){
+    $('.pmoral').hide();	
+  } else {
+    $('.pmoral').show();	  	
+  }
+  
+  
   
   //Hide Añadir Elementos al inicio de la pagina
   rowCount -= 2;
@@ -121,7 +130,7 @@ $(document).ready(function() {
     }
   });
 
-  //Metodo para mostrar/ocultar campos de Servicio Social en Voluntarios
+  //Metodo para mostrar/ocultar campos de Defuncion de Pacientes
   $("#patient_status").bind('change click', function() {
   	var status;
   	status = parseFloat($("#patient_status").val());
@@ -133,6 +142,17 @@ $(document).ready(function() {
     }
   });
 
+  //Metodo para mostrar/ocultar campos de Donadores
+  $("#donor_persona").bind('change click', function() {
+  	var status;
+  	status = parseFloat($("#donor_persona").val());
+
+    if(status == 1){
+      $('.pmoral').hide();	
+    } else {
+	  $('.pmoral').show();		
+    }
+  });
 
  });
 

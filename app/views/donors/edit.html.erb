@@ -1,0 +1,7 @@
+<h1><%= t('helpers.submit.update', :model => "Donador") %></h1>
+<%= nested_form_for(@donor) do |f| %>
+  <%= render 'fields', :f => f %>
+  <div class="actions">
+    <%= f.submit t('helpers.edit') %>
+  </div>
+<% end %>

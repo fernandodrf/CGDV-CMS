@@ -15,6 +15,7 @@ end
 
 
 
+
 # == Schema Information
 #
 # Table name: patients
@@ -30,6 +31,6 @@ end
 #  status     :integer         default(1)
 #  fdefuncion :date
 #  faviso     :date
-#  montocon   :decimal(22, 2)
+#  montocon   :string(255)
 #
 

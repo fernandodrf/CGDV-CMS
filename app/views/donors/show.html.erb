@@ -1,0 +1,10 @@
+<h1><%= @donor.name %></h1>
+<strong><%= link_to t('helpers.submit.update', :model => "Donador"), edit_donor_path(@donor) %></strong>
+<table>
+<%= render 'donorinfo' %>
+<%= render 'telephones/telephoneinformation', :model => @donor %>
+<%= render 'addresses/addressinformation', :model => @donor %>
+<%= render 'emails/emailinfo', :model => @donor  %>
+<%= render 'addinfos/additionalinformation', :model => @donor %>
+<%= render 'comments/comments', :model => @donor %>
+</table>

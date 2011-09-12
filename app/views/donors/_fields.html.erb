@@ -1,0 +1,26 @@
+<%= render 'shared/error_messages', :object => f.object %>
+<div class="donante">
+  <%= f.label :persona %><br />
+  <%= f.select :persona, Donor::Persona %><br />
+
+  <%= f.label :cgdvcode, t('patient.cgdvcode') %><br />
+  <%= f.text_field :cgdvcode, :value => @cgdvcode %><br />
+
+  <%= f.label :name, t('patient.name') %><br />
+  <%= f.text_field :name %><br />
+
+  <%= f.label :rfc, t('donation.rfc') %><br />
+  <%= f.text_field :rfc %><br />
+
+  <%= f.label :birth, t('patient.birthdate') %><br />
+  <%= f.date_select :birth, :order => [:day, :month, :year], :start_year => Time.now.year - 90, :end_year => Time.now.year %><br />
+</div>
+<%= f.fields_for :extradonors do |e| %>
+  <div class="pmoral">
+    <%= e.label :pautoriza, t('donation.pautoriza') %><br />
+    <%= e.text_field :pautoriza %><br />
+
+    <%= e.label :pcontacto, t('donation.pcontacto') %><br />
+    <%= e.text_field :pcontacto %><br />
+  </div>  
+<% end %>

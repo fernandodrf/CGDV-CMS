@@ -1,5 +1,9 @@
 <tr>
+  <% if !email.datos.nil? and !email.datos.blank? %>
+  <td><%= "#{email.datos}: #{email.email}" %></td>	
+  <% else %>
   <td><%= email.email %></td>
+  <% end %>
   <td><%= link_to t('helpers.edit'), edit_polymorphic_path([model,email]) %></td>
   <td><%= link_to t('helpers.delete.msg'), polymorphic_path([model,email]) , :method => :delete, :confirm => t('helpers.delete.conf'),
                                 :title => "#{t('helpers.delete.msg')} #{email.email}" %></td>
