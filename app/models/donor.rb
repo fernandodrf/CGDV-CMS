@@ -12,10 +12,10 @@ class Donor < ActiveRecord::Base
   accepts_nested_attributes_for :extradonors, :allow_destroy => true
 
   validates :name, :presence => true
-  validates :birth, :presence => true
+  #validates :birth, :presence => true
   validates :persona, :presence => true
   validates :cgdvcode, :presence => true, :length => {:maximum => 20}, :numericality => true, :uniqueness => true
-  validates :rfc, :presence => true 
+  #validates :rfc, :presence => true 
   
   Persona = [['Fisica',1],['Moral',2]]
 end
