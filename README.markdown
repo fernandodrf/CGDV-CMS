@@ -4,6 +4,7 @@
 
  Version 1.2.2
  	- International Addresses
+ 	
  Version 1.2.1
  	- Minor Changes
 
