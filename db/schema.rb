@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110912192306) do
+ActiveRecord::Schema.define(:version => 20110914000329) do
 
   create_table "addinfos", :force => true do |t|
     t.integer  "tipo"
@@ -24,7 +24,6 @@ ActiveRecord::Schema.define(:version => 20110912192306) do
 
   create_table "addresses", :force => true do |t|
     t.string   "place"
-    t.integer  "codigopostal"
     t.string   "estado"
     t.string   "municipio"
     t.string   "colonia"
@@ -33,6 +32,8 @@ ActiveRecord::Schema.define(:version => 20110912192306) do
     t.datetime "updated_at"
     t.integer  "addresseable_id"
     t.string   "addresseable_type"
+    t.integer  "country",           :default => 1
+    t.string   "codigopostal"
   end
 
   create_table "apoyos", :force => true do |t|
@@ -40,6 +41,10 @@ ActiveRecord::Schema.define(:version => 20110912192306) do
     t.integer  "patient_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+  end
+
+  create_table "catalogo_countries", :force => true do |t|
+    t.string "country"
   end
 
   create_table "catalogo_derechohabientes", :force => true do |t|

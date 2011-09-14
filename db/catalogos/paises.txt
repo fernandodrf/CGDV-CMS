@@ -1,0 +1,215 @@
+México
+Otro
+Afganistán
+Albania
+Alemania
+Andorra
+Angola
+Antigua y Barbuda
+Antillas Holandesas
+Arabia Saudí
+Argelia
+Argentina
+Armenia
+Aruba
+Australia
+Austria
+Azerbaiyán
+Bahamas
+Bahrein
+Bangladesh
+Barbados
+Bélgica
+Belice
+Benín
+Bermudas
+Bielorrusia
+Bolivia
+Botswana
+Bosnia
+Brasil
+Brunei
+Bulgaria
+Burkina Faso
+Burundi
+Bután
+Cabo Verde
+Camboya
+Camerún
+Canadá
+Catar
+Chad
+Chile
+China
+Chipre
+Colombia
+Comoras
+Congo
+Corea del Norte
+Corea del Sur
+Costa de Marfil
+Costa Rica
+Croacia
+Cuba
+Dinamarca
+Dominica
+Dubai
+Ecuador
+Egipto
+El Salvador
+Emiratos Árabes Unidos
+Eritrea
+Eslovaquia
+Eslovenia
+España
+Estados Unidos de América
+Estonia
+Etiopía
+Fiyi
+Filipinas
+Finlandia
+Francia
+Gabón
+Gambia
+Georgia
+Ghana
+Grecia
+Guam
+Guatemala
+Guayana Francesa
+Guinea-Bissau
+Guinea Ecuatorial
+Guinea
+Guyana
+Granada
+Haití
+Honduras
+Hong Kong
+Hungría
+Holanda
+India
+Indonesia
+Irak
+Irán
+Irlanda
+Islandia
+Islas Caimán
+Islas Marshall
+Islas Pitcairn
+Islas Salomón
+Israel
+Italia
+Jamaica
+Japón
+Jordania
+Kazajstán
+Kenia
+Kirguistán
+Kiribati
+Kósovo
+Kuwait
+Laos
+Lesotho
+Letonia
+Líbano
+Liberia
+Libia
+Liechtenstein
+Lituania
+Luxemburgo
+Macedonia
+Madagascar
+Malasia
+Malawi
+Maldivas
+Malí
+Malta
+Marianas del Norte
+Marruecos
+Mauricio
+Mauritania
+Micronesia
+Mónaco
+Moldavia
+Mongolia
+Montenegro
+Mozambique
+Myanmar
+Namibia
+Nauru
+Nepal
+Nicaragua
+Níger
+Nigeria
+Noruega
+Nueva Zelanda
+Omán
+Orden de Malta
+Países Bajos
+Pakistán
+Palestina
+Palau
+Panamá
+Papúa Nueva Guinea
+Paraguay
+Perú
+Polonia
+Portugal
+Puerto Rico
+Reino Unido
+República Centroafricana
+República Checa
+República del Congo
+República Democrática del Congo
+República Dominicana
+Ruanda
+Rumania
+Rusia
+Sáhara Occidental
+Saint Kitts-Nevis
+Samoa Americana
+Samoa
+San Marino
+Santa Lucía
+Santo Tomé y Príncipe
+San Vicente y las Granadinas
+Senegal
+Serbia
+Seychelles
+Sierra Leona
+Singapur
+Siria
+Somalia
+Sri Lanka
+Sudáfrica
+Sudán
+Suecia
+Suiza
+Suazilandia
+Tailandia
+Taiwán o Formosa
+Tanzania
+Tayikistán
+Tíbet
+Timor Oriental
+Togo
+Tonga
+Trinidad y Tobago
+Túnez
+Turkmenistán
+Turquía
+Tuvalu
+Ucrania
+Uganda
+Uruguay
+Uzbequistán
+Vanuatu
+Vaticano
+Venezuela
+Vietnam
+Wallis y Futuna
+Yemen
+Yibuti
+Zambia
+Zaire
+Zimbabue

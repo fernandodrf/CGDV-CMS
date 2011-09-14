@@ -124,9 +124,10 @@ sp:
     place: "Lugar"
     codigopostal: "Codigo Postal"
     estado: "Estado"
-    municipio: "Municipio"
-    colonia: "Colonia"
+    municipio: "Municipio / Información Adicional Domicilio"
+    colonia: "Colonia / Información Adicional Domicilio"
     domicilio: "Domicilio"
+    country: "País"
 
   derechohabiente:
     title: "Derechohabientes"

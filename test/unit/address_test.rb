@@ -9,6 +9,8 @@ end
 
 
 
+
+
 # == Schema Information
 #
 # Table name: addresses
@@ -24,5 +26,6 @@ end
 #  updated_at        :datetime
 #  addresseable_id   :integer
 #  addresseable_type :string(255)
+#  country           :integer
 #
 

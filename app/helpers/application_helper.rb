@@ -36,6 +36,10 @@ module ApplicationHelper
   	return diag = CatalogoDiagnostico.find(id).diagnostico
   end
   
+  def text_pais(id)
+  	return pais = CatalogoCountry.find(id).country
+  end
+  
   def cgdvcode(note)
     @cgdvcode = note.patient.cgdvcode
   end

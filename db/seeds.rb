@@ -9,6 +9,17 @@
 # Corregir para ruby 1.9.2
 
 require 'csv'
+
+#Catalogo Paises
+CSV.foreach("#{RAILS_ROOT}/db/catalogos/paises.txt") do |row|
+ if CatalogoCountry.create(:country => row[0].to_s)
+ 	#puts "Cargado Pais: #{row[0].to_s}"
+ else
+ 	puts "Error al cargar: #{row[0].to_s}"
+ end
+end
+puts "Cargado Catalogo Paises"
+
 =begin
 #Revisar Pacientes
 CSV.foreach("#{RAILS_ROOT}/db/catalogos/patients.csv") do |row|

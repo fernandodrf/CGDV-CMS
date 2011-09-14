@@ -8,9 +8,12 @@
   <%= f.text_field :domicilio %>
 </div>
 <div class="field">
+  <%= f.label :country, t('address.country') %><br />
+  <%= f.select :country, CatalogoCountry.all.collect {|c| [c.country,c.id] } %>
+</div>
+<div class="field">
   <%= f.label :estado, t('address.estado') %><br />
   <%= f.select :estado, Address::EDOS %>
-  
 </div>
 <div class="field">
   <%= f.label :municipio, t('address.municipio') %><br />
