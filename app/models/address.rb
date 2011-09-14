@@ -5,7 +5,7 @@ class Address < ActiveRecord::Base
 
   validates :addresseable_id, :presence => true
   validates :addresseable_type, :presence => true
-  validates :place, :presence => true#, :length => { :maximum => 50 }
+  #validates :place, :presence => true#, :length => { :maximum => 50 }
   validates :codigopostal, :presence => true#, :numericality => true,  :length => { :maximum => 5 }
   validates :estado, :presence => true, :length => { :maximum => 50 }
   #validates :municipio, :presence => true, :length => { :maximum => 50 }
