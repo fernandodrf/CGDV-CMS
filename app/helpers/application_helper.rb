@@ -33,11 +33,16 @@ module ApplicationHelper
   end
 
   def text_diag(id)
-  	return diag = CatalogoDiagnostico.find(id).diagnostico
+  	diag = CatalogoDiagnostico.find(id).diagnostico
   end
   
   def text_pais(id)
-  	return pais = CatalogoCountry.find(id).country
+  	if id == 0
+  	  pais = ""
+  	else
+  	  pais = CatalogoCountry.find(id).country
+  	end
+  	return pais
   end
   
   def cgdvcode(note)

@@ -5,3 +5,12 @@ one:
 
 two:
   country: MyString
+
+# == Schema Information
+#
+# Table name: catalogo_countries
+#
+#  id      :integer         not null, primary key
+#  country :string(255)
+#
+

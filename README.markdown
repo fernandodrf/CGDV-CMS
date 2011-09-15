@@ -2,26 +2,29 @@
 
 [Con Ganas de Vivir](http://www.conganas.org.mx) is a non-profit organization that supports Oncological patients, by [Fernando D. Ramirez F.](http://revomx.com/blog)
 
- Version 1.2.2
+##### Version 1.2.3
+ 	- Autocomplete Fields in Addresses
+
+##### Version 1.2.2
  	- International Addresses
  	
- Version 1.2.1
+##### Version 1.2.1
  	- Minor Changes
 
- Version 1.2
+##### Version 1.2
  	- Donors
  
- Version 1.1
+##### Version 1.1
  	- Defunciones
  	- Roles
  	
- Version 1.0
+##### Version 1.0
  	- Devise
  	- Arranque en Github
 
 # LICENSE
 
-Copyright (c) 2011 copyright [Con Ganas de Vivir](http://www.conganas.org.mx), [Fernando D. Ramirez F.](http://revomx.com/blog)
+### Copyright (c) 2011 copyright [Con Ganas de Vivir](http://www.conganas.org.mx), [Fernando D. Ramirez F.](http://revomx.com/blog)
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
 

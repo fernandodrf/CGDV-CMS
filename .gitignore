@@ -9,3 +9,5 @@ doc/
 .project
 .DS_Store
 *.csv
+*.jpg
+*.png

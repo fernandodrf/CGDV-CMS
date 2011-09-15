@@ -7,14 +7,13 @@ class Address < ActiveRecord::Base
   validates :addresseable_type, :presence => true
   #validates :place, :presence => true#, :length => { :maximum => 50 }
   validates :codigopostal, :presence => true#, :numericality => true,  :length => { :maximum => 5 }
-  validates :estado, :presence => true, :length => { :maximum => 50 }
+  validates :estado, :presence => true#, :length => { :maximum => 50 }
   #validates :municipio, :presence => true, :length => { :maximum => 50 }
   #validates :colonia, :presence => true, :length => { :maximum => 50 }
   validates :domicilio, :presence => true
 
-  EDOS = ['Aguascalientes','Baja California','Baja California Sur','Campeche','Chiapas','Chihuahua','Coahuila','Colima','Distrito Federal','Durango','Estado de Mexico','Guanajuato','Guerrero','Hidalgo','Jalisco','Michoacan','Morelos','Nayarit','Nuevo Leon','Oaxaca','Puebla','Queretaro','Quintana Roo','San Luis Potosi','Sinaloa','Sonora','Tabasco','Tamaulipas','Tlaxcala','Veracruz','Yucatan','Zacatecas','Fuera de Mexico']
-
 end
+
 
 
 
@@ -25,7 +24,6 @@ end
 #
 #  id                :integer         not null, primary key
 #  place             :string(255)
-#  codigopostal      :integer
 #  estado            :string(255)
 #  municipio         :string(255)
 #  colonia           :string(255)
@@ -34,6 +32,7 @@ end
 #  updated_at        :datetime
 #  addresseable_id   :integer
 #  addresseable_type :string(255)
-#  country           :integer
+#  country           :integer         default(1)
+#  codigopostal      :string(255)
 #
 

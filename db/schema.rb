@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110914000329) do
+ActiveRecord::Schema.define(:version => 20110915005729) do
 
   create_table "addinfos", :force => true do |t|
     t.integer  "tipo"
@@ -55,6 +55,12 @@ ActiveRecord::Schema.define(:version => 20110914000329) do
 
   create_table "catalogo_diagnosticos", :force => true do |t|
     t.string   "diagnostico"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "catestados", :force => true do |t|
+    t.string   "estado"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

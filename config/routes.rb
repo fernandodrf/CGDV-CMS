@@ -3,6 +3,10 @@ Cgdv::Application.routes.draw do
   resources :users
   
   resources :timereports
+
+  resources :addresses do
+    get :autocomplete_catestado_estado, :on => :collection
+  end
   
   resources :donors do
     resources :telephones, :addresses, :emails, :comments, :addinfos, :only => [:new, :edit, :update, :create, :destroy]

@@ -9,7 +9,7 @@
 # Corregir para ruby 1.9.2
 
 require 'csv'
-
+=begin
 #Catalogo Paises
 CSV.foreach("#{RAILS_ROOT}/db/catalogos/paises.txt") do |row|
  if CatalogoCountry.create(:country => row[0].to_s)
@@ -20,7 +20,7 @@ CSV.foreach("#{RAILS_ROOT}/db/catalogos/paises.txt") do |row|
 end
 puts "Cargado Catalogo Paises"
 
-=begin
+
 #Revisar Pacientes
 CSV.foreach("#{RAILS_ROOT}/db/catalogos/patients.csv") do |row|
 #CSV::Reader.parse(File.open("#{RAILS_ROOT}/db/catalogos/patients.csv", "r")) do |row|
@@ -513,3 +513,39 @@ CatalogoDerechohabiente.create(:seguro => "ISSEMYM") ? true : puts("Error al car
 CatalogoDerechohabiente.create(:seguro => "Seguro Popular") ? true : puts("Error al cargar Seguro Popular")
 puts "Cargado Catalogo de Derechohabientes"
 =end
+
+Catestado.create(:estado => 'Aguascalientes')
+Catestado.create(:estado => 'Baja California')
+Catestado.create(:estado => 'Baja California Sur')
+Catestado.create(:estado => 'Campeche')
+Catestado.create(:estado => 'Chiapas')
+Catestado.create(:estado => 'Chihuahua')
+Catestado.create(:estado => 'Coahuila')
+Catestado.create(:estado => 'Colima')
+Catestado.create(:estado => 'Distrito Federal')
+Catestado.create(:estado => 'Durango')
+Catestado.create(:estado => 'Estado de Mexico')
+Catestado.create(:estado => 'Guanajuato')
+Catestado.create(:estado => 'Guerrero')
+Catestado.create(:estado => 'Hidalgo')
+Catestado.create(:estado => 'Jalisco')
+Catestado.create(:estado => 'Michoacan')
+Catestado.create(:estado => 'Morelos')
+Catestado.create(:estado => 'Nayarit')
+Catestado.create(:estado => 'Nuevo Leon')
+Catestado.create(:estado => 'Oaxaca')
+Catestado.create(:estado => 'Puebla')
+Catestado.create(:estado => 'Queretaro')
+Catestado.create(:estado => 'Quintana Roo')
+Catestado.create(:estado => 'San Luis Potosi')
+Catestado.create(:estado => 'Sinaloa')
+Catestado.create(:estado => 'Sonora')
+Catestado.create(:estado => 'Tabasco')
+Catestado.create(:estado => 'Tamaulipas')
+Catestado.create(:estado => 'Tlaxcala')
+Catestado.create(:estado => 'Veracruz')
+Catestado.create(:estado => 'Yucatan')
+Catestado.create(:estado => 'Zacatecas')
+Catestado.create(:estado => 'Fuera de Mexico')
+Catestado.create(:estado => 'Otro')
+

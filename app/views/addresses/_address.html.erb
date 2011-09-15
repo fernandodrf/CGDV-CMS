@@ -1,14 +1,12 @@
+<tr><td colspan=2><%= t('address.place') %>: <%= address.place %></td></tr>
+<tr><td colspan=2><%= t('address.pais') %>: <%= text_pais(address.country) %></td></tr>
+<tr><td colspan=2><%= t('address.domicilio') %>: <%= address.domicilio %></td></tr>
+<tr><td colspan=2><%= t('address.estado') %>: <%= address.estado %></td></tr>
+<tr><td colspan=2><%= t('address.municipio') %>: <%= address.municipio %></td></tr>
+<tr><td colspan=2><%= t('address.colonia') %>: <%= address.colonia %></td></tr>
+<tr><td colspan=2><%= t('address.codigopostal') %>: <%= address.codigopostal %></td></tr>
 <tr>
-  <td><%= t('address.place') %>:</td><td><%= address.place %></td>
-  <td><%= t('address.codigopostal') %>:</td><td><%= address.codigopostal %></td>
+  <td><%= link_to t('helpers.edit'), edit_polymorphic_path([model,address]) %></td>
+  <td><%= link_to t('helpers.delete.msg'), polymorphic_path([model,address]), :method => :delete, :confirm => t('helpers.delete.conf') %></td>
 </tr>
-<tr><td><%= t('address.domicilio') %>:</td><td colspan=3><%= address.domicilio %></td></tr>
-<tr><td><%= t('address.pais') %>:</td><td colspan=3><%= text_pais(address.country) %></td></tr>
-<tr><td><%= t('address.estado') %>:</td><td colspan=3><%= address.estado %></td></tr>
-<tr><td><%= t('address.municipio') %>:</td><td colspan=3><%= address.municipio %></td></tr>
-<tr><td><%= t('address.colonia') %>:</td><td colspan=3><%= address.colonia %></td></tr>
-<tr>
-  <td colspan=2><%= link_to t('helpers.edit'), edit_polymorphic_path([model,address]) %></td>
-  <td colspan=2><%= link_to t('helpers.delete.msg'), polymorphic_path([model,address]), :method => :delete, :confirm => t('helpers.delete.conf') %></td>
-</tr>
-<tr><td colspan=4><strong><%= link_to t('helpers.submit.create', :model => "Direccion"), new_polymorphic_path([model,Address]) %></strong></td><tr>
+<tr><td colspan=2><strong><%= link_to t('helpers.submit.create', :model => "Direccion"), new_polymorphic_path([model,Address]) %></strong></td><tr>

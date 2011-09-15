@@ -123,9 +123,9 @@ sp:
     title: "Domicilios"
     place: "Lugar"
     codigopostal: "Codigo Postal"
-    estado: "Estado"
-    municipio: "Municipio / Información Adicional Domicilio"
-    colonia: "Colonia / Información Adicional Domicilio"
+    estado: "Estado / Dom. 2"
+    municipio: "Municipio / Dom. 3"
+    colonia: "Colonia / Dom. 4"
     domicilio: "Domicilio"
     country: "País"
 

@@ -4,16 +4,16 @@
   <%= f.text_field :place %>
 </div>
 <div class="field">
-  <%= f.label :domicilio, t('address.domicilio') %><br />
-  <%= f.text_field :domicilio %>
-</div>
-<div class="field">
   <%= f.label :country, t('address.country') %><br />
   <%= f.select :country, CatalogoCountry.all.collect {|c| [c.country,c.id] } %>
 </div>
 <div class="field">
+  <%= f.label :domicilio, t('address.domicilio') %><br />
+  <%= f.text_field :domicilio %>
+</div>
+<div class="field">
   <%= f.label :estado, t('address.estado') %><br />
-  <%= f.select :estado, Address::EDOS %>
+  <%= f.autocomplete_field :estado, autocomplete_catestado_estado_addresses_path %>
 </div>
 <div class="field">
   <%= f.label :municipio, t('address.municipio') %><br />

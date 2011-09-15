@@ -1,6 +1,8 @@
 class AddressesController < ApplicationController
   before_filter :authenticate_user!
   before_filter :find_parent
+  
+  autocomplete :catestado, :estado, :full => true
 
   def new
   	@parent = find_parent

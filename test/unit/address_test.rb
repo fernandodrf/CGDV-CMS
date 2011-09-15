@@ -11,13 +11,13 @@ end
 
 
 
+
 # == Schema Information
 #
 # Table name: addresses
 #
 #  id                :integer         not null, primary key
 #  place             :string(255)
-#  codigopostal      :integer
 #  estado            :string(255)
 #  municipio         :string(255)
 #  colonia           :string(255)
@@ -26,6 +26,7 @@ end
 #  updated_at        :datetime
 #  addresseable_id   :integer
 #  addresseable_type :string(255)
-#  country           :integer
+#  country           :integer         default(1)
+#  codigopostal      :string(255)
 #
 
