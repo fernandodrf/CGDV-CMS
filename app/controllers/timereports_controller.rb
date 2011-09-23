@@ -5,7 +5,7 @@ class TimereportsController < ApplicationController
   def index
   	@search = Timereport.search(params[:search])
   	@title = t('header.timereport')
-  	@timereports = @search.page(params[:page]).per(10)
+  	@timereports = @search.page(params[:page]).per(15)
   end
   
   def show

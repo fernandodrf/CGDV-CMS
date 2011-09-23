@@ -90,5 +90,26 @@ module ApplicationHelper
   def donor_persona(per)
     @persona = Donor::Persona[per-1][0]
   end
+  
+  def tiempo_total(timereports)
+    hrs = 0
+    mins = 0
+  	for tr in timereports do
+  	  hrs += tr.tiempo_num[0]
+  	  mins += tr.tiempo_num[1] 
+  	  if mins >= 0.6
+  	    hrs += 1
+  	    mins -= 0.6
+  	  end
+    end
+  	if mins >= 0.6
+  	  hrs += 1
+  	  mins -= 0.6
+  	end
+    hrs = number_with_precision(hrs, :precision => 0)
+    mins = number_with_precision(mins*100, :precision => 0)
+    return "#{hrs} hrs, #{mins} mins"
+    #return tt%1
+  end
 
 end

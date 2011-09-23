@@ -11,9 +11,9 @@
   <%= f.label :name_contains, t('patient.name') %>
   <%= f.text_field :volunteer_name_contains %><br />
   <%= f.label :day_greater_than_or_equal_to, "Desde: " %>
-  <%= f.date_select :day_greater_than_or_equal_to, :default => 1.year.ago %> 
+  <%= f.date_select :day_greater_than_or_equal_to, :default => 1.year.ago, :start_year => Time.now.year - 20, :end_year => Time.now.year %> 
   <%= f.label :day_less_than_or_equal_to, "Hasta: " %>
-  <%= f.date_select :day_less_than_or_equal_to %>
+  <%= f.date_select :day_less_than_or_equal_to, :start_year => Time.now.year - 20, :end_year => Time.now.year %>
   <%= f.submit t('helpers.search') %><br /><br />
 <% end %>
 
@@ -23,15 +23,26 @@
 
 <table>
 <tr>
-  <td><strong><%= sort_link @search, :cgdvcode, t('patient.cgdvcode'), :default_order => :desc %></strong></td>	
+  <td><strong><%= sort_link @search, :volunteer_cgdvcode, t('patient.cgdvcode'), :default_order => :desc %></strong></td>	
   <td><strong><%= sort_link @search, :day, t('volunteer.day'), :default_order => :desc %></strong></td>
   <td><strong><%= t('volunteer.begin') %></strong></td>
   <td><strong><%= t('volunteer.end') %></strong></td>
   <td><strong><%= t('volunteer.tiempo') %></strong></td>
   <td><strong><%= t('volunteer.evento') %></strong></td>
   <td></td>
+  <td></td>
 </tr>
 	<%= render @timereports %>
+<tr>
+  <td></td>
+  <td></td>
+  <td></td>
+  <td><strong>Tiempo Total: </strong></td>
+  <td><strong><%= tiempo_total(@timereports) %></strong></td>
+  <td></td>
+  <td></td>
+  <td></td>
+</tr>
 </table>
 
 
