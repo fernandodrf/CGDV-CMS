@@ -19,11 +19,7 @@
   <tr>
   	<td><%= t('volunteer.profesion') %>: <%= @volunteer.extravolunteers.first.profesion %></td>
   	<td><%= t('patient.blod') %>: <%= @volunteer.blood %></td>
-  	<td><%= t('volunteer.sobreviviente') %>: <%= @volunteer.extravolunteers.first.sobreviviente ? "Si" : "No" %></td>
-  </tr>
-  <tr>
-    <td><%= t('volunteer.licencia') %>: <%= @volunteer.extravolunteers.first.licencia ? "Si" : "No" %></td>
-    <td colspan=2><%= t('volunteer.exposferias') %>: <%= @volunteer.extravolunteers.first.exposferias ? "Si" : "No" %></td>
+  	<td></td>
   </tr>  
   <% end %>
 </table>

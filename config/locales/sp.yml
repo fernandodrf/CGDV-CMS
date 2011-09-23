@@ -118,6 +118,11 @@ sp:
     autoayuda: "Grupos de Autoayuda"
     sobrevivientes: "Sobrevivientes"
     fugarte: "Fugarte"
+    disenografico: "Diseño Gráfico"
+    abogacia: "Abogacía y Cabildeo"
+    invdocumental: "Investigación Documental"
+    invmedica: "Investigación Médica"
+    apoyofueraoficina: "Apoyo a Pacientes fuera de Hospitales"
     
   address:
     title: "Domicilios"

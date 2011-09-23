@@ -3,6 +3,20 @@
   <tr>
   	<td>
 	  <div class="field">
+	    <%= f.check_box :sobreviviente%>
+		<%= f.label :sobreviviente, t('volunteer.sobreviviente') %>
+	  </div>
+    </td>
+  	<td>
+	  <div class="field">
+	    <%= f.check_box :licencia%>
+		<%= f.label :licencia, t('volunteer.licencia') %>
+	  </div>
+    </td>
+  </tr>
+  <tr>
+  	<td>
+	  <div class="field">
 	    <%= f.check_box :donador %>
 		<%= f.label :donador, t('subprogram.donador') %>
 	  </div>
@@ -61,6 +75,48 @@
 	  <div class="field">
 	    <%= f.check_box :fugarte %>
 	    <%= f.label :fugarte, t('subprogram.fugarte') %>
+	  </div>
+    </td>
+    <td>
+      <div class="field">
+    	<%= f.check_box :licencia %>
+		<%= f.label :licencia, t('volunteer.licencia') %>
+	  </div>
+	</td>
+  </tr>
+  <tr>
+  	<td>	
+	  <div class="field">
+	    <%= f.check_box :disenografico %>
+	    <%= f.label :disenografico, t('subprogram.disenografico') %>
+	  </div>
+    </td>
+    <td>
+      <div class="field">
+    	<%= f.check_box :abogacia %>
+		<%= f.label :abogacia, t('subprogram.abogacia') %>
+	  </div>
+	</td>
+  </tr>
+  <tr>
+  	<td>	
+	  <div class="field">
+	    <%= f.check_box :invdocumental %>
+	    <%= f.label :invdocumental, t('subprogram.invdocumental') %>
+	  </div>
+    </td>
+    <td>
+      <div class="field">
+    	<%= f.check_box :invmedica %>
+		<%= f.label :invmedica, t('subprogram.invmedica') %>
+	  </div>
+	</td>
+  </tr>
+  <tr>
+  	<td>	
+	  <div class="field">
+	    <%= f.check_box :apoyofueraoficina %>
+	    <%= f.label :apoyofueraoficina, t('subprogram.apoyofueraoficina') %>
 	  </div>
     </td>
   </tr>

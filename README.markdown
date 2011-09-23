@@ -6,6 +6,7 @@
  	- List of events in Timereports
  	- Name appears in new Timereport
  	- Accumulated hours in Timereports index
+ 	- Added more Subprograms to Volunteers
 
 ##### Version 1.2.3
  	- Autocomplete Fields in Addresses

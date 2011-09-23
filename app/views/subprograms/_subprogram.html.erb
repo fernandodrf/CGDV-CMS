@@ -1,17 +1,38 @@
 <tr>
+  <td><%= t('volunteer.sobreviviente') %>: <%= subprogram.sobreviviente ? "Si" : "No" %></td>
+  <td><%= t('volunteer.licencia') %>: <%= subprogram.licencia ? "Si" : "No" %></td>
+</tr>
+<tr>
+  <td><%= t('volunteer.exposferias') %>: <%= subprogram.exposferias ? "Si" : "No" %></td>
   <td><%= t('subprogram.donador') %>: <%= subprogram.donador ? "Si" : "No" %></td>
+</tr>
+<tr>
   <td><%= t('subprogram.eventos') %>: <%= subprogram.eventos ? "Si" : "No" %></td>
   <td><%= t('subprogram.hospitales') %>: <%= subprogram.hospitales ? "Si" : "No" %></td>
 </tr>
 <tr>
   <td><%= t('subprogram.suenosdeseos') %>: <%= subprogram.suenosdeseos ? "Si" : "No" %></td>
   <td><%= t('subprogram.fondos') %>: <%= subprogram.fondos ? "Si" : "No" %></td>
-  <td><%= t('subprogram.administrativas') %>: <%= subprogram.administrativas ? "Si" : "No" %></td> 
 </tr>
 <tr>
+  <td><%= t('subprogram.administrativas') %>: <%= subprogram.administrativas ? "Si" : "No" %></td> 
   <td><%= t('subprogram.autoayuda') %>: <%= subprogram.autoayuda ? "Si" : "No" %></td>
+</tr>
+<tr>
   <td><%= t('subprogram.sobrevivientes') %>: <%= subprogram.sobrevivientes ? "Si" : "No" %></td>
   <td><%= t('subprogram.fugarte') %>: <%= subprogram.fugarte ? "Si" : "No" %></td> 
 </tr>
-<tr><td colspan=3><%= link_to t('helpers.delete.msg'), volunteer_subprogram_path(@volunteer,@subprogram), :method => :delete, :confirm => t('helpers.delete.conf') %></td></tr>
+<tr>
+  <td><%= t('subprogram.disenografico') %>: <%= subprogram.disenografico ? "Si" : "No" %></td>
+  <td><%= t('subprogram.abogacia') %>: <%= subprogram.abogacia ? "Si" : "No" %></td>
+</tr>
+<tr>
+  <td><%= t('subprogram.invdocumental') %>: <%= subprogram.invdocumental ? "Si" : "No" %></td> 
+  <td><%= t('subprogram.invmedica') %>: <%= subprogram.invmedica ? "Si" : "No" %></td>
+</tr>
+<tr>
+  <td><%= t('subprogram.apoyofueraoficina') %>: <%= subprogram.apoyofueraoficina ? "Si" : "No" %></td>
+  <td></td> 
+</tr>
+<tr><td colspan=2><%= link_to t('helpers.delete.msg'), volunteer_subprogram_path(@volunteer,@subprogram), :method => :delete, :confirm => t('helpers.delete.conf') %></td></tr>
 

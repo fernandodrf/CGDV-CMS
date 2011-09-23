@@ -29,18 +29,6 @@
     <%= e.label :profesion, t('volunteer.profesion') %><br />
     <%= e.text_field :profesion %>
   </div>
-  <div>
-    <%= e.check_box :sobreviviente%>
-	<%= e.label :sobreviviente, t('volunteer.sobreviviente') %>
-  </div>
-  <div>
-    <%= e.check_box :licencia%>
-	<%= e.label :licencia, t('volunteer.licencia') %>
-  </div>
-  <div>
-    <%= e.check_box :exposferias %>
-	<%= e.label :exposferias, t('volunteer.exposferias') %><br /><br />
-  </div>
 <% end %>
 <%= f.fields_for :socialservices do |ss| %>
   <div class="serviciosocial">

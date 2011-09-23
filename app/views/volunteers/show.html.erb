@@ -7,7 +7,9 @@
   <%= render 'socialservice' %>
   <%= render 'dailyschedules/schedule' %>
 <% end %>
+<% if !(@volunteer.subprogram.nil?) and (@volunteer.subprogram.sobreviviente) %>
   <%= render 'diagnosticos/diagnosticosinfo', :model => @volunteer %>
+<% end %>
 <%= render 'telephones/telephoneinformation', :model => @volunteer %>
 <%= render 'addresses/addressinformation', :model => @volunteer %>
 <%= render 'emails/emailinfo', :model => @volunteer  %>

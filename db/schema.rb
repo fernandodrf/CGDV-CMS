@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110915005729) do
+ActiveRecord::Schema.define(:version => 20110923161716) do
 
   create_table "addinfos", :force => true do |t|
     t.integer  "tipo"
@@ -150,9 +150,6 @@ ActiveRecord::Schema.define(:version => 20110915005729) do
 
   create_table "extravolunteers", :force => true do |t|
     t.string   "profesion"
-    t.boolean  "sobreviviente"
-    t.boolean  "licencia"
-    t.boolean  "exposferias"
     t.integer  "volunteer_id"
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -274,6 +271,14 @@ ActiveRecord::Schema.define(:version => 20110915005729) do
     t.integer  "volunteer_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.boolean  "sobreviviente"
+    t.boolean  "licencia"
+    t.boolean  "exposferias"
+    t.boolean  "disenografico"
+    t.boolean  "abogacia"
+    t.boolean  "invdocumental"
+    t.boolean  "invmedica"
+    t.boolean  "apoyofueraoficina"
   end
 
   create_table "telephones", :force => true do |t|
