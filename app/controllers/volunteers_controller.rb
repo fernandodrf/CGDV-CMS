@@ -29,6 +29,12 @@ class VolunteersController < ApplicationController
   	@volunteer.socialservices.build
   	@cgdvcode = cgdvcode
   	@title = t('helpers.submit.create', :model => Volunteer.to_s)
+  	#JSON Data
+    @name = getname
+  	respond_to do |format|
+  	  format.html
+      format.json{ render :json => [@name] }
+    end
   end
   
   def edit
@@ -101,6 +107,12 @@ class VolunteersController < ApplicationController
   	    @cgdvcode = 1
   	  else
   	    @cgdvcode = Volunteer.last.cgdvcode + 1
+  	  end
+    end
+    
+    def getname
+      if !params[:id].nil?
+  	    Volunteer.find(params[:id]).name.nil? ? @name = "" : @name = Volunteer.find(params[:id]).name
   	  end
     end
 end

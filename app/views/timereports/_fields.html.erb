@@ -1,21 +1,19 @@
 <%= render 'shared/error_messages', :object => f.object %>
-<div>
-  <%= f.label :evento, t('volunteer.evento') %>
-  <%= f.select :evento, Timereport::EVENTO.collect %>
-</div>  
-<div>
-  <%= f.label :volunteer_id, t('patient.cgdvcode') %>	
-  <%= f.collection_select :volunteer_id, Volunteer.order('cgdvcode'), :id, :cgdvcode %>
-</div>
-<div>
+
+  <%= f.label :evento, t('volunteer.evento') %><br />
+  <%= f.select :evento, Timereport::EVENTO.collect %><br />
+
+  <%= f.label :volunteer_id, t('patient.cgdvcode') %><br />	
+  <%= f.collection_select :volunteer_id, Volunteer.order('cgdvcode'), :id, :cgdvcode %><br />
+  
+  <%= f.label :volunteer_id, t('patient.name') %><br />
+  <div id="volunteer_name"> </div><br />
+
   <%= f.label :day, t('volunteer.day') %><br />
-  <%= f.date_select :day %>
-</div>
-<div>
+  <%= f.date_select :day %><br />
+
   <%= f.label :begin, t('volunteer.begin') %><br />
-  <%= f.time_select :begin %>
-</div>
-<div>
+  <%= f.time_select :begin %><br />
+
   <%= f.label :end, t('volunteer.end') %><br />
-  <%= f.time_select :end %>
-</div>
+  <%= f.time_select :end %><br />
