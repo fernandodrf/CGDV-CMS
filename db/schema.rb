@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110923161716) do
+ActiveRecord::Schema.define(:version => 20110923194053) do
 
   create_table "addinfos", :force => true do |t|
     t.integer  "tipo"
@@ -279,6 +279,8 @@ ActiveRecord::Schema.define(:version => 20110923161716) do
     t.boolean  "invdocumental"
     t.boolean  "invmedica"
     t.boolean  "apoyofueraoficina"
+    t.boolean  "disenoweb"
+    t.boolean  "apoyocap"
   end
 
   create_table "telephones", :force => true do |t|

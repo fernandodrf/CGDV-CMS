@@ -123,6 +123,8 @@ sp:
     invdocumental: "Investigación Documental"
     invmedica: "Investigación Médica"
     apoyofueraoficina: "Apoyo a Pacientes fuera de Hospitales"
+    disenoweb: "Diseño Web"
+    apoyocap: "Apoyo a Pacientes en CAP"
     
   address:
     title: "Domicilios"

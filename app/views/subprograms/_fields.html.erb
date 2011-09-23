@@ -3,7 +3,7 @@
   <tr>
   	<td>
 	  <div class="field">
-	    <%= f.check_box :sobreviviente%>
+	    <%= f.check_box :sobreviviente %>
 		<%= f.label :sobreviviente, t('volunteer.sobreviviente') %>
 	  </div>
     </td>
@@ -109,6 +109,20 @@
       <div class="field">
     	<%= f.check_box :invmedica %>
 		<%= f.label :invmedica, t('subprogram.invmedica') %>
+	  </div>
+	</td>
+  </tr>
+  <tr>
+  	<td>	
+	  <div class="field">
+	    <%= f.check_box :disenoweb %>
+	    <%= f.label :disenoweb, t('subprogram.disenoweb') %>
+	  </div>
+    </td>
+    <td>
+      <div class="field">
+    	<%= f.check_box :apoyocap %>
+		<%= f.label :apoyocap, t('subprogram.apoyocap') %>
 	  </div>
 	</td>
   </tr>
