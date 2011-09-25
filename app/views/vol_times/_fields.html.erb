@@ -1,0 +1,13 @@
+<%= render 'shared/error_messages', :object => f.object %>
+
+  <%= f.label :evento, t('volunteer.evento') %><br />
+  <%= f.text_field :evento %><br />
+  
+  <%= f.label :volunteer_id, t('patient.cgdvcode') %><br />	
+  <%= f.collection_select :volunteer_id, Volunteer.order('cgdvcode'), :id, :cgdvcode %><br />
+  
+  <%= f.label :volunteer_id, t('patient.name') %><br />
+  <div id="volunteer_name"> </div><br />
+
+  <%= f.label :horas, t('volunteer.horas') %><br />
+  <%= f.text_field :horas %><br />

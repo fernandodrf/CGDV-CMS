@@ -3,8 +3,8 @@ class PagesController < ApplicationController
   	@title = t('home.title')
   end
   
-  def patient
-  	@title = t('patient.title')
+  def times
+  	@title = t('timereports.title')
   end
 
 end

@@ -3,6 +3,7 @@ Cgdv::Application.routes.draw do
   resources :users
   
   resources :timereports
+  resources :vol_times
 
   resources :addresses do
     get :autocomplete_catestado_estado, :on => :collection
@@ -38,5 +39,6 @@ Cgdv::Application.routes.draw do
   end
   
   root :to => "pages#home"
+  match '/times', :to => "pages#times"
 
 end

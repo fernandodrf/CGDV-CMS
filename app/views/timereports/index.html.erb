@@ -1,5 +1,13 @@
 <h1><%= t('timereport.title') %></h1>
-<h6><%= link_to t('helpers.submit.create', :model => "Nuevo Reporte de Tiempo"), new_timereport_path %></h6><br />
+
+<% if signed_in? and can? :read, VolTime %>
+  <%= link_to "Tiempo Pendiente", vol_times_path %>: Añadir/Acumular Tiempo
+<% end %>
+<% if signed_in? and can? :read, Timereport %>
+  <%= link_to "Reportes de Tiempo", timereports_path %>: Restar/Reportar Tiempo
+<% end %>
+
+<br /><br /><h6><%= link_to t('helpers.submit.create', :model => "Nuevo Reporte de Tiempo"), new_timereport_path %></h6><br />
 
 <%= form_for @search, :url => timereports_path, :html => {:method => :get} do |f| %>
   

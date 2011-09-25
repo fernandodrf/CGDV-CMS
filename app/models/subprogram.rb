@@ -6,6 +6,7 @@ class Subprogram < ActiveRecord::Base
 end
 
 
+
 # == Schema Information
 #
 # Table name: subprograms
@@ -31,5 +32,7 @@ end
 #  invdocumental     :boolean
 #  invmedica         :boolean
 #  apoyofueraoficina :boolean
+#  disenoweb         :boolean
+#  apoyocap          :boolean
 #
 

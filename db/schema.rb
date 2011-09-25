@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110923194053) do
+ActiveRecord::Schema.define(:version => 20110924152252) do
 
   create_table "addinfos", :force => true do |t|
     t.integer  "tipo"
@@ -333,6 +333,16 @@ ActiveRecord::Schema.define(:version => 20110923194053) do
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true
   add_index "users", ["reset_password_token"], :name => "index_users_on_reset_password_token", :unique => true
+
+  create_table "vol_times", :force => true do |t|
+    t.string   "evento"
+    t.integer  "horas"
+    t.integer  "volunteer_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "vol_times", ["volunteer_id"], :name => "index_vol_times_on_volunteer_id"
 
   create_table "volunteers", :force => true do |t|
     t.string   "name"

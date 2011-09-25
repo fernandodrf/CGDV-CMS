@@ -25,6 +25,7 @@ two:
   volunteer: 
 
 
+
 # == Schema Information
 #
 # Table name: subprograms
@@ -50,5 +51,7 @@ two:
 #  invdocumental     :boolean
 #  invmedica         :boolean
 #  apoyofueraoficina :boolean
+#  disenoweb         :boolean
+#  apoyocap          :boolean
 #
 

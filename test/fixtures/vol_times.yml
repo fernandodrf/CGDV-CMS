@@ -1,0 +1,24 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  volunteer: 
+  evento: MyString
+  horas: 1
+
+two:
+  volunteer: 
+  evento: MyString
+  horas: 1
+
+# == Schema Information
+#
+# Table name: vol_times
+#
+#  id           :integer         not null, primary key
+#  evento       :string(255)
+#  horas        :integer
+#  volunteer_id :integer
+#  created_at   :datetime
+#  updated_at   :datetime
+#
+

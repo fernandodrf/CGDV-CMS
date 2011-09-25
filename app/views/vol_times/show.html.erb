@@ -1,0 +1,8 @@
+<h1><%= @voltime.volunteer.name %></h1>
+<strong><%= link_to t('helpers.submit.update', :model => "Reporte de Tiempo"), edit_vol_time_path(@voltime) %></strong>
+<table>
+<tr><td><strong><%= t('patient.cgdvcode') %>: </strong><%= @voltime.volunteer.cgdvcode %></td></tr>
+<tr><td><strong><%= t('volunteer.created_at') %>: </strong><%= l @voltime.created_at %></td></tr>
+<tr><td><strong><%= t('volunteer.evento') %>: </strong><%= @voltime.evento %></td></tr>
+<tr><td><strong><%= t('volunteer.horas') %>: </strong><%= @voltime.horas %></td></tr>
+</table>

@@ -29,8 +29,9 @@ sp:
     contact: "Contactos"
     provider: "Proveedores"
     volunteer: "Voluntarios"
-    timereport: "Tiempo V/SS"
+    timereport: "Rep.Tiempo V/SS"
     donor: "Donadores"
+    voltime: "Tiempo V/SS"
         
   session:
     login: "Iniciar Sesión"
