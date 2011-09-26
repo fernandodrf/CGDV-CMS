@@ -33,10 +33,10 @@
 <tr>
   <td><strong><%= sort_link @search, :volunteer_cgdvcode, t('patient.cgdvcode'), :default_order => :desc %></strong></td>	
   <td><strong><%= sort_link @search, :day, t('volunteer.day'), :default_order => :desc %></strong></td>
-  <td><strong><%= t('volunteer.begin') %></strong></td>
-  <td><strong><%= t('volunteer.end') %></strong></td>
+  <td><strong><%= sort_link @search, :begin, t('volunteer.begin'), :default_order => :desc %></strong></td>
+  <td><strong><%= sort_link @search, :end, t('volunteer.end'), :default_order => :desc %></strong></td>
   <td><strong><%= t('volunteer.tiempo') %></strong></td>
-  <td><strong><%= t('volunteer.evento') %></strong></td>
+  <td><strong><%= sort_link @search, :evento, t('volunteer.evento') %></strong></td>
   <td></td>
   <td></td>
 </tr>

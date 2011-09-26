@@ -28,9 +28,9 @@
 <table>
 <tr>
   <td><strong><%= sort_link @search, :volunteer_cgdvcode, t('patient.cgdvcode'), :default_order => :desc %></strong></td>	
-  <td><strong><%= sort_link @search, :day, t('all.created_at'), :default_order => :desc %></strong></td>
-  <td><strong><%= t('voltime.horas') %></strong></td>
-  <td><strong><%= t('voltime.evento') %></strong></td>
+  <td><strong><%= sort_link @search, :created_at, t('all.created_at'), :default_order => :desc %></strong></td>
+  <td><strong><%= sort_link @search, :horas, t('voltime.horas'), :default_order => :desc %></strong></td>
+  <td><strong><%= sort_link @search, :evento, t('voltime.evento') %></strong></td>
   <td></td>
   <td></td>
 </tr>
