@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110924152252) do
+ActiveRecord::Schema.define(:version => 20110926182431) do
 
   create_table "addinfos", :force => true do |t|
     t.integer  "tipo"
@@ -232,7 +232,6 @@ ActiveRecord::Schema.define(:version => 20110924152252) do
   end
 
   create_table "socialservices", :force => true do |t|
-    t.string   "horas"
     t.string   "escuela"
     t.string   "carrera"
     t.string   "matricula"

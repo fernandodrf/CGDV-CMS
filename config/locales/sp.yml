@@ -29,9 +29,8 @@ sp:
     contact: "Contactos"
     provider: "Proveedores"
     volunteer: "Voluntarios"
-    timereport: "Rep.Tiempo V/SS"
+    timereport: "Tiempos V/SS"
     donor: "Donadores"
-    voltime: "Tiempo V/SS"
         
   session:
     login: "Iniciar Sesión"
@@ -103,7 +102,9 @@ sp:
     begin: "Entrada"
     end: "Salida"
     tiempo: "Tiempo"
-    tt: "Tiempo Acumulado"
+    ta: "Tiempo Cumplido"
+    tr: "Tiempo a Cumplir"
+    tf: "Tiempo Total"
     evento: "Evento"
     status: "Tipo de Expediente"
     

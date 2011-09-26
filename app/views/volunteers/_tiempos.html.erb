@@ -1,0 +1,10 @@
+<table>
+  <tr><th><%= t('timereport.title') %></th></tr>
+  <tr>
+  	<td><%= link_to "Añadir/Acumular Tiempo", vol_times_path %></td>
+  	<td><%= link_to "Restar/Reportar Tiempo", timereports_path %></td>  
+  </tr>
+  <tr><td colspan=2><%= t('volunteer.tr') %>: <%= link_to @volunteer.tr, trep_volunteer_path(@volunteer) %></td></tr>
+  <tr><td colspan=2><%= t('volunteer.ta') %>: <%= link_to @volunteer.ta, trep_volunteer_path(@volunteer) %></td></tr>
+  <tr><td colspan=2><%= t('volunteer.tf') %>: <%= link_to @volunteer.tiempo_final %></td></tr>
+</table>

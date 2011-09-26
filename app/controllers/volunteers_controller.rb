@@ -16,6 +16,7 @@ class VolunteersController < ApplicationController
   def trep
   	@volunteer = Volunteer.find(params[:id])
   	@timereports = @volunteer.timereports
+  	@voltimes = @volunteer.vol_times
   end
   
   def print 

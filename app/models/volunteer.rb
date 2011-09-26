@@ -31,7 +31,8 @@ class Volunteer < ActiveRecord::Base
   BLOODTYPES = ['NS', 'A+', 'A-', 'B+', 'B-', 'AB+', 'AB-', 'O+', 'O-']
   STATUS = [['Servicio Social',1],['Voluntario',2]] 
 
-  def tt
+  #Tiempo Acumuado
+  def ta
   	total = tiempototal
   	hrs = (total/3600).to_i
   	mins = (total/60 - hrs * 60).to_i
@@ -43,6 +44,32 @@ class Volunteer < ActiveRecord::Base
   	hrs = (total/3600).to_i
   	mins = (total/60 - hrs * 60).to_i
   	return "#{hrs} hrs, #{mins} mins"
+  end 
+
+  def tr
+  	total = tiempototal3
+  	return "#{tiempototal3} horas"
+  end
+  
+  def tiempo_final
+    restantes = tiempototal3
+    acumuladas = tiempoacumulado
+    
+    if restantes > acumuladas[0]
+    
+      hrs = restantes - acumuladas[0]
+      mins = 0
+    
+      if acumuladas[1] > 0
+        hrs -= 1
+        mins = 60 - acumuladas[1]
+	  end
+	else
+	  hrs = acumuladas[0] - restantes
+	  mins = acumuladas[1]
+	end
+	
+	return "#{hrs} hrs, #{mins} mins"
   end 
 
   private
@@ -57,12 +84,35 @@ class Volunteer < ActiveRecord::Base
 	  return total
 	end
 	
+	
+	def tiempoacumulado
+	  trs = self.timereports
+	  total = 0
+	  
+	  trs.each do |tr|
+	    total += tr.end - tr.begin
+	  end
+	    hrs = (total/3600).to_i
+  		mins = (total/60 - hrs * 60).to_i
+	  return [hrs,mins]
+	end
+	
 	def tiempototal2
 	  trs = self.dailyschedules	
 	  total = 0
 	  
 	  trs.each do |tr|
 	    total += tr.end - tr.begin
+	  end
+	  return total
+	end
+
+	def tiempototal3
+	  trs = self.vol_times	
+	  total = 0
+	  
+	  trs.each do |tr|
+	    total += tr.horas
 	  end
 	  return total
 	end

@@ -4,7 +4,7 @@ class PagesController < ApplicationController
   end
   
   def times
-  	@title = t('timereports.title')
+  	@title = t('header.timereport')
   end
 
 end

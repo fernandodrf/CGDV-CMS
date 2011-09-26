@@ -1,5 +1,19 @@
 <h1><%= @volunteer.name %></h1>
-<h4><%= t('volunteer.tt') %>: <%= @volunteer.tt %></h4>
+<h4><%= t('volunteer.tr') %>: <%= @volunteer.tr %></h4>
+<h4><%= t('volunteer.ta') %>: <%= @volunteer.ta %></h4>
+<h4><%= t('volunteer.tf') %>: <%= @volunteer.tiempo_final %></h4>
+<table>
+<tr>
+  <td><strong><%= t('patient.cgdvcode') %></strong></td>	
+  <td><strong><%= t('all.created_at') %></strong></td>
+  <td><strong><%= t('voltime.horas') %></strong></td>
+  <td><strong><%= t('voltime.evento') %></strong></td>
+  <td></td>
+  <td></td>
+</tr>
+	<%= render 'vol_times/volunteer', :volunteer => @volunteer %>
+<tr>
+</table>
 <table>
 	<tr>
 	  <td><strong><%= t('patient.cgdvcode') %></strong></td>
@@ -11,4 +25,3 @@
 	</tr>
 	<%= render 'timereports/volunteer', :volunteer => @volunteer %>
 </table>
-

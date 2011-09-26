@@ -3,6 +3,7 @@
 <strong><%= link_to t('timereport.volunteer'), trep_volunteer_path(@volunteer) %></strong>
 <table>
 <%= render 'volunteerinfo' %>
+<%= render 'tiempos' %>
 <% if !(@volunteer.socialservices.empty?) and (@volunteer.status == 1) %>
   <%= render 'socialservice' %>
   <%= render 'dailyschedules/schedule' %>

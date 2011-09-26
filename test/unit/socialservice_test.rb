@@ -7,12 +7,12 @@ class SocialserviceTest < ActiveSupport::TestCase
   end
 end
 
+
 # == Schema Information
 #
 # Table name: socialservices
 #
 #  id           :integer         not null, primary key
-#  horas        :string(255)
 #  escuela      :string(255)
 #  carrera      :string(255)
 #  matricula    :string(255)

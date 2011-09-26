@@ -4,22 +4,21 @@
   </tr>
   <tr>
   	<td><%= t('volunteer.status') %>: <%= vol_status(@volunteer.status) %></td>
-  	<td colspan=2><%= t('volunteer.tt') %>: <%= link_to @volunteer.tt, trep_volunteer_path(@volunteer) %></td>
+  	<td><%= t('patient.cgdvcode') %>: <%= @volunteer.cgdvcode %></td>
   </tr>
   <tr>
-    <td colspan=2><%= t('patient.name') %>: <%= @volunteer.name %></td>
-    <td><%= t('patient.cgdvcode') %>: <%= @volunteer.cgdvcode %></td> 
+    <td><%= t('patient.name') %>: <%= @volunteer.name %></td>
+    <td><%= t('patient.sex') %>: <%= @volunteer.sex %></td> 
   </tr>
   <tr>
     <td><%= t('patient.birthdate') %>: <%= l @volunteer.birth %></td>
     <td><%= t('patient.age') %>: <%= t('datetime.distance_in_words.x_years', :count => edad(@volunteer.birth)) %></td>
-    <td><%= t('patient.sex') %>: <%= @volunteer.sex %></td>
+    <td></td>
   </tr>
   <% unless @volunteer.extravolunteers.empty? %>
   <tr>
   	<td><%= t('volunteer.profesion') %>: <%= @volunteer.extravolunteers.first.profesion %></td>
   	<td><%= t('patient.blod') %>: <%= @volunteer.blood %></td>
-  	<td></td>
   </tr>  
   <% end %>
 </table>

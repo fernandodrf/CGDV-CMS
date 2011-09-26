@@ -1,10 +1,10 @@
 <h1><%= t('timereport.title') %></h1>
 
 <% if signed_in? and can? :read, VolTime %>
-  <%= link_to "Tiempo Pendiente", vol_times_path %>: Añadir/Acumular Tiempo
+  <%= link_to "Añadir/Acumular Tiempo", vol_times_path %> | 
 <% end %>
 <% if signed_in? and can? :read, Timereport %>
-  <%= link_to "Reportes de Tiempo", timereports_path %>: Restar/Reportar Tiempo
+  <%= link_to "Reportar/Restar Tiempo", timereports_path %>
 <% end %>
 
 <br /><br /><h6><%= link_to t('helpers.submit.create', :model => "Nuevo Reporte de Tiempo"), new_timereport_path %></h6><br />

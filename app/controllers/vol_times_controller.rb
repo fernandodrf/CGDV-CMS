@@ -4,7 +4,7 @@ class VolTimesController < ApplicationController
   
   def index
   	@search = VolTime.search(params[:search])
-  	@title = t('header.voltime')
+  	@title = t('header.timereport')
   	@voltimes = @search.page(params[:page]).per(15)
   end
   
