@@ -186,6 +186,14 @@ $(document).ready(function() {
 	  $('.pmoral').show();		
     }
   });
+  
+  //Contar Caracteres y Palabras en TextArea Comments
+  var opciones_count = { 
+    'maxCharacterSize': -1,  
+    'originalStyle': 'originalDisplayInfo',  
+    'displayFormat': '#words Palabras | #input Caracteres' 
+  };
+  $('#comment_comment').textareaCount(opciones_count);
 
  });
 

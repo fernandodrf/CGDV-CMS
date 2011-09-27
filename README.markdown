@@ -4,6 +4,7 @@
 
 ##### Version 1.2.5
  	- Updated Time management in Volunteers
+ 	- Added JQuery plugin jQuery Textarea Characters Counter Plugin v 2.0 for Word/Character count in TextArea fields.
 
 ##### Version 1.2.4
  	- List of events in Timereports
