@@ -139,6 +139,17 @@ $(document).ready(function() {
     });   
   });  
 
+  //Metodo que actualiza el nombre de Users
+  $("#user_volunteer_id").change( function(){
+    var volid;
+    //Lee _id
+    volid = parseFloat($("#user_volunteer_id").val());
+    //Manda _id
+    $.getJSON('/vol_times/new.json', { id: volid }, function(data) {
+      $('#volunteer_name').html(data[0]); 
+    });   
+  });
+
   
   //Metodo para mostrar/ocultar campos de Servicio Social en Voluntarios
   $("#volunteer_status").change(function() {

@@ -13,7 +13,9 @@ class Volunteer < ActiveRecord::Base
   has_many :dailyschedules, :dependent => :destroy	
   has_many :extravolunteers, :dependent => :destroy
   has_many :socialservices, :dependent => :destroy
+  
   has_one :subprogram, :dependent => :destroy  
+  has_one :user
   
   accepts_nested_attributes_for :extravolunteers, :allow_destroy => true
   accepts_nested_attributes_for :socialservices, :allow_destroy => true

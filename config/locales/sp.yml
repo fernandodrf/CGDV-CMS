@@ -182,7 +182,7 @@ sp:
 
   user:
     index: "Todos los Usuarios"
-    name: "Nombre de Usuario"
+    name: "Usuario"
     email: "Email"
     password: "Contraseña"
     confirmation: "Confirmar Contraseña"

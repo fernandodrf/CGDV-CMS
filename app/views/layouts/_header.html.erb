@@ -15,7 +15,6 @@
       <% if user_signed_in? %>
       <% if current_user.admin? %>
       <li><%= link_to t('header.users'), users_path %></li>
-      <li><%= link_to t('helpers.submit.create', :model => User.to_s), new_user_registration_path  %></li>
       <% end %>
       <li><%= link_to t('header.profile'), current_user %></li>
       <li><%= link_to t('header.settings'), edit_user_path(current_user) %></li>

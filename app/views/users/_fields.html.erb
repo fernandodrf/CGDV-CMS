@@ -16,6 +16,14 @@
   <%= f.password_field :password_confirmation %>
 </div>
 <div>
+<%= f.label :volunteer_id, t('patient.cgdvcode') %><br />	
+  <%= f.collection_select :volunteer_id, Volunteer.order('cgdvcode'), :id, :cgdvcode %><br />
+</div>
+<div>  
+  <%= f.label :volunteer_id, t('patient.name') %><br />
+  <div id="volunteer_name"> </div><br />
+</div>
+<div>
   <%= f.label :language, t('user.language') %><br />
   <%= f.select :language, [['Español', 'sp'], ['English', 'en']] %>
 </div>

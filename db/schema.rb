@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110926182431) do
+ActiveRecord::Schema.define(:version => 20110927003236) do
 
   create_table "addinfos", :force => true do |t|
     t.integer  "tipo"
@@ -328,6 +328,7 @@ ActiveRecord::Schema.define(:version => 20110926182431) do
     t.string   "current_sign_in_ip"
     t.string   "last_sign_in_ip"
     t.string   "roles",                                 :default => "--- []"
+    t.integer  "volunteer_id"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true
