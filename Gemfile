@@ -17,4 +17,7 @@ gem "rails3-jquery-autocomplete", "~> 0.9.1"
 group :development do
   gem 'faker', '~> 0.3.1'
   gem 'annotate', '~> 2.4.0'
+  gem "nifty-generators", "~> 0.4.6"
 end
+
+gem "mocha", :group => :test

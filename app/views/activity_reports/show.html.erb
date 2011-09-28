@@ -1,0 +1,16 @@
+<% title "Activity Report" %>
+
+<p>
+  <strong>Reporte:</strong>
+  <%= @activity_report.reporte %>
+</p>
+<p>
+  <strong>Volunteer:</strong>
+  <%= @activity_report.volunteer %>
+</p>
+
+<p>
+  <%= link_to "Edit", edit_activity_report_path(@activity_report) %> |
+  <%= link_to "Destroy", @activity_report, :confirm => 'Are you sure?', :method => :delete %> |
+  <%= link_to "View All", activity_reports_path %>
+</p>

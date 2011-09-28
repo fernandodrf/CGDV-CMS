@@ -1,0 +1,19 @@
+<% title "Activity Reports" %>
+
+<table>
+  <tr>
+    <th>Reporte</th>
+    <th>Volunteer</th>
+  </tr>
+  <% for activity_report in @activity_reports %>
+    <tr>
+      <td><%= activity_report.reporte %></td>
+      <td><%= activity_report.volunteer %></td>
+      <td><%= link_to "Show", activity_report %></td>
+      <td><%= link_to "Edit", edit_activity_report_path(activity_report) %></td>
+      <td><%= link_to "Destroy", activity_report, :confirm => 'Are you sure?', :method => :delete %></td>
+    </tr>
+  <% end %>
+</table>
+
+<p><%= link_to "New Activity Report", new_activity_report_path %></p>
