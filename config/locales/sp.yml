@@ -31,6 +31,7 @@ sp:
     volunteer: "Voluntarios"
     timereport: "Tiempos V/SS"
     donor: "Donadores"
+    actrep: "Reportes S.S."
         
   session:
     login: "Iniciar Sesión"
@@ -293,6 +294,7 @@ sp:
     formats:
       short: "%d de %b a las %H:%M hrs"
       small: "%d/%b/%y"
+      rep: "%a, %d/%b/%Y a las %H:%M %p"
       hourmin:  "%H:%M %p"
       default: "%a, %d de %b de %Y a las %H:%M:%S %Z"
       long: "%A, %d de %B de %Y a las %I:%M %p"

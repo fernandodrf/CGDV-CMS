@@ -15,6 +15,7 @@ ActiveRecord::Schema.define(:version => 20110928015411) do
 
   create_table "activity_reports", :force => true do |t|
     t.text     "reporte"
+    t.integer  "semana"
     t.integer  "volunteer_id"
     t.datetime "created_at"
     t.datetime "updated_at"

@@ -1,8 +1,7 @@
-<% title "Edit Activity Report" %>
-
-<%= render 'form' %>
-
-<p>
-  <%= link_to "Show", @activity_report %> |
-  <%= link_to "View All", activity_reports_path %>
-</p>
+<h1><%= t('helpers.submit.update', :model => "Reporte de Actividades") %></h1>
+<%= nested_form_for(@activity_report) do |f| %>
+  <%= render 'fields', :f => f %>
+  <div class="actions">
+    <%= f.submit t('helpers.edit') %>
+  </div>
+<% end %>

@@ -13,6 +13,7 @@ class Volunteer < ActiveRecord::Base
   has_many :dailyschedules, :dependent => :destroy	
   has_many :extravolunteers, :dependent => :destroy
   has_many :socialservices, :dependent => :destroy
+  has_many :activity_reports, :dependent => :destroy
   
   has_one :subprogram, :dependent => :destroy  
   has_one :user

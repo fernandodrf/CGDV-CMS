@@ -6,12 +6,14 @@ class ActivityReportTest < ActiveSupport::TestCase
   end
 end
 
+
 # == Schema Information
 #
 # Table name: activity_reports
 #
 #  id           :integer         not null, primary key
 #  reporte      :text
+#  semana       :integer
 #  volunteer_id :integer
 #  created_at   :datetime
 #  updated_at   :datetime

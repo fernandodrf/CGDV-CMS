@@ -17,8 +17,9 @@ class Ability
 	  can [:read, :create], [Timereport]
 	  can [:read], [Contact]
 	  
+	elsif user.is_ss?
+	  can [:read, :create], [ActivityReport]
 	else
-	  #Nothing
     end
     
   end

@@ -194,7 +194,7 @@ $(document).ready(function() {
     'displayFormat': '#words Palabras | #input Caracteres' 
   };
   $('#comment_comment').textareaCount(opciones_count);
-
+  $('#activity_report_reporte').textareaCount(opciones_count);
  });
 
 

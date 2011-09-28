@@ -1,16 +1,19 @@
-<% title "Activity Report" %>
+<h1><%= "Reporte de la Semana #{@activity_report.semana}"  %></h1>
+<% if can? :edit, @activity_report %>
+<%= link_to t('helpers.submit.update', :model => "Reporte"), edit_activity_report_path(@activity_report) %><br />
+<% end %>
+<%= link_to "Regresar a Reportes de Actividades", activity_reports_path %><br /><br />
+<table>
+<tr>
+  <th><%= t('patient.name') %></th>
+  <th><%= t('note.fecha') %></th>
+</tr>
+<tr>
+  <td><%= @activity_report.volunteer.name %></td>
+  <td><%= l(@activity_report.created_at,:format => :long) %></td>
+</tr>
+<tr><th colspan=2>Reporte</th></tr>
+</table>
+<p><%= simple_format(@activity_report.reporte) %></p>
 
-<p>
-  <strong>Reporte:</strong>
-  <%= @activity_report.reporte %>
-</p>
-<p>
-  <strong>Volunteer:</strong>
-  <%= @activity_report.volunteer %>
-</p>
-
-<p>
-  <%= link_to "Edit", edit_activity_report_path(@activity_report) %> |
-  <%= link_to "Destroy", @activity_report, :confirm => 'Are you sure?', :method => :delete %> |
-  <%= link_to "View All", activity_reports_path %>
-</p>
+<%= link_to "Regresar a Reportes de Actividades", activity_reports_path %>
