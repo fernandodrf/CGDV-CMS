@@ -2,6 +2,9 @@
 
 [Con Ganas de Vivir](http://www.conganas.org.mx) is a non-profit organization that supports Oncological patients, by [Fernando D. Ramirez F.](http://revomx.com/blog)
 
+##### Version 1.2.6
+	- Social Service Reports.
+	
 ##### Version 1.2.5
  	- Updated Time management in Volunteers
  	- Added JQuery plugin jQuery Textarea Characters Counter Plugin v 2.0 for Word/Character count in TextArea fields.
