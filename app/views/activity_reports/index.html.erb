@@ -3,26 +3,37 @@
 <% unless current_user.volunteer_id.nil? %>
 <h6><%= link_to "Nuevo Reporte de Actividades", new_activity_report_path %></h6>
 <% end %>
+	
+  <%= form_for @search, :url => activity_reports_path, :html => {:method => :get} do |f| %>
+    <h6><%= t('search.title') %></h6>
+    
+    <% if current_user.admin? %>
+    <%= f.label :cgdvcode_equals, t('patient.cgdvcode') %>
+    <%= f.text_field :volunteer_cgdvcode_equals, :size => 3 %>
+    <%= f.label :name_contains, t('patient.name') %>
+    <%= f.text_field :volunteer_name_equals %>
+    <% end %>
+  
+    <%= f.label :semana, "Semanas desde:" %>
+    <%= f.text_field :semana_greater_than_or_equal_to, :size => 3 %>
+    <%= f.label :semana, "hasta:" %>
+    <%= f.text_field :semana_less_than_or_equal_to, :size => 3 %>    
+    <%= f.submit t('helpers.search') %><br /><br />
+    
+  <% end %>
+
+  <%= paginate @activity_reports %>
 
 <table>
   <tr>
   	<th>Reportes</th>
-  	<th>Semanas</th>
-    <th><%= t('all.created_at') %></th>
-    <th><%= t('patient.cgdvcode') %></th>
+  	<th><%= sort_link @search, :semana, "Semanas", :default_order => :desc %></th>
+    <th><%= sort_link @search, :created_at, t('all.created_at'), :default_order => :desc %></th>
+    <th><%= sort_link @search, :volunteer_cgdvcode, t('patient.cgdvcode') %></th>
   </tr>
-  <% for activity_report in @activity_reports %>
-    <tr>
-      <td><%= link_to truncate(activity_report.reporte, :length => 25), activity_report %>
-      <td><%= link_to "Semana #{activity_report.semana}", activity_report %></td>
-      <td><%= link_to l(activity_report.created_at, :format => :rep), activity_report %></td>
-      <td><%= link_to activity_report.volunteer.cgdvcode, activity_report.volunteer %></td>
-      <% if can? :edit, @activity_report %>
-      <td class="smally"><%= link_to t('helpers.submit.update', :model => "Reporte"), edit_activity_report_path(activity_report) %></td>
-      <% end %>
-      <% if can? :destroy, @activity_report %>
-  	  <td class="smally"><%= link_to t('helpers.delete.msg'), activity_report, :method => :delete, :confirm => t('helpers.delete.conf'), :title => "#{t('helpers.delete.msg')} #{activity_report.created_at}" %></td>
-  	  <% end %>
-    </tr>
-  <% end %>
+  <%= render @activity_reports %>
 </table>
+
+<% if current_user.admin? %>
+  <%= paginate @activity_reports %>
+<% end %>
