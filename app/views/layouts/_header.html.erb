@@ -8,15 +8,11 @@
       <% else %>
       <li><%= link_to t('session.login'), new_user_session_path %></li>
       <% end %>
-  	</ul>
-  </nav>
-  <nav class='round'>
-    <ul>
       <% if user_signed_in? and current_user.admin? %>
       <li><%= link_to t('header.users'), users_path %></li>
       <li><%= link_to t('header.profile'), current_user %></li>
       <li><%= link_to t('header.settings'), edit_user_path(current_user) %></li>
       <% end %>
-    </ul>
-    </nav>
+  	</ul>
+  </nav>
 </header>
