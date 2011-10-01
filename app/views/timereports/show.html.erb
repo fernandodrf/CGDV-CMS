@@ -9,3 +9,7 @@
 <tr><td><strong><%= t('volunteer.tiempo') %>: </strong><%= @timereport.tiempo %></td>
 </tr>	
 </table>
+
+<% if can? :read, Timereport %>
+  <%= link_to "Regresar a Reportar/Restar Tiempo", timereports_path %>
+<% end %>

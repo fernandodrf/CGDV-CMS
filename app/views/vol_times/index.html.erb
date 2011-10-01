@@ -1,9 +1,9 @@
 <h1><%= t('timereport.title') %></h1>
 
-<% if signed_in? and can? :read, VolTime %>
+<% if can? :read, VolTime %>
   <%= link_to "Añadir/Acumular Tiempo", vol_times_path %> | 
 <% end %>
-<% if signed_in? and can? :read, Timereport %>
+<% if can? :read, Timereport %>
   <%= link_to "Reportar/Restar Tiempo", timereports_path %>
 <% end %>
 

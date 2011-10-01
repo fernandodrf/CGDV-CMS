@@ -5,7 +5,9 @@
   <td><%= l timereport.end, :format => :hourmin %></td>
   <td><%= link_to timereport.tiempo, timereport %></td>
   <td><%= timereport.evento %></td>
+  <% if can? :edit, timereport %>
   <td class="smally"><%= link_to t('helpers.edit'), edit_timereport_path(timereport) %></td>
+  <% end %>
   <% if can? :destroy, timereport %>
   <td class="smally">
   	<%= link_to t('helpers.delete.msg'), timereport_path(timereport), :method => :delete, :confirm => t('helpers.delete.conf'), :title => "#{t('helpers.delete.msg')} #{timereport.begin}" %>

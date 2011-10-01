@@ -6,3 +6,7 @@
 <tr><td><strong><%= t('volunteer.evento') %>: </strong><%= @voltime.evento %></td></tr>
 <tr><td><strong><%= t('volunteer.horas') %>: </strong><%= @voltime.horas %></td></tr>
 </table>
+
+<% if can? :read, VolTime %>
+  <%= link_to "Regresar a Añadir/Acumular Tiempo", vol_times_path %> 
+<% end %>

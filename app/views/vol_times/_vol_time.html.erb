@@ -3,7 +3,9 @@
   <td><%= link_to l(vol_time.created_at, :format => :small), vol_time %></td>
   <td><%= link_to vol_time.horas, vol_time %></td>
   <td><%= link_to vol_time.evento, vol_time %></td>
+  <% if can? :edit, vol_time %>
   <td class="smally"><%= link_to t('helpers.edit'), edit_vol_time_path(vol_time) %></td>
+  <% end %>
   <% if can? :destroy, vol_time %>
   <td class="smally">
   	<%= link_to t('helpers.delete.msg'), vol_time_path(vol_time), :method => :delete, :confirm => t('helpers.delete.conf'), :title => "#{t('helpers.delete.msg')} #{vol_time.evento}" %>
