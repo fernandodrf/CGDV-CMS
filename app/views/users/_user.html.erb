@@ -1,8 +1,9 @@
-<li>
-  <%= link_to user.name, user %>
-  <% if current_user.admin? %>
-  | <%= link_to t('helpers.edit'), edit_user_path(user) %>
-  | <%= link_to t('helpers.delete.msg'), user, :method => :delete, :confirm => t('helpers.delete.conf'),
-                                :title => "#{t('helpers.delete.msg')} #{user.name}" %>
-  <% end %>
-</li>
+<tr>
+  <td><%= link_to user.name, user %></td>
+  <td><%= link_to user.email, user  %></td>
+<% if current_user.admin? %>
+  <td><%= link_to t('helpers.edit'), edit_user_path(user) %></td>
+  <td><%= link_to t('helpers.delete.msg'), user, :method => :delete, :confirm => t('helpers.delete.conf'),
+                                :title => "#{t('helpers.delete.msg')} #{user.name}" %></td>
+<% end %>
+</tr>

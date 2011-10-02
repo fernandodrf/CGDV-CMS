@@ -2,8 +2,14 @@
 
 <%= paginate @users %>
 
-<ul class="users">
-  <%= render @users %>
-</ul>
+<table>
+<tr>
+  <th><%= t('user.name') %></th>
+  <th><%= t('user.email') %></th>
+  <th></th>
+  <th></th>
+</tr>
 
+  <%= render @users %>
+</table>
 <%= paginate @users %>

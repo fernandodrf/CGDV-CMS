@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110928015411) do
+ActiveRecord::Schema.define(:version => 20111002010732) do
 
   create_table "activity_reports", :force => true do |t|
     t.text     "reporte"
@@ -324,7 +324,6 @@ ActiveRecord::Schema.define(:version => 20110928015411) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "encrypted_password",     :limit => 128, :default => "",       :null => false
-    t.string   "salt"
     t.boolean  "admin",                                 :default => false
     t.string   "language"
     t.string   "reset_password_token"

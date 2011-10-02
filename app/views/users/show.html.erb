@@ -2,13 +2,26 @@
   <tr>
     <td class="main">
       <h1>
-      	<%= gravatar_for @user, :size => 100 %>
+      	<%= gravatar_for @user, :size => 100 %><br />
         <%= @user.name %>
       </h1>
     </td>
     <td class="sidebar round">
-      <strong>e-mail:</strong>  <%= @user.email %><br />
+      <strong><%= t('user.email') %>:</strong>  <%= @user.email %><br />
       <strong>Gravatar: </strong> <%= link_to "http://www.gravatar.com", "http://www.gravatar.com" %><br />
+      <strong>Veces Logeadas: </strong> <%= @user.sign_in_count %><br />
+      <% if !@user.current_sign_in_at.nil? %>
+      <strong>Sesión Actual: </strong> <%= l(@user.current_sign_in_at) %><br />
+      <% end %>
+      <% if !@user.current_sign_in_ip.nil? %>
+      <strong>Dirección IP Sesión Actual: </strong> <%= @user.current_sign_in_ip %><br />
+      <% end %>
+      <% if !@user.last_sign_in_at.nil? %>
+      <strong>Ultima vez que entró: </strong> <%= l(@user.last_sign_in_at) %><br />
+      <% end %>
+      <% if !@user.last_sign_in_ip.nil? %>
+      <strong>IP Ultima vez que entró: </strong> <%= @user.last_sign_in_ip %><br />
+      <% end %>
     </td>
   </tr>
 </table>

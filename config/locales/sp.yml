@@ -184,7 +184,7 @@ sp:
   user:
     index: "Todos los Usuarios"
     name: "Usuario"
-    email: "Email"
+    email: "e-mail"
     password: "Contraseña"
     confirmation: "Confirmar Contraseña"
     language: "Lenguaje"
