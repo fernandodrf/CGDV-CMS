@@ -4,6 +4,7 @@
 
 ##### Version 1.2.6
 	- Social Service Reports.
+	- Users lift
 	
 ##### Version 1.2.5
  	- Updated Time management in Volunteers
