@@ -1,5 +1,7 @@
 <tr>
+  <% if can? :read, Volunteer %>
   <td><%= link_to vol_time.volunteer.cgdvcode, volunteer_path(vol_time.volunteer_id) %></td>
+  <% end %>
   <td><%= link_to l(vol_time.created_at, :format => :small), vol_time %></td>
   <td><%= link_to vol_time.horas, vol_time %></td>
   <td><%= link_to vol_time.evento, vol_time %></td>

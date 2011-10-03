@@ -1,5 +1,7 @@
 <tr>
+  <% if can? :read, Volunteer %>
   <td><%= link_to cgdvcode_vol(timereport), volunteer_path(timereport.volunteer_id) %></td>
+  <% end %>
   <td><%= link_to l(timereport.day), timereport %></td>
   <td><%= l timereport.begin, :format => :hourmin %></td>
   <td><%= l timereport.end, :format => :hourmin %></td>

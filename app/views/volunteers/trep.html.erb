@@ -4,19 +4,27 @@
 <h4><%= t('volunteer.tf') %>: <%= @volunteer.tiempo_final %></h4>
 <table>
 <tr>
-  <td><strong><%= t('patient.cgdvcode') %></strong></td>	
+  <% if can? :read, Volunteer %>
+  <td><strong><%= t('patient.cgdvcode') %></strong></td>
+  <% end %>	
   <td><strong><%= t('all.created_at') %></strong></td>
   <td><strong><%= t('voltime.horas') %></strong></td>
   <td><strong><%= t('voltime.evento') %></strong></td>
+  <% if can? :edit, Timereport %>
   <td></td>
+  <% end %>
+  <% if can? :destroy, Timereport %>
   <td></td>
+  <% end %>
 </tr>
 	<%= render 'vol_times/volunteer', :volunteer => @volunteer %>
 <tr>
 </table>
 <table>
 	<tr>
+	  <% if can? :read, Volunteer %>
 	  <td><strong><%= t('patient.cgdvcode') %></strong></td>
+	  <% end %>	
 	  <td><strong><%= t('volunteer.day') %></strong></td>
 	  <td><strong><%= t('volunteer.begin') %></strong></td>
 	  <td><strong><%= t('volunteer.end') %></strong></td>
