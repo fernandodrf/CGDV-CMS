@@ -123,7 +123,7 @@ $(document).ready(function() {
     //Lee _id
     volid = parseFloat($("#timereport_volunteer_id").val());
     //Manda _id
-    $.getJSON('/volunteers/new.json', { id: volid }, function(data) {
+    $.getJSON('/vol_times/new.json', { id: volid }, function(data) {
       $('#volunteer_name').html(data[0]); 
     });   
   });
