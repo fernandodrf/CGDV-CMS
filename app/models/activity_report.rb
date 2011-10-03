@@ -5,7 +5,7 @@ class ActivityReport < ActiveRecord::Base
   
   before_create :get_week
   before_create :set_week
-  
+
   validates :volunteer_id, :presence => true
   #Para contar que tenga minimo 1 y maximo 750 palabras
   validates :reporte, :presence => true, :length => {
