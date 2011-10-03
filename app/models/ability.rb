@@ -22,6 +22,7 @@ class Ability
 	  end
 	  
 	  if user.is_ss?
+	  	can [:trep], [Volunteer]
 	    can [:read, :create], [ActivityReport]
 	  end
 	
