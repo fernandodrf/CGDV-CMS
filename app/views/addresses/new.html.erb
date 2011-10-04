@@ -1,5 +1,5 @@
 <h1><%= t('helpers.submit.create', :model => "Direccion") %></h1>
-<%= form_for([@parent, @address]) do |f| %>
+<%= form_for([@parent, @child]) do |f| %>
   <%= render 'fields', :f => f %>
   <div class="actions">
     <%= f.submit t('helpers.create') %>

@@ -1,48 +1,29 @@
-class EmailsController < ApplicationController
-  before_filter :authenticate_user!
-  before_filter :find_parent
+class EmailsController < PolyController
 
   def new
-  	@parent = find_parent
-  	@email = Email.new
-  	@title = t('helpers.submit.create', :model => Email.to_s)
+  	@child = Email.new
+  	super
   end
   	
   def create
-  	@parent = find_parent
-    @email  = @parent.emails.build(params[:email])
-    @title = t('helpers.submit.create', :model => Email.to_s)
-    if @email.save
-      flash[:success] = t('flash.success.create', :model => Email.to_s)
-  	  redirect_to @parent
-    else
-  	  render 'new'
-    end
+    @child  = @parent.emails.build(params[:email])
+    super
   end
 
   def edit
-  	@parent = find_parent
-  	@email = Email.find(params[:id])
-  	@title = t('helpers.submit.update', :model => Email.to_s)
+  	@child = Email.find(params[:id])
+  	super
   end
   
   def update
-  	@parent = find_parent
-  	@email = Email.find(params[:id])
-    if @email.update_attributes(params[:email])
-      flash[:success] = t('flash.success.edit', :model => Email.to_s)
-      redirect_to @parent
-    else
-      @title = t('helpers.submit.create', :model => Email.to_s)
-      render 'edit'
-    end
+  	@child = Email.find(params[:id])
+    @bandera = @child.update_attributes(params[:email])
+    super
   end
 
   def destroy
-  	@parent = find_parent
-  	Email.find(params[:id]).destroy
-    flash[:success] = t('flash.success.destroy', :model => Email.to_s)
-  	redirect_to @parent
+  	@child = Email.find(params[:id])
+    super
   end
 
 end

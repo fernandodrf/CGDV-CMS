@@ -1,48 +1,29 @@
-class DiagnosticosController < ApplicationController
-  before_filter :authenticate_user!
-  before_filter :find_parent
+class DiagnosticosController < PolyController
 
   def new
-  	@parent = find_parent
-  	@diagnostico = Diagnostico.new
-  	@title = t('helpers.submit.create', :model => Diagnostico.to_s)
+  	@child = Diagnostico.new
+	super
   end
   	
   def create
-  	@parent = find_parent
-    @diagnostico  = @parent.diagnosticos.build(params[:diagnostico])
-    @title = t('helpers.submit.create', :model => Patient.to_s)
-    if @diagnostico.save
-      flash[:success] = t('flash.success.create', :model => Diagnostico.to_s)
-  	  redirect_to @parent
-    else
-  	  render 'new'
-    end
+    @child  = @parent.diagnosticos.build(params[:diagnostico])
+    super
   end
 
   def edit
-  	@parent = find_parent
-  	@diagnostico = Diagnostico.find(params[:id])
-  	@title = t('helpers.submit.update', :model => Patient.to_s)
+  	@child = Diagnostico.find(params[:id])
+  	super
   end
   
   def update
-  	@parent = find_parent
-  	@diagnostico = Diagnostico.find(params[:id])
-    if @diagnostico.update_attributes(params[:diagnostico])
-      flash[:success] = t('flash.success.edit', :model => Diagnostico.to_s)
-      redirect_to @parent
-    else
-      @title = t('helpers.submit.create', :model => Diagnostico.to_s)
-      render 'edit'
-    end
+  	@child = Diagnostico.find(params[:id])
+    @bandera = @child.update_attributes(params[:diagnostico])
+    super
   end
 
   def destroy
-  	@parent = find_parent
-  	Diagnostico.find(params[:id]).destroy
-    flash[:success] = t('flash.success.destroy', :model => Diagnostico.to_s)
-  	redirect_to @parent
+  	@child = Diagnostico.find(params[:id])
+  	super
   end
   
 end
