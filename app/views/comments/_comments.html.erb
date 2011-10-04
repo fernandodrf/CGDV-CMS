@@ -1,9 +1,11 @@
 <table class="comments" align=center>
   <tr>
     <th><%= t('patient.comments') %></th>
+    <% if can? :create, Comment %>
 	<td colspan=2 nowrap><%= link_to t('helpers.submit.create', :model => "Comentarios"), new_polymorphic_path([model,Comment]) %></td>
-  </tr>
-  <% unless model.comments.empty? %>
+	<% end %>
+  </tr>  
+  <% unless model.comments.empty? and can? :read, Comment %>
   <%= render @comments, :model => model %>
   <% end %>
 </table>

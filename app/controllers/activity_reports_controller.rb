@@ -21,6 +21,7 @@ class ActivityReportsController < ApplicationController
 
   def show
     @activity_report = ActivityReport.find(params[:id])
+    @comments = @activity_report.comments
   end
 
   def new

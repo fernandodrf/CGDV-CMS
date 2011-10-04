@@ -1,5 +1,7 @@
 Cgdv::Application.routes.draw do
-  resources :activity_reports
+  resources :activity_reports do
+    resources :comments, :only => [:new, :edit, :update, :create, :destroy]
+  end
 
   devise_for :users, :path_prefix => 'd',:controllers => { :registrations => "registrations" }
   resources :users

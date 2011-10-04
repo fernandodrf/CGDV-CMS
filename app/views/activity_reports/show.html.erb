@@ -16,4 +16,6 @@
 </table>
 <p><%= simple_format(@activity_report.reporte) %></p>
 
+<%= render 'comments/comments', :model => @activity_report %>
+
 <%= link_to "Regresar a Reportes de Actividades", activity_reports_path %>
