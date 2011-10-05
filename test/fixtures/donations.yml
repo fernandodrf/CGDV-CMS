@@ -1,0 +1,35 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  folio: 1
+  frecepcion: 2011-10-04
+  tipo: 1
+  monto: MyString
+  finalidad: MyString
+  motivo: 1
+
+two:
+  folio: 1
+  frecepcion: 2011-10-04
+  tipo: 1
+  monto: MyString
+  finalidad: MyString
+  motivo: 1
+
+# == Schema Information
+#
+# Table name: donations
+#
+#  id          :integer         not null, primary key
+#  folio       :integer
+#  donor_id    :integer
+#  frecepcion  :date
+#  tipo        :integer
+#  monto       :string(255)
+#  transaccion :string(255)
+#  finalidad   :string(255)
+#  motivo      :integer
+#  created_at  :datetime
+#  updated_at  :datetime
+#
+
