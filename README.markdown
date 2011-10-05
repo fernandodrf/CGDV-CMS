@@ -4,6 +4,7 @@
 
 ##### Version 1.2.7
 	- Polymorphic Controller for Polymorphic models.
+	- Donaciones.
 	
 ##### Version 1.2.6
 	- Social Service Reports.
