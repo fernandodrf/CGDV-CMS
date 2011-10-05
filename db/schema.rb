@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111002010732) do
+ActiveRecord::Schema.define(:version => 20111005010455) do
 
   create_table "activity_reports", :force => true do |t|
     t.text     "reporte"
@@ -114,6 +114,21 @@ ActiveRecord::Schema.define(:version => 20111002010732) do
     t.integer  "diagnosticable_id"
     t.string   "diagnosticable_type"
   end
+
+  create_table "donations", :force => true do |t|
+    t.integer  "folio"
+    t.integer  "donor_id"
+    t.date     "frecepcion"
+    t.integer  "tipo"
+    t.string   "monto"
+    t.string   "transaccion"
+    t.string   "finalidad"
+    t.integer  "motivo"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "donations", ["donor_id"], :name => "index_donations_on_donor_id"
 
   create_table "donors", :force => true do |t|
     t.integer  "cgdvcode"

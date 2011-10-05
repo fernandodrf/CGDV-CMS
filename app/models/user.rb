@@ -16,6 +16,7 @@ end
 
 
 
+
 # == Schema Information
 #
 # Table name: users
@@ -26,7 +27,6 @@ end
 #  created_at             :datetime
 #  updated_at             :datetime
 #  encrypted_password     :string(128)     default(""), not null
-#  salt                   :string(255)
 #  admin                  :boolean         default(FALSE)
 #  language               :string(255)
 #  reset_password_token   :string(255)
