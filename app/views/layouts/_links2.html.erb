@@ -1,0 +1,12 @@
+<% if signed_in? and can? :read, Volunteer %>
+  <li><%= link_to t('header.volunteer'), volunteers_path %></li>
+<% end %>
+<% if signed_in? and (can? :read, Timereport or can? :read, VolTime) %>
+  <li><%= link_to t('header.timereport'), times_path %></li>
+ <% end %>
+<% if signed_in? and can? :read, ActivityReport %>
+  <li><%= link_to t('header.actrep'), activity_reports_path %></li>
+ <% end %>
+<% if signed_in? and can? :read, Donor %>
+  <li><%= link_to t('header.donor'), donors_path %></li>
+<% end %>
