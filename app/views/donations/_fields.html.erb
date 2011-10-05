@@ -1,0 +1,35 @@
+<%= render 'shared/error_messages', :object => f.object %>
+  <div>
+    <%= f.label :folio %><br />
+    <%= f.text_field :folio, :value => @folio, :size => 3 %>
+  </div>
+  <div>
+    <%= f.label :donor_id %><br />
+  	<%= f.collection_select :donor_id, Donor.order('cgdvcode'), :id, :cgdvcode %><br />
+  	<%= f.label :donor_id %><br />
+    <div id="donor_name"> </div><br />
+  </div>
+  <div>
+    <%= f.label :frecepcion %><br />
+    <%= f.date_select :frecepcion, :order => [:day, :month, :year], :start_year => Time.now.year - 10 %>
+  </div>
+  <div>
+    <%= f.label :motivo %><br />
+    <%= f.select :motivo, Donation::MOTIVO.collect %>
+  </div>
+  <div>
+    <%= f.label :tipo %><br />
+    <%= f.select :tipo, Donation::TIPO.collect %>
+  </div>
+  <div>
+    <%= f.label :transaccion %><br />
+    <%= f.text_field :transaccion, :size => 10 %>
+  </div>
+  <div>
+    <%= f.label :monto %><br />
+    <%= f.text_field :monto, :size => 10 %>
+  </div>
+  <div>
+    <%= f.label :finalidad %><br />
+    <%= f.text_field :finalidad, :size => 50 %>
+  </div>

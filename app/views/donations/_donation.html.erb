@@ -1,0 +1,9 @@
+<tr>
+  <td><%= link_to donation.folio, donation %></td>
+  <td><%= link_to donation.donor.cgdvcode, donation.donor %></td>
+  <td><%= link_to l(donation.frecepcion), donation %></td>
+  <td><%= link_to donation.finalidad, donation %></td>
+  <% if can? :destroy, Donation %>
+    <td><%= link_to t('helpers.delete.msg'), donation, :method => :delete, :confirm => t('helpers.delete.conf'), :title => "#{t('helpers.delete.msg')} #{donation.folio}" %></td>
+  <% end %>
+</tr>

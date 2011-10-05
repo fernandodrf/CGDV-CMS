@@ -1,0 +1,7 @@
+<h1><%= t('helpers.submit.create', :model => Donation.to_s) %></h1>
+<%= form_for(@donation) do |f| %>
+  <%= render 'fields', :f => f %>
+  <div class="actions">
+    <%= f.submit t('helpers.create') %>
+  </div>
+<% end %>

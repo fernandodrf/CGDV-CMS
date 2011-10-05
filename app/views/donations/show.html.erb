@@ -1,0 +1,35 @@
+<h1><%= t('donation2.title') %>: <%= @donation.folio %></h1>
+<strong><%= link_to t('helpers.submit.update', :model => "Donación"), edit_donation_path(@donation) %></strong><br /><br />
+
+<p>
+  <strong><%= t('patient.cgdvcode') %>:</strong>
+  <%= @donation.donor.cgdvcode %>
+</p>
+<p>
+  <strong><%= t('patient.name') %>:</strong>
+  <%= @donation.donor.name %>
+</p>
+<p>
+  <strong><%= t('donation2.frecepcion') %>:</strong>
+  <%= l @donation.frecepcion, :format => :long %>
+</p>
+<p>
+  <strong>Motivo:</strong>
+  <%= donation_motivo(@donation.motivo) %>
+</p>
+<p>
+  <strong>Tipo:</strong>
+  <%= donation_tipo(@donation.tipo) %>
+</p>
+<p>
+  <strong>Transaccion:</strong>
+  <%= @donation.transaccion %>
+</p>
+<p>
+  <strong>Monto:</strong>
+  <%= @donation.monto %>
+</p>
+<p>
+  <strong>Finalidad:</strong>
+  <%= @donation.finalidad %>
+</p>
