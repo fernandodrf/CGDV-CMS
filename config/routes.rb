@@ -1,4 +1,6 @@
 Cgdv::Application.routes.draw do
+  resources :donations
+
   resources :activity_reports do
     resources :comments, :only => [:new, :edit, :update, :create, :destroy]
   end

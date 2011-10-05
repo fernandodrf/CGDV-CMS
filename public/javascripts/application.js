@@ -128,6 +128,18 @@ $(document).ready(function() {
     });   
   });
   
+  //Metodo que actualiza el nombre de Donadores
+  $("#donation_donor_id").change( function(){
+    var volid;
+    //Lee _id
+    volid = parseFloat($("#donation_donor_id").val());
+    //Manda _id
+    $.getJSON('/donations/new.json', { id: volid }, function(data) {
+      $('#donor_name').html(data[0]); 
+    });   
+  });
+  
+  
   //Metodo que actualiza el nombre de Vol Times
   $("#vol_time_volunteer_id").change( function(){
     var volid;

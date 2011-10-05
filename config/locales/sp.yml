@@ -32,6 +32,7 @@ sp:
     timereport: "Tiempos V/SS"
     donor: "Donadores"
     actrep: "Reportes S.S."
+    donation: "Donaciones"
         
   session:
     login: "Iniciar Sesión"
@@ -53,6 +54,11 @@ sp:
     rfc: "R.F.C."
     pautoriza: "Persona que Autoriza"
     pcontacto: "Persona de Contacto"
+    
+  donation2:
+    index: "Todas las Donaciones"
+    frecepcion: "Fecha de Recepcion"
+    title: "Donación"
                   
   patient:
     status: "Estatus del Expediente"

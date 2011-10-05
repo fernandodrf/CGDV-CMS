@@ -86,6 +86,14 @@ module ApplicationHelper
   def vol_status(status)
     @text_status = Volunteer::STATUS[status-1][0]
   end
+  
+  def donation_tipo(id)
+    @text = Donation::TIPO[id-1][0]
+  end
+  
+  def donation_motivo(id)
+    @text = Donation::MOTIVO[id-1][0]
+  end  
 
   def donor_persona(per)
     @persona = Donor::Persona[per-1][0]
