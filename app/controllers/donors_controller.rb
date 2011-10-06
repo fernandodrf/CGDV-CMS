@@ -4,7 +4,7 @@ class DonorsController < ApplicationController
   before_filter :load_info, :only => :show
 
   def index
-  	@search = Donor.search(params[:search])
+  	@search = Donor.search(params[:q])
   	@title = t('donation.index')
   	@donors = @search.page(params[:page]).per(15)
   end

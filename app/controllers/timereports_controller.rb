@@ -3,7 +3,7 @@ class TimereportsController < ApplicationController
   before_filter :authenticate_user!
   
   def index
-  	@search = Timereport.search(params[:search])
+  	@search = Timereport.search(params[:q])
   	@title = t('header.timereport')
   	@timereports = @search.page(params[:page]).per(15)
   end

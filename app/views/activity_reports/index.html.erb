@@ -4,7 +4,7 @@
 <h6><%= link_to "Nuevo Reporte de Actividades", new_activity_report_path %></h6>
 <% end %>
 	
-  <%= form_for @search, :url => activity_reports_path, :html => {:method => :get} do |f| %>
+  <%= search_form_for @search, :url => activity_reports_path, :html => {:method => :get} do |f| %>
     <h6><%= t('search.title') %></h6>
     
     <% if current_user.admin? %>

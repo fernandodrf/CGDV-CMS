@@ -1,7 +1,7 @@
 <h1><%= t('note.index') %></h1>
 <h6><%= link_to t('helpers.submit.create', :model => "Nueva Nota"), new_note_path %></h6><br />
 
-<%= form_for @search, :url => notes_path, :html => {:method => :get} do |f| %>
+<%= search_form_for @search, :url => notes_path, :html => {:method => :get} do |f| %>
   
   <h6><%= t('search.title') %></h6>	
   <%= f.label :folio_contains, t('note.folio') %>

@@ -1,7 +1,7 @@
 <h1><%= t('contact.index') %></h1>
 <h6><%= link_to t('helpers.submit.create', :model => "Nuevo Contacto"), new_contact_path %></h6><br />
 
-<%= form_for @search, :url => contacts_path, :html => {:method => :get} do |f| %>
+<%= search_form_for @search, :url => contacts_path, :html => {:method => :get} do |f| %>
   
   <h6><%= t('search.title') %></h6>	
   <%= f.label :name_contains, t('patient.name') %>

@@ -6,7 +6,7 @@ class PatientsController < ApplicationController
   before_filter :check_status, :only => :update
       
   def index
-  	@search = Patient.search(params[:search])
+  	@search = Patient.search(params[:q])
   	@title = t('patient.index')
   	@patients = @search.page(params[:page])
   end
@@ -16,7 +16,7 @@ class PatientsController < ApplicationController
   
   def notas
   	@patient = Patient.find(params[:id])
-  	@search = @patient.notes.search(params[:search])
+  	@search = @patient.notes.search(params[:q])
   	@notes = @search.page(params[:page]).per(10)
   end
   

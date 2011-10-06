@@ -4,7 +4,7 @@ class ContactsController < ApplicationController
   before_filter :load_info, :only => :show
 
   def index
-  	@search = Contact.search(params[:search])
+  	@search = Contact.search(params[:q])
   	@title = t('contact.index')
   	@contacts = @search.page(params[:page]).per(10)
   end

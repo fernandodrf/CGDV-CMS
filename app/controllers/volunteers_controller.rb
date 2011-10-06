@@ -5,7 +5,7 @@ class VolunteersController < ApplicationController
   before_filter :check_status, :only => :update
 
   def index
-  	@search = Volunteer.search(params[:search])
+  	@search = Volunteer.search(params[:q])
   	@title = t('volunteer.index')
   	@volunteers = @search.page(params[:page]).per(15)
   end

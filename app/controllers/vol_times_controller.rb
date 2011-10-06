@@ -3,7 +3,7 @@ class VolTimesController < ApplicationController
   before_filter :authenticate_user!
   
   def index
-  	@search = VolTime.search(params[:search])
+  	@search = VolTime.search(params[:q])
   	@title = t('header.timereport')
   	@voltimes = @search.page(params[:page]).per(15)
   end

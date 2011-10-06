@@ -3,7 +3,7 @@ class DonationsController < ApplicationController
   before_filter :authenticate_user!
   
   def index
-  	@search = Donation.search(params[:search])
+  	@search = Donation.search(params[:q])
   	@title = t('donation2.index')
   	@donations = @search.page(params[:page]).per(10)  	
   end

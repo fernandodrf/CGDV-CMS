@@ -1,7 +1,7 @@
 <h1><%= t('provider.index') %></h1>
 <h6><%= link_to t('helpers.submit.create', :model => "Nuevo Proveedor"), new_provider_path %></h6><br />
 
-<%= form_for @search, :url => providers_path, :html => {:method => :get} do |f| %>
+<%= search_form_for @search, :url => providers_path, :html => {:method => :get} do |f| %>
   
   <h6><%= t('search.title') %></h6>	
   <%= f.label :proveedor_contains, t('provider.proveedor') %>

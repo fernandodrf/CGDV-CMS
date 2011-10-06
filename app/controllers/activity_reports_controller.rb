@@ -6,10 +6,10 @@ class ActivityReportsController < ApplicationController
   	@activity_reports = []
   	if !current_user.volunteer_id.nil?
   	  if current_user.admin?
-  	  	@search = ActivityReport.search(params[:search])
+  	  	@search = ActivityReport.search(params[:q])
   	  	@activity_reports = @search.page(params[:page]).per(10)
   	  else
-  	  	@search = ActivityReport.where(:volunteer_id => current_user.volunteer_id).search(params[:search])
+  	  	@search = ActivityReport.where(:volunteer_id => current_user.volunteer_id).search(params[:q])
   	  	@activity_reports = @search.page(params[:page]).per(10)
   	  	if @activity_reports.nil?
   	  	  @activity_reports = []

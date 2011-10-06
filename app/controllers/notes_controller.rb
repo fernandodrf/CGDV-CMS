@@ -3,7 +3,7 @@ class NotesController < ApplicationController
   before_filter :authenticate_user!
       
   def index
-  	@search = Note.search(params[:search])
+  	@search = Note.search(params[:q])
   	@title = t('note.index')
   	@notes = @search.page(params[:page]).per(10)
   end

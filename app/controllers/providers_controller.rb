@@ -4,7 +4,7 @@ class ProvidersController < ApplicationController
   before_filter :load_info, :only => :show
 
   def index
-  	@search = Provider.search(params[:search])
+  	@search = Provider.search(params[:q])
   	@title = t('provider.index')
   	@providers = @search.page(params[:page]).per(10)
   end
