@@ -4,10 +4,10 @@
 <%= search_form_for @search, :url => providers_path, :html => {:method => :get} do |f| %>
   
   <h6><%= t('search.title') %></h6>	
-  <%= f.label :proveedor_contains, t('provider.proveedor') %>
-  <%= f.text_field :proveedor_contains %>
-  <%= f.label :name_contains, t('patient.name') %>
-  <%= f.text_field :name_contains %>
+  <%= f.label :proveedor_cont, t('provider.proveedor') %>
+  <%= f.text_field :proveedor_cont %>
+  <%= f.label :name_cont, t('patient.name') %>
+  <%= f.text_field :name_cont %>
   <%= f.submit t('helpers.search') %><br /><br />
 <% end %>
 

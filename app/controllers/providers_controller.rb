@@ -6,7 +6,7 @@ class ProvidersController < ApplicationController
   def index
   	@search = Provider.search(params[:q])
   	@title = t('provider.index')
-  	@providers = @search.page(params[:page]).per(10)
+  	@providers = @search.result.order('cgdvcode DESC').page(params[:page]).per(10)
   end
   
   def show

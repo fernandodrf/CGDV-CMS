@@ -1,8 +1,8 @@
 <%= search_form_for @search, :url => notas_patient_path(patient), :html => {:method => :get} do |f| %>
   
   <h6><%= t('search.title') %></h6>	
-  <%= f.label :folio_contains, t('note.folio') %>
-  <%= f.text_field :folio_equals %>
+  <%= f.label :folio_cont, t('note.folio') %>
+  <%= f.text_field :folio_eq %>
   <%= f.submit t('helpers.search') %><br /><br />
 <% end %>
 

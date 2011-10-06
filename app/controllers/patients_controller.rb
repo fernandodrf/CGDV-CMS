@@ -8,7 +8,7 @@ class PatientsController < ApplicationController
   def index
   	@search = Patient.search(params[:q])
   	@title = t('patient.index')
-  	@patients = @search.page(params[:page])
+  	@patients = @search.result.order('cgdvcode DESC').page(params[:page])
   end
   
   def show
@@ -17,7 +17,7 @@ class PatientsController < ApplicationController
   def notas
   	@patient = Patient.find(params[:id])
   	@search = @patient.notes.search(params[:q])
-  	@notes = @search.page(params[:page]).per(10)
+  	@notes = @search.result.order('folio DESC').page(params[:page]).per(10)
   end
   
   def print 

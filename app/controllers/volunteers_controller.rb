@@ -7,7 +7,7 @@ class VolunteersController < ApplicationController
   def index
   	@search = Volunteer.search(params[:q])
   	@title = t('volunteer.index')
-  	@volunteers = @search.page(params[:page]).per(15)
+  	@volunteers = @search.result.order('cgdvcode DESC').page(params[:page]).per(15)
   end
   
   def show

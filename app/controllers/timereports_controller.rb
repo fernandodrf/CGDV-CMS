@@ -5,7 +5,7 @@ class TimereportsController < ApplicationController
   def index
   	@search = Timereport.search(params[:q])
   	@title = t('header.timereport')
-  	@timereports = @search.page(params[:page]).per(15)
+  	@timereports = @search.result.order('created_at DESC').page(params[:page]).per(15)
   end
   
   def show

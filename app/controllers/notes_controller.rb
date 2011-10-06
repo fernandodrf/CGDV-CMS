@@ -5,7 +5,7 @@ class NotesController < ApplicationController
   def index
   	@search = Note.search(params[:q])
   	@title = t('note.index')
-  	@notes = @search.page(params[:page]).per(10)
+  	@notes = @search.result.order('folio DESC').page(params[:page]).per(10)
   end
   
   def show

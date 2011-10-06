@@ -5,7 +5,7 @@ class DonationsController < ApplicationController
   def index
   	@search = Donation.search(params[:q])
   	@title = t('donation2.index')
-  	@donations = @search.page(params[:page]).per(10)  	
+  	@donations = @search.result.order('folio DESC').page(params[:page]).per(10)  	
   end
 
   def show

@@ -5,7 +5,7 @@ class VolTimesController < ApplicationController
   def index
   	@search = VolTime.search(params[:q])
   	@title = t('header.timereport')
-  	@voltimes = @search.page(params[:page]).per(15)
+  	@voltimes = @search.result.order('created_at DESC').page(params[:page]).per(15)
   end
   
   def show

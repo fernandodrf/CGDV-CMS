@@ -8,16 +8,16 @@
     <h6><%= t('search.title') %></h6>
     
     <% if current_user.admin? %>
-    <%= f.label :cgdvcode_equals, t('patient.cgdvcode') %>
-    <%= f.text_field :volunteer_cgdvcode_equals, :size => 3 %>
+    <%= f.label :cgdvcode_eq, t('patient.cgdvcode') %>
+    <%= f.text_field :volunteer_cgdvcode_eq, :size => 3 %>
     <%= f.label :name_contains, t('patient.name') %>
-    <%= f.text_field :volunteer_name_equals %>
+    <%= f.text_field :volunteer_name_eq %>
     <% end %>
   
     <%= f.label :semana, "Semanas desde:" %>
-    <%= f.text_field :semana_greater_than_or_equal_to, :size => 3 %>
+    <%= f.text_field :semana_gteq, :size => 3 %>
     <%= f.label :semana, "hasta:" %>
-    <%= f.text_field :semana_less_than_or_equal_to, :size => 3 %>    
+    <%= f.text_field :semana_lteq, :size => 3 %>    
     <%= f.submit t('helpers.search') %><br /><br />
     
   <% end %>
@@ -26,14 +26,12 @@
 
 <table>
   <tr>
-  	<th>Reportes</th>
+    <th><%= sort_link @search, :volunteer_cgdvcode, t('patient.cgdvcode') %></th>
   	<th><%= sort_link @search, :semana, "Semanas", :default_order => :desc %></th>
     <th><%= sort_link @search, :created_at, t('all.created_at'), :default_order => :desc %></th>
-    <th><%= sort_link @search, :volunteer_cgdvcode, t('patient.cgdvcode') %></th>
+    <th>Reportes</th>
   </tr>
   <%= render @activity_reports %>
 </table>
 
-<% if current_user.admin? %>
   <%= paginate @activity_reports %>
-<% end %>

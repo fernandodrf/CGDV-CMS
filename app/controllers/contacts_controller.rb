@@ -6,7 +6,7 @@ class ContactsController < ApplicationController
   def index
   	@search = Contact.search(params[:q])
   	@title = t('contact.index')
-  	@contacts = @search.page(params[:page]).per(10)
+  	@contacts = @search.result.order('created_at DESC').page(params[:page]).per(10)
   end
   
   def show
@@ -19,21 +19,21 @@ class ContactsController < ApplicationController
 	
   def new
   	@contact = Contact.new
-  	@title = t('helpers.submit.create', :model => Contact.to_s)
+  	@title = t('helpers.submit.create', :model => "Contacto")
   end
   
   def edit
     @contact = Contact.find(params[:id])
-    @title = t('helpers.submit.update', :model => Contact.to_s)
+    @title = t('helpers.submit.update', :model => "Contacto")
   end
   
   def create
   	@contact = Contact.new(params[:contact])
   	if @contact.save
-  	  flash[:success] = t('flash.success.create', :model => Contact.to_s)
+  	  flash[:success] = t('flash.success.create', :model => "Contacto")
   	  redirect_to @contact
   	else
-  	  @title = "New Contact"
+  	  @title = "Nuevo Contacto"
   	  render 'new'
   	end
   end
@@ -41,17 +41,17 @@ class ContactsController < ApplicationController
   def update
     @contact = Contact.find(params[:id])
     if @contact.update_attributes(params[:contact])
-      flash[:success] = t('flash.success.edit', :model => Contact.to_s)
+      flash[:success] = t('flash.success.edit', :model => "Contacto")
       redirect_to @contact
     else
-      @title = t('helpers.submit.create', :model => Contact.to_s)
+      @title = t('helpers.submit.create', :model => "Contacto")
       render 'edit'
     end
   end
   
   def destroy
     Contact.find(params[:id]).destroy
-    flash[:success] = t('flash.success.destroy', :model => Contact.to_s)
+    flash[:success] = t('flash.success.destroy', :model => "Contacto")
     redirect_to contacts_path
   end
 

@@ -4,10 +4,10 @@
 <%= search_form_for @search, :url => donors_path, :html => {:method => :get} do |f| %>
   
   <h6><%= t('search.title') %></h6>	
-  <%= f.label :name_contains, t('patient.name') %>
-  <%= f.text_field :name_contains %>
-  <%= f.label :cgdvcode_equals, t('patient.cgdvcode') %>
-  <%= f.text_field :cgdvcode_equals %>
+  <%= f.label :name_cont, t('patient.name') %>
+  <%= f.text_field :name_cont %>
+  <%= f.label :cgdvcode_eq, t('patient.cgdvcode') %>
+  <%= f.text_field :cgdvcode_eq %>
   <%= f.submit t('helpers.search') %><br /><br />
 <% end %>
 

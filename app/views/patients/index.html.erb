@@ -2,10 +2,10 @@
 <h6><%= link_to t('helpers.submit.create', :model => "Nuevo Paciente"), new_patient_path %></h6><br />
 <%= search_form_for @search, :url => patients_path, :html => {:method => :get} do |f| %>
   <h6><%= t('search.title') %></h6>	
-  <%= f.label :name_contains, t('search.name') %>
-  <%= f.text_field :name_contains %>
-  <%= f.label :cgdvcode_equals, t('search.cgdvcode') %>
-  <%= f.text_field :cgdvcode_equals, :size => 10 %>
+  <%= f.label :name_cont, t('search.name') %>
+  <%= f.text_field :name_cont %>
+  <%= f.label :cgdvcode_eq, t('search.cgdvcode') %>
+  <%= f.text_field :cgdvcode_eq, :size => 10 %>
   <%= f.submit t('helpers.search') %><br /><br />
 <% end %>
 <strong><%= t('search.sort') %>	</strong>

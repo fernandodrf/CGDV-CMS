@@ -12,16 +12,16 @@
 <%= search_form_for @search, :url => timereports_path, :html => {:method => :get} do |f| %>
   
   <h6><%= t('search.title') %></h6>	
-  <%= f.label :cgdvcode_equals, t('search.cgdvcode') %>
-  <%= f.text_field :volunteer_cgdvcode_equals, :size => 3 %>
-  <%= f.label :evento_contains, t('volunteer.evento') %>
-  <%= f.text_field :evento_contains %>
-  <%= f.label :name_contains, t('patient.name') %>
-  <%= f.text_field :volunteer_name_contains %><br />
-  <%= f.label :day_greater_than_or_equal_to, "Desde: " %>
-  <%= f.date_select :day_greater_than_or_equal_to, :default => 1.year.ago, :start_year => Time.now.year - 20, :end_year => Time.now.year %> 
-  <%= f.label :day_less_than_or_equal_to, "Hasta: " %>
-  <%= f.date_select :day_less_than_or_equal_to, :start_year => Time.now.year - 20, :end_year => Time.now.year %>
+  <%= f.label :cgdvcode_eq, t('search.cgdvcode') %>
+  <%= f.text_field :volunteer_cgdvcode_eq, :size => 3 %>
+  <%= f.label :evento_cont, t('volunteer.evento') %>
+  <%= f.text_field :evento_cont %>
+  <%= f.label :name_cont, t('patient.name') %>
+  <%= f.text_field :volunteer_name_cont %><br />
+  <%= f.label :day_gteq, "Desde: " %>
+  <%= f.date_select :day_gteq, :default => 1.year.ago, :start_year => Time.now.year - 20, :end_year => Time.now.year %> 
+  <%= f.label :day_lteq, "Hasta: " %>
+  <%= f.date_select :day_lteq, :start_year => Time.now.year - 20, :end_year => Time.now.year %>
   <%= f.submit t('helpers.search') %><br /><br />
 <% end %>
 

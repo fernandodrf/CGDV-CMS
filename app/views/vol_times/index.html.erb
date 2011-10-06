@@ -12,12 +12,12 @@
 <%= search_form_for @search, :url => vol_times_path, :html => {:method => :get} do |f| %>
   
   <h6><%= t('search.title') %></h6>	
-  <%= f.label :cgdvcode_equals, t('search.cgdvcode') %>
-  <%= f.text_field :volunteer_cgdvcode_equals, :size => 3 %>
-  <%= f.label :evento_contains, t('volunteer.evento') %>
-  <%= f.text_field :evento_contains %>
-  <%= f.label :name_contains, t('patient.name') %>
-  <%= f.text_field :volunteer_name_contains %><br />
+  <%= f.label :cgdvcode_eq, t('search.cgdvcode') %>
+  <%= f.text_field :volunteer_cgdvcode_eq, :size => 3 %>
+  <%= f.label :evento_cont, t('volunteer.evento') %>
+  <%= f.text_field :evento_cont %>
+  <%= f.label :name_cont, t('patient.name') %>
+  <%= f.text_field :volunteer_name_cont %><br />
   <%= f.submit t('helpers.search') %><br /><br />
 <% end %>
 

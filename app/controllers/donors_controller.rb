@@ -6,7 +6,7 @@ class DonorsController < ApplicationController
   def index
   	@search = Donor.search(params[:q])
   	@title = t('donation.index')
-  	@donors = @search.page(params[:page]).per(15)
+  	@donors = @search.result.order('cgdvcode DESC').page(params[:page]).per(15)
   end
   
   def show

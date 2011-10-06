@@ -3,10 +3,10 @@
   <td><%= link_to cgdvcode_vol(timereport), volunteer_path(timereport.volunteer_id) %></td>
   <% end %>
   <td><%= link_to l(timereport.day), timereport %></td>
-  <td><%= l timereport.begin, :format => :hourmin %></td>
-  <td><%= l timereport.end, :format => :hourmin %></td>
+  <td><%= link_to l(timereport.begin, :format => :hourmin), timereport %></td>
+  <td><%= link_to l(timereport.end, :format => :hourmin), timereport %></td>
   <td><%= link_to timereport.tiempo, timereport %></td>
-  <td><%= timereport.evento %></td>
+  <td><%= link_to timereport.evento, timereport %></td>
   <% if can? :edit, timereport %>
   <td class="smally"><%= link_to t('helpers.edit'), edit_timereport_path(timereport) %></td>
   <% end %>
