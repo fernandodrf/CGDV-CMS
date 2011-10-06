@@ -4,11 +4,7 @@
   	<ul>
       <% if signed_in? %>  		
   	  <li><strong><%= t('user.name') %>:</strong> <%= current_user.name %>, No?</li>
-      <li><%= link_to t('session.logout'), destroy_user_session_path, :method => :delete %></li>
-      <% else %>
-      <li><%= link_to t('session.login'), new_user_session_path %></li>
-      <% end %>
-      <% if user_signed_in? and current_user.admin? %>
+  	  <% if current_user.admin? %>
       <li><%= link_to t('header.users'), users_path %></li>
       <li><%= link_to t('header.profile'), current_user %></li>
       <li><%= link_to t('header.settings'), edit_user_path(current_user) %></li>
@@ -16,6 +12,10 @@
       <% if signed_in? and can? :trep, Volunteer %>
  	  <li><%= link_to "Mis Horas", trep_volunteer_path(current_user.volunteer) %></li>
 	  <% end %>
+      <li><%= link_to t('session.logout'), destroy_user_session_path, :method => :delete %></li>
+      <% else %>
+      <li><%= link_to t('session.login'), new_user_session_path %></li>
+      <% end %>
   	</ul>
   </nav>
 </header>
