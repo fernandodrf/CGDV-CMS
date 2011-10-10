@@ -1,6 +1,6 @@
 source 'http://rubygems.org'
 
-gem 'rails', '3.0.10'
+gem 'rails', '3.1.0'
 gem 'rake', '0.8.7'
 gem "kaminari", "~> 0.12.4"
 gem "taps", "~> 0.3.23"
@@ -13,6 +13,17 @@ gem "gravatar_image_tag", "~> 1.0.0"
 gem "devise", "~> 1.4.4"
 gem "easy_roles", "~> 1.2.0"
 gem "rails3-jquery-autocomplete", "~> 0.9.1"
+
+# Para evitar errores de Rails 3.1
+gem 'rack', '1.3.3'
+
+# Gems used only for assets and not required
+# in production environments by default.
+#group :assets do
+#  gem 'sass-rails',   "~> 3.1.0"
+#  gem 'coffee-rails', "~> 3.1.0"
+#  gem 'uglifier'
+#end
 
 group :development do
   gem 'faker', '~> 0.3.1'
