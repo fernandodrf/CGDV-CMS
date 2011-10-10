@@ -512,7 +512,7 @@ CatalogoDerechohabiente.create(:seguro => "Otros") ? true : puts("Error al carga
 CatalogoDerechohabiente.create(:seguro => "ISSEMYM") ? true : puts("Error al cargar ISSEMYM")
 CatalogoDerechohabiente.create(:seguro => "Seguro Popular") ? true : puts("Error al cargar Seguro Popular")
 puts "Cargado Catalogo de Derechohabientes"
-=end
+
 
 Catestado.create(:estado => 'Aguascalientes')
 Catestado.create(:estado => 'Baja California')
@@ -549,3 +549,4 @@ Catestado.create(:estado => 'Zacatecas')
 Catestado.create(:estado => 'Fuera de Mexico')
 Catestado.create(:estado => 'Otro')
 
+=end
