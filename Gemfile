@@ -8,7 +8,9 @@ gem 'ransack', '~> 0.5.7'
 gem 'jquery-rails', '~> 1.0.12'
 gem 'cancan', '~> 1.6.5'
 gem 'pg', '~> 0.11.0'
-gem 'nested_form', '~> 0.1.1'
+# gem 'nested_form', '~> 0.1.1'
+# For Rails 3.1
+gem "nested_form", :git => "git://github.com/ryanb/nested_form.git"
 gem "gravatar_image_tag", "~> 1.0.0"
 gem "devise", "~> 1.4.4"
 gem "easy_roles", "~> 1.2.0"

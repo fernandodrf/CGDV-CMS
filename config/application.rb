@@ -12,10 +12,10 @@ end
 module Cgdv
   class Application < Rails::Application
 	# Enable the asset pipeline
-	 config.assets.enabled = false
+	config.assets.enabled = false
  
 	# Version of your assets, change this if you want to expire all your assets
-	 config.assets.version = '1.0'
+	config.assets.version = '1.0'
  
 	# Change the path that assets are served from
 	# config.assets.prefix = "/assets"

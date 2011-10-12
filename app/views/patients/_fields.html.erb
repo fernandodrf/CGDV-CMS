@@ -4,12 +4,12 @@
   <%= f.select :status, Patient::STATUS.collect %>
 </div>
 <div class="field">
-  <%= f.label :name, t('patient.name') %><br />
-  <%= f.text_field :name %>
-</div>
-<div class="field">
   <%= f.label :cgdvcode, t('patient.cgdvcode') %><br />
   <%= f.text_field :cgdvcode, :value => @cgdvcode %>
+</div>
+<div class="field">
+  <%= f.label :name, t('patient.name') %><br />
+  <%= f.text_field :name %>
 </div>
 <div>
   <%= f.label :birthdate, t('patient.birthdate') %><br />
