@@ -4,6 +4,7 @@
 
 ##### Version 1.2.9
 	- Migrated to Rails 3.1, not ussing Asset Pipeline yet.
+	- Corrected nested_form gem for Rails 3.1.
 
 ##### Version 1.2.8
 	- Updated MetaSearch to Ransack gem
