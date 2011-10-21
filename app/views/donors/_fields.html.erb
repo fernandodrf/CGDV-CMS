@@ -13,7 +13,7 @@
   <%= f.text_field :rfc %><br />
 
   <%= f.label :birth, t('patient.birthdate') %><br />
-  <%= f.date_select :birth, :order => [:day, :month, :year], :start_year => Time.now.year - 90, :end_year => Time.now.year %><br />
+  <%= f.date_select :birth, :order => [:day, :month, :year], :start_year => Time.now.year - 100, :end_year => Time.now.year %><br />
 </div>
 <%= f.fields_for :extradonors do |e| %>
   <div class="pmoral">
