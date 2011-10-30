@@ -77,12 +77,6 @@ module ApplicationHelper
     @remanente = socioeco.ingresos - socioeco.gastos
   end
 
-  def gravatar_for(user, options = { :size => 50 })
-    gravatar_image_tag(user.email.downcase, :alt => user.name,
-                                            :class => 'gravatar',
-                                            :gravatar => options)
-  end
-
   def vol_status(status)
     @text_status = Volunteer::STATUS[status-1][0]
   end

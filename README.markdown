@@ -2,6 +2,10 @@
 
 [Con Ganas de Vivir](http://www.conganas.org.mx) is a non-profit organization that supports Oncological patients, by [Fernando D. Ramirez F.](http://revomx.com/blog)
 
+##### Version 1.3.0
+	- Rails 3.1.1
+	- Removed Gravatar
+
 ##### Version 1.2.9
 	- Migrated to Rails 3.1, not ussing Asset Pipeline yet.
 	- Corrected nested_form gem for Rails 3.1.
