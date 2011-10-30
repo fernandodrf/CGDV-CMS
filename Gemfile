@@ -30,8 +30,8 @@ group :development do
   gem 'faker', '~> 0.3.1'
   gem 'annotate', '~> 2.4.0'
   gem "nifty-generators", "~> 0.4.6"
-  gem 'thin'
-  gem 'eventmachine', '1.0.0.beta.4.1'
+ # gem 'thin'
+ # gem 'eventmachine', '1.0.0.beta.4.1'
 end
 
 gem "mocha", :group => :test
