@@ -16,20 +16,20 @@ test:
   password: cgv
 
 # Localhost
+# production:
+#  adapter: postgresql
+#  encoding: unicode
+#  database: cgdv_production
+#  pool: 5
+#  username: cgv
+#  password: cgv
+  
+# A2
 production:
   adapter: postgresql
   encoding: unicode
-  database: cgdv_production
+  database: conganas_sysproduction
   pool: 5
-  username: cgv
-  password: cgv
-  
-# A2
-#production:
-#  adapter: postgresql
-#  encoding: unicode
-#  database: conganas_sysproduction
-#  pool: 5
-#  username: conganas_sysdb
-#  password: y0P5J![]g-rz
+  username: conganas_sysdb
+  password: y0P5J![]g-rz
 
