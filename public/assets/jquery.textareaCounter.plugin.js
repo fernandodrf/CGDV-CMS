@@ -1,0 +1,11 @@
+/*
+ * jQuery Textarea Characters Counter Plugin v 2.0
+ * Examples and documentation at: http://roy-jin.appspot.com/jsp/textareaCounter.jsp
+ * Copyright (c) 2010 Roy Jin
+ * Version: 2.0 (11-JUN-2010)
+ * Dual licensed under the MIT and GPL licenses:
+ * http://www.opensource.org/licenses/mit-license.php
+ * http://www.gnu.org/licenses/gpl.html
+ * Requires: jQuery v1.4.2 or later
+ */
+(function(a){a.fn.textareaCount=function(b,c){function l(){return g.html(m()),typeof c!="undefined"&&c.call(this,o()),!0}function m(){var a=e.val(),c=a.length;if(b.maxCharacterSize>0){c>=b.maxCharacterSize&&(a=a.substring(0,b.maxCharacterSize));var d=r(a),f=b.maxCharacterSize-d;q()||(f=b.maxCharacterSize);if(c>f){var l=this.scrollTop;e.val(a.substring(0,f)),this.scrollTop=l}g.removeClass(b.warningStyle),f-c<=b.warningNumber&&g.addClass(b.warningStyle),h=e.val().length+d,q()||(h=e.val().length),k=t(s(e.val())),j=i-h}else{var d=r(a);h=e.val().length+d,q()||(h=e.val().length),k=t(s(e.val()))}return n()}function n(){var a=b.displayFormat;return a=a.replace("#input",h),a=a.replace("#words",k),i>0&&(a=a.replace("#max",i),a=a.replace("#left",j)),a}function o(){var a={input:h,max:i,left:j,words:k};return a}function p(a){return a.next(".charleft")}function q(){var a=navigator.appVersion;return a.toLowerCase().indexOf("win")!=-1?!0:!1}function r(a){var b=0;for(var c=0;c<a.length;c++)a.charAt(c)=="\n"&&b++;return b}function s(a){var b=a+" ",c=/^[^A-Za-z0-9]+/gi,d=b.replace(c,""),e=rExp=/[^A-Za-z0-9]+/gi,f=d.replace(e," "),g=f.split(" ");return g}function t(a){var b=a.length-1;return b}var d={maxCharacterSize:-1,originalStyle:"originalTextareaInfo",warningStyle:"warningTextareaInfo",warningNumber:20,displayFormat:"#input characters | #words words"},b=a.extend(d,b),e=a(this);a("<div class='charleft'>&nbsp;</div>").insertAfter(e);var f={width:e.width()},g=p(e);g.addClass(b.originalStyle),g.css(f);var h=0,i=b.maxCharacterSize,j=0,k=0;e.bind("keyup",function(a){l()}).bind("mouseover",function(a){setTimeout(function(){l()},10)}).bind("paste",function(a){setTimeout(function(){l()},10)})}})(jQuery)
