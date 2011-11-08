@@ -24,4 +24,4 @@ nested_form.js: nested_form-244aafed558808007b9f40106ba4dfaa.js
 blueprint/ie.css: blueprint/ie-e74efa906a10b340155784d2bad8c799.css
 blueprint/print.css: blueprint/print-e8a3c1d15481d968b45744b9dfdbb0af.css
 blueprint/screen.css: blueprint/screen-56cf1e77dd0ddf0a1400ac0681b4729c.css
-jquery-ui-1.8.16.custom.css: jquery-ui-1.8.16.custom-6a367c6e4d68dbbabd1802e6d78dbb51.css
+jquery-ui.css: jquery-ui-6a367c6e4d68dbbabd1802e6d78dbb51.css
