@@ -19,7 +19,7 @@ h1 {
   font-size: 11pt;
 }
 .nota {
-  font-size: 8pt;
+  font-size: 9pt;
   border-spacing: 0px;
   border-color: black;
 }
@@ -32,11 +32,11 @@ h1 {
 }
 
 .nota_datos {
-  font-size: 7.5pt;
+  font-size: 8.5pt;
 }
 
 .nota_leyenda {
-  font-size: 7pt;
+  font-size: 8pt;
 }
 
 .nota_title {
