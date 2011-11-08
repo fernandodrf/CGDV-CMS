@@ -24,6 +24,7 @@ gem 'rack', '~> 1.3.5'
   gem 'sass-rails',   "~> 3.1.0"
   gem 'coffee-rails', "~> 3.1.0"
   gem 'uglifier'
+  gem "therubyracer", "~> 0.9.8"
 #end
 
 group :development do
