@@ -14,6 +14,7 @@ gem "nested_form", :git => "git://github.com/ryanb/nested_form.git"
 gem "devise", "~> 1.4.4"
 gem "easy_roles", "~> 1.2.0"
 gem "rails3-jquery-autocomplete", "~> 0.9.1"
+gem 'newrelic_rpm'
 
 # Para evitar errores de Rails 3.1
 gem 'rack', '~> 1.3.5'
