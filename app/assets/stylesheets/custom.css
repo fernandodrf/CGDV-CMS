@@ -265,6 +265,26 @@ ul.users {
   list-style: none;
 }
 
+.avatar {
+  border: 1px dashed #000;
+  margin: 0px 30px 0px 0px;
+  float: left;
+}
+
+.avatarsmally {
+  border: 1px dashed #000;
+  margin: 0px 10px 0px 0px;
+  float: left;
+}
+
+.titlevol {
+  margin-top: 30px;
+}
+
+.useravatar {
+  border: 1px dashed #000;
+}
+
 /* Para el Javascript de contar palabras y caracteres */
 
 .originalDisplayInfo {

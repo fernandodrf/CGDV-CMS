@@ -1,6 +1,7 @@
 <table class="profile" summary="Profile information">
   <tr>
     <td class="main">
+      <%= image_tag(@user.avatar_url, :alt => "Avatar", :class => "useravatar round") if @user.avatar? %><br />
       <h1>
       	<%= @user.name %>
       </h1>

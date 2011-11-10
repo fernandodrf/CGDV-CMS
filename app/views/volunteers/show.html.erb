@@ -1,6 +1,9 @@
+<%= image_tag(@volunteer.avatar_url, :alt => "Avatar", :class => "avatar round") if @volunteer.avatar? %>
+<div class="titlevol">
 <h1><%= @volunteer.name %></h1>
 <strong><%= link_to t('helpers.submit.update', :model => "Voluntario"), edit_volunteer_path(@volunteer) %></strong> | 
 <strong><%= link_to t('timereport.volunteer'), trep_volunteer_path(@volunteer) %></strong>
+</div>
 <table>
 <%= render 'volunteerinfo' %>
 <%= render 'tiempos' %>
