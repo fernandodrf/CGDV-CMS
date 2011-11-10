@@ -1,5 +1,5 @@
 class Volunteer < ActiveRecord::Base
-  attr_accessible :name, :cgdvcode, :blood, :sex, :status, :birth, :extravolunteers_attributes, :socialservices_attributes
+  attr_accessible :name, :cgdvcode, :blood, :sex, :status, :birth, :extravolunteers_attributes, :socialservices_attributes, :avatar, :avatar_cache, :remove_avatar
 
   has_many :telephones, :as => :telephoneable, :dependent => :destroy
   has_many :addresses, :as => :addresseable, :dependent => :destroy
@@ -30,6 +30,8 @@ class Volunteer < ActiveRecord::Base
   validates :sex, :presence => true, :length => { :maximum => 5}
   validates :blood, :presence => true, :length => { :maximum => 5}
   validates :birth, :presence => true
+  
+  mount_uploader :avatar, ImageUploader
 
   BLOODTYPES = ['NS', 'A+', 'A-', 'B+', 'B-', 'AB+', 'AB-', 'O+', 'O-']
   STATUS = [['Servicio Social',1],['Voluntario',2]] 

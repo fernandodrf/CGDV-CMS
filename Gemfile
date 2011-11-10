@@ -15,6 +15,11 @@ gem "devise", "~> 1.4.4"
 gem "easy_roles", "~> 1.2.0"
 gem "rails3-jquery-autocomplete", "~> 0.9.1"
 gem 'newrelic_rpm'
+gem "carrierwave", "~> 0.5.7"
+
+gem "mini_magick"
+#MiniMagick para Windows
+#gem "hcatlin-mini_magick", "~> 1.3.1"
 
 # Para evitar errores de Rails 3.1
 gem 'rack', '~> 1.3.5'

@@ -1,7 +1,7 @@
 ActionMailer::Base.smtp_settings = {
-  :address  => "mail.conganas.org.mx",
-  :port  => 26,
-  :user_name  => "sistema@conganas.org.mx",
+  :address  => "mail.cgdv.org",
+  :port  => 25,
+  :user_name  => "sistema+cgdv.org",
   :password  => "iQdye!cnXD",
   :authentication  => :login,
   :openssl_verify_mode  => 'none'
