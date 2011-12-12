@@ -1,4 +1,5 @@
 Cgdv::Application.routes.draw do
+	
   resources :donations
 
   resources :activity_reports do
@@ -6,7 +7,11 @@ Cgdv::Application.routes.draw do
   end
 
   devise_for :users, :path_prefix => 'd',:controllers => { :registrations => "registrations" }
-  resources :users
+  resources :users do
+  member do
+  	  get 'image'
+  	end	
+  end
   
   resources :timereports
   resources :vol_times
@@ -31,7 +36,7 @@ Cgdv::Application.routes.draw do
 
   resources :volunteers do
   	member do
-  	  get 'trep'
+  	  get 'trep', 'image'
   	end
     resources :addresses, :telephones, :emails, :comments, :addinfos, :subprograms, :diagnosticos, :dailyschedules, :only => [:new, :edit, :update, :create, :destroy]
   end

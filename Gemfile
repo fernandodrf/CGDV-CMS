@@ -1,6 +1,6 @@
 source 'http://rubygems.org'
 
-gem 'rails', '3.1.1'
+gem 'rails', '3.1.3'
 gem 'rake', '~> 0.9.2'
 gem "kaminari", "~> 0.12.4"
 gem "taps", "~> 0.3.23"

@@ -10,6 +10,11 @@ class UsersController < ApplicationController
     @users = User.order('created_at DESC').page(params[:page]).per(10)
   end
 	
+  def image
+  	@user = User.find(params[:id])
+    send_file "#{Rails.root}/#{@user.avatar_url}",:disposition => 'inline', :type=>"application/jpg", :x_sendfile=>true
+  end
+  
   def show
     @user = User.find(params[:id])
     @title = @user.name

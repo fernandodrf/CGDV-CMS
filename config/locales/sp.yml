@@ -8,6 +8,12 @@
 # by Carlos González ( carlosdavid.gonzalez@gmail.com)
 
 sp:
+
+  carrierwave:
+    errors:
+      integrity: 'No es una imagen'
+      processing: 'No se puede cambiar el tamaño de la imagen'
+        
   all:
     created_at: "Fecha de Creación"
 
