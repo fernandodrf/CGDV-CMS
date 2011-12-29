@@ -4,6 +4,7 @@
 
 ##### Version 1.4.2
 	- Private file attachments with Carrierwave.
+	- Rails 3.1.3
 
 ##### Version 1.4.1
 	- Added Carrierwave gem.
