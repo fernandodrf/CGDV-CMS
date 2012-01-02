@@ -1,5 +1,13 @@
 <%= render 'shared/error_messages', :object => f.object %>
 <div class="field">
+  <%= f.label :avatar, 'Foto' %><br />
+  <%= image_tag(@volunteer.avatar_url) if @volunteer.avatar? %><br />
+  <%= f.file_field :avatar %>
+  <%= f.check_box :remove_avatar %>
+  <%= f.label :avatar, 'Eliminar Foto?' %><br />
+  <%= f.hidden_field :avatar_cache %>
+</div>
+<div class="field">
   <%= f.label :status, t('patient.status') %><br />
   <%= f.select :status, Volunteer::STATUS.collect %>
 </div>

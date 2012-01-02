@@ -1,5 +1,5 @@
 <h1><%= t('helpers.submit.create', :model => "Voluntario") %></h1>
-<%= nested_form_for(@volunteer) do |f| %>
+<%= nested_form_for @volunteer, :html => {:multipart => true} do |f| %>
   <%= render 'fields', :f => f %>
   <div class="actions">
     <%= f.submit t('helpers.create') %>

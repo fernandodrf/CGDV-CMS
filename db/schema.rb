@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111005010455) do
+ActiveRecord::Schema.define(:version => 20111110015122) do
 
   create_table "activity_reports", :force => true do |t|
     t.text     "reporte"
@@ -351,6 +351,7 @@ ActiveRecord::Schema.define(:version => 20111005010455) do
     t.string   "last_sign_in_ip"
     t.string   "roles",                                 :default => "--- []"
     t.integer  "volunteer_id"
+    t.string   "avatar"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true
@@ -375,6 +376,7 @@ ActiveRecord::Schema.define(:version => 20111005010455) do
     t.date     "birth"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "avatar"
   end
 
   add_index "volunteers", ["cgdvcode"], :name => "index_volunteers_on_cgdvcode", :unique => true

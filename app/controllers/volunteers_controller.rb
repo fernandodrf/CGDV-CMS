@@ -10,6 +10,12 @@ class VolunteersController < ApplicationController
   	@volunteers = @search.result.order('cgdvcode DESC').page(params[:page]).per(15)
   end
   
+  def image
+  	@volunteer = Volunteer.find(params[:id])
+    send_file "#{Rails.root}/#{@volunteer.avatar_url}",:disposition => 'inline', :type=>"application/jpg", :x_sendfile=>true
+  end
+  
+  
   def show
   end
   
@@ -73,6 +79,7 @@ class VolunteersController < ApplicationController
     flash[:success] = t('flash.success.destroy', :model => Volunteer.to_s)
     redirect_to volunteers_path
   end
+  
 
   private
   

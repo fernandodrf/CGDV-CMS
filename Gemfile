@@ -1,6 +1,6 @@
 source 'http://rubygems.org'
 
-gem 'rails', '3.1.1'
+gem 'rails', '3.1.3'
 gem 'rake', '~> 0.9.2'
 gem "kaminari", "~> 0.12.4"
 gem "taps", "~> 0.3.23"
@@ -14,6 +14,11 @@ gem "nested_form", :git => "git://github.com/ryanb/nested_form.git"
 gem "devise", "~> 1.4.4"
 gem "easy_roles", "~> 1.2.0"
 gem "rails3-jquery-autocomplete", "~> 0.9.1"
+gem "carrierwave", "~> 0.5.7"
+
+# gem "mini_magick", "~> "3.3"
+#MiniMagick para Windows
+gem "hcatlin-mini_magick", "~> 1.3.1"
 
 # Para evitar errores de Rails 3.1
 gem 'rack', '~> 1.3.5'

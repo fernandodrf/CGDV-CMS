@@ -27,3 +27,11 @@
   <%= f.label :language, t('user.language') %><br />
   <%= f.select :language, [['Español', 'sp'], ['English', 'en']] %>
 </div>
+<div>
+  <%= f.label :avatar, 'Foto' %><br />
+  <%= image_tag(image_user_path(@user)) if @user.avatar? %><br />
+  <%= f.file_field :avatar %><br />
+  <%= f.hidden_field :avatar_cache %><br />
+  <%= f.label :avatar, 'Eliminar Foto' %>
+  <%= f.check_box :remove_avatar %><br />
+</div>
