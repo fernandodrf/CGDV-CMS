@@ -12,7 +12,7 @@ class VolunteersController < ApplicationController
   
   def image
   	@volunteer = Volunteer.find(params[:id])
-    send_file "#{Rails.root}/#{@volunteer.avatar_url}",:disposition => 'inline', :type=>"application/jpg", :x_sendfile=>true
+    send_file "#{Rails.root}#{@volunteer.avatar_url}",:disposition => 'inline', :type=>"application/jpg", :x_sendfile=>true
   end
   
   
