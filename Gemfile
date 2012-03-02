@@ -1,10 +1,10 @@
 source 'http://rubygems.org'
 
-gem 'rails', '3.1.3'
+gem 'rails', '3.2.2'
 gem 'rake', '~> 0.9.2'
-gem "kaminari", "~> 0.12.4"
+gem "kaminari", "~> 0.13.0"
 gem "taps", "~> 0.3.23"
-gem 'ransack', '~> 0.5.7'
+gem 'ransack', '~> 0.6.0'
 gem 'jquery-rails', '~> 1.0.12'
 gem 'cancan', '~> 1.6.5'
 gem 'pg', '~> 0.11.0'
@@ -21,15 +21,15 @@ gem "carrierwave", "~> 0.5.7"
 gem "hcatlin-mini_magick", "~> 1.3.1"
 
 # Para evitar errores de Rails 3.1
-gem 'rack', '~> 1.3.5'
+# gem 'rack', '~> 1.3.5'
 
 # Gems used only for assets and not required
 # in production environments by default.
-#group :assets do
-  gem 'sass-rails',   "~> 3.1.0"
-  gem 'coffee-rails', "~> 3.1.0"
-  gem 'uglifier'
-#end
+group :assets do
+  gem 'sass-rails', "  ~> 3.2.3"
+  gem 'coffee-rails', "~> 3.2.1"
+  gem 'uglifier', '>= 1.0.3'
+end
 
 group :development do
   gem 'faker', '~> 0.3.1'

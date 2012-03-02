@@ -1,7 +1,7 @@
 <%= render 'shared/error_messages', :object => f.object %>
 <div class="field">
   <%= f.label :avatar, 'Foto' %><br />
-  <%= image_tag(@volunteer.avatar_url) if @volunteer.avatar? %><br />
+  <%= image_tag(image_volunteer_path(@volunteer), :alt => "Avatar", :class => "avatar round") if @volunteer.avatar? %><br />
   <%= f.file_field :avatar %>
   <%= f.check_box :remove_avatar %>
   <%= f.label :avatar, 'Eliminar Foto?' %><br />
@@ -9,7 +9,7 @@
 </div>
 <div class="field">
   <%= f.label :status, t('patient.status') %><br />
-  <%= f.select :status, Volunteer::STATUS.collect %>
+  <%= f.select :status, Volunteer::STATUS %>
 </div>
 <div class="field">
   <%= f.label :name, t('patient.name') %><br />

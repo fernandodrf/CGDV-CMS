@@ -4,6 +4,7 @@
 //= require jquery_ujs
 //= require jquery-ui
 //= require autocomplete-rails
+//= require jquery_nested_form
 //= require jquery.textareaCounter.plugin
 //= require_self
 //= require_tree .
