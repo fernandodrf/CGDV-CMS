@@ -10,11 +10,17 @@ class NotesController < ApplicationController
   
   def show
     @note = Note.find(params[:id])
+    @attachments = @note.attachments
   end
   
   def print 
     @note = Note.find(params[:id])
   	render :layout => false 
+  end
+
+  def image
+  	@note = Note.find(params[:id])
+    send_file "#{Rails.root}#{@note.attachment_url}",:disposition => 'inline', :type=>"application/jpg", :x_sendfile=>true
   end
 	
   def new

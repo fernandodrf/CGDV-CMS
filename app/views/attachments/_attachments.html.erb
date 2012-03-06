@@ -1,0 +1,11 @@
+<table class="attachments" align=center>
+  <tr>
+    <th><%= t('attachment.name') %></th>
+    <% if can? :create, Attachment %>
+	<td colspan=2 nowrap><%= link_to t('helpers.submit.create', :model => "Archivos Adjuntos"), new_polymorphic_path([model,Attachment]) %></td>
+	<% end %>
+  </tr>  
+  <% unless model.attachments.empty? and can? :read, Attachment %>
+  <%= render @attachments, :model => model %>
+  <% end %>
+</table>

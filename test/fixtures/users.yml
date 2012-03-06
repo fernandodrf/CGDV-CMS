@@ -12,6 +12,7 @@ two:
 
 
 
+
 # == Schema Information
 #
 # Table name: users
@@ -34,5 +35,6 @@ two:
 #  last_sign_in_ip        :string(255)
 #  roles                  :string(255)     default("--- []")
 #  volunteer_id           :integer
+#  avatar                 :string(255)
 #
 

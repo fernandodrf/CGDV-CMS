@@ -15,4 +15,5 @@
 <%= render 'family_members/familymembers' %>
 <%= render 'addinfos/additionalinformation', :model => @patient %>
 <%= render 'comments/comments', :model => @patient %>
+<%= render 'attachments/attachments', :model => @patient %>
 <strong><%= link_to t('helpers.print'), print_patient_path(@patient) %></strong>

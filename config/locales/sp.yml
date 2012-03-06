@@ -17,6 +17,10 @@ sp:
   all:
     created_at: "Fecha de Creación"
 
+  attachment:
+    attachment: "Archivo Adjunto"
+    name: "Nombre del Archivo"
+
   home: 
     title: "Principal"
     paragraph: "Sistema de manejo de informacion de CGDV."

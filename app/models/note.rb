@@ -5,6 +5,8 @@ class Note < ActiveRecord::Base
   
   belongs_to :patient
   has_many :elements, :dependent => :destroy
+  has_many :attachments, :as => :attachable, :dependent => :destroy
+  
   accepts_nested_attributes_for :elements, :allow_destroy => true
 
   validates :patient_id, :presence => true

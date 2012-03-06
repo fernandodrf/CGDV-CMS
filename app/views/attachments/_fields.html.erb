@@ -1,0 +1,15 @@
+<%= render 'shared/error_messages', :object => f.object %>
+<div class="field">
+  <%= f.label :name, t('attachment.name') %><br />
+  <%= f.text_field :name %>
+</div>
+<div class="field">
+  <%= f.label :fileattachment, 'Archivo Adjunto' %><br />
+  <%  unless @child.fileattachment.to_s.nil? %>
+  <%= image_tag(image_attachment_path(@child), :alt => "Archivo Adjunto", :class => "avatar round") %><br />
+  <% end %>
+  <%= f.file_field :fileattachment %>
+  <%= f.check_box :remove_fileattachment %>
+  <%= f.label :fileattachment, 'Eliminar Archivo?' %><br />
+  <%= f.hidden_field :fileattachment_cache %>
+</div>

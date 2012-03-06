@@ -1,0 +1,9 @@
+<tr>
+  <td><%= link_to attachment.name, polymorphic_path([model,attachment]) %></td>
+  <% if can? :edit, Attachment %>
+  <td><%= link_to t('helpers.edit'), edit_polymorphic_path([model,attachment]) %></td>
+  <% end %>
+  <% if can? :destroy, Attachment %>
+  <td><%= link_to t('helpers.delete.msg'), polymorphic_path([model,attachment]), :method => :delete, :confirm => t('helpers.delete.conf'), :title => "#{t('helpers.delete.msg')} #{attachment.name}" %></td>
+  <% end %>
+</tr>

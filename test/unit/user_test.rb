@@ -11,6 +11,7 @@ end
 
 
 
+
 # == Schema Information
 #
 # Table name: users
@@ -33,5 +34,6 @@ end
 #  last_sign_in_ip        :string(255)
 #  roles                  :string(255)     default("--- []")
 #  volunteer_id           :integer
+#  avatar                 :string(255)
 #
 

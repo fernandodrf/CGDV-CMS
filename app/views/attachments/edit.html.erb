@@ -1,0 +1,7 @@
+<h1><%= t('helpers.submit.update', :model => "Archivos Adjuntos") %></h1>
+<%= form_for([@parent, @child]) do |f| %>
+  <%= render 'fields', :f => f %>
+  <div class="actions">
+    <%= f.submit t('helpers.edit') %>
+  </div>
+<% end %>

@@ -130,6 +130,7 @@ class PatientsController < ApplicationController
     @socioeco = @patient.socioeco
     @familymembers = @patient.family_members.order('created_at ASC')
     @comments = @patient.comments
+    @attachments = @patient.attachments
     @title = @patient.cgdvcode
   end
   

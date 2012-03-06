@@ -25,14 +25,36 @@ Cgdv::Application.routes.draw do
   end
   
   resources :notes do
-    get :print, :on => :member	
+  	member do
+  	  get 'print', 'image'
+  	end
+    resources :attachments do
+  		member do
+  	  	get 'image'
+  		end
+  	end
   end
+  
+  resources :attachments do
+  	member do
+  	  get 'image'
+  	end
+  end
+  
   resources :patients do
     member do
       get 'print', 'notas'
     end
-  	resources :addresses, :telephones, :emails, :derechohabientes, :apoyos, :tratamientos, :comments, :diagnosticos, :refclinicas, :houses, :socioecos, :family_members, :addinfos, :only => [:new, :edit, :update, :create, :destroy] 
-  end
+  	resources :addresses, :telephones, :emails, :derechohabientes, :apoyos, :tratamientos, :comments, :diagnosticos, :refclinicas, :houses, :socioecos, :family_members, :addinfos, :only => [:new, :edit, :update, :create, :destroy]
+  	
+  	resources :attachments do
+  		member do
+  	  	get 'image'
+  		end
+  	end 
+  
+  	
+	end
 
   resources :volunteers do
   	member do

@@ -3,4 +3,5 @@
 <strong><%= link_to t('helpers.print'), print_note_path(@note) %></strong><br /><br />
 <table>
 <%= render 'noteinfo' %>
+<%= render 'attachments/attachments', :model => @note %>
 </table>

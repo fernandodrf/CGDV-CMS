@@ -8,6 +8,8 @@ class Patient < ActiveRecord::Base
   has_many :emails, :as => :emailable, :dependent => :destroy
   has_many :comments, :as => :commentable, :dependent => :destroy
   has_many :diagnosticos, :as => :diagnosticable, :dependent => :destroy
+  
+  has_many :attachments, :as => :attachable, :dependent => :destroy
     
   has_many :derechohabientes, :dependent => :destroy
   has_many :apoyos, :dependent => :destroy
