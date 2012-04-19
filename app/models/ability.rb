@@ -13,13 +13,29 @@ class Ability
 	  if user.is_oficina?
         can [:read, :create, :edit, :update, :print, :notas], :all
         cannot [:destroy], [Note, Element, Patient]
-        cannot :manage, [Volunteer, Timereport, Donor]
+        cannot :manage, [Volunteer, VolTime, Timereport, Donor]
   	  end
       
 	  if user.is_timereport?
 	    can [:read, :create], [Timereport]
 	    can [:read, :create], [VolTime]
 	  end
+	  
+	  if user.is_managetimereport?
+	    can :manage, [Timereport]
+	    can :manage, [VolTime]
+	    cannot [:destroy], [Timereport, VolTime]
+	  end	  
+	  
+	  if user.is_managedonor?
+	  	can :manage, [Donor]
+	  	cannot [:destroy], [Donor]
+  	end
+  	
+		if user.is_managecontact?
+	  	can :manage, [Contact]
+	  	cannot [:destroy], [Contact]
+  	end  	
 	  
 	  if user.is_ss?
 	  	can [:trep], [Volunteer]
