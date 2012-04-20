@@ -59,7 +59,7 @@ Cgdv::Application.configure do
   # config.assets.css_compressor = :yui
  
   # Don't fallback to assets pipeline if a precompiled asset is missed
-  config.assets.compile = false
+  config.assets.compile = true
  
   # Generate digests for assets URLs.
   config.assets.digest = true
@@ -68,7 +68,7 @@ Cgdv::Application.configure do
   # config.assets.manifest = YOUR_PATH
  
   # Precompile additional assets (application.js, application.css, and all non-JS/CSS are already added)
-  config.assets.precompile += %w( blueprint/screen.css blueprint/print.css blueprint/ie.css jquery-ui.css autocomplete-rails.js jquery.textareaCounter.plugin.js nested_form.js customprint.css )
+  config.assets.precompile += %w( logo.jpg logoblueprint/screen.css blueprint/print.css blueprint/ie.css jquery-ui.css autocomplete-rails.js jquery.textareaCounter.plugin.js nested_form.js customprint.css )
 
 
 end
