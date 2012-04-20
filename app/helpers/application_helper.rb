@@ -9,7 +9,8 @@ module ApplicationHelper
 	  "#{@base_title} | #{@title}"    	
     end
   end
-
+  
+=begin
   def logo
     image_tag("logo.jpg", :alt => "CGDV",:size => "152x62", :class => "round")
   end
@@ -17,6 +18,7 @@ module ApplicationHelper
     def logoprint
     image_tag("logo.jpg", :alt => "CGDV",:size => "98x40", :class => "round")
   end
+=end  
  
   def edad(birthdate)
     age = Date.today.year - birthdate.year
