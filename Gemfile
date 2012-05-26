@@ -17,6 +17,7 @@ gem "rails3-jquery-autocomplete", "~> 0.9.1"
 gem "carrierwave", "~> 0.5.7"
 #Maintenance Mode
 gem 'turnout'
+gem 'nokogiri'
 
 # gem "mini_magick", "~> "3.3"
 #MiniMagick para Windows
