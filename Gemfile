@@ -15,6 +15,8 @@ gem "devise", "~> 1.4.4"
 gem "easy_roles", "~> 1.2.0"
 gem "rails3-jquery-autocomplete", "~> 0.9.1"
 gem "carrierwave", "~> 0.5.7"
+#Maintenance Mode
+gem 'turnout'
 
 # gem "mini_magick", "~> "3.3"
 #MiniMagick para Windows
