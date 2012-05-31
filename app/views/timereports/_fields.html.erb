@@ -1,7 +1,7 @@
 <%= render 'shared/error_messages', :object => f.object %>
 
   <%= f.label :evento, t('volunteer.evento') %><br />
-  <%= f.select :evento, Timereport::EVENTO.collect %><br />
+  <%= f.select :evento, Timereport::EVENTO %><br />
 
   <%= f.label :volunteer_id, t('patient.cgdvcode') %><br />	
   <%= f.collection_select :volunteer_id, Volunteer.order('cgdvcode'), :id, :cgdvcode %><br />

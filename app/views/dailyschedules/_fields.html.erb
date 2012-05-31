@@ -1,7 +1,7 @@
 <%= render 'shared/error_messages', :object => f.object %>
 <div>
   <%= f.label :day, t('volunteer.day') %><br />
-  <%= f.select :day, Dailyschedule::DAYS.collect %>
+  <%= f.select :day, Dailyschedule::DAYS %>
 </div>
 <div>
   <%= f.label :begin, t('volunteer.begin') %><br />
