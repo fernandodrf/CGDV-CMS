@@ -6,7 +6,7 @@
 	- Migrated to Ruby 1.9.3
 
 ##### Version 1.4.5
-  - Removed Logo
+	- Removed Logo
   
 ##### Version 1.4.4
 	- File attachments for Patients and Notes
