@@ -14,6 +14,9 @@ gem "easy_roles", "~> 1.2.0"
 gem "rails3-jquery-autocomplete", "~> 0.9.1"
 gem "carrierwave", "~> 0.5.7"
 
+#Evento Calendar
+gem 'event-calendar', :require => 'event_calendar'
+
 #Maintenance Mode
 gem 'turnout'
 gem 'nokogiri'
