@@ -3,18 +3,17 @@ source 'http://rubygems.org'
 gem 'rails', '3.2.3'
 #gem 'rake', '~> 0.9.2'
 gem "kaminari", "~> 0.13.0"
-gem "taps", "~> 0.3.23"
 gem 'ransack', '~> 0.6.0'
 gem 'jquery-rails', '~> 1.0.12'
 gem 'cancan', '~> 1.6.5'
 gem 'pg', '~> 0.11.0'
-# gem 'nested_form', '~> 0.1.1'
 # For Rails 3.1
 gem "nested_form", :git => "git://github.com/ryanb/nested_form.git"
 gem "devise", "~> 1.4.4"
 gem "easy_roles", "~> 1.2.0"
 gem "rails3-jquery-autocomplete", "~> 0.9.1"
 gem "carrierwave", "~> 0.5.7"
+
 #Maintenance Mode
 gem 'turnout'
 gem 'nokogiri'
@@ -38,8 +37,6 @@ group :development do
   gem 'faker', '~> 0.3.1'
   gem 'annotate', '~> 2.4.0'
   gem "nifty-generators", "~> 0.4.6"
- # gem 'thin'
- # gem 'eventmachine', '1.0.0.beta.4.1'
 end
 
 gem "mocha", :group => :test

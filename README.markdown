@@ -7,7 +7,7 @@
 
 ##### Version 1.4.5
 	- Removed Logo
-  
+
 ##### Version 1.4.4
 	- File attachments for Patients and Notes
 
