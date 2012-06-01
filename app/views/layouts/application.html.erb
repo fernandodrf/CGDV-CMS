@@ -2,8 +2,7 @@
 <html>
   <head>
     <title><%= title %></title>
-    <%= render 'layouts/stylesheets' %>
-    <%= javascript_include_tag 'application' %>
+    <%= render 'layouts/includes' %>
     <%= csrf_meta_tag %>
     <%= render 'layouts/ga' if Rails.env.production? %>
   </head>

@@ -68,7 +68,7 @@ Cgdv::Application.configure do
   # config.assets.manifest = YOUR_PATH
  
   # Precompile additional assets (application.js, application.css, and all non-JS/CSS are already added)
-  config.assets.precompile += %w( logo.jpg blueprint/screen.css blueprint/print.css blueprint/ie.css jquery-ui.css autocomplete-rails.js jquery.textareaCounter.plugin.js nested_form.js customprint.css )
+  config.assets.precompile += %w( logo.jpg blueprint/screen.css blueprint/print.css blueprint/ie.css jquery-ui.css autocomplete-rails.js jquery.textareaCounter.plugin.js nested_form.js customprint.css event_calendar.js event_calendar.css )
 
 
 end
