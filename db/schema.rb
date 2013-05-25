@@ -17,8 +17,8 @@ ActiveRecord::Schema.define(:version => 20120601021943) do
     t.text     "reporte"
     t.integer  "semana"
     t.integer  "volunteer_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at",   :null => false
+    t.datetime "updated_at",   :null => false
   end
 
   create_table "addinfos", :force => true do |t|
@@ -26,8 +26,8 @@ ActiveRecord::Schema.define(:version => 20120601021943) do
     t.string   "info"
     t.integer  "addinformation_id"
     t.string   "addinformation_type"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at",          :null => false
+    t.datetime "updated_at",          :null => false
   end
 
   create_table "addresses", :force => true do |t|
@@ -36,8 +36,8 @@ ActiveRecord::Schema.define(:version => 20120601021943) do
     t.string   "municipio"
     t.string   "colonia"
     t.string   "domicilio"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at",                       :null => false
+    t.datetime "updated_at",                       :null => false
     t.integer  "addresseable_id"
     t.string   "addresseable_type"
     t.integer  "country",           :default => 1
@@ -47,8 +47,8 @@ ActiveRecord::Schema.define(:version => 20120601021943) do
   create_table "apoyos", :force => true do |t|
     t.string   "tipo"
     t.integer  "patient_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
   create_table "attachments", :force => true do |t|
@@ -66,26 +66,26 @@ ActiveRecord::Schema.define(:version => 20120601021943) do
 
   create_table "catalogo_derechohabientes", :force => true do |t|
     t.string   "seguro"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
   create_table "catalogo_diagnosticos", :force => true do |t|
     t.string   "diagnostico"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
   end
 
   create_table "catestados", :force => true do |t|
     t.string   "estado"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
   create_table "comments", :force => true do |t|
     t.text     "comment"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at",       :null => false
+    t.datetime "updated_at",       :null => false
     t.integer  "commentable_id"
     t.string   "commentable_type"
   end
@@ -95,16 +95,16 @@ ActiveRecord::Schema.define(:version => 20120601021943) do
     t.string   "company"
     t.string   "position"
     t.date     "birth"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
   create_table "dailyschedules", :force => true do |t|
     t.time     "begin"
     t.time     "end"
     t.integer  "volunteer_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at",   :null => false
+    t.datetime "updated_at",   :null => false
     t.integer  "day"
   end
 
@@ -112,13 +112,13 @@ ActiveRecord::Schema.define(:version => 20120601021943) do
     t.string   "seguro"
     t.string   "afiliacion"
     t.integer  "patient_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
   create_table "diagnosticos", :force => true do |t|
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at",          :null => false
+    t.datetime "updated_at",          :null => false
     t.integer  "diagnostico"
     t.integer  "diagnosticable_id"
     t.string   "diagnosticable_type"
@@ -133,8 +133,8 @@ ActiveRecord::Schema.define(:version => 20120601021943) do
     t.string   "transaccion"
     t.string   "finalidad"
     t.integer  "motivo"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
   end
 
   add_index "donations", ["donor_id"], :name => "index_donations_on_donor_id"
@@ -145,8 +145,8 @@ ActiveRecord::Schema.define(:version => 20120601021943) do
     t.string   "name"
     t.string   "rfc"
     t.date     "birth"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
   add_index "donors", ["cgdvcode"], :name => "index_donors_on_cgdvcode", :unique => true
@@ -157,8 +157,8 @@ ActiveRecord::Schema.define(:version => 20120601021943) do
     t.decimal  "cuota",       :precision => 22, :scale => 2
     t.string   "descripcion"
     t.integer  "note_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at",                                 :null => false
+    t.datetime "updated_at",                                 :null => false
   end
 
   add_index "elements", ["note_id"], :name => "index_elements_on_note_id"
@@ -167,8 +167,8 @@ ActiveRecord::Schema.define(:version => 20120601021943) do
     t.string   "email"
     t.integer  "emailable_id"
     t.string   "emailable_type"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at",     :null => false
+    t.datetime "updated_at",     :null => false
     t.string   "datos"
   end
 
@@ -184,15 +184,15 @@ ActiveRecord::Schema.define(:version => 20120601021943) do
     t.string   "pautoriza"
     t.string   "pcontacto"
     t.integer  "donor_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
   create_table "extravolunteers", :force => true do |t|
     t.string   "profesion"
     t.integer  "volunteer_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at",   :null => false
+    t.datetime "updated_at",   :null => false
   end
 
   create_table "family_members", :force => true do |t|
@@ -202,8 +202,8 @@ ActiveRecord::Schema.define(:version => 20120601021943) do
     t.string   "derechohabiente"
     t.string   "comentarios"
     t.integer  "patient_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at",      :null => false
+    t.datetime "updated_at",      :null => false
   end
 
   create_table "houses", :force => true do |t|
@@ -214,8 +214,8 @@ ActiveRecord::Schema.define(:version => 20120601021943) do
     t.integer  "menores"
     t.integer  "economicaactivas"
     t.integer  "patient_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at",       :null => false
+    t.datetime "updated_at",       :null => false
   end
 
   create_table "notes", :force => true do |t|
@@ -227,8 +227,8 @@ ActiveRecord::Schema.define(:version => 20120601021943) do
     t.decimal  "total",      :precision => 22, :scale => 2
     t.date     "fecha"
     t.integer  "patient_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at",                                :null => false
+    t.datetime "updated_at",                                :null => false
   end
 
   add_index "notes", ["folio"], :name => "index_notes_on_folio", :unique => true
@@ -237,8 +237,8 @@ ActiveRecord::Schema.define(:version => 20120601021943) do
   create_table "patients", :force => true do |t|
     t.string   "name"
     t.integer  "cgdvcode"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at",                :null => false
+    t.datetime "updated_at",                :null => false
     t.string   "sex"
     t.date     "birthdate"
     t.string   "blod"
@@ -254,8 +254,8 @@ ActiveRecord::Schema.define(:version => 20120601021943) do
     t.string   "proveedor"
     t.integer  "cgdvcode"
     t.string   "name"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
   add_index "providers", ["cgdvcode"], :name => "index_providers_on_cgdvcode", :unique => true
@@ -267,8 +267,8 @@ ActiveRecord::Schema.define(:version => 20120601021943) do
     t.string   "aceptado"
     t.string   "ayudas"
     t.integer  "patient_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
   create_table "socialservices", :force => true do |t|
@@ -279,8 +279,8 @@ ActiveRecord::Schema.define(:version => 20120601021943) do
     t.date     "inicio"
     t.date     "fin"
     t.integer  "volunteer_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at",   :null => false
+    t.datetime "updated_at",   :null => false
   end
 
   create_table "socioecos", :force => true do |t|
@@ -293,8 +293,8 @@ ActiveRecord::Schema.define(:version => 20120601021943) do
     t.string   "televisionpaga"
     t.string   "sgmm"
     t.integer  "patient_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at",       :null => false
+    t.datetime "updated_at",       :null => false
   end
 
   create_table "subprograms", :force => true do |t|
@@ -308,8 +308,8 @@ ActiveRecord::Schema.define(:version => 20120601021943) do
     t.boolean  "sobrevivientes"
     t.boolean  "fugarte"
     t.integer  "volunteer_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at",        :null => false
+    t.datetime "updated_at",        :null => false
     t.boolean  "sobreviviente"
     t.boolean  "licencia"
     t.boolean  "exposferias"
@@ -325,8 +325,8 @@ ActiveRecord::Schema.define(:version => 20120601021943) do
   create_table "telephones", :force => true do |t|
     t.string   "place"
     t.string   "number"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at",         :null => false
+    t.datetime "updated_at",         :null => false
     t.integer  "telephoneable_id"
     t.string   "telephoneable_type"
   end
@@ -336,8 +336,8 @@ ActiveRecord::Schema.define(:version => 20120601021943) do
     t.time     "begin"
     t.time     "end"
     t.integer  "volunteer_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at",   :null => false
+    t.datetime "updated_at",   :null => false
     t.string   "evento"
   end
 
@@ -346,15 +346,15 @@ ActiveRecord::Schema.define(:version => 20120601021943) do
   create_table "tratamientos", :force => true do |t|
     t.string   "tipo"
     t.integer  "patient_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
   create_table "users", :force => true do |t|
     t.string   "name"
     t.string   "email"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at",                                                  :null => false
+    t.datetime "updated_at",                                                  :null => false
     t.string   "encrypted_password",     :limit => 128, :default => "",       :null => false
     t.boolean  "admin",                                 :default => false
     t.string   "language"
@@ -378,8 +378,8 @@ ActiveRecord::Schema.define(:version => 20120601021943) do
     t.string   "evento"
     t.integer  "horas"
     t.integer  "volunteer_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at",   :null => false
+    t.datetime "updated_at",   :null => false
   end
 
   add_index "vol_times", ["volunteer_id"], :name => "index_vol_times_on_volunteer_id"
@@ -391,8 +391,8 @@ ActiveRecord::Schema.define(:version => 20120601021943) do
     t.string   "blood"
     t.integer  "status",     :default => 1
     t.date     "birth"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at",                :null => false
+    t.datetime "updated_at",                :null => false
     t.string   "avatar"
   end
 

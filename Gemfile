@@ -1,6 +1,6 @@
 source 'http://rubygems.org'
 
-gem 'rails', '3.2.7'
+gem 'rails', '3.2.13'
 #gem 'rake', '~> 0.9.2'
 gem "kaminari", "~> 0.13.0"
 gem 'ransack', '~> 0.6.0'
@@ -21,9 +21,10 @@ gem 'event-calendar', :require => 'event_calendar'
 gem 'turnout'
 gem 'nokogiri'
 
-# gem "mini_magick", "~> "3.3"
+gem 'mini_magick', '~> 3.3'
+
 #MiniMagick para Windows
-gem "hcatlin-mini_magick", "~> 1.3.1"
+# gem "hcatlin-mini_magick", "~> 1.3.1"
 
 # Para evitar errores de Rails 3.1
 # gem 'rack', '~> 1.3.5'
