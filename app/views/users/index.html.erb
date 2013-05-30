@@ -1,5 +1,5 @@
 <h1><%= t('user.index') %></h1>
-
+<h6><%= link_to t('helpers.submit.create', :model => "Nuevo Usuario"), new_user_path %></h6>
 <%= paginate @users %>
 
 <table>

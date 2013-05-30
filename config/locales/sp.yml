@@ -199,9 +199,11 @@ sp:
 
   user:
     index: "Todos los Usuarios"
+    new: "Crear Nuevo Usuario"
     name: "Usuario"
     email: "e-mail"
     password: "Contraseña"
+    roles: "Roles de Usuario"
     confirmation: "Confirmar Contraseña"
     language: "Lenguaje"
     

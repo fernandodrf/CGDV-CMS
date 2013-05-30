@@ -1,4 +1,6 @@
 class Ability
+	ROLES = [['Oficina',1],['Donadores',4],['Contactos',5],['Servicio Social',6]] 
+
   include CanCan::Ability
 
   def initialize(user)

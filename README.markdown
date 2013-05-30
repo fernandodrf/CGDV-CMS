@@ -4,6 +4,8 @@
 
 ##### Version 1.4.7
 	- Rails 3.2.13
+	- Creación de usuarios por administradores
+	- Asignación de Roles.
 
 ##### Version 1.4.6
 	- Migrated to Ruby 1.9.3

@@ -4,6 +4,8 @@ class UsersController < ApplicationController
   before_filter :authenticate_user!, :only => [:new, :create, :index, :show, :edit, :update]
   before_filter :correct_user, :only => [:show, :edit, :update]
   before_filter :admin_user,   :only => [:new, :create, :index, :destroy]
+  # Para actualizar roles
+  after_filter :update_roles, :only => [:create, :update]
 
   def index
     @title = t('user.index')
@@ -47,10 +49,10 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     ###DEVISE
     if params[:user][:password].blank?
-  	params[:user].delete(:password)
-  	params[:user].delete(:password_confirmation)
-	end
-	###
+    	params[:user].delete(:password)
+    	params[:user].delete(:password_confirmation)
+	   end
+	  ###
     if @user.update_attributes(params[:user])
       flash[:success] = t('flash.success.edit', :model => User.to_s)
       redirect_to @user
@@ -76,6 +78,23 @@ class UsersController < ApplicationController
     
     def admin_user
       redirect_to(root_path) unless current_user.admin?
+    end
+
+    #Para actualziar los roles
+    def update_roles
+      #logger.debug "ENTRO AL METODO"
+      @user = User.find(params[:id])
+      #logger.debug "LEYO EL USUARIO"
+
+      #Actualiza roles de usuarios
+      params[:ss] == "1" ? @user.add_role!('ss') : @user.remove_role!('ss')
+      params[:oficina] == "1" ? @user.add_role!('oficina') : @user.remove_role!('oficina')
+      params[:timereport] == "1" ? @user.add_role!('timereport') : @user.remove_role!('timereport')
+      params[:managetimereport] == "1" ? @user.add_role!('managetimereport') : @user.remove_role!('managetimereport')
+      params[:managedonor] == "1" ? @user.add_role!('managedonor') : @user.remove_role!('managedonor')
+      params[:managecontact] == "1" ? @user.add_role!('managecontact') : @user.remove_role!('managecontact')
+
+      #logger.debug "TERMINO METODO DE ACTUALIZAR ROLES"
     end
 
 end
