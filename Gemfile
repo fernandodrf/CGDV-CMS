@@ -1,12 +1,13 @@
 source 'http://rubygems.org'
 
-gem 'rails', '3.2.13'
+gem 'rails', '3.2.17'
 #gem 'rake', '~> 0.9.2'
 gem "kaminari", "~> 0.13.0"
 gem 'ransack', '~> 0.6.0'
 gem 'jquery-rails', '~> 1.0.12'
 gem 'cancan', '~> 1.6.5'
 gem 'pg', '~> 0.11.0'
+
 # For Rails 3.1
 gem "nested_form", :git => "git://github.com/ryanb/nested_form.git"
 gem "devise", "~> 1.4.4"

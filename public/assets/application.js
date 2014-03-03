@@ -21440,7 +21440,13 @@ $(document).ready(function(){$("input[data-autocomplete]").railsAutocomplete()})
 
       // Make the context correct by replacing <parents> with the generated ID
       // of each of the parent objects
-      var context = ($(link).closest('.fields').closestChild('input, textarea, select').eq(0).attr('name') || '').replace(new RegExp('\[[a-z_]+\]$'), '');
+      var context = ($(link).closest('.fields').closestChild('input, textarea, select').eq(0).attr('name') || '').replace(/\[[a-z_]+\]$/, '');
+
+      // If the parent has no inputs we need to strip off the last pair
+      var current = content.match(new RegExp('\\[([a-z_]+)\\]\\[new_' + assoc + '\\]'));
+      if (current) {
+        context = context.replace(new RegExp('\\[' + current[1] + '\\]\\[(new_)?\\d+\\]$'), '');
+      }
 
       // context will be something like this for a brand new form:
       // project[tasks_attributes][1255929127459][assignments_attributes][1255929128105]
