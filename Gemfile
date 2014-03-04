@@ -6,7 +6,7 @@ gem "kaminari", "~> 0.13.0"
 gem 'ransack', '~> 0.6.0'
 gem 'jquery-rails', '~> 1.0.12'
 gem 'cancan', '~> 1.6.5'
-gem 'pg', '~> 0.11.0'
+gem "pg", "~> 0.17.1"
 
 # For Rails 3.1
 gem "nested_form", :git => "git://github.com/ryanb/nested_form.git"
