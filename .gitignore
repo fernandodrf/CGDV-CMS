@@ -3,6 +3,7 @@
 db/*.sqlite3*
 log/*.log
 *.log
+*logfile*
 /tmp/
 doc/
 *.swp
@@ -15,3 +16,9 @@ doc/
 *.gif
 imagenes_expedientes/
 attachments/
+
+# Ignore application configuration
+/config/application.yml
+
+# Ignore thin configuration
+/config/thin.yml

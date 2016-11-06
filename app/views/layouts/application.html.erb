@@ -4,7 +4,9 @@
     <title><%= title %></title>
     <%= render 'layouts/includes' %>
     <%= csrf_meta_tag %>
-    <%= render 'layouts/ga' if Rails.env.production? %>
+    <%-# render 'layouts/ga' if Rails.env.production? -%>
+    <%= render 'layouts/ga'%>
+
   </head>
   <body>
     <div class="container">

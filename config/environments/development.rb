@@ -14,8 +14,6 @@ Cgdv::Application.configure do
   #config.action_view.debug_rjs             = true
   config.action_controller.perform_caching = false
 
-  # Don't care if the mailer can't send
-  config.action_mailer.raise_delivery_errors = true
 
   # Print deprecation notices to the Rails logger
   config.active_support.deprecation = :log
@@ -23,11 +21,12 @@ Cgdv::Application.configure do
   # Only use best-standards-support built into browsers
   config.action_dispatch.best_standards_support = :builtin
   
-  #Devise
-  config.action_mailer.default_url_options = { :host => 'localhost:3000' }
-  
-  #Email Heroku
+  #Action Mailer
+  config.action_mailer.raise_delivery_errors = true
+  config.action_mailer.perform_deliveries = true
+  config.action_mailer.default_url_options = { :host => ENV["actionmailer_host"] }
   config.action_mailer.delivery_method = :smtp
+  config.action_mailer.smtp_settings = { address: 'localhost', port: 1025 }
 
  # Rails 3.1 Asset Pipeline
  # Do not compress assets

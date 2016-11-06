@@ -1,12 +1,15 @@
 source 'http://rubygems.org'
 
-gem 'rails', '3.2.17'
+gem 'rails', '3.2.22.2'
 #gem 'rake', '~> 0.9.2'
 gem "kaminari", "~> 0.13.0"
 gem 'ransack', '~> 0.6.0'
 gem 'jquery-rails', '~> 1.0.12'
 gem 'cancan', '~> 1.6.5'
 gem "pg", "~> 0.17.1"
+
+#ENV Vars
+gem "figaro"
 
 # For Rails 3.1
 gem "nested_form", :git => "git://github.com/ryanb/nested_form.git"
@@ -39,9 +42,14 @@ group :assets do
 end
 
 group :development do
+	gem 'thin'
+	gem 'mailcatcher'
   gem 'faker', '~> 0.3.1'
   gem 'annotate', '~> 2.4.0'
   gem "nifty-generators", "~> 0.4.6"
 end
 
-gem "mocha", :group => :test
+group :test do
+	gem 'test-unit', '~> 3.0'
+	gem "mocha"	
+end
