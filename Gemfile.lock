@@ -96,6 +96,7 @@ GEM
     mocha (1.2.1)
       metaclass (~> 0.0.1)
     multi_json (1.12.1)
+    newrelic_rpm (3.17.0.325)
     nifty-generators (0.4.6)
     nokogiri (1.6.8.1)
       mini_portile2 (~> 2.1.0)
@@ -200,6 +201,7 @@ DEPENDENCIES
   mini_magick (~> 3.3)
   mocha
   nested_form!
+  newrelic_rpm
   nifty-generators (~> 0.4.6)
   nokogiri
   pg (~> 0.17.1)

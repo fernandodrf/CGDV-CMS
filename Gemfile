@@ -11,6 +11,9 @@ gem "pg", "~> 0.17.1"
 #ENV Vars
 gem "figaro"
 
+#New Relic Monitoring
+gem 'newrelic_rpm'
+
 # For Rails 3.1
 gem "nested_form", :git => "git://github.com/ryanb/nested_form.git"
 gem "devise", "~> 1.4.4"
