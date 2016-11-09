@@ -1,18 +1,17 @@
 Cgdv::Application.configure do
   # Settings specified here will take precedence over those in config/application.rb
 
-  #Devise
+  #Email
   config.action_mailer.default_url_options = { :host => ENV["actionmailer_host"] }
   config.action_mailer.delivery_method = :smtp
-  config.action_mailer.smtp_settings = {
+ config.action_mailer.smtp_settings = {
   :address              => ENV["email_server"],
-  :port                 => 465,#25,
+  :port                 => '465',#25,
+  :tls                  => true,
   :user_name            => ENV["email_user"],
   :password             => ENV["email_password"],
   :authentication       => :login,#:cram_md5,
-  :enable_starttls_auto => true,
-  :openssl_verify_mode  => 'client_once'
-}
+  :enable_starttls_auto => true}
 
   # The production environment is meant for finished, "live" apps.
   # Code is not reloaded between requests

@@ -22,3 +22,5 @@ attachments/
 
 # Ignore thin configuration
 /config/thin.yml
+
+/config/Letsencrypt-IMPORTANT-NOTES.txt

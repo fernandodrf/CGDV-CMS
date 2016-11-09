@@ -24,9 +24,21 @@ Cgdv::Application.configure do
   #Action Mailer
   config.action_mailer.raise_delivery_errors = true
   config.action_mailer.perform_deliveries = true
+  #config.action_mailer.default_url_options = { :host => ENV["actionmailer_host"] }
+  #config.action_mailer.delivery_method = :smtp
+  #config.action_mailer.smtp_settings = { address: 'localhost', port: 1025 }
+
   config.action_mailer.default_url_options = { :host => ENV["actionmailer_host"] }
   config.action_mailer.delivery_method = :smtp
-  config.action_mailer.smtp_settings = { address: 'localhost', port: 1025 }
+  config.action_mailer.smtp_settings = {
+  :address              => ENV["email_server"],
+  :port                 => '465',#25,
+  :tls                  => true,
+  :user_name            => ENV["email_user"],
+  :password             => ENV["email_password"],
+  :authentication       => :login,#:cram_md5,
+  :enable_starttls_auto => true}
+  #:openssl_verify_mode  => 'client_once'}
 
  # Rails 3.1 Asset Pipeline
  # Do not compress assets

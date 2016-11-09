@@ -47,6 +47,7 @@ end
 group :development do
 	gem 'thin'
 	gem 'mailcatcher'
+  gem 'scout_apm'
   gem 'faker', '~> 0.3.1'
   gem 'annotate', '~> 2.4.0'
   gem "nifty-generators", "~> 0.4.6"
