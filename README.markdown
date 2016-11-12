@@ -3,7 +3,7 @@
 [Con Ganas de Vivir](http://www.cgdv.org) is a non-profit organization that supports Oncological patients, by [Fernando D. Ramirez F.]
 
 ##### Version 1.4.9
-	Rails 3.2.22.2
+	Rails 3.2.22.5
 
 ##### Version 1.4.8
 	- Rails 3.2.17
