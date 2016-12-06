@@ -14,6 +14,9 @@ gem "figaro"
 #New Relic Monitoring
 gem 'newrelic_rpm'
 
+# For ruby 2.3
+gem 'test-unit', '~> 3.0'
+
 # For Rails 3.1
 gem "nested_form"#, :git => "git://github.com/ryanb/nested_form.git"
 gem "devise", "~> 1.4.4"
@@ -45,8 +48,8 @@ group :assets do
 end
 
 group :development do
-	gem 'thin'
-	gem 'mailcatcher'
+  gem 'thin'
+  gem 'mailcatcher'
   gem 'scout_apm'
   gem 'faker', '~> 0.3.1'
   gem 'annotate', '~> 2.4.0'
@@ -54,6 +57,5 @@ group :development do
 end
 
 group :test do
-	gem 'test-unit', '~> 3.0'
 	gem "mocha"	
 end
