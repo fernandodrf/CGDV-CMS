@@ -6,7 +6,7 @@ gem "kaminari", "~> 0.13.0"
 gem 'ransack', '~> 0.6.0'
 gem 'jquery-rails', '~> 1.0.12'
 gem 'cancan', '~> 1.6.5'
-gem "pg", "~> 0.17.1"
+gem "pg", "~> 0.19"
 
 #ENV Vars
 gem "figaro"
@@ -15,7 +15,7 @@ gem "figaro"
 gem 'newrelic_rpm'
 
 # For Rails 3.1
-gem "nested_form", :git => "git://github.com/ryanb/nested_form.git"
+gem "nested_form"#, :git => "git://github.com/ryanb/nested_form.git"
 gem "devise", "~> 1.4.4"
 gem "easy_roles", "~> 1.2.0"
 gem "rails3-jquery-autocomplete", "~> 0.9.1"
