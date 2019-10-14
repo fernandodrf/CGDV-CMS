@@ -31,7 +31,7 @@ gem 'event-calendar', :require => 'event_calendar'
 gem 'turnout'
 gem 'nokogiri'
 
-gem 'mini_magick', '~> 3.3'
+gem 'mini_magick', '~> 4.9'
 
 #MiniMagick para Windows
 # gem "hcatlin-mini_magick", "~> 1.3.1"
