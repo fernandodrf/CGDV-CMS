@@ -56,8 +56,10 @@ end
 
 group :test do
   # EverydayRailsRspec
-  gem "faker", "~> 1.1.2"
-  gem "capybara", "~> 2.0.2"
+  gem "faker", "~> 1.9.3"
+  # Great to generate fast specs
+  gem 'shoulda-matchers', '~> 2.8.0'
+  gem "capybara", "~> 2.2.0"
   gem "database_cleaner", "~> 0.9.1"
   gem "launchy", "~> 2.2.0"
 
