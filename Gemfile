@@ -51,7 +51,7 @@ end
 # EverydayRailsRspec
 group :development, :test do
   gem "rspec-rails",  "~> 3.9"
-  gem "factory_girl_rails",  "~> 4.9.0"
+  gem "factory_bot_rails",  "~> 4.11.1"
 end
 
 group :test do
