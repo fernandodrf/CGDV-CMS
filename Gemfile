@@ -8,11 +8,12 @@ gem 'jquery-rails', '~> 1.0.12'
 gem 'cancan', '~> 1.6.5'
 gem "pg", "~> 0.19"
 
+#Secret
 #ENV Vars
 gem "figaro"
 
 #New Relic Monitoring
-gem 'newrelic_rpm'
+#gem 'newrelic_rpm'
 
 # For ruby 2.3
 gem 'test-unit', '~> 3.0'
@@ -47,15 +48,28 @@ group :assets do
   gem 'uglifier', '>= 1.0.3'
 end
 
+# EverydayRailsRspec
+group :development, :test do
+  gem "rspec-rails",  "~> 3.9"
+  gem "factory_girl_rails",  "~> 4.9.0"
+end
+
+group :test do
+  # EverydayRailsRspec
+  gem "faker", "~> 1.1.2"
+  gem "capybara", "~> 2.0.2"
+  gem "database_cleaner", "~> 0.9.1"
+  gem "launchy", "~> 2.2.0"
+
+  # Old ones
+  gem "mocha"
+end
+
 group :development do
   gem 'thin'
   gem 'mailcatcher'
   gem 'scout_apm'
-  gem 'faker', '~> 0.3.1'
   gem 'annotate', '~> 2.4.0'
   gem "nifty-generators", "~> 0.4.6"
 end
 
-group :test do
-	gem "mocha"	
-end
