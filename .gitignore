@@ -24,3 +24,6 @@ attachments/
 /config/thin.yml
 
 /config/Letsencrypt-IMPORTANT-NOTES.txt
+
+# SimpleCov
+coverage

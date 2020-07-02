@@ -63,6 +63,9 @@ group :test do
   gem "database_cleaner", "~> 0.9.1"
   gem "launchy", "~> 2.2.0"
 
+  # Test coverage
+  gem 'simplecov', '~> 0.17.0', require: false
+
   # Old ones
   gem "mocha"
 end
