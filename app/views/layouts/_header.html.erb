@@ -10,7 +10,13 @@
       <li><%= link_to t('header.settings'), edit_user_path(current_user) %></li>
       <% end %>
       <% if signed_in? and can? :trep, Volunteer %>
- 	  <li><%= link_to "Mis Horas", trep_volunteer_path(current_user.volunteer) %></li>
+ 	  <li>
+      <%# FIXME: Correct this for tests %>
+      <% unless current_user.volunteer.nil? %>
+      <%# Workaround %>
+        <%= link_to "Mis Horas", trep_volunteer_path(current_user.volunteer) %>
+      <% end %>
+    </li>
 	  <% end %>
       <li><%= link_to t('session.logout'), destroy_user_session_path, :method => :delete %></li>
       <% else %>
