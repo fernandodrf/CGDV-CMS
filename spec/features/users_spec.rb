@@ -75,6 +75,22 @@ RSpec.feature "Users", :users => true, type: :feature do
       expect(page).to have_content I18n.t('home.title')
     end
     
+    scenario "admin is able to delete users", :deleteuser => true do
+      @user1 = FactoryBot.create(:user, :normal)
+      @admin = FactoryBot.create(:user, :admin)
+      # puts "user count: #{@user1.inspect}"
+      # puts "user count: #{@admin.inspect}"
+      mysign_in(@admin.email,@admin.password)
+      visit users_path
+      # DEBUG screenshot
+      # screenshot_and_save_page
+      expect(page).to have_content I18n.t('helpers.delete.msg', count: 2)
+      click_link I18n.t('helpers.delete.msg'), href: "/users/#{@user1.id}" 
+      # screenshot_and_save_page
+      expect(page).to have_content I18n.t('flash.success.destroy', :model => User.to_s)
+      expect(page).to have_content I18n.t('helpers.delete.msg', count: 1)
+    end
+
     # FIXME: Unable to run javascript tests
     # Upgrade to capybara 3 and webdrivers
     xscenario "admin users sees delete message before deleting user", js: true do

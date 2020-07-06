@@ -60,6 +60,7 @@ group :test do
   # Great to generate fast specs
   gem 'shoulda-matchers', '~> 2.8.0'
   gem "capybara", "~> 2.15.2"
+  gem 'capybara-screenshot', '~> 1.0.24'
   gem "database_cleaner", "~> 0.9.1"
   gem "launchy", "~> 2.2.0"
 
