@@ -22,6 +22,8 @@ gem 'test-unit', '~> 3.0'
 gem "nested_form"#, :git => "git://github.com/ryanb/nested_form.git"
 gem "devise", "~> 1.4.4"
 gem "easy_roles", "~> 1.2.0"
+# Requires Rails >= 6.0
+# gem "slow_your_roles"
 gem "rails3-jquery-autocomplete", "~> 0.9.1"
 gem "carrierwave", "~> 0.5.7"
 

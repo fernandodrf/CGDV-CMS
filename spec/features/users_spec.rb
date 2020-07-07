@@ -59,7 +59,6 @@ RSpec.feature "Users", :users => true, type: :feature do
     scenario "admin user is able to create new user succesfully" do
       @pass = Faker::Internet.password
       # sign_in user_admin
-      # puts "User: #{user_admin.inspect}"
       mysign_in(user_admin.email,user_admin.password)
       visit new_user_path
       # expect(page).to have_content I18n.t('user.new')
@@ -157,15 +156,91 @@ RSpec.feature "Users", :users => true, type: :feature do
   end
 
   describe "normal user", :normaluser => true do
+    # FIXME: Work around because Devise helper does not work
+    before do
+      go_to_page(I18n.t('session.login'))
+      mysign_in(user.email,user.password)
+      visit root_path
+    end
     it "should not see the Users option in the navbar but only his/her name and logout link" do
       # FIXME: Not working on Devise 1.4
       # sign_in user
       # Work-around to make test work
-      mysign_in(user.email,user.password)
-      visit root_path
       expect(page).not_to have_content I18n.t('header.users')
       expect(page).to have_content "#{I18n.t('user.name')}: #{user.name}"
     end
+
+    # FIXME: DRY Code!
+    it "if user has no roles it should not see nor be able to use any function" do
+      expect(page).to have_content "#{I18n.t('user.name')}: #{user.name}"
+      expect(page).not_to have_content I18n.t('header.users')
+      expect(page).not_to have_content I18n.t('header.patient')
+      expect(page).not_to have_content I18n.t('header.settings')
+      expect(page).not_to have_content I18n.t('header.note')
+      expect(page).not_to have_content I18n.t('header.contact')
+      expect(page).not_to have_content I18n.t('header.provider')
+      expect(page).not_to have_content I18n.t('header.volunteer')
+      expect(page).not_to have_content I18n.t('header.timereport')
+      expect(page).not_to have_content I18n.t('header.donor')
+      expect(page).not_to have_content I18n.t('header.actrep')
+      expect(page).not_to have_content I18n.t('header.donation')
+      visit users_path
+      expect(page).to have_content I18n.t('session.flash.denied')
+      visit patients_path
+      expect(page).to have_content I18n.t('session.flash.denied')
+      visit notes_path
+      expect(page).to have_content I18n.t('session.flash.denied')
+      visit providers_path
+      expect(page).to have_content I18n.t('session.flash.denied')
+      visit contacts_path
+      expect(page).to have_content I18n.t('session.flash.denied')
+      visit volunteers_path
+      expect(page).to have_content I18n.t('session.flash.denied')
+      # times has no restricted
+      # visit times_path
+      # screenshot_and_save_page
+      # expect(page).to have_content I18n.t('session.flash.denied')
+      visit activity_reports_path
+      expect(page).to have_content I18n.t('session.flash.denied')
+      visit donors_path
+      expect(page).to have_content I18n.t('session.flash.denied')
+      visit donations_path
+      expect(page).to have_content I18n.t('session.flash.denied')
+    end
+
+    describe "role oficina" do
+      # FIXME: Find a better way to add roles in fixtures
+      before do
+        user.add_role!('oficina')
+        # puts "User: #{user.inspect}"
+      end
+      it "sees the appropiate links and can access them" do
+        visit root_path
+        expect(page).to have_content "#{I18n.t('user.name')}: #{user.name}"
+        expect(page).to have_content I18n.t('header.patient')
+        expect(page).to have_content I18n.t('header.note')
+        expect(page).to have_content I18n.t('header.provider')
+        expect(page).to have_content I18n.t('header.contact')
+        expect(page).to have_content I18n.t('header.actrep')
+        expect(page).to have_content I18n.t('header.donation')
+        visit patients_path
+        expect(page).to have_content I18n.t('patient.index')
+        visit notes_path
+        expect(page).to have_content I18n.t('note.index')
+        visit providers_path
+        expect(page).to have_content I18n.t('provider.index')
+        visit contacts_path
+        expect(page).to have_content I18n.t('contact.index')
+        # FIXME: Crear factory de activity report para que Ransack no truene
+        # visit activity_reports_path
+        # FIXME: Generar i18n
+        # expect(page).to have_content('Reportes de Actividades')
+        visit donations_path
+        expect(page).to have_content I18n.t('donation2.index')
+      end
+    end
+
+
     #FIXME: No existe liga para que el usuario vea su perfil y cambie el password
     # si la cuenta no esta ligada a un voluntario
     xit "should be able to change its own password and sign_in again" do

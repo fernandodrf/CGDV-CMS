@@ -64,7 +64,8 @@ sp:
     rfc: "R.F.C."
     pautoriza: "Persona que Autoriza"
     pcontacto: "Persona de Contacto"
-    
+
+  # FIXME: Cambiar de nombre    
   donation2:
     index: "Todas las Donaciones"
     frecepcion: "Fecha de Recepcion"
