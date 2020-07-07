@@ -91,10 +91,9 @@ GEM
       railties (~> 3.0)
       thor (~> 0.14)
     json (1.8.6)
-    kaminari (0.13.0)
+    kaminari (0.17.0)
       actionpack (>= 3.0.0)
       activesupport (>= 3.0.0)
-      railties (>= 3.0.0)
     launchy (2.2.0)
       addressable (~> 2.3)
     mail (2.5.5)
@@ -258,7 +257,7 @@ DEPENDENCIES
   faker (~> 1.9.3)
   figaro
   jquery-rails (~> 1.0.12)
-  kaminari (~> 0.13.0)
+  kaminari (~> 0.17.0)
   launchy (~> 2.2.0)
   mailcatcher
   mini_magick (~> 3.3)

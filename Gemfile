@@ -2,7 +2,7 @@ source 'http://rubygems.org'
 
 gem 'rails', '3.2.22.5'
 #gem 'rake', '~> 0.9.2'
-gem "kaminari", "~> 0.13.0"
+gem "kaminari", "~> 0.17.0"
 gem 'ransack', '~> 0.6.0'
 gem 'jquery-rails', '~> 1.0.12'
 gem 'cancan', '~> 1.6.5'
