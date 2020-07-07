@@ -208,6 +208,29 @@ RSpec.feature "Users", :users => true, type: :feature do
       expect(page).to have_content I18n.t('session.flash.denied')
     end
 
+    describe "role servicio social" do
+      # FIXME: Find a better way to add roles in fixtures
+      before do
+        user.add_role!('ss')
+        # puts "User: #{user.inspect}"
+      end
+      it "sees the appropiate links and can access them" do
+        visit root_path
+        expect(page).to have_content "#{I18n.t('user.name')}: #{user.name}"
+        expect(page).to have_content I18n.t('header.actrep')
+        # FIXME: Crear factory de activity report para que Ransack no truene
+        # visit activity_reports_path
+        # FIXME: Corregir errores con Ransack, Kaminar y generar i18n
+        # expect(page).to have_content('Reportes de Actividades')
+      end
+      xit "can access the correspoding links" do
+        # FIXME: Crear factory de activity report para que Ransack no truene
+        # visit activity_reports_path
+        # FIXME: Corregir errores con Ransack, Kaminar y generar i18n
+        # expect(page).to have_content('Reportes de Actividades')
+      end
+    end
+
     describe "role oficina" do
       # FIXME: Find a better way to add roles in fixtures
       before do
