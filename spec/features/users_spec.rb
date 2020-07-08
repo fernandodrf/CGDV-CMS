@@ -263,6 +263,26 @@ RSpec.feature "Users", :users => true, type: :feature do
       end
     end
 
+    describe "role timereport" do
+      # FIXME: Find a better way to add roles in fixtures
+      before do
+        user.add_role!('timereport')
+        # puts "User: #{user.inspect}"
+      end
+      it "sees the appropiate links and can access them" do
+        visit root_path
+        expect(page).to have_content "#{I18n.t('user.name')}: #{user.name}"
+        expect(page).to have_content I18n.t('header.timereport')
+        visit times_path
+        expect(page).to have_content I18n.t('timereport.title')
+      end
+      pending "visit sub-links and interact with them" do
+        fail
+        # visit vol_times_path
+        # visit timereports_path
+      end
+    end
+
 
     #FIXME: No existe liga para que el usuario vea su perfil y cambie el password
     # si la cuenta no esta ligada a un voluntario
