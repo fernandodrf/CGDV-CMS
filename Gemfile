@@ -1,6 +1,7 @@
 source 'http://rubygems.org'
 
 gem 'rails', '3.2.22.5'
+gem 'bundler', '~> 1.17'
 #gem 'rake', '~> 0.9.2'
 gem "kaminari", "~> 0.17.0"
 gem 'ransack', '~> 0.6.0'

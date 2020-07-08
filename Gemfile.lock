@@ -244,6 +244,7 @@ PLATFORMS
 
 DEPENDENCIES
   annotate (~> 2.4.0)
+  bundler (~> 1.17)
   cancan (~> 1.6.5)
   capybara (~> 2.15.2)
   capybara-screenshot (~> 1.0.24)
@@ -280,4 +281,4 @@ DEPENDENCIES
   uglifier (>= 1.0.3)
 
 BUNDLED WITH
-   1.14.1
+   1.17.3
