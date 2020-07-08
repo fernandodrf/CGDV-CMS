@@ -235,7 +235,6 @@ RSpec.feature "Users", :users => true, type: :feature do
       # FIXME: Find a better way to add roles in fixtures
       before do
         user.add_role!('oficina')
-        # puts "User: #{user.inspect}"
       end
       it "sees the appropiate links and can access them" do
         visit root_path
@@ -267,7 +266,6 @@ RSpec.feature "Users", :users => true, type: :feature do
       # FIXME: Find a better way to add roles in fixtures
       before do
         user.add_role!('timereport')
-        # puts "User: #{user.inspect}"
       end
       it "sees the appropiate links and can access them" do
         visit root_path
@@ -276,13 +274,64 @@ RSpec.feature "Users", :users => true, type: :feature do
         visit times_path
         expect(page).to have_content I18n.t('timereport.title')
       end
-      pending "visit sub-links and interact with them" do
-        fail
+      xit "visit sub-links and interact with them" do
         # visit vol_times_path
         # visit timereports_path
       end
     end
 
+    describe "role managetimereport" do
+      # FIXME: Find a better way to add roles in fixtures
+      before do
+        user.add_role!('managetimereport')
+      end
+      it "sees the appropiate links and can access them" do
+        visit root_path
+        expect(page).to have_content "#{I18n.t('user.name')}: #{user.name}"
+        expect(page).to have_content I18n.t('header.timereport')
+        visit times_path
+        expect(page).to have_content I18n.t('timereport.title')
+      end
+      xit "manage time reports" do
+        # visit vol_times_path
+        # visit timereports_path
+      end
+    end
+
+    describe "role managedonor" do
+      # FIXME: Find a better way to add roles in fixtures
+      before do
+        user.add_role!('managedonor')
+      end
+      it "sees the appropiate links and can access them" do
+        visit root_path
+        expect(page).to have_content I18n.t('header.donor')
+        visit donors_path
+        expect(page).to have_content I18n.t('donation.index')
+      
+      end
+      xit "manage time reports" do
+        # visit vol_times_path
+        # visit timereports_path
+      end
+    end   
+
+    describe "role managecontact" do
+      # FIXME: Find a better way to add roles in fixtures
+      before do
+        user.add_role!('managecontact')
+      end
+      it "sees the appropiate links and can access them" do
+        visit root_path
+        expect(page).to have_content I18n.t('header.contact')
+        visit contacts_path
+        expect(page).to have_content I18n.t('contact.index')
+      end
+      xit "manage time reports" do
+        # visit vol_times_path
+        # visit timereports_path
+      end
+    end 
 
     #FIXME: No existe liga para que el usuario vea su perfil y cambie el password
     # si la cuenta no esta ligada a un voluntario
