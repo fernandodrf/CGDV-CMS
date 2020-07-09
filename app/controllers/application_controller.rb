@@ -2,19 +2,13 @@ class ApplicationController < ActionController::Base
   # Prevent CSRF attacks by raising an exception.
   # For APIs, you may want to use :null_session instead.
   protect_from_forgery with: :exception
-  
-  before_filter :set_user_language
-  
+    
   rescue_from CanCan::AccessDenied do |exception|
     flash[:error] = t('session.flash.denied')
     redirect_to root_path
   end
 
   private
-  
-    def set_user_language
-      I18n.locale = current_user.language if signed_in?
-    end
 
     def find_parent
       @parent = case

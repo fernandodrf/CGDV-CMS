@@ -27,9 +27,9 @@ class UsersController < ApplicationController
     @title = t('helpers.submit.create', :model => User.to_s)
   end
 
-  #This method is being modified so only admins can create new users.
+  #Only admins can create new users
   def create
-    @user = User.new(params[:user])
+    @user = User.create(resource_params)
     if @user.save
       #sign_in @user
       flash[:success] = t('flash.success.create', :model => User.to_s)
@@ -63,7 +63,9 @@ class UsersController < ApplicationController
     	params[:user].delete(:password_confirmation)
 	   end
 	  ###
-    if @user.update_attributes(params[:user])
+
+    # check allowed parameters to be changed
+    if @user.update(resource_params)
       flash[:success] = t('flash.success.edit', :model => User.to_s)
       redirect_to @user
     else
@@ -79,6 +81,11 @@ class UsersController < ApplicationController
   end
   
   private
+
+    # Paramaters that can be changed in the web forms
+    def resource_params
+      params.require(:user).permit(:name, :password, :password_confirmation, :email)
+    end
     
     #This method was modified to be overriden by admins.
     def correct_user
