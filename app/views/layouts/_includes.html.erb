@@ -4,7 +4,7 @@
 <%= stylesheet_link_tag 'blueprint/screen', 'jquery-ui', :media => 'screen' %>
 <%= stylesheet_link_tag 'blueprint/print',  :media => 'print' %>
 <!--[if lt IE 8]><%= stylesheet_link_tag 'blueprint/ie' %><![endif]-->
-<%= stylesheet_link_tag "application" %>
+<%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
+<%= javascript_include_tag "application", "data-turbolinks-track" => true %>
 <%= stylesheet_link_tag "event_calendar" %>
 <%= javascript_include_tag "event_calendar" %>
-<%= javascript_include_tag 'application' %>

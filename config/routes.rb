@@ -1,6 +1,8 @@
 Cgdv::Application.routes.draw do
+  # The priority is based upon order of creation: first created -> highest priority.
+  # See how all your routes lay out with "rake routes".
 	
-  match '/calendar(/:year(/:month))' => 'calendar#index', :as => :calendar, :constraints => {:year => /\d{4}/, :month => /\d{1,2}/}
+  match '/calendar(/:year(/:month))' => 'calendar#index', :as => :calendar, :constraints => {:year => /\d{4}/, :month => /\d{1,2}/}, via: :get
 
   resources :donations
 
@@ -73,7 +75,7 @@ Cgdv::Application.routes.draw do
     resources :addresses, :telephones, :emails, :comments, :addinfos, :only => [:new, :edit, :update, :create, :destroy]
   end
   
-  root :to => "pages#home"
-  match '/times', :to => "pages#times"
+  root :to => "pages#home", via: :get
+  match '/times', :to => "pages#times", via: :get
 
 end

@@ -1,11 +1,10 @@
 source 'http://rubygems.org'
 
-gem 'rails', '3.2.22.5'
-gem 'bundler', '~> 1.17'
+gem 'rails', '4.0.13'
+# gem 'bundler', '~> 1.17'
 #gem 'rake', '~> 0.9.2'
 gem "kaminari", "~> 0.17.0"
-gem 'ransack', '~> 0.6.0'
-gem 'jquery-rails', '~> 1.0.12'
+gem 'ransack', '~> 1.0'
 gem 'cancan', '~> 1.6.5'
 gem "pg", "~> 0.19"
 
@@ -27,8 +26,11 @@ gem "devise", "~> 1.4.4"
 gem "easy_roles", "~> 1.2.0"
 # Requires Rails >= 6.0
 # gem "slow_your_roles"
-gem "rails3-jquery-autocomplete", "~> 0.9.1"
-gem "carrierwave", "~> 0.5.7"
+
+# gem "rails3-jquery-autocomplete", "~> 0.9.1"
+# gem "rails-jquery-autocomplete"
+
+gem "carrierwave", "~> 0.6.0"
 
 #Evento Calendar
 gem 'event-calendar', :require => 'event_calendar'
@@ -39,19 +41,37 @@ gem 'nokogiri'
 
 gem 'mini_magick', '~> 3.3'
 
-#MiniMagick para Windows
-# gem "hcatlin-mini_magick", "~> 1.3.1"
+# Use SCSS for stylesheets
+gem 'sass-rails', '~> 4.0.2'
+# Use Uglifier as compressor for JavaScript assets
+gem 'uglifier', '>= 1.3.0'
+# Use CoffeeScript for .js.coffee assets and views
+gem 'coffee-rails', '~> 4.0.0'
+# Use jquery as the JavaScript library
+gem 'jquery-rails', '~> 2.0'
 
-# Para evitar errores de Rails 3.1
-# gem 'rack', '~> 1.3.5'
+# Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
+gem 'turbolinks'
+# Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
+gem 'jbuilder', '~> 1.2'
 
-# Gems used only for assets and not required
-# in production environments by default.
-group :assets do
-  gem 'sass-rails', "  ~> 3.2.3"
-  gem 'coffee-rails', "~> 3.2.1"
-  gem 'uglifier', '>= 1.0.3'
+group :doc do
+  # bundle exec rake doc:rails generates the API under doc/api.
+  gem 'sdoc', require: false
 end
+
+# Use ActiveModel has_secure_password
+# gem 'bcrypt', '~> 3.1.7'
+# Use unicorn as the app server
+# gem 'unicorn'
+# Use Capistrano for deployment
+# gem 'capistrano', group: :development
+     
+# To use debugger
+# gem 'debugger'
+# Use debugger
+# gem 'debugger', group: [:development, :test]
+
 
 # EverydayRailsRspec
 group :development, :test do
@@ -71,15 +91,10 @@ group :test do
 
   # Test coverage
   gem 'simplecov', '~> 0.17.0', require: false
-
-  # Old ones
-  gem "mocha"
 end
 
 group :development do
-  gem 'thin'
-  gem 'mailcatcher'
-  gem 'scout_apm'
+  # gem 'mailcatcher'
   gem 'annotate', '~> 2.4.0'
   gem "nifty-generators", "~> 0.4.6"
 end
