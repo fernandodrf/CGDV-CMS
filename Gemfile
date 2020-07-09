@@ -30,7 +30,7 @@ gem 'test-unit', '~> 3.0'
 
 # For Rails 3.1
 gem "nested_form"#, :git => "git://github.com/ryanb/nested_form.git"
-gem "devise", "~> 1.5"
+gem "devise", "~> 3.0.0"
 gem "easy_roles", "~> 1.2.0"
 # Requires Rails >= 6.0
 # gem "slow_your_roles"
