@@ -9,6 +9,8 @@ gem 'jquery-rails', '~> 1.0.12'
 gem 'cancan', '~> 1.6.5'
 gem "pg", "~> 0.19"
 
+gem 'rails4_upgrade', github: 'alindeman/rails4_upgrade'
+
 #Secret
 #ENV Vars
 gem "figaro"
