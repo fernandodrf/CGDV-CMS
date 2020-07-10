@@ -19,9 +19,9 @@ doc/
 .project
 .DS_Store
 *.csv
-*.jpg
-*.png
-*.gif
+
+uploads/tmp
+
 imagenes_expedientes/
 attachments/
 

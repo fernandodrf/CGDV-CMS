@@ -42,7 +42,7 @@ gem "nested_form"#, :git => "git://github.com/ryanb/nested_form.git"
 # gem "slow_your_roles"
 
 # gem "rails3-jquery-autocomplete", "~> 0.9.1"
-# gem "rails-jquery-autocomplete"
+gem "rails-jquery-autocomplete"
 
 gem "carrierwave", "~> 0.6.0"
 
