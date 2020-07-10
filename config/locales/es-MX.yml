@@ -1,0 +1,285 @@
+# Files in the config/locales directory are used for internationalization
+# and are automatically loaded by Rails. If you want to use locales other
+# than English, add the necessary files in this directory.
+#
+# To use the locales, use `I18n.t`:
+#
+#     I18n.t 'hello'
+#
+# In views, this is aliased to just `t`:
+#
+#     <%= t('hello') %>
+#
+# To use a different locale, set it with `I18n.locale`:
+#
+#     I18n.locale = :es
+#
+# This would use the information in config/locales/es.yml.
+#
+# The following keys must be escaped otherwise they will not be retrieved by
+# the default I18n backend:
+#
+# true, false, on, off, yes, no
+#
+# Instead, surround them with single quotes.
+#
+# en:
+#   'true': 'foo'
+#
+# To learn more, please read the Rails Internationalization guide
+# available at https://guides.rubyonrails.org/i18n.html.
+
+es-MX:
+  helpers:
+    back: "Regresar"
+    cancel: "Cancelar"
+    create: "Crear"
+    edit: "Editar"
+    print: "Imprimir"
+    new: "Nuevo"
+    search: "Buscar"
+    delete:
+      msg: "Eliminar"
+      conf: "¿Estas segur@?"
+
+  time:
+    formats:
+      small: "%d/%b/%y"
+
+  carrierwave:
+    errors:
+      integrity: 'No es una imagen'
+      processing: 'No se puede cambiar el tamaño de la imagen'
+      
+  all:
+    created_at: "Fecha de Creación"
+
+  attachment:
+    attachment: "Archivo Adjunto"
+    name: "Nombre del Archivo"
+
+  home: 
+    title: "Principal"
+    paragraph: "Sistema de manejo de informacion de CGDV."
+
+  timereport:
+    title: "Tiempo Voluntarios y Servicio Social"
+    volunteer: "Reportes de Tiempo"
+    
+  header:
+    home: "Principal"
+    patient: "Pacientes"
+    users: "Usuarios"
+    profile: "Perfil"
+    settings: "Opciones"
+    note: "Notas"
+    contact: "Contactos"
+    provider: "Proveedores"
+    volunteer: "Voluntarios"
+    timereport: "Tiempos V/S.S."
+    donor: "Donadores"
+    actrep: "Reportes S.S."
+    donation: "Donaciones"
+        
+  session:
+    login: "Iniciar Sesión"
+    logout: "Cerrar Sesión"
+    
+    flash:
+      error: "Combinación de email/password incorrecta."
+      notice: "Por favor inicie sesión para ver esta pagina."
+      denied: "Acceso Denegado."
+      
+  flash:
+    success:
+      create: "%{model} creado exitosamente."
+      edit: "%{model} actualizado."
+      destroy: "%{model} eliminado."
+
+  donation:
+    index: "Todos los Donadores"
+    rfc: "R.F.C."
+    pautoriza: "Persona que Autoriza"
+    pcontacto: "Persona de Contacto"
+
+  # FIXME: Cambiar de nombre    
+  donation2:
+    index: "Todas las Donaciones"
+    frecepcion: "Fecha de Recepcion"
+    title: "Donación"
+                  
+  patient:
+    status: "Estatus del Expediente"
+    info: "Informacion Principal"
+    title: "Paciente"
+    name: "Nombre"
+    cgdvcode: "Reg. CGDV"
+    index: "Todos los Pacientes"
+    sex: "Sexo"
+    blod: "Tipo de Sangre"
+    birthdate: "Fecha de Nacimiento"
+    place: "Lugar"
+    number: "Numero"
+    tels: "Telefonos"
+    apoyos: "Apoyos que Solicita"
+    apoyo: "Apoyo"
+    tipo: "Tipo"
+    comment: "Comentario"
+    comments: "Comentarios"    
+    not: "No se puede cambiar el Estatus: %{s}"
+    age: "Edad"
+    addinfo: "Información Adicional"
+    info2: "Información"
+    fdefuncion: "Fecha de Defunción"
+    faviso: "Fecha de Aviso"
+    montocon: "Monto Condonado"
+
+  provider:
+    index: "Todos los Proveedores"
+    proveedor: "Proveedor"
+
+  volunteer:
+    index: "Todos los Voluntarios"
+    profesion: "Profesión"
+    sobreviviente: "¿Es Sobreviviente?"
+    licencia: "¿Cuenta con licencia de manejo?"
+    exposferias: "¿Esta dispuest@ a participar en expos o ferias?"
+    horas: "Horas a cubrir"
+    escuela: "Escuela de Procedencia"
+    carrera: "Carrera"
+    matricula: "Matricula"
+    semestre: "Semestre que cursa"
+    inicio: "Inicio Periodo de Servicio"
+    fin: "Fin Periodo de Servicio"
+    ss: "Información de Servicio Social"
+    horario: "Horario"
+    day: "Dia"
+    begin: "Entrada"
+    end: "Salida"
+    tiempo: "Tiempo"
+    ta: "Tiempo Cumplido"
+    tr: "Tiempo a Cumplir"
+    tf: "Tiempo Total"
+    evento: "Evento"
+    status: "Tipo de Expediente"
+    
+
+  subprogram:
+    title: "Subprogramas en los que Participa"
+    donador: "Donador de sangre y o plaquetas"
+    eventos: "Eventos Especiales"
+    hospitales: "Apoyo Intrahospitalario"
+    suenosdeseos: "Sueños y Deseos"
+    fondos: "Captación de Fondos"
+    administrativas: "Apoyo en Labores Administrativas"
+    autoayuda: "Grupos de Autoayuda"
+    sobrevivientes: "Sobrevivientes"
+    fugarte: "Fugarte"
+    disenografico: "Diseño Gráfico"
+    abogacia: "Abogacía y Cabildeo"
+    invdocumental: "Investigación Documental"
+    invmedica: "Investigación Médica"
+    apoyofueraoficina: "Apoyo a Pacientes fuera de Hospitales"
+    disenoweb: "Diseño Web"
+    apoyocap: "Apoyo a Pacientes en CAP"
+    
+  address:
+    title: "Domicilios"
+    place: "Lugar"
+    codigopostal: "Codigo Postal"
+    estado: "Estado / Dom. 2"
+    municipio: "Municipio / Dom. 3"
+    colonia: "Colonia / Dom. 4"
+    domicilio: "Domicilio"
+    country: "País"
+
+  derechohabiente:
+    title: "Derechohabientes"
+    seguro: "Institucion"
+    afiliacion: "Afiliacion"
+
+  refclinica:
+    title: "Referencias Clinicas"
+    hospital: "Hospital"
+    medico: "Medico Tratante"
+    referencia: "Fecha de Referencia"
+    aceptado: "Aceptado por"
+    ayudas: "Recibe ayuda de"  
+
+  house:
+    title: "Informacion de Vivienda"
+    habitaciones: "Numero de Habitaciones"
+    tipo: "Lugar"
+    habitantes: "Numero de Habitantes"
+    familiares: "Miembros de la Familia"
+    menores: "Menores de Edad"
+    economicaactivas: "Personas Economicamente Activas"
+
+  socioeco:
+    title: "Informacion Socioeconomica"
+    ingresos: "Ingresos totales"
+    gastos: "Gastos totales"
+    remanente: "Remanente economico"
+    televisiones: "Numero de Televisiones"
+    vehiculos: "Numero de vehiculos"
+    nivel: "Nivel Socioeconomico"
+    serviciosurbanos: "¿Servicios Urbanos?"
+    televisionpaga: "¿Television de Paga?"
+    sgmm: "¿S. G. M. M.?"
+
+  familymember:
+    title: "Familiares"
+    parentesco: "Parentesco"
+    name: "Nombre"
+    edad: "Edad"
+    derechohabiente: "Derechohabiente"
+    comentarios: "Comentarios"
+
+  user:
+    index: "Todos los Usuarios"
+    new: "Crear Nuevo Usuario"
+    edit: "Editar Usuario"
+    name: "Usuario"
+    email: "e-mail"
+    password: "Contraseña"
+    roles: "Roles de Usuario"
+    confirmation: "Confirmar Contraseña"
+    language: "Lenguaje"
+    
+  search:
+    title: "Busqueda"
+    name: "Nombre:"
+    cgdvcode: "Clave CGDV:"
+    sort: "Ordernar por:"
+
+  note:
+    index: "Todas las Notas"
+    title: "Nota"
+    folio: "Folio"
+    fecha: "Fecha"
+    adeudo: "Adeudo"
+    acuenta: "Acuenta"
+    restan: "Restan"
+    subtotal: "Subtotal"
+    total: "Total"
+    codigo: "Codigo"
+    descripcion: "Descripcion"
+    cuota: "Cuota"
+    Cantidad: "Cantidad"
+    error_pat: ": Imposible generar Nota, el Estatus del Paciente lo prohibe."
+    del: "¿Eliminar?"
+    add: "Añadir Elemento"
+    patient: "Notas del Paciente"
+    
+  views:
+    pagination:
+      first: "Inicio"
+      last: "Fin"
+      previous: "&laquo; Anterior"
+      next: "Siguiente &raquo;"
+      truncate: "..."
+
+  contact:
+    index: "Contactos"
+    company: "Empresa"
+    position: "Puesto"

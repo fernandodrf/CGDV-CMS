@@ -7,7 +7,9 @@ RSpec.describe "Patients", :patients => true, type: :feature do
   let(:user_admin) { FactoryBot.create(:user, :admin) }
 
   it "user should see the link to Patients in the navbar" do
-    sign_in user
+    # sign_in user
+    # FIXME: Correct when Devise is updated to 4.1.1
+    mysign_in(user.email,user.password)
     visit root_path
     expect(page).to have_content I18n.t('header.patient')
     click_link I18n.t('header.patient')
@@ -20,7 +22,9 @@ RSpec.describe "Patients", :patients => true, type: :feature do
     @mes = ['enero', 'febrero', 'marzo','abril', 'mayo', 'junio', 'agosto', 'septiembre', 'octubre', 'noviembre', 'diciembre'].sample # rand(1...12)
     @anio = rand(1950...2019).to_s
     # user sings-in
-    sign_in user
+    # sign_in user
+    # FIXME: Correct when Devise is updated to 4.1.1
+    mysign_in(user.email,user.password)
     # goes to patients section
     visit patients_path
     # clicks new patient link
@@ -47,7 +51,9 @@ RSpec.describe "Patients", :patients => true, type: :feature do
       @p2 = FactoryBot.create(:patient, :active)
       @p3 = FactoryBot.create(:patient, :active)
       @p4 = FactoryBot.create(:patient, :inactive)
-      sign_in user
+      # sign_in user
+      # FIXME: Correct when Devise is updated to 4.1.1
+      mysign_in(user.email,user.password)
       visit patients_path
     end
     it "user sees patient expedients" do
@@ -76,9 +82,11 @@ RSpec.describe "Patients", :patients => true, type: :feature do
   describe "Additional information on an existing patient file (sub-models)", :refclinica => true do
     before do
       @pat = FactoryBot.create(:patient, :active)
-    # user signs-in
-      sign_in user
-    # visits patients section
+      # user signs-in
+      # sign_in user
+      # FIXME: Correct when Devise is updated to 4.1.1
+      mysign_in(user.email,user.password)
+      # visits patients section
       visit patients_path
       # clicks on a patient expedient
       click_link "#{@pat.cgdvcode}"
@@ -116,4 +124,24 @@ RSpec.describe "Patients", :patients => true, type: :feature do
     # edits Refclinica
     # sees updated information in user expedient
   end 
+ 
+
+ # FIXME: Work-around for test to pass with Devise < 4.1.1
+  #  spec functions
+  def go_to_page(name)
+    visit root_path
+    # FIXME: Use only one link
+    click_link(name, match: :first)
+  end
+
+  def mysign_in(email,pass)
+    go_to_page(I18n.t('session.login'))
+    fill_in 'user_email', with: email
+    fill_in 'user_password', with: pass
+    click_button I18n.t('devise.sessions.new.sign_in')
+  end
+
+  def mysign_out
+    click_link(I18n.t('session.logout'), match: :first)
+  end
 end

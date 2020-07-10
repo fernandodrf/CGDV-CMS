@@ -30,10 +30,7 @@ RSpec.feature "Users", :users => true, type: :feature do
         manual_sign_in(user.email,second_user.password)
         aggregate_failures do
           expect(page).to have_content I18n.t('devise.sessions.new.sign_in')
-          expect(page).to have_content I18n.t('devise.failure.invalid',
-                                               :authentication_keys => "Email")
-
-          
+          expect(page).to have_content I18n.t('devise.failure.invalid', :authentication_keys => "Email")          
         end
       end
     end
@@ -42,10 +39,7 @@ RSpec.feature "Users", :users => true, type: :feature do
         manual_sign_in(Faker::Internet.email,Faker::Internet.password)
         aggregate_failures do
           expect(page).to have_content I18n.t('devise.sessions.new.sign_in')
-          # FIXME: Can be used again when Devise i18n is installed
-          # expect(page).to have_content I18n.t('devise.failure.not_found_in_database',
-                                               # :authentication_keys => "Email")
-          expect(page).to have_content I18n.t('devise.failure.invalid')
+          expect(page).to have_content I18n.t('devise.failure.not_found_in_database', :authentication_keys => "Email")
         end
       end
     end
@@ -369,16 +363,16 @@ RSpec.feature "Users", :users => true, type: :feature do
     # FIXME Use I18n
     # fill_in I18n.t('activerecord.attributes.user.email'),   with: email
     # fill_in I18n.t('activerecord.attributes.user.password'),  with: pass
-    fill_in "Email", with: email
-    fill_in "Password", with: pass
+    fill_in 'user_email', with: email
+    fill_in 'user_password', with: pass
     click_button I18n.t('devise.sessions.new.sign_in')
   end
 
-  # FIXME: Work-around for test to pass with Devise 1.4
+  # FIXME: Work-around for test to pass with Devise < 4.1.1
   def mysign_in(email,pass)
     go_to_page(I18n.t('session.login'))
-    fill_in "Email", with: email
-    fill_in "Password", with: pass
+    fill_in 'user_email', with: email
+    fill_in 'user_password', with: pass
     click_button I18n.t('devise.sessions.new.sign_in')
   end
 

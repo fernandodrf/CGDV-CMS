@@ -1,17 +1,25 @@
 source 'http://rubygems.org'
 
 gem 'rails', '4.0.13'
-
+# User authentication
+gem "devise", "~> 3.0.0"
+# Pagination
 gem "kaminari", "~> 0.17.0"
-
+# Search
 gem 'ransack', '~> 1.0'
 
 gem 'cancancan', '~> 1.17'
 # Use postgresql as the database for Active Record
 gem 'pg', '~> 0.21'
 
+# For Roles, use with CanCan
+# FIXME: Migrate to Rolify
+gem "easy_roles", "~> 1.2.0"
+
 # Use rails-i18n for internacionalization
 gem 'rails-i18n', github: 'svenfuchs/rails-i18n', branch: 'rails-4-x' # For 4.x
+
+gem 'devise-i18n'
 
 # ---- Rails 4 Upgrade ----
 gem 'rails4_upgrade', github: 'alindeman/rails4_upgrade'
@@ -30,8 +38,6 @@ gem 'test-unit', '~> 3.0'
 
 # For Rails 3.1
 gem "nested_form"#, :git => "git://github.com/ryanb/nested_form.git"
-gem "devise", "~> 3.0.0"
-gem "easy_roles", "~> 1.2.0"
 # Requires Rails >= 6.0
 # gem "slow_your_roles"
 
