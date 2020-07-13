@@ -6,17 +6,24 @@ RSpec.describe "Patients", :patients => true, type: :feature do
   let(:second_user) { FactoryBot.create(:user, :normal) }
   let(:user_admin) { FactoryBot.create(:user, :admin) }
 
-  it "user should see the link to Patients in the navbar" do
-    # sign_in user
-    # FIXME: Correct when Devise is updated to 4.1.1
-    mysign_in(user.email,user.password)
-    visit root_path
-    expect(page).to have_content I18n.t('header.patient')
-    click_link I18n.t('header.patient')
-    expect(page).to have_content I18n.t('patient.index')
+  describe "users with admin or oficina role" do
+    before do
+      user.add_role!('oficina')
+    end
+  
+    pending "test for roles"
+    it "should see the link to Patients in the navbar and be able to click it" do
+      # sign_in user
+      # FIXME: Correct when Devise is updated to 4.1.1
+      mysign_in(user.email,user.password)
+      visit root_path
+      expect(page).to have_content I18n.t('header.patient')
+      click_link I18n.t('header.patient'), match: :first
+      expect(page).to have_content I18n.t('patient.index')
+    end
   end
 
-  it "user creates new patient" do  # add => js:true for screenshot
+  it "user creates new patient", :current => true do  # add => js:true for screenshot
     @cgdvcode = 1000
     @dia = rand(1...30).to_s
     @mes = ['enero', 'febrero', 'marzo','abril', 'mayo', 'junio', 'agosto', 'septiembre', 'octubre', 'noviembre', 'diciembre'].sample # rand(1...12)
@@ -124,24 +131,5 @@ RSpec.describe "Patients", :patients => true, type: :feature do
     # edits Refclinica
     # sees updated information in user expedient
   end 
- 
 
- # FIXME: Work-around for test to pass with Devise < 4.1.1
-  #  spec functions
-  def go_to_page(name)
-    visit root_path
-    # FIXME: Use only one link
-    click_link(name, match: :first)
-  end
-
-  def mysign_in(email,pass)
-    go_to_page(I18n.t('session.login'))
-    fill_in 'user_email', with: email
-    fill_in 'user_password', with: pass
-    click_button I18n.t('devise.sessions.new.sign_in')
-  end
-
-  def mysign_out
-    click_link(I18n.t('session.logout'), match: :first)
-  end
 end
