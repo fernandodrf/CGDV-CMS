@@ -1,6 +1,4 @@
 class Patient < ActiveRecord::Base
-
-  attr_accessible :name, :cgdvcode, :sex, :blod, :birthdate, :status, :montocon, :faviso, :fdefuncion
   
   has_many :telephones, :as => :telephoneable, :dependent => :destroy
   has_many :addresses, :as => :addresseable, :dependent => :destroy

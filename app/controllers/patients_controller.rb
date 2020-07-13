@@ -37,7 +37,7 @@ class PatientsController < ApplicationController
   end
   
   def create
-  	@patient = Patient.new(params[:patient])
+      @patient = Patient.create(resource_params)
   	if @patient.save
   	  flash[:success] = t('flash.success.create', :model => Patient.to_s)
   	  redirect_to @patient
@@ -49,7 +49,7 @@ class PatientsController < ApplicationController
   end
   
   def update
-    if @patient.update_attributes(params[:patient])
+    if @patient.update(resource_params)
       flash[:success] = t('flash.success.edit', :model => Patient.to_s)
       redirect_to @patient
     else
@@ -66,6 +66,11 @@ class PatientsController < ApplicationController
   end
   
   private
+
+  # Paramaters that can be changed in the web forms
+  def resource_params
+    params.require(:patient).permit(:name, :cgdvcode, :sex, :blod, :birthdate, :status, :montocon, :faviso, :fdefuncion)
+  end
 
   #Para evitar que los pacientes cambien status de REGLAMENTARIA  
   def check_status	

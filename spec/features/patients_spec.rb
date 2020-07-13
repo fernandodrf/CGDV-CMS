@@ -138,7 +138,7 @@ RSpec.describe "Patients", :patients => true, type: :feature do
       expect(page).to have_content @aceptado
       expect(page).to have_content @ayudas
       # verificar manualmente
-      screenshot_and_save_page
+      # screenshot_and_save_page
     end 
     
     pending "is able to edit Refclinica"
