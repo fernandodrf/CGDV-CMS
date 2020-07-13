@@ -10,8 +10,9 @@ RSpec.describe "Patients", :patients => true, type: :feature do
     before do
       user.add_role!('oficina')
     end
-  
+
     pending "test for roles"
+
     it "should see the link to Patients in the navbar and be able to click it" do
       # sign_in user
       # FIXME: Correct when Devise is updated to 4.1.1
@@ -21,36 +22,37 @@ RSpec.describe "Patients", :patients => true, type: :feature do
       click_link I18n.t('header.patient'), match: :first
       expect(page).to have_content I18n.t('patient.index')
     end
+    it "should be able to creates new patient" do  # add => js:true for screenshot
+      @cgdvcode = 1000
+      @dia = rand(1...30).to_s
+      @mes = ['enero', 'febrero', 'marzo','abril', 'mayo', 'junio', 'agosto', 'septiembre', 'octubre', 'noviembre', 'diciembre'].sample # rand(1...12)
+      @anio = rand(1950...2019).to_s
+      # user sings-in
+      # sign_in user
+      # FIXME: Correct when Devise is updated to 4.1.1
+      mysign_in(user.email,user.password)
+      # goes to patients section
+      visit patients_path
+      # clicks new patient link
+      click_link I18n.t('helpers.submit.create', model: "Nuevo Paciente")
+      # fills in patient information
+      select 'Activo', from: 'patient_status'
+      fill_in I18n.t('patient.cgdvcode'), with: @cgdvcode
+      fill_in I18n.t('patient.name'), with: Faker::Name.name
+      select @dia , from: 'patient_birthdate_3i'
+      select @mes , from: 'patient_birthdate_2i'
+      select @anio , from: 'patient_birthdate_1i'
+      select ['F', 'M'].sample , from: 'patient_sex'
+      select Patient::BLOODTYPES.sample , from: 'patient_blod'
+      # submits form
+      click_button I18n.t('helpers.create')
+      # sees new patient
+      expect(page).to have_content I18n.t('flash.success.create', :model => Patient.to_s)
+      # take_screenshot 
+      # screenshot_and_save_page
+    end
   end
 
-  it "user creates new patient", :current => true do  # add => js:true for screenshot
-    @cgdvcode = 1000
-    @dia = rand(1...30).to_s
-    @mes = ['enero', 'febrero', 'marzo','abril', 'mayo', 'junio', 'agosto', 'septiembre', 'octubre', 'noviembre', 'diciembre'].sample # rand(1...12)
-    @anio = rand(1950...2019).to_s
-    # user sings-in
-    # sign_in user
-    # FIXME: Correct when Devise is updated to 4.1.1
-    mysign_in(user.email,user.password)
-    # goes to patients section
-    visit patients_path
-    # clicks new patient link
-    click_link I18n.t('helpers.submit.create', model: "Nuevo Expediente")
-    # fills in patient information
-    select 'Activo', from: 'patient_status'
-    fill_in I18n.t('patient.cgdvcode'), with: @cgdvcode
-    fill_in I18n.t('patient.name'), with: Faker::Name.name
-    select @dia , from: 'patient_birthdate_3i'
-    select @mes , from: 'patient_birthdate_2i'
-    select @anio , from: 'patient_birthdate_1i'
-    select ['F', 'M'].sample , from: 'patient_sex'
-    select Patient::BLOODTYPES.sample , from: 'patient_blod'
-    # submits form
-    click_button I18n.t('helpers.create')
-    # sees new patient
-    # take_screenshot 
-    # TODO: verify patient information
-  end
 
   describe "in the index section" do
     before do
@@ -58,14 +60,24 @@ RSpec.describe "Patients", :patients => true, type: :feature do
       @p2 = FactoryBot.create(:patient, :active)
       @p3 = FactoryBot.create(:patient, :active)
       @p4 = FactoryBot.create(:patient, :inactive)
+      user.add_role!('oficina')
       # sign_in user
       # FIXME: Correct when Devise is updated to 4.1.1
       mysign_in(user.email,user.password)
       visit patients_path
     end
-    it "user sees patient expedients" do
-      expect(page).to have_content I18n.t('helpers.edit'), count: 4
+    
+    it "admin user can delete records" do
+      mysign_out
+      mysign_in(user_admin.email,user_admin.password)
+      visit patients_path
+      expect(page).to have_content I18n.t('helpers.print'), count: 4
       expect(page).to have_content I18n.t('helpers.delete.msg'), count: 4
+    end
+
+    it "user sees patient records but cant delete them" do
+      expect(page).to have_content I18n.t('helpers.print'), count: 4
+      expect(page).to_not have_content I18n.t('helpers.delete.msg'), count: 4
     end
     it "user clicks patient expedient and sees basic information" do
       # user sings in
@@ -78,7 +90,7 @@ RSpec.describe "Patients", :patients => true, type: :feature do
     end
   end
 
-  describe "Existing patient file" do
+  xdescribe "Existing patient file" do
     # user signs-in
     # visits patients section
     # clicks on a patient expedient
@@ -86,12 +98,13 @@ RSpec.describe "Patients", :patients => true, type: :feature do
     # verifies new information
   end
 
-  describe "Additional information on an existing patient file (sub-models)", :refclinica => true do
+  describe "additional information on an existing patient file (sub-models)", :refclinica => true do
     before do
       @pat = FactoryBot.create(:patient, :active)
       # user signs-in
       # sign_in user
       # FIXME: Correct when Devise is updated to 4.1.1
+      user.add_role!('oficina')
       mysign_in(user.email,user.password)
       # visits patients section
       visit patients_path
@@ -125,9 +138,10 @@ RSpec.describe "Patients", :patients => true, type: :feature do
       expect(page).to have_content @aceptado
       expect(page).to have_content @ayudas
       # verificar manualmente
-      # save_page
+      screenshot_and_save_page
     end 
     
+    pending "is able to edit Refclinica"
     # edits Refclinica
     # sees updated information in user expedient
   end 
