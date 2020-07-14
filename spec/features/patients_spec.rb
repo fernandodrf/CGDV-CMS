@@ -98,7 +98,7 @@ RSpec.describe "Patients", :patients => true, type: :feature do
     # verifies new information
   end
 
-  describe "additional information on an existing patient file (sub-models)", :refclinica => true do
+  describe "additional information on an existing patient file (sub-models)", :current => true do
     before do
       @pat = FactoryBot.create(:patient, :active)
       # user signs-in
@@ -139,9 +139,72 @@ RSpec.describe "Patients", :patients => true, type: :feature do
       expect(page).to have_content @ayudas
       # verificar manualmente
       # screenshot_and_save_page
-    end 
+    end
+
+    it "is able to create Telephone" do
+      @place = Faker::Lorem.word
+      @tel = Faker::PhoneNumber.phone_number
+      click_link I18n.t('helpers.submit.create', :model => "Telefono")
+      fill_in I18n.t('patient.place'), with: @place
+      fill_in I18n.t('patient.number'), with: @tel
+      click_button I18n.t('helpers.create')
+      # verifies information
+      expect(page).to have_content @place
+      expect(page).to have_content @tel
+    end
     
-    pending "is able to edit Refclinica"
+    it "is able to create email" do
+      @datos = Faker::Lorem.word
+      @email = Faker::Internet.email
+      click_link I18n.t('helpers.submit.create', :model => "Emails")
+      fill_in 'email_datos', with: @datos
+      fill_in 'email_email', with: @email
+      click_button I18n.t('helpers.create')
+      # verifies information
+      expect(page).to have_content @datos
+      expect(page).to have_content @email
+    end
+
+    it "is able to create Direccion" do
+      @domicilio = Faker::Address.street_address
+      @estado = Faker::Address.state
+      @cp = Faker::Address.zip_code
+      @pais = 'México'
+      click_link I18n.t('helpers.submit.create', :model => "Direccion")
+      fill_in I18n.t('address.domicilio'), with: @domicilio
+      select @pais, from: 'address_country'
+      fill_in I18n.t('address.estado'), with: @estado
+      fill_in I18n.t('address.codigopostal'), with: @cp
+      click_button I18n.t('helpers.create')
+      # verifies information
+      expect(page).to have_content @domicilio
+      expect(page).to have_content @estado
+      expect(page).to have_content @cp
+    end
+
+    it "is able to create Derechohabiente" do
+      @seguro = ['IMSS', 'ISSSTE', 'Sedena','Beneficencia', 'Sector Salud Estatal', 'Semar', 'Privado', 'SSGDF', 'SSA', 'Otros', 'ISSEMYM', 'Seguro Popular'].sample
+      @seguroid = Faker::IDNumber.valid
+      # puts "seguroid: #{@seguroid.inspect}"
+      click_link I18n.t('helpers.submit.create', :model => "Derechohabiente")
+      select @seguro, from: 'derechohabiente_seguro'
+      fill_in I18n.t('derechohabiente.afiliacion'), with: @seguroid
+      click_button I18n.t('helpers.create')
+      # verifies information
+      expect(page).to have_content @seguro
+      expect(page).to have_content @seguroid
+    end
+
+    it "is able to create Tratamientos" do
+      @trat = Tratamiento::TIPOS.sample
+      click_link I18n.t('helpers.submit.create', :model => "Tratamiento")
+      select @trat, from: 'tratamiento_tipo'
+      click_button I18n.t('helpers.create')
+      # verifies information
+      expect(page).to have_content @trat
+    end
+
+    pending "is able to edit additional information"
     # edits Refclinica
     # sees updated information in user expedient
   end 
