@@ -44,7 +44,8 @@ gem "nested_form"#, :git => "git://github.com/ryanb/nested_form.git"
 # gem "rails3-jquery-autocomplete", "~> 0.9.1"
 gem "rails-jquery-autocomplete"
 
-gem "carrierwave", "~> 0.6.0"
+gem "carrierwave", "~> 1.3.1"
+gem 'mini_magick'#, '~> 3.3'
 
 #Evento Calendar
 gem 'event-calendar', :require => 'event_calendar'
@@ -53,7 +54,6 @@ gem 'event-calendar', :require => 'event_calendar'
 gem 'turnout'
 gem 'nokogiri'
 
-gem 'mini_magick', '~> 3.3'
 
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.2'
