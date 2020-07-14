@@ -16,7 +16,7 @@ class AttachmentsController < PolyController
   end
   	
   def create
-    @child  = @parent.attachments.build(params[:attachment])
+    @child  = @parent.attachments.build(attachment_params)
     super
   end
 
@@ -27,7 +27,7 @@ class AttachmentsController < PolyController
   
   def update
   	@child = Attachment.find(params[:id])
-    @bandera = @child.update_attributes(params[:attachment])
+    @bandera = @child.update_attributes(attachment_params)
     super
   end
 
@@ -35,5 +35,11 @@ class AttachmentsController < PolyController
   	@child = Attachment.find(params[:id])
   	super
   end
+
+  private
+
+    def attachment_params
+      params.require(:attachment).permit(:name, :fileattachment, :remove_fileattachment)
+    end
   
 end

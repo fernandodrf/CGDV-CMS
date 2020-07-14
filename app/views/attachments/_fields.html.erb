@@ -5,7 +5,7 @@
 </div>
 <div class="field">
   <%= f.label :fileattachment, 'Archivo Adjunto' %><br />
-  <%  unless @child.fileattachment.to_s.nil? %>
+  <%  if @child.fileattachment.present? %>
   <%= image_tag(image_attachment_path(@child), :alt => "Archivo Adjunto", :class => "avatar round") %><br />
   <% end %>
   <%= f.file_field :fileattachment %>
