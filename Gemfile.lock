@@ -128,8 +128,6 @@ GEM
     orm_adapter (0.5.0)
     pg (0.21.0)
     power_assert (1.2.0)
-    protected_attributes (1.1.4)
-      activemodel (>= 4.0.1, < 5.0)
     public_suffix (4.0.5)
     rack (1.5.5)
     rack-accept (0.4.5)
@@ -250,7 +248,6 @@ DEPENDENCIES
   nifty-generators (~> 0.4.6)
   nokogiri
   pg (~> 0.21)
-  protected_attributes
   rails (= 4.0.13)
   rails-i18n!
   rails-jquery-autocomplete

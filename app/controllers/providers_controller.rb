@@ -28,7 +28,7 @@ class ProvidersController < ApplicationController
   end
   
   def create
-  	@provider = Provider.new(params[:provider])
+  	@provider = Provider.create(resource_params)
   	if @provider.save
   	  flash[:success] = t('flash.success.create', :model => Provider.to_s)
   	  redirect_to @provider
@@ -40,7 +40,7 @@ class ProvidersController < ApplicationController
   
   def update
     @provider = Provider.find(params[:id])
-    if @provider.update_attributes(params[:provider])
+    if @provider.update_attributes(resource_params)
       flash[:success] = t('flash.success.edit', :model => Provider.to_s)
       redirect_to @provider
     else
@@ -56,14 +56,19 @@ class ProvidersController < ApplicationController
   end
 
   private
-  def load_info
-    @provider = Provider.find(params[:id])
-    @emails = @provider.emails
-    @addinfos = @provider.addinfos
-    @telephones = @provider.telephones
-    @addresses = @provider.addresses
-    @comments = @provider.comments
-    @title = @provider.proveedor
-  end
+    # Paramaters that can be changed in the web forms
+    def resource_params
+      params.require(:provider).permit(:proveedor, :cgdvcode, :name)
+    end
+
+    def load_info
+      @provider = Provider.find(params[:id])
+      @emails = @provider.emails
+      @addinfos = @provider.addinfos
+      @telephones = @provider.telephones
+      @addresses = @provider.addresses
+      @comments = @provider.comments
+      @title = @provider.proveedor
+    end
 
 end

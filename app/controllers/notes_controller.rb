@@ -45,7 +45,7 @@ class NotesController < ApplicationController
   end
   
   def create
-  	@note = Note.new(params[:note])
+  	@note = Note.create(resource_params)
   	if @note.save
   	  @note = calculos(@note)
   	  if @note.save	
@@ -66,7 +66,7 @@ class NotesController < ApplicationController
   def update
     @note = Note.find(params[:id])
     @folio = @note.folio
-    if @note.update_attributes(params[:note])
+    if @note.update_attributes(resource_params)
       @note = calculos(@note)
       if @note.save	
         flash[:success] = t('flash.success.edit', :model => Note.to_s)
@@ -88,7 +88,12 @@ class NotesController < ApplicationController
   end
   
   private
-  
+    # Paramaters that can be changed in the web forms
+    def resource_params
+      params.require(:note).permit(:folio, :adeudo, :acuenta, :restan, :subtotal,
+        :total, :fecha, :patient_id, elements_attributes: [:codigo, :cantidad, :cuota, :descripcion, :_destroy])
+    end
+
     def notefolio
       if Note.last == nil
   	    @folio = 1

@@ -9,7 +9,7 @@ class TratamientosController < ApplicationController
   	
   def create
   	@patient = Patient.find(params[:patient_id])
-    @tratamiento  = @patient.tratamientos.build(params[:tratamiento])
+    @tratamiento  = @patient.tratamientos.build(resource_params)
     @title = t('helpers.submit.create', :model => Patient.to_s)
     if @tratamiento.save
       flash[:success] = t('flash.success.create', :model => Tratamiento.to_s)
@@ -28,7 +28,7 @@ class TratamientosController < ApplicationController
   def update
   	@patient = Patient.find(params[:patient_id])
   	@tratamiento = Tratamiento.find(params[:id])
-    if @tratamiento.update_attributes(params[:tratamiento])
+    if @tratamiento.update_attributes(resource_params)
       flash[:success] = t('flash.success.edit', :model => Tratamiento.to_s)
       redirect_to @patient
     else
@@ -43,5 +43,10 @@ class TratamientosController < ApplicationController
     flash[:success] = t('flash.success.destroy', :model => Tratamiento.to_s)
   	redirect_to @patient
   end
-  
+
+  private
+    # Paramaters that can be changed in the web forms
+    def resource_params
+      params.require(:tratamiento).permit(:tipo)
+    end
 end

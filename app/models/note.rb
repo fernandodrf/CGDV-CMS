@@ -1,13 +1,11 @@
 class Note < ActiveRecord::Base
-  attr_accessible :folio, :adeudo, :acuenta, :restan, :subtotal, :total, :fecha, :patient_id, :elements_attributes
-
   before_save :check_status
   
   belongs_to :patient
   has_many :elements, :dependent => :destroy
+  accepts_nested_attributes_for :elements, :allow_destroy => true
   has_many :attachments, :as => :attachable, :dependent => :destroy
   
-  accepts_nested_attributes_for :elements, :allow_destroy => true
 
   validates :patient_id, :presence => true
   validates :folio, :presence => true,:length => { :maximum => 20},
@@ -28,22 +26,3 @@ class Note < ActiveRecord::Base
       end
 	end  
 end
-
-
-# == Schema Information
-#
-# Table name: notes
-#
-#  id         :integer         not null, primary key
-#  folio      :integer
-#  adeudo     :decimal(22, 2)
-#  acuenta    :decimal(22, 2)
-#  restan     :decimal(22, 2)
-#  subtotal   :decimal(22, 2)
-#  total      :decimal(22, 2)
-#  fecha      :date
-#  patient_id :integer
-#  created_at :datetime
-#  updated_at :datetime
-#
-

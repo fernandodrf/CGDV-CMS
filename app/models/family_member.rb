@@ -1,7 +1,4 @@
 class FamilyMember < ActiveRecord::Base
-
-  attr_accessible :parentesco, :nombre, :edad, :derechohabiente, :comentarios
-
   belongs_to :patient
 
   validates :patient_id, :presence => true
@@ -15,19 +12,3 @@ class FamilyMember < ActiveRecord::Base
   DH = ['Ninguno', 'IMSS', 'ISSSTE', 'IMSS + ISSSTE']
   
 end
-
-# == Schema Information
-#
-# Table name: family_members
-#
-#  id              :integer         not null, primary key
-#  parentesco      :string(255)
-#  nombre          :string(255)
-#  edad            :integer
-#  derechohabiente :string(255)
-#  comentarios     :string(255)
-#  patient_id      :integer
-#  created_at      :datetime
-#  updated_at      :datetime
-#
-

@@ -1,6 +1,4 @@
 class Donor < ActiveRecord::Base
-  attr_accessible :persona, :cgdvcode, :name, :rfc, :birth, :extradonors_attributes
-  
   has_many :telephones, :as => :telephoneable, :dependent => :destroy
   has_many :addresses, :as => :addresseable, :dependent => :destroy
   has_many :emails, :as => :emailable, :dependent => :destroy
@@ -19,18 +17,3 @@ class Donor < ActiveRecord::Base
   
   Persona = [['Fisica',1],['Moral',2]]
 end
-
-# == Schema Information
-#
-# Table name: donors
-#
-#  id         :integer         not null, primary key
-#  cgdvcode   :integer
-#  persona    :integer
-#  name       :string(255)
-#  rfc        :string(255)
-#  birth      :date
-#  created_at :datetime
-#  updated_at :datetime
-#
-

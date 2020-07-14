@@ -31,7 +31,7 @@ class ActivityReportsController < ApplicationController
   end
 
   def create
-    @activity_report = ActivityReport.new(params[:activity_report])
+    @activity_report = ActivityReport.build(resource_params)
     @activity_report.volunteer_id = getvolunteerid
     puts @activity_report
     if @activity_report.save
@@ -49,7 +49,7 @@ class ActivityReportsController < ApplicationController
 
   def update
     @activity_report = ActivityReport.find(params[:id])
-    if @activity_report.update_attributes(params[:activity_report])
+    if @activity_report.update_attributes(resource_params)
       flash[:success] = t('flash.success.edit', :model => "Reportes de Actividades")
       redirect_to @activity_report
     else
@@ -65,6 +65,10 @@ class ActivityReportsController < ApplicationController
   end
   
   private
+
+    def resource_params
+      params.require(:activity_report).permit(:reporte, :volunteer_id)
+    end
   
     def getvolunteerid
       id = !current_user.volunteer_id.nil? ? current_user.volunteer_id : nil

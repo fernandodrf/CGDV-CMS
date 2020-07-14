@@ -9,7 +9,7 @@ before_filter :authenticate_user!
   	
   def create
   	@patient = Patient.find(params[:patient_id])
-    @refclinica  = @patient.build_refclinica(params[:refclinica])
+    @refclinica  = @patient.build_refclinica(resource_params)
     @title = t('helpers.submit.create', :model => Patient.to_s)
     if @refclinica.save
       flash[:success] = t('flash.success.create', :model => Refclinica.to_s)
@@ -28,7 +28,7 @@ before_filter :authenticate_user!
   def update
   	@patient = Patient.find(params[:patient_id])
   	@refclinica = Refclinica.find(params[:id])
-    if @refclinica.update_attributes(params[:refclinica])
+    if @refclinica.update_attributes(resource_params)
       flash[:success] = t('flash.success.edit', :model => Refclinica.to_s)
       redirect_to @patient
     else
@@ -43,4 +43,10 @@ before_filter :authenticate_user!
     flash[:success] = t('flash.success.destroy', :model => Refclinica.to_s)
   	redirect_to @patient
   end
+
+  private
+    # Paramaters that can be changed in the web forms
+    def resource_params
+      params.require(:refclinica).permit(:hospital, :medico, :referencia, :aceptado, :ayudas)
+    end
 end

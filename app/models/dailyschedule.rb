@@ -1,8 +1,6 @@
 class Dailyschedule < ActiveRecord::Base
   belongs_to :volunteer
   
-  attr_accessible :day, :begin, :end
-  
   validates :begin, :presence => true
   validates :end, :presence => true
   validates :day, :presence => true
@@ -10,33 +8,17 @@ class Dailyschedule < ActiveRecord::Base
   
   DAYS = [['Lunes',1],['Martes',2],['Miercoles',3],['Jueves',4],['Viernes',5],['Sabado',6],['Domingo',7]]
 
-    def tiempo
-      total = self.end - self.begin
-      hrs = (total/3600).to_i
-  	  mins = (total/60 - hrs * 60).to_i
-  	  return "#{hrs} hrs, #{mins} mins"
-    end
+  def tiempo
+    total = self.end - self.begin
+    hrs = (total/3600).to_i
+    mins = (total/60 - hrs * 60).to_i
+    return "#{hrs} hrs, #{mins} mins"
+  end
     
-    def tiempo_num
-      total = self.end - self.begin
-      hrs = (total/3600).to_i
-  	  mins = (total/60 - hrs * 60).to_i
-  	  return hrs+mins
-    end    
-  
+  def tiempo_num
+    total = self.end - self.begin
+    hrs = (total/3600).to_i
+    mins = (total/60 - hrs * 60).to_i
+    return hrs+mins
+  end    
 end
-
-
-# == Schema Information
-#
-# Table name: dailyschedules
-#
-#  id           :integer         not null, primary key
-#  begin        :time
-#  end          :time
-#  volunteer_id :integer
-#  created_at   :datetime
-#  updated_at   :datetime
-#  day          :integer
-#
-

@@ -9,7 +9,7 @@ class FamilyMembersController < ApplicationController
   	
   def create
   	@patient = Patient.find(params[:patient_id])
-    @family_member  = @patient.family_members.build(params[:family_member])
+    @family_member  = @patient.family_members.build(resource_params)
     @title = t('helpers.submit.create', :model => Patient.to_s)
     if @family_member.save
       flash[:success] = t('flash.success.create', :model => FamilyMember.to_s)
@@ -28,7 +28,7 @@ class FamilyMembersController < ApplicationController
   def update
   	@patient = Patient.find(params[:patient_id])
   	@family_member = FamilyMember.find(params[:id])
-    if @family_member.update_attributes(params[:family_member])
+    if @family_member.update_attributes(resource_params)
       flash[:success] = t('flash.success.edit', :model => FamilyMember.to_s)
       redirect_to @patient
     else
@@ -43,5 +43,11 @@ class FamilyMembersController < ApplicationController
     flash[:success] = t('flash.success.destroy', :model => FamilyMember.to_s)
   	redirect_to @patient
   end
-  
+
+  private
+    # Paramaters that can be changed in the web forms
+    def resource_params
+      params.require(:family_member).permit(:parentesco, :nombre, :edad, :derechohabiente, :comentarios)
+    end  
+
 end

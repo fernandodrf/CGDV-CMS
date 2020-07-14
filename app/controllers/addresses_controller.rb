@@ -8,7 +8,7 @@ class AddressesController < PolyController
   end
   	
   def create
-    @child  = @parent.addresses.build(params[:address])
+    @child  = @parent.addresses.build(resource_params)
     super
   end
 
@@ -19,7 +19,7 @@ class AddressesController < PolyController
   
   def update
   	@child = Address.find(params[:id])
-    @bandera = @child.update_attributes(params[:address])
+    @bandera = @child.update_attributes(resource_params)
     super
   end
 
@@ -27,5 +27,11 @@ class AddressesController < PolyController
   	@child = Address.find(params[:id])
     super
   end
+
+  private
+    # Paramaters that can be changed in the web forms
+    def resource_params
+      params.require(:address).permit(:place, :codigopostal, :estado, :municipio, :colonia, :domicilio, :country)
+    end
   
 end

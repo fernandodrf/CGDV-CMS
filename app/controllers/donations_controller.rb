@@ -26,7 +26,7 @@ class DonationsController < ApplicationController
   end
 
   def create
-    @donation = Donation.new(params[:donation])
+    @donation = Donation.create(resource_params)
     if @donation.save
       flash[:success] = t('flash.success.create', :model => Donation.to_s)
       redirect_to @donation
@@ -44,7 +44,7 @@ class DonationsController < ApplicationController
   def update
     @donation = Donation.find(params[:id])
     @folio = @donation.folio
-    if @donation.update_attributes(params[:donation])
+    if @donation.update_attributes(resource_params)
       flash[:success] = t('flash.success.edit', :model => Donation.to_s)
       redirect_to @donation
     else
@@ -60,7 +60,12 @@ class DonationsController < ApplicationController
   end
   
   private
-  
+  private
+    # Paramaters that can be changed in the web forms
+    def resource_params
+      params.require(:donation).permit(:folio, :donor_id, :frecepcion, :tipo, :monto, :transaccion, :finalidad, :motivo)
+    end
+
     def getfolio
       if Donation.last == nil
   	    @folio = 1

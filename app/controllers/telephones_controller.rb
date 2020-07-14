@@ -6,7 +6,7 @@ class TelephonesController < PolyController
   end
   	
   def create
-    @child  = @parent.telephones.build(params[:telephone])
+    @child  = @parent.telephones.build(resource_params)
     super
   end
 
@@ -17,7 +17,7 @@ class TelephonesController < PolyController
   
   def update
   	@child = Telephone.find(params[:id])
-    @bandera = @child.update_attributes(params[:telephone])
+    @bandera = @child.update_attributes(resource_params)
     super
   end
 
@@ -26,4 +26,9 @@ class TelephonesController < PolyController
     super
   end
 
+  private
+    # Paramaters that can be changed in the web forms
+    def resource_params
+      params.require(:telephone).permit(:place, :number)
+    end
 end

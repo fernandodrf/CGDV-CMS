@@ -29,7 +29,7 @@ class VolTimesController < ApplicationController
   end
   
   def create
-  	@voltime = VolTime.new(params[:vol_time])
+  	@voltime = VolTime.create(resource_params)
   	if @voltime.save	
   	  flash[:success] = t('flash.success.create', :model => 'timereport.title')
   	  redirect_to @voltime
@@ -41,7 +41,7 @@ class VolTimesController < ApplicationController
   
   def update
     @voltime = VolTime.find(params[:id])
-    if @voltime.update_attributes(params[:vol_time])	
+    if @voltime.update_attributes(resource_params)	
       flash[:success] = t('flash.success.edit', :model => 'timereport.title')
       redirect_to @voltime
     else
@@ -57,7 +57,11 @@ class VolTimesController < ApplicationController
   end
 
   private
-  
+    # Paramaters that can be changed in the web forms
+    def resource_params
+      params.require(:vol_time).permit(:evento, :horas, :volunteer_id)
+    end
+
     def getname
       if !params[:id].nil?
   	    Volunteer.find(params[:id]).name.nil? ? @name = "" : @name = Volunteer.find(params[:id]).name

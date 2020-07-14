@@ -23,7 +23,8 @@ gem 'devise-i18n'
 
 # ---- Rails 4 Upgrade ----
 gem 'rails4_upgrade', github: 'alindeman/rails4_upgrade'
-gem 'protected_attributes'
+# Keep until all runs under Strong Parameters
+# gem 'protected_attributes'
 # ---- Rails 4 Upgrade ----
 
 #Secret
@@ -41,7 +42,6 @@ gem "nested_form"#, :git => "git://github.com/ryanb/nested_form.git"
 # Requires Rails >= 6.0
 # gem "slow_your_roles"
 
-# gem "rails3-jquery-autocomplete", "~> 0.9.1"
 gem "rails-jquery-autocomplete"
 
 gem "carrierwave", "~> 1.3.1"
@@ -50,10 +50,10 @@ gem 'mini_magick'#, '~> 3.3'
 #Evento Calendar
 gem 'event-calendar', :require => 'event_calendar'
 
-#Maintenance Mode
+# Maintenance Mode
 gem 'turnout'
+# ?? https://nokogiri.org
 gem 'nokogiri'
-
 
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.2'

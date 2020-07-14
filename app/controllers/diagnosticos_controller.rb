@@ -6,7 +6,7 @@ class DiagnosticosController < PolyController
   end
   	
   def create
-    @child  = @parent.diagnosticos.build(params[:diagnostico])
+    @child  = @parent.diagnosticos.build(resource_params)
     super
   end
 
@@ -17,7 +17,7 @@ class DiagnosticosController < PolyController
   
   def update
   	@child = Diagnostico.find(params[:id])
-    @bandera = @child.update_attributes(params[:diagnostico])
+    @bandera = @child.update_attributes(resource_params)
     super
   end
 
@@ -26,4 +26,9 @@ class DiagnosticosController < PolyController
   	super
   end
   
+  private
+    # Paramaters that can be changed in the web forms
+    def resource_params
+      params.require(:diagnostico).permit(:diagnostico)
+    end
 end

@@ -9,7 +9,7 @@ before_filter :authenticate_user!
   	
   def create
   	@patient = Patient.find(params[:patient_id])
-    @house  = @patient.build_house(params[:house])
+    @house  = @patient.build_house(resource_params)
     @title = t('helpers.submit.create', :model => Patient.to_s)
     if @house.save
       flash[:success] = t('flash.success.create', :model => House.to_s)
@@ -28,7 +28,7 @@ before_filter :authenticate_user!
   def update
   	@patient = Patient.find(params[:patient_id])
   	@house = House.find(params[:id])
-    if @house.update_attributes(params[:house])
+    if @house.update_attributes(resource_params)
       flash[:success] = t('flash.success.edit', :model => House.to_s)
       redirect_to @patient
     else
@@ -43,4 +43,10 @@ before_filter :authenticate_user!
     flash[:success] = t('flash.success.destroy', :model => House.to_s)
   	redirect_to @patient
   end
+
+  private
+    # Paramaters that can be changed in the web forms
+    def resource_params
+      params.require(:house).permit(:habitaciones, :tipo, :habitantes, :familiares, :menores, :economicaactivas)
+    end
 end

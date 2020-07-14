@@ -9,7 +9,7 @@ class DerechohabientesController < ApplicationController
   	
   def create
   	@patient = Patient.find(params[:patient_id])
-    @seguro  = @patient.derechohabientes.build(params[:derechohabiente])
+    @seguro  = @patient.derechohabientes.build(resource_params)
     @title = t('helpers.submit.create', :model => Patient.to_s)
     if @seguro.save
       flash[:success] = t('flash.success.create', :model => Derechohabiente.to_s)
@@ -28,7 +28,7 @@ class DerechohabientesController < ApplicationController
   def update
   	@patient = Patient.find(params[:patient_id])
   	@seguro = Derechohabiente.find(params[:id])
-    if @seguro.update_attributes(params[:derechohabiente])
+    if @seguro.update_attributes(resource_params)
       flash[:success] = t('flash.success.edit', :model => Derechohabiente.to_s)
       redirect_to @patient
     else
@@ -43,5 +43,11 @@ class DerechohabientesController < ApplicationController
     flash[:success] = t('flash.success.destroy', :model => Derechohabiente.to_s)
   	redirect_to @patient
   end
+
+  private
+    # Paramaters that can be changed in the web forms
+    def resource_params
+      params.require(:derechohabiente).permit(:seguro, :afiliacion)
+    end
 
 end

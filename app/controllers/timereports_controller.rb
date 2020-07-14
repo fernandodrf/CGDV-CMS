@@ -23,7 +23,7 @@ class TimereportsController < ApplicationController
   end
   
   def create
-  	@timereport = Timereport.new(params[:timereport])
+  	@timereport = Timereport.create(resource_params)
   	if @timereport.save	
   	  flash[:success] = t('flash.success.create', :model => 'timereports.title')
   	  redirect_to @timereport
@@ -35,7 +35,7 @@ class TimereportsController < ApplicationController
   
   def update
     @timereport = Timereport.find(params[:id])
-    if @timereport.update_attributes(params[:timereport])	
+    if @timereport.update_attributes(resource_params)	
       flash[:success] = t('flash.success.edit', :model => 'timereports.title')
       redirect_to @timereport
     else
@@ -50,4 +50,9 @@ class TimereportsController < ApplicationController
     redirect_to timereports_path
   end
 
+  private
+    # Paramaters that can be changed in the web forms
+    def resource_params
+      params.require(:timereport).permit(:day, :begin, :end, :evento, :volunteer_id)
+    end
 end

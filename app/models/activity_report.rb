@@ -1,6 +1,4 @@
 class ActivityReport < ActiveRecord::Base
-  attr_accessible :reporte, :volunteer_id
-  
   belongs_to :volunteer
   
   before_create :get_week
@@ -39,19 +37,4 @@ class ActivityReport < ActiveRecord::Base
 	    self.semana = week
 	  end
 	end
-  
 end
-
-
-# == Schema Information
-#
-# Table name: activity_reports
-#
-#  id           :integer         not null, primary key
-#  reporte      :text
-#  semana       :integer
-#  volunteer_id :integer
-#  created_at   :datetime
-#  updated_at   :datetime
-#
-

@@ -9,7 +9,7 @@ before_filter :authenticate_user!
   	
   def create
   	@patient = Patient.find(params[:patient_id])
-    @socioeco  = @patient.build_socioeco(params[:socioeco])
+    @socioeco  = @patient.build_socioeco(resource_params)
     @title = t('helpers.submit.create', :model => Patient.to_s)
     if @socioeco.save
       flash[:success] = t('flash.success.create', :model => Socioeco.to_s)
@@ -28,7 +28,7 @@ before_filter :authenticate_user!
   def update
   	@patient = Patient.find(params[:patient_id])
   	@socioeco = Socioeco.find(params[:id])
-    if @socioeco.update_attributes(params[:socioeco])
+    if @socioeco.update_attributes(resource_params)
       flash[:success] = t('flash.success.edit', :model => Socioeco.to_s)
       redirect_to @patient
     else
@@ -43,4 +43,10 @@ before_filter :authenticate_user!
     flash[:success] = t('flash.success.destroy', :model => Socioeco.to_s)
   	redirect_to @patient
   end
+
+  private
+    # Paramaters that can be changed in the web forms
+    def resource_params
+      params.require(:socioeco).permit(:ingresos, :gastos, :televisiones, :vehiculos, :nivel, :serviciosurbanos, :televisionpaga, :sgmm)
+    end
 end

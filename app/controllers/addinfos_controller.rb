@@ -6,7 +6,7 @@ class AddinfosController < PolyController
   end
   	
   def create
-    @child  = @parent.addinfos.build(params[:addinfo])
+    @child  = @parent.addinfos.build(resource_params)
     super
   end
 
@@ -17,7 +17,7 @@ class AddinfosController < PolyController
   
   def update
   	@child = Addinfo.find(params[:id])
-    @bandera = @child.update_attributes(params[:addinfo])
+    @bandera = @child.update_attributes(resource_params)
     super
   end
 
@@ -25,5 +25,11 @@ class AddinfosController < PolyController
   	@child = Addinfo.find(params[:id])
     super
   end
+
+  private
+
+    def resource_params
+      params.require(:addinfo).permit(:tipo, :info)
+    end
 
 end

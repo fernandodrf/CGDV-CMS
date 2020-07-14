@@ -26,7 +26,7 @@ class DonorsController < ApplicationController
   end
   
   def create
-  	@donor = Donor.new(params[:donor])
+  	@donor = Donor.create(resource_params)
   	if @donor.save
   	  flash[:success] = t('flash.success.create', :model => Donor.to_s)
   	  redirect_to @donor
@@ -39,7 +39,7 @@ class DonorsController < ApplicationController
   
   def update
     @donor = Donor.find(params[:id])
-    if @donor.update_attributes(params[:donor])
+    if @donor.update_attributes(resource_params)
       flash[:success] = t('flash.success.edit', :model => Donor.to_s)
       redirect_to @donor
     else
@@ -56,7 +56,11 @@ class DonorsController < ApplicationController
   end
 
   private
-  
+    # Paramaters that can be changed in the web forms
+    def resource_params
+      params.require(:donor).permit(:persona, :cgdvcode, :name, :rfc, :birth, extradonors_attributes: [:pautoriza, :pcontacto])
+    end
+
 	def load_info
 	  @donor = Donor.find(params[:id])
 	  @telephones = @donor.telephones

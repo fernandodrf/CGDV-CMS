@@ -9,7 +9,7 @@ class DailyschedulesController < ApplicationController
   	
   def create
   	@volunteer = Volunteer.find(params[:volunteer_id])
-    @dailyschedule  = @volunteer.dailyschedules.build(params[:dailyschedule])
+    @dailyschedule  = @volunteer.dailyschedules.build(resource_params)
     @title = t('helpers.submit.create', :model => Dailyschedule.to_s)
     if @dailyschedule.save
       flash[:success] = t('flash.success.create', :model => Dailyschedule.to_s)
@@ -28,7 +28,7 @@ class DailyschedulesController < ApplicationController
   def update
   	@volunteer = Volunteer.find(params[:volunteer_id])
   	@dailyschedule = Dailyschedule.find(params[:id])
-    if @dailyschedule.update_attributes(params[:dailyschedule])
+    if @dailyschedule.update_attributes(resource_params)
       flash[:success] = t('flash.success.edit', :model => Dailyschedule.to_s)
       redirect_to @volunteer
     else
@@ -44,4 +44,9 @@ class DailyschedulesController < ApplicationController
   	redirect_to @volunteer
   end
 
+  private
+    # Paramaters that can be changed in the web forms
+    def resource_params
+      params.require(:dailyschedule).permit(:day, :begin, :end)
+    end
 end

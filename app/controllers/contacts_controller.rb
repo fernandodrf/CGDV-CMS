@@ -28,7 +28,7 @@ class ContactsController < ApplicationController
   end
   
   def create
-  	@contact = Contact.new(params[:contact])
+  	@contact = Contact.create(resource_params)
   	if @contact.save
   	  flash[:success] = t('flash.success.create', :model => "Contacto")
   	  redirect_to @contact
@@ -40,7 +40,7 @@ class ContactsController < ApplicationController
   
   def update
     @contact = Contact.find(params[:id])
-    if @contact.update_attributes(params[:contact])
+    if @contact.update_attributes(resource_params)
       flash[:success] = t('flash.success.edit', :model => "Contacto")
       redirect_to @contact
     else
@@ -56,6 +56,11 @@ class ContactsController < ApplicationController
   end
 
   private
+    # Paramaters that can be changed in the web forms
+    def resource_params
+      params.require(:contact).permit(:name, :company, :position, :birth)
+    end
+
   def load_info
     @contact = Contact.find(params[:id])
     @emails = @contact.emails

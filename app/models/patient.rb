@@ -30,25 +30,5 @@ class Patient < ActiveRecord::Base
   validates :status, :presence => true, :numericality => true
 
   BLOODTYPES = ['NS', 'A+', 'A-', 'B+', 'B-', 'AB+', 'AB-', 'O+', 'O-']
-  STATUS = [['Activo',1],['Abandono',2],['Reglamentaria',3],['Defuncion',4],['Remision',5],['Acceso Seguridad Social',6]]
-  
+  STATUS = [['Activo',1],['Abandono',2],['Reglamentaria',3],['Defuncion',4],['Remision',5],['Acceso Seguridad Social',6]]  
 end
-
-# == Schema Information
-#
-# Table name: patients
-#
-#  id         :integer         not null, primary key
-#  name       :string(255)
-#  cgdvcode   :integer
-#  created_at :datetime
-#  updated_at :datetime
-#  sex        :string(255)
-#  birthdate  :date
-#  blod       :string(255)
-#  status     :integer         default(1)
-#  fdefuncion :date
-#  faviso     :date
-#  montocon   :string(255)
-#
-

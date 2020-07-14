@@ -9,7 +9,7 @@ class ApoyosController < ApplicationController
   	
   def create
   	@patient = Patient.find(params[:patient_id])
-    @apoyo  = @patient.apoyos.build(params[:apoyo])
+    @apoyo  = @patient.apoyos.build(resource_params)
     @title = t('helpers.submit.create', :model => Patient.to_s)
     if @apoyo.save
       flash[:success] = t('flash.success.create', :model => Apoyo.to_s)
@@ -28,7 +28,7 @@ class ApoyosController < ApplicationController
   def update
   	@patient = Patient.find(params[:patient_id])
   	@apoyo = Apoyo.find(params[:id])
-    if @apoyo.update_attributes(params[:apoyo])
+    if @apoyo.update_attributes(resource_params)
       flash[:success] = t('flash.success.edit', :model => Apoyo.to_s)
       redirect_to @patient
     else
@@ -43,5 +43,11 @@ class ApoyosController < ApplicationController
     flash[:success] = t('flash.success.destroy', :model => Apoyo.to_s)
   	redirect_to @patient
   end
+
+  private
+    # Paramaters that can be changed in the web forms
+    def resource_params
+      params.require(:apoyo).permit(:tipo)
+    end
 
 end

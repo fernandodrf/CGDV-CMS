@@ -1,6 +1,4 @@
 class Volunteer < ActiveRecord::Base
-  attr_accessible :name, :cgdvcode, :blood, :sex, :status, :birth, :extravolunteers_attributes, :socialservices_attributes, :avatar, :avatar_cache, :remove_avatar
-
   has_many :telephones, :as => :telephoneable, :dependent => :destroy
   has_many :addresses, :as => :addresseable, :dependent => :destroy
   has_many :addinfos, :as => :addinformation, :dependent => :destroy
@@ -121,24 +119,4 @@ class Volunteer < ActiveRecord::Base
 	  end
 	  return total
 	end
-  
 end
-
-
-
-# == Schema Information
-#
-# Table name: volunteers
-#
-#  id         :integer         not null, primary key
-#  name       :string(255)
-#  cgdvcode   :integer
-#  sex        :string(255)
-#  blood      :string(255)
-#  status     :integer         default(1)
-#  birth      :date
-#  created_at :datetime
-#  updated_at :datetime
-#  avatar     :string(255)
-#
-
