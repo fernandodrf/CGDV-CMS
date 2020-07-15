@@ -9,7 +9,7 @@ before_filter :authenticate_user!
   	
   def create
   	@volunteer = Volunteer.find(params[:volunteer_id])
-    @subprogram  = @volunteer.build_subprogram(params[:subprogram])
+    @subprogram  = @volunteer.build_subprogram(resource_params)
     @title = t('helpers.submit.create', :model => Subprogram.to_s)
     if @subprogram.save
       flash[:success] = t('flash.success.create', :model => Subprogram.to_s)
@@ -28,7 +28,7 @@ before_filter :authenticate_user!
   def update
   	@volunteer = Volunteer.find(params[:volunteer_id])
   	@subprogram = Subprogram.find(params[:id])
-    if @subprogram.update_attributes(params[:subprogram])
+    if @subprogram.update_attributes(resource_params)
       flash[:success] = t('flash.success.edit', :model => Subprogram.to_s)
       redirect_to @volunteer
     else
@@ -43,4 +43,12 @@ before_filter :authenticate_user!
     flash[:success] = t('flash.success.destroy', :model => Subprogram.to_s)
   	redirect_to @volunteer
   end
+
+  private
+    def resource_params
+      params.require(:subprogram).permit(:donador, :eventos, :hospitales, :suenosdeseos, :fondos,
+        :administrativas, :autoayuda, :sobrevivientes, :fugarte, :sobreviviente, :licencia, 
+        :exposferias, :disenografico, :abogacia, :invdocumental, :invmedica, :apoyofueraoficina,
+        :disenoweb, :apoyocap)
+    end
 end
