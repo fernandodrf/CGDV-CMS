@@ -58,7 +58,7 @@ class DonorsController < ApplicationController
   private
     # Paramaters that can be changed in the web forms
     def resource_params
-      params.require(:donor).permit(:persona, :cgdvcode, :name, :rfc, :birth, extradonors_attributes: [:pautoriza, :pcontacto])
+      params.require(:donor).permit(:persona, :cgdvcode, :name, :rfc, :birth, extradonors_attributes: [:id, :pautoriza, :pcontacto, :_destroy])
     end
 
 	def load_info

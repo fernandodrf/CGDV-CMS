@@ -91,7 +91,7 @@ class NotesController < ApplicationController
     # Paramaters that can be changed in the web forms
     def resource_params
       params.require(:note).permit(:folio, :adeudo, :acuenta, :restan, :subtotal,
-        :total, :fecha, :patient_id, elements_attributes: [:codigo, :cantidad, :cuota, :descripcion, :_destroy])
+        :total, :fecha, :patient_id, elements_attributes: [:id, :codigo, :cantidad, :cuota, :descripcion, :_destroy])
     end
 
     def notefolio

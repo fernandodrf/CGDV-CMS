@@ -86,12 +86,12 @@ class VolunteersController < ApplicationController
     def resource_params
       params.require(:volunteer).permit(:name, :cgdvcode, :blood, :sex, 
         :status, :birth, :avatar, :avatar_cache, :remove_avatar, 
-        extravolunteers_attributes: [:profesion], 
-        socialservices_attributes: [:escuela, :carrera, :matricula, :semestre, :inicio, :fin],
-        subprograms_attributes: [:donador, :eventos, :hospitales, :suenosdeseos, :fondos,
+        extravolunteers_attributes: [:id, :profesion, :_destroy], 
+        socialservices_attributes: [:id, :escuela, :carrera, :matricula, :semestre, :inicio, :fin, :_destroy],
+        subprograms_attributes: [:id, :donador, :eventos, :hospitales, :suenosdeseos, :fondos,
         :administrativas, :autoayuda, :sobrevivientes, :fugarte, :sobreviviente,
         :licencia, :exposferias, :disenografico, :abogacia, :invdocumental,
-        :invmedica, :apoyofueraoficina])
+        :invmedica, :apoyofueraoficina, :_destroy])
     end
   
   def load_info
