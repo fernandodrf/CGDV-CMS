@@ -8,7 +8,7 @@ gem "kaminari", "~> 0.17.0"
 # Search
 gem 'ransack', '~> 1.0'
 
-gem 'cancancan', '~> 1.17'
+gem 'cancancan'#, '~> 1.17'
 # Use postgresql as the database for Active Record
 gem 'pg', '~> 0.21'
 
