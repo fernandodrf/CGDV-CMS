@@ -109,7 +109,7 @@ end
 
 group :development do
   # gem 'mailcatcher'
-  gem 'annotate', '~> 2.4.0'
+  gem 'annotate', '~> 2.6'
   gem "nifty-generators", "~> 0.4.6"
 end
 
