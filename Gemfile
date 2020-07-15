@@ -37,8 +37,9 @@ gem "figaro"
 # For ruby 2.3
 gem 'test-unit', '~> 3.0'
 
-# For Rails 3.1
-gem "nested_form"#, :git => "git://github.com/ryanb/nested_form.git"
+# FIXME: Needs to go eventually
+gem "nested_form"
+
 # Requires Rails >= 6.0
 # gem "slow_your_roles"
 

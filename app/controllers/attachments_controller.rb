@@ -16,7 +16,7 @@ class AttachmentsController < PolyController
   end
   	
   def create
-    @child  = @parent.attachments.build(attachment_params)
+    @child  = @parent.attachments.create(attachment_params)
     super
   end
 

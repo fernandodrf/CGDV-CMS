@@ -44,7 +44,9 @@ es-MX:
 
   time:
     formats:
-      small: "%d/%b/%y"
+        small: "%d/%b/%y"
+        rep: "%a, %d/%b/%Y a las %H:%M %p"
+        hourmin:  "%H:%M %p"
 
   carrierwave:
     errors:

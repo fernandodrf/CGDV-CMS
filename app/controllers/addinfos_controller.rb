@@ -6,7 +6,7 @@ class AddinfosController < PolyController
   end
   	
   def create
-    @child  = @parent.addinfos.build(resource_params)
+    @child  = @parent.addinfos.create(resource_params)
     super
   end
 

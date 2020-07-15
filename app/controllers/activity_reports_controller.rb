@@ -31,7 +31,7 @@ class ActivityReportsController < ApplicationController
   end
 
   def create
-    @activity_report = ActivityReport.build(resource_params)
+    @activity_report = ActivityReport.create(resource_params)
     @activity_report.volunteer_id = getvolunteerid
     puts @activity_report
     if @activity_report.save

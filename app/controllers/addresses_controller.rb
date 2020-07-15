@@ -8,7 +8,7 @@ class AddressesController < PolyController
   end
   	
   def create
-    @child  = @parent.addresses.build(resource_params)
+    @child  = @parent.addresses.create(resource_params)
     super
   end
 
