@@ -38,9 +38,9 @@ class Volunteer < ActiveRecord::Base
   validates :name, :presence => true
   validates :status, :presence => true
   validates :cgdvcode, :presence => true, 
-  			:length => { :maximum => 20},
-			:numericality => true, 
-            :uniqueness => true
+              :length => { :maximum => 20},
+              :numericality => true, 
+              :uniqueness => true
   validates :sex, :presence => true, :length => { :maximum => 5}
   validates :blood, :presence => true, :length => { :maximum => 5}
   validates :birth, :presence => true
