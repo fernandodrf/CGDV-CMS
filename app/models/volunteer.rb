@@ -1,3 +1,19 @@
+# == Schema Information
+#
+# Table name: volunteers
+#
+#  id         :integer          not null, primary key
+#  name       :string(255)
+#  cgdvcode   :integer
+#  sex        :string(255)
+#  blood      :string(255)
+#  status     :integer          default(1)
+#  birth      :date
+#  created_at :datetime         not null
+#  updated_at :datetime         not null
+#  avatar     :string(255)
+#
+
 class Volunteer < ActiveRecord::Base
   has_many :telephones, :as => :telephoneable, :dependent => :destroy
   has_many :addresses, :as => :addresseable, :dependent => :destroy

@@ -1,3 +1,11 @@
+# == Schema Information
+#
+# Table name: catalogo_countries
+#
+#  id      :integer          not null, primary key
+#  country :string(255)
+#
+
 require 'rails_helper'
 
 RSpec.describe CatalogoCountry, type: :model do

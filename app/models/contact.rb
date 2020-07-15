@@ -1,3 +1,16 @@
+# == Schema Information
+#
+# Table name: contacts
+#
+#  id         :integer          not null, primary key
+#  name       :string(255)
+#  company    :string(255)
+#  position   :string(255)
+#  birth      :date
+#  created_at :datetime         not null
+#  updated_at :datetime         not null
+#
+
 class Contact < ActiveRecord::Base
   has_many :telephones, :as => :telephoneable, :dependent => :destroy
   has_many :addresses, :as => :addresseable, :dependent => :destroy

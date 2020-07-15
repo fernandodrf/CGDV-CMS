@@ -1,3 +1,21 @@
+# == Schema Information
+#
+# Table name: addresses
+#
+#  id                :integer          not null, primary key
+#  place             :string(255)
+#  estado            :string(255)
+#  municipio         :string(255)
+#  colonia           :string(255)
+#  domicilio         :string(255)
+#  created_at        :datetime         not null
+#  updated_at        :datetime         not null
+#  addresseable_id   :integer
+#  addresseable_type :string(255)
+#  country           :integer          default(1)
+#  codigopostal      :string(255)
+#
+
 class Address < ActiveRecord::Base
   belongs_to :addresseable, :polymorphic => true
 

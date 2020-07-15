@@ -1,3 +1,21 @@
+# == Schema Information
+#
+# Table name: socioecos
+#
+#  id               :integer          not null, primary key
+#  ingresos         :integer
+#  gastos           :integer
+#  televisiones     :integer
+#  vehiculos        :integer
+#  nivel            :string(255)
+#  serviciosurbanos :string(255)
+#  televisionpaga   :string(255)
+#  sgmm             :string(255)
+#  patient_id       :integer
+#  created_at       :datetime         not null
+#  updated_at       :datetime         not null
+#
+
 require 'rails_helper'
 
 RSpec.describe Socioeco, type: :model do

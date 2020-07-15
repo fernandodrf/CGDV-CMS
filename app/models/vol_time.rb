@@ -1,3 +1,15 @@
+# == Schema Information
+#
+# Table name: vol_times
+#
+#  id           :integer          not null, primary key
+#  evento       :string(255)
+#  horas        :integer
+#  volunteer_id :integer
+#  created_at   :datetime         not null
+#  updated_at   :datetime         not null
+#
+
 class VolTime < ActiveRecord::Base
   belongs_to :volunteer
   

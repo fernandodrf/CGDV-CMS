@@ -1,3 +1,14 @@
+# == Schema Information
+#
+# Table name: tratamientos
+#
+#  id         :integer          not null, primary key
+#  tipo       :string(255)
+#  patient_id :integer
+#  created_at :datetime         not null
+#  updated_at :datetime         not null
+#
+
 require 'rails_helper'
 
 RSpec.describe Tratamiento, type: :model do

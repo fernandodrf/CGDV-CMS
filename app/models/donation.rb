@@ -1,3 +1,20 @@
+# == Schema Information
+#
+# Table name: donations
+#
+#  id          :integer          not null, primary key
+#  folio       :integer
+#  donor_id    :integer
+#  frecepcion  :date
+#  tipo        :integer
+#  monto       :string(255)
+#  transaccion :string(255)
+#  finalidad   :string(255)
+#  motivo      :integer
+#  created_at  :datetime         not null
+#  updated_at  :datetime         not null
+#
+
 class Donation < ActiveRecord::Base
   belongs_to :donor
   

@@ -1,3 +1,18 @@
+# == Schema Information
+#
+# Table name: family_members
+#
+#  id              :integer          not null, primary key
+#  parentesco      :string(255)
+#  nombre          :string(255)
+#  edad            :integer
+#  derechohabiente :string(255)
+#  comentarios     :string(255)
+#  patient_id      :integer
+#  created_at      :datetime         not null
+#  updated_at      :datetime         not null
+#
+
 class FamilyMember < ActiveRecord::Base
   belongs_to :patient
 

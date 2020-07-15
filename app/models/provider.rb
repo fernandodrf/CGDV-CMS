@@ -1,3 +1,15 @@
+# == Schema Information
+#
+# Table name: providers
+#
+#  id         :integer          not null, primary key
+#  proveedor  :string(255)
+#  cgdvcode   :integer
+#  name       :string(255)
+#  created_at :datetime         not null
+#  updated_at :datetime         not null
+#
+
 class Provider < ActiveRecord::Base
   has_many :telephones, :as => :telephoneable, :dependent => :destroy
   has_many :addresses, :as => :addresseable, :dependent => :destroy

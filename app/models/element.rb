@@ -1,3 +1,17 @@
+# == Schema Information
+#
+# Table name: elements
+#
+#  id          :integer          not null, primary key
+#  codigo      :string(255)
+#  cantidad    :integer
+#  cuota       :decimal(22, 2)
+#  descripcion :string(255)
+#  note_id     :integer
+#  created_at  :datetime         not null
+#  updated_at  :datetime         not null
+#
+
 class Element < ActiveRecord::Base
   belongs_to :note
   

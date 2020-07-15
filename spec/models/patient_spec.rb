@@ -1,8 +1,26 @@
+# == Schema Information
+#
+# Table name: patients
+#
+#  id         :integer          not null, primary key
+#  name       :string(255)
+#  cgdvcode   :integer
+#  created_at :datetime         not null
+#  updated_at :datetime         not null
+#  sex        :string(255)
+#  birthdate  :date
+#  blod       :string(255)
+#  status     :integer          default(1)
+#  fdefuncion :date
+#  faviso     :date
+#  montocon   :string(255)
+#
+
 require 'rails_helper'
 
 RSpec.describe Patient, :type => :model do
 
-it "has a valid factory" do
+  it "has a valid factory" do
     expect(FactoryBot.build(:patient)).to be_valid
     # puts "Patient: #{patient.inspect}"
   end

@@ -1,3 +1,13 @@
+# == Schema Information
+#
+# Table name: catalogo_derechohabientes
+#
+#  id         :integer          not null, primary key
+#  seguro     :string(255)
+#  created_at :datetime         not null
+#  updated_at :datetime         not null
+#
+
 require 'rails_helper'
 
 RSpec.describe CatalogoDerechohabiente, type: :model do

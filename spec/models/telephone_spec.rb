@@ -1,3 +1,16 @@
+# == Schema Information
+#
+# Table name: telephones
+#
+#  id                 :integer          not null, primary key
+#  place              :string(255)
+#  number             :string(255)
+#  created_at         :datetime         not null
+#  updated_at         :datetime         not null
+#  telephoneable_id   :integer
+#  telephoneable_type :string(255)
+#
+
 require 'rails_helper'
 
 RSpec.describe Telephone, type: :model do

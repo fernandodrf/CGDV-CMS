@@ -1,3 +1,17 @@
+# == Schema Information
+#
+# Table name: timereports
+#
+#  id           :integer          not null, primary key
+#  day          :date
+#  begin        :time
+#  end          :time
+#  volunteer_id :integer
+#  created_at   :datetime         not null
+#  updated_at   :datetime         not null
+#  evento       :string(255)
+#
+
 class Timereport < ActiveRecord::Base
   belongs_to :volunteer
 

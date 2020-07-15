@@ -1,3 +1,16 @@
+# == Schema Information
+#
+# Table name: addinfos
+#
+#  id                  :integer          not null, primary key
+#  tipo                :integer
+#  info                :string(255)
+#  addinformation_id   :integer
+#  addinformation_type :string(255)
+#  created_at          :datetime         not null
+#  updated_at          :datetime         not null
+#
+
 require 'rails_helper'
 
 RSpec.describe Addinfo, type: :model do

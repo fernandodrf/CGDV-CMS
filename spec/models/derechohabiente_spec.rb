@@ -1,3 +1,15 @@
+# == Schema Information
+#
+# Table name: derechohabientes
+#
+#  id         :integer          not null, primary key
+#  seguro     :string(255)
+#  afiliacion :string(255)
+#  patient_id :integer
+#  created_at :datetime         not null
+#  updated_at :datetime         not null
+#
+
 require 'rails_helper'
 
 RSpec.describe Derechohabiente, type: :model do

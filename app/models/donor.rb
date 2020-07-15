@@ -1,3 +1,17 @@
+# == Schema Information
+#
+# Table name: donors
+#
+#  id         :integer          not null, primary key
+#  cgdvcode   :integer
+#  persona    :integer
+#  name       :string(255)
+#  rfc        :string(255)
+#  birth      :date
+#  created_at :datetime         not null
+#  updated_at :datetime         not null
+#
+
 class Donor < ActiveRecord::Base
   has_many :telephones, :as => :telephoneable, :dependent => :destroy
   has_many :addresses, :as => :addresseable, :dependent => :destroy

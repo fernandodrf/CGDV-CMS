@@ -1,3 +1,16 @@
+# == Schema Information
+#
+# Table name: dailyschedules
+#
+#  id           :integer          not null, primary key
+#  begin        :time
+#  end          :time
+#  volunteer_id :integer
+#  created_at   :datetime         not null
+#  updated_at   :datetime         not null
+#  day          :integer
+#
+
 class Dailyschedule < ActiveRecord::Base
   belongs_to :volunteer
   
