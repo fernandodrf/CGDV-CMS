@@ -51,7 +51,7 @@ class VolunteersController < ApplicationController
   end
   
   def create
-  	@volunteer = Volunteer.new(params[:volunteer])
+  	@volunteer = Volunteer.create(resource_params)
   	if @volunteer.save
   	  flash[:success] = t('flash.success.create', :model => Volunteer.to_s)
   	  redirect_to @volunteer
@@ -64,7 +64,7 @@ class VolunteersController < ApplicationController
   
   def update
     @volunteer = Volunteer.find(params[:id])
-    if @volunteer.update_attributes(params[:volunteer])
+    if @volunteer.update_attributes(resource_params)
       flash[:success] = t('flash.success.edit', :model => Volunteer.to_s)
       redirect_to @volunteer
     else

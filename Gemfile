@@ -45,6 +45,7 @@ gem "nested_form"#, :git => "git://github.com/ryanb/nested_form.git"
 gem "rails-jquery-autocomplete"
 
 gem "carrierwave", "~> 1.3.1"
+# !! Instalar ImageMagick or GraphicsMagick 
 gem 'mini_magick'#, '~> 3.3'
 
 #Evento Calendar
