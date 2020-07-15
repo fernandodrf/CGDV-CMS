@@ -9,7 +9,7 @@
 //
 // WARNING: THE FIRST BLANK LINE MARKS THE END OF WHAT'S TO BE PROCESSED, ANY BLANK LINE SHOULD
 // GO AFTER THE REQUIRES BELOW.
-// Read Sprockets README (https://github.com/sstephenson/sprockets#sprockets-directives) for details
+// Read Sprockets README (https://github.com/rails/sprockets#sprockets-directives) for details
 // about supported directives.
 
 //= require jquery
