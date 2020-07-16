@@ -1,6 +1,6 @@
 # This file is copied to spec/ when you run 'rails generate rspec:install'
-require 'spec_helper'
 ENV['RAILS_ENV'] ||= 'test'
+require 'spec_helper'
 
 require File.expand_path('../config/environment', __dir__)
 
@@ -9,6 +9,8 @@ abort("The Rails environment is running in production mode!") if Rails.env.produ
 require 'rspec/rails'
 # Add additional requires below this line. Rails is not loaded until this point!
 require 'capybara/rspec'
+require 'capybara/email/rspec'
+
 require 'capybara-screenshot/rspec'
 # Better looking HTML capypara-screenshot
 # https://github.com/mattheworiordan/capybara-screenshot#better-looking-html-screenshots
@@ -61,12 +63,10 @@ RSpec.configure do |config|
   # config.filter_gems_from_backtrace("gem name")
   
   # Use Devise test helpers in tests
-  # Use the following instead if you are on Devise <= 4.1.1
-  config.include Devise::TestHelpers, :type => :controller
   # Devise > 4.1.1
-  # config.include Devise::Test::ControllerHelpers, type: :controller
-  # config.include Devise::Test::ControllerHelpers, type: :view
-  # config.include Devise::Test::IntegrationHelpers, type: :system
+  config.include Devise::Test::ControllerHelpers, type: :controller
+  config.include Devise::Test::ControllerHelpers, type: :view
+  config.include Devise::Test::IntegrationHelpers, type: :feature
   
   # Shoulda Matchers
   Shoulda::Matchers.configure do |config|

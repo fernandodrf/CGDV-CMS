@@ -30,16 +30,16 @@ RSpec.feature "Users", :users => true, type: :feature do
         manual_sign_in(user.email,second_user.password)
         aggregate_failures do
           expect(page).to have_content I18n.t('devise.sessions.new.sign_in')
-          expect(page).to have_content I18n.t('devise.failure.invalid', :authentication_keys => "Email")          
+          expect(page).to have_content I18n.t('devise.failure.invalid', :authentication_keys => "Correo electrónico")
         end
       end
     end
     context "guest/unregistered user" do
       scenario "is unable to sign in, gets ambiguous error message" do
-        manual_sign_in(Faker::Internet.email,Faker::Internet.password)
+        manual_sign_in(Faker::Internet.email,Faker::Internet.password(min_length: 6, max_length: 20))
         aggregate_failures do
           expect(page).to have_content I18n.t('devise.sessions.new.sign_in')
-          expect(page).to have_content I18n.t('devise.failure.not_found_in_database', :authentication_keys => "Email")
+          expect(page).to have_content I18n.t('devise.failure.not_found_in_database', :authentication_keys => "Correo electrónico")
         end
       end
     end
@@ -51,9 +51,8 @@ RSpec.feature "Users", :users => true, type: :feature do
       expect(page).not_to have_content I18n.t('devise.registrations.new.sign_up')
     end
     scenario "admin user is able to create new user succesfully" do
-      @pass = Faker::Internet.password
-      # sign_in user_admin
-      mysign_in(user_admin.email,user_admin.password)
+      @pass = Faker::Internet.password(min_length: 6, max_length: 20)
+      sign_in user_admin
       visit new_user_path
       # expect(page).to have_content I18n.t('user.new')
       expect(page).to have_content("Crear User")
@@ -99,48 +98,41 @@ RSpec.feature "Users", :users => true, type: :feature do
     end
   end
 
-  #FIXME: Not working with Devise 1.4
-  # Not so important
-  xit "is able to track users sign-in count", :trackable => true do
+  it "is able to track users sign-in count", :trackable => true do
     visit root_path
     initial_count = user.sign_in_count
-    # FIXME: Not working on Devise 1.4
-    # sign_in user
-    # Work-around to make test work
-    mysign_in(user.email,user.password)
+    sign_in user
     visit root_path
-    # FIXME: Not working on Devise 1.4
-    # sign_out user
-    mysign_out
-    puts "user count: #{initial_count}"
+    sign_out user
+    # puts "user count: #{initial_count}"
     final_count = user.sign_in_count
-    puts "user count: #{final_count}"
+    # puts "user count: #{final_count}"
     expect(final_count - initial_count).to eq(1)
   end
 
   #FIXME: Has to be corrected, to many errors
-  #FIXME: Install capybara-email
-  xit "performs password recovery (creates a new password)", :passrec => true do
+  it "performs password recovery (creates a new password)", :passrec => true do
     visit new_user_session_path
     # FIXME: Correct when installing Devise i18n
     # expect(page).to have_content I18n.t('devise.passwords.new.forgot_your_password')
     # click_link I18n.t('devise.passwords.new.forgot_your_password')
-    expect(page).to have_content I18n.t('devise.passwords.link')
-    click_link I18n.t('devise.passwords.link')
-    expect(page).to have_button I18n.t('devise.passwords.new.send_me_reset_password_instructions')
+    expect(page).to have_content('¿Olvidaste tu Contraseña?')
+    click_link('¿Olvidaste tu Contraseña?')
+    expect(page).to have_button('Enviarme correo electronico para cambiar mi contraseña') # I18n.t('devise.passwords.new.send_me_reset_password_instructions')
     fill_in I18n.t('activerecord.attributes.user.email'), with: user.email
-    click_button I18n.t('devise.passwords.new.send_me_reset_password_instructions')
+    click_button('Enviarme correo electronico para cambiar mi contraseña') # I18n.t('devise.passwords.new.send_me_reset_password_instructions')
     expect(page).to have_text I18n.t('devise.passwords.send_instructions')
     # Find email sent to the given recipient and set the current_email variable
     # try capybara-email
     # https://github.com/DavyJonesLocker/capybara-email
     open_email(user.email)
-    expect(current_email.subject).to eq I18n.t('devise.mailer.reset_password_instructions.subject')
-    current_email.click_link I18n.t('devise.mailer.reset_password_instructions.action')
+    expect(current_email.subject).to eq('Instrucciones de recuperación de contraseña') # I18n.t('devise.mailer.reset_password_instructions.subject')
+    screenshot_and_save_page
+    current_email.click_link('Cambiar mi Contraseña') # I18n.t('devise.mailer.reset_password_instructions.action')
 
-    fill_in I18n.t('devise.passwords.edit.new_password'), with: valid_attributes[:password]
-    fill_in I18n.t('devise.passwords.edit.confirm_new_password'), with: valid_attributes[:password]
-    click_button I18n.t('devise.passwords.edit.confirm_new_password')
+    fill_in 'user_password', with: valid_attributes[:password] # I18n.t('devise.passwords.edit.new_password')
+    fill_in 'user_password_confirmation', with: valid_attributes[:password] # I18n.t('devise.passwords.edit.confirm_new_password')
+    click_button('Cambiar tu Contraseña') # I18n.t('devise.passwords.edit.confirm_new_password')
     expect(page).to have_text I18n.t('devise.passwords.updated')
     expect(page).to have_current_path "/"
     # TODO: to test this set "config.send_password_change_notification = true" in initilizers/devise.rb
@@ -150,16 +142,11 @@ RSpec.feature "Users", :users => true, type: :feature do
   end
 
   describe "normal user", :normaluser => true do
-    # FIXME: Work around because Devise helper does not work
     before do
-      go_to_page(I18n.t('session.login'))
-      mysign_in(user.email,user.password)
+      sign_in user
       visit root_path
     end
     it "should not see the Users option in the navbar but only his/her name and logout link" do
-      # FIXME: Not working on Devise 1.4
-      # sign_in user
-      # Work-around to make test work
       expect(page).not_to have_content I18n.t('header.users')
       expect(page).to have_content "#{I18n.t('user.name')}: #{user.name}"
     end
@@ -330,7 +317,7 @@ RSpec.feature "Users", :users => true, type: :feature do
     #FIXME: No existe liga para que el usuario vea su perfil y cambie el password
     # si la cuenta no esta ligada a un voluntario
     xit "should be able to change its own password and sign_in again" do
-      @pass = Faker::Internet.password
+      @pass = Faker::Internet.password(min_length: 6, max_length: 20)
       # FIXME: Not working on Devise 1.4
       # sign_in user
       # Work-around to make test work

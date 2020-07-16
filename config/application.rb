@@ -13,7 +13,12 @@ module Cgdv
  
 	# Version of your assets, change this if you want to expire all your assets
 	config.assets.version = '1.0'
- 
+
+    # ! Remove in Rails > 5.0
+    # For not swallow errors in after_commit/after_rollback callbacks.
+    # config.active_record.errors_in_transactional_callbacks = true
+    config.active_record.raise_in_transactional_callbacks = true
+
 	# Change the path that assets are served from
 	# config.assets.prefix = "/assets"
 
@@ -29,9 +34,8 @@ module Cgdv
     # config.i18n.load_path += Dir[Rails.root.join('my', 'locales', '*.{rb,yml}').to_s]
     # CONFIGS in: initializers locale.rb
 
-
-    # JavaScript files you want as :defaults (application.js is always included).
-    # config.action_view.javascript_expansions[:defaults] = %w(jquery rails)
+    # Do not swallow errors in after_commit/after_rollback callbacks.
+    config.active_record.raise_in_transactional_callbacks = true
 
     # ---- Rspec config for testing ----
     config.generators do |g|

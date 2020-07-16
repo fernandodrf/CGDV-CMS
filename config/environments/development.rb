@@ -22,26 +22,31 @@ Rails.application.configure do
   #Action Mailer
   config.action_mailer.raise_delivery_errors = true
   config.action_mailer.perform_deliveries = true
-  #config.action_mailer.default_url_options = { :host => ENV["actionmailer_host"] }
-  #config.action_mailer.delivery_method = :smtp
-  #config.action_mailer.smtp_settings = { address: 'localhost', port: 1025 }
-
-  config.action_mailer.default_url_options = { :host => ENV["actionmailer_host"] }
+  config.action_mailer.default_options = { from: 'noreply@mycustomdomain.com' }
+  config.action_mailer.default_url_options = { host: 'localhost' }
   config.action_mailer.delivery_method = :smtp
-  config.action_mailer.smtp_settings = {
-  :address              => ENV["email_server"],
-  :port                 => '465',#25,
-  :tls                  => true,
-  :user_name            => ENV["email_user"],
-  :password             => ENV["email_password"],
-  :authentication       => :login,#:cram_md5,
-  :enable_starttls_auto => true}
-  #:openssl_verify_mode  => 'client_once'}
+  config.action_mailer.smtp_settings = { address: 'localhost', port: 1025 }
+
+  # config.action_mailer.default_url_options = { :host => ENV["actionmailer_host"] }
+  # config.action_mailer.delivery_method = :smtp
+  # config.action_mailer.smtp_settings = {
+  # :address              => ENV["email_server"],
+  # :port                 => '465',#25,
+  # :tls                  => true,
+  # :user_name            => ENV["email_user"],
+  # :password             => ENV["email_password"],
+  # :authentication       => :login,#:cram_md5,
+  # :enable_starttls_auto => true}
+  ##:openssl_verify_mode  => 'client_once'}
 
   # Debug mode disables concatenation and preprocessing of assets.
   # This option may cause significant delays in view rendering with a large
   # number of complex assets.
   config.assets.debug = true
+
+  # Asset digests allow you to set far-future HTTP expiration dates on all assets,
+  # yet still be able to expire them through the digest params.
+  config.assets.digest = true
 
   # Adds additional error checking when serving assets at runtime.
   # Checks for improperly declared sprockets dependencies.

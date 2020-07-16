@@ -44,6 +44,6 @@ RSpec.describe User, :users => true, type: :model do
     # min password size is 8 characters
     it { expect(user).to_not allow_value('').for(:password) }
     pending "increase password min size to 8"
-    it { expect(user).to_not allow_value(Faker::Internet.password(min_length = 4, max_length = 5)).for(:password) }
+    it { expect(user).to_not allow_value(Faker::Internet.password(min_length: 4, max_length: 5)).for(:password) }
   end
 end

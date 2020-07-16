@@ -15,6 +15,9 @@
 #
 
 class Volunteer < ActiveRecord::Base
+  BLOODTYPES = ['NS', 'A+', 'A-', 'B+', 'B-', 'AB+', 'AB-', 'O+', 'O-']
+  STATUS = [['Servicio Social',1],['Voluntario',2]] 
+  
   has_many :telephones, :as => :telephoneable, :dependent => :destroy
   has_many :addresses, :as => :addresseable, :dependent => :destroy
   has_many :addinfos, :as => :addinformation, :dependent => :destroy
@@ -41,14 +44,12 @@ class Volunteer < ActiveRecord::Base
               :length => { :maximum => 20},
               :numericality => true, 
               :uniqueness => true
-  validates :sex, :presence => true, :length => { :maximum => 5}
-  validates :blood, :presence => true, :length => { :maximum => 5}
+  validates :sex, :presence => true, :length => { :maximum => 5 }
+  validates :blood, :presence => true, :length => { :maximum => 5 }, inclusion: { :in => BLOODTYPES }
   validates :birth, :presence => true
   
   mount_uploader :avatar, ImageUploader
 
-  BLOODTYPES = ['NS', 'A+', 'A-', 'B+', 'B-', 'AB+', 'AB-', 'O+', 'O-']
-  STATUS = [['Servicio Social',1],['Voluntario',2]] 
 
   #Tiempo Acumuado
   def ta

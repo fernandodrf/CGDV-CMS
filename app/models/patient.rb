@@ -17,6 +17,8 @@
 #
 
 class Patient < ActiveRecord::Base
+  BLOODTYPES = ['NS', 'A+', 'A-', 'B+', 'B-', 'AB+', 'AB-', 'O+', 'O-']
+  STATUS = [['Activo',1],['Abandono',2],['Reglamentaria',3],['Defuncion',4],['Remision',5],['Acceso Seguridad Social',6]]  
   
   has_many :telephones, :as => :telephoneable, :dependent => :destroy
   has_many :addresses, :as => :addresseable, :dependent => :destroy
@@ -43,10 +45,8 @@ class Patient < ActiveRecord::Base
 			:numericality => true, 
             :uniqueness => true
   validates :sex, :presence => true, :length => { :maximum => 5}
-  validates :blod, :presence => true, :length => { :maximum => 5}
+  validates :blod, presence: true, length: { maximum: 5 }, inclusion: { :in => BLOODTYPES }
   validates :birthdate, :presence => true
   validates :status, :presence => true, :numericality => true
 
-  BLOODTYPES = ['NS', 'A+', 'A-', 'B+', 'B-', 'AB+', 'AB-', 'O+', 'O-']
-  STATUS = [['Activo',1],['Abandono',2],['Reglamentaria',3],['Defuncion',4],['Remision',5],['Acceso Seguridad Social',6]]  
 end
