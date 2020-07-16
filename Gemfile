@@ -96,6 +96,8 @@ group :development, :test do
 end
 
 group :test do
+  gem 'rails-controller-testing' # If you are using Rails 5.x
+  
   # Generate faster factories
   # no dependencies
   gem "faker", "~> 2"
