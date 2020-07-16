@@ -14,7 +14,7 @@
 #  avatar     :string(255)
 #
 
-class Volunteer < ActiveRecord::Base
+class Volunteer < ApplicationRecord
   BLOODTYPES = ['NS', 'A+', 'A-', 'B+', 'B-', 'AB+', 'AB-', 'O+', 'O-']
   STATUS = [['Servicio Social',1],['Voluntario',2]] 
   

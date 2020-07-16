@@ -15,7 +15,7 @@
 #  updated_at  :datetime         not null
 #
 
-class Donation < ActiveRecord::Base
+class Donation < ApplicationRecord
   belongs_to :donor
   
   validates :donor_id, :presence => true

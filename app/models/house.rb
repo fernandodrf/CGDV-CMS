@@ -14,7 +14,7 @@
 #  updated_at       :datetime         not null
 #
 
-class House < ActiveRecord::Base
+class House < ApplicationRecord
   belongs_to :patient
 
   validates :patient_id, :presence => true

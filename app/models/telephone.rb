@@ -11,7 +11,7 @@
 #  telephoneable_type :string(255)
 #
 
-class Telephone < ActiveRecord::Base 
+class Telephone < ApplicationRecord 
   belongs_to :telephoneable, :polymorphic => true
 
   validates :place, :presence => true, :length => { :maximum => 50 }

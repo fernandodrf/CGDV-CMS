@@ -10,7 +10,7 @@
 #  updated_at :datetime         not null
 #
 
-class Provider < ActiveRecord::Base
+class Provider < ApplicationRecord
   has_many :telephones, :as => :telephoneable, :dependent => :destroy
   has_many :addresses, :as => :addresseable, :dependent => :destroy
   has_many :addinfos, :as => :addinformation, :dependent => :destroy

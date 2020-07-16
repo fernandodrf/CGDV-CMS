@@ -10,7 +10,7 @@
 #  updated_at   :datetime         not null
 #
 
-class VolTime < ActiveRecord::Base
+class VolTime < ApplicationRecord
   belongs_to :volunteer
   
   validates :horas, :presence => true, :numericality => true

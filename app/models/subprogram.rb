@@ -27,6 +27,6 @@
 #  apoyocap          :boolean
 #
 
-class Subprogram < ActiveRecord::Base    
+class Subprogram < ApplicationRecord    
   belongs_to :volunteer
 end

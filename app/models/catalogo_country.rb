@@ -6,5 +6,5 @@
 #  country :string(255)
 #
 
-class CatalogoCountry < ActiveRecord::Base
+class CatalogoCountry < ApplicationRecord
 end

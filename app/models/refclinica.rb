@@ -13,7 +13,7 @@
 #  updated_at :datetime         not null
 #
 
-class Refclinica < ActiveRecord::Base
+class Refclinica < ApplicationRecord
   belongs_to :patient
 
   validates :patient_id, :presence => true

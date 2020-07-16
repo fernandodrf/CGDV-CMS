@@ -13,7 +13,7 @@
 #  updated_at      :datetime         not null
 #
 
-class FamilyMember < ActiveRecord::Base
+class FamilyMember < ApplicationRecord
   belongs_to :patient
 
   validates :patient_id, :presence => true

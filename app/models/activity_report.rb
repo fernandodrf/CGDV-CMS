@@ -10,7 +10,7 @@
 #  updated_at   :datetime         not null
 #
 
-class ActivityReport < ActiveRecord::Base
+class ActivityReport < ApplicationRecord
   belongs_to :volunteer
   
   before_create :get_week

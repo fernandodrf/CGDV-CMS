@@ -15,7 +15,7 @@
 #  updated_at :datetime         not null
 #
 
-class Note < ActiveRecord::Base
+class Note < ApplicationRecord
   before_save :check_status
   
   belongs_to :patient

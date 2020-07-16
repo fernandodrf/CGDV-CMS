@@ -10,6 +10,6 @@
 #  updated_at :datetime         not null
 #
 
-class Extradonor < ActiveRecord::Base
+class Extradonor < ApplicationRecord
   belongs_to :donor
 end

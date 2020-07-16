@@ -11,7 +11,7 @@
 #  updated_at :datetime         not null
 #
 
-class Contact < ActiveRecord::Base
+class Contact < ApplicationRecord
   has_many :telephones, :as => :telephoneable, :dependent => :destroy
   has_many :addresses, :as => :addresseable, :dependent => :destroy
   has_many :emails, :as => :emailable, :dependent => :destroy

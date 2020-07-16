@@ -16,7 +16,7 @@
 #  codigopostal      :string(255)
 #
 
-class Address < ActiveRecord::Base
+class Address < ApplicationRecord
   belongs_to :addresseable, :polymorphic => true
 
   validates :addresseable_id, :presence => true

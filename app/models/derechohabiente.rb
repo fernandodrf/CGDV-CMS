@@ -10,7 +10,7 @@
 #  updated_at :datetime         not null
 #
 
-class Derechohabiente < ActiveRecord::Base
+class Derechohabiente < ApplicationRecord
   belongs_to :patient
 
   validates :seguro, :presence => true, :length => { :maximum => 50 }

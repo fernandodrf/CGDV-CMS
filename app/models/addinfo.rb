@@ -11,7 +11,7 @@
 #  updated_at          :datetime         not null
 #
 
-class Addinfo < ActiveRecord::Base 
+class Addinfo < ApplicationRecord 
   belongs_to :addinformation, :polymorphic => true
 
   validates :addinformation_id, :presence => true

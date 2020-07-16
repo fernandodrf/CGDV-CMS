@@ -10,7 +10,7 @@
 #  commentable_type :string(255)
 #
 
-class Comment < ActiveRecord::Base  
+class Comment < ApplicationRecord  
   belongs_to :commentable, :polymorphic => true
   
   validates :commentable_id, :presence => true

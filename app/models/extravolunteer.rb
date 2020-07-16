@@ -9,6 +9,6 @@
 #  updated_at   :datetime         not null
 #
 
-class Extravolunteer < ActiveRecord::Base
+class Extravolunteer < ApplicationRecord
   belongs_to :volunteer
 end

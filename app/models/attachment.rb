@@ -11,7 +11,7 @@
 #  updated_at      :datetime         not null
 #
 
-class Attachment < ActiveRecord::Base
+class Attachment < ApplicationRecord
 	belongs_to :attachable, :polymorphic => true
   
   validates :attachable_id, :presence => true

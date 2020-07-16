@@ -14,6 +14,6 @@
 #  updated_at   :datetime         not null
 #
 
-class Socialservice < ActiveRecord::Base
+class Socialservice < ApplicationRecord
   belongs_to :volunteer
 end

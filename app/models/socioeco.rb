@@ -16,7 +16,7 @@
 #  updated_at       :datetime         not null
 #
 
-class Socioeco < ActiveRecord::Base
+class Socioeco < ApplicationRecord
   belongs_to :patient
 
   validates :patient_id, :presence => true

@@ -11,7 +11,7 @@
 #  datos          :string(255)
 #
 
-class Email < ActiveRecord::Base  
+class Email < ApplicationRecord  
   email_regex = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
   
   belongs_to :emailable, :polymorphic => true

@@ -12,7 +12,7 @@
 #  updated_at  :datetime         not null
 #
 
-class Element < ActiveRecord::Base
+class Element < ApplicationRecord
   belongs_to :note
   
   validates :codigo, :presence => true,:length => { :maximum => 250}

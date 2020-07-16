@@ -9,7 +9,7 @@
 #  updated_at :datetime         not null
 #
 
-class Tratamiento < ActiveRecord::Base 
+class Tratamiento < ApplicationRecord 
   belongs_to :patient
   
   validates :patient_id, :presence => true

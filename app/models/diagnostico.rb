@@ -10,7 +10,7 @@
 #  diagnosticable_type :string(255)
 #
 
-class Diagnostico < ActiveRecord::Base  
+class Diagnostico < ApplicationRecord  
   belongs_to :diagnosticable, :polymorphic => true
   
   validates :diagnostico, :presence => true

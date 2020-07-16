@@ -8,7 +8,7 @@
 #  updated_at :datetime         not null
 #
 
-class CatalogoDerechohabiente < ActiveRecord::Base
+class CatalogoDerechohabiente < ApplicationRecord
 	
   validates :seguro, :presence => true, :length => { :maximum => 50 }
   

@@ -12,7 +12,7 @@
 #  evento       :string(255)
 #
 
-class Timereport < ActiveRecord::Base
+class Timereport < ApplicationRecord
   belongs_to :volunteer
 
   validates :day, :presence => true  

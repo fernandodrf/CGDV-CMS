@@ -8,5 +8,5 @@
 #  updated_at :datetime         not null
 #
 
-class Catestado < ActiveRecord::Base
+class Catestado < ApplicationRecord
 end

@@ -12,7 +12,7 @@
 #  updated_at :datetime         not null
 #
 
-class Donor < ActiveRecord::Base
+class Donor < ApplicationRecord
   has_many :telephones, :as => :telephoneable, :dependent => :destroy
   has_many :addresses, :as => :addresseable, :dependent => :destroy
   has_many :emails, :as => :emailable, :dependent => :destroy

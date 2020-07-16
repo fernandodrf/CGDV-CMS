@@ -8,7 +8,7 @@
 #  updated_at  :datetime         not null
 #
 
-class CatalogoDiagnostico < ActiveRecord::Base
+class CatalogoDiagnostico < ApplicationRecord
 	
   validates :diagnostico, :presence => true
   

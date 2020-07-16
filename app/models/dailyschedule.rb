@@ -11,7 +11,7 @@
 #  day          :integer
 #
 
-class Dailyschedule < ActiveRecord::Base
+class Dailyschedule < ApplicationRecord
   belongs_to :volunteer
   
   validates :begin, :presence => true

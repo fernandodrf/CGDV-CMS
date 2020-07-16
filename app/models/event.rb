@@ -10,6 +10,6 @@
 #  updated_at :datetime         not null
 #
 
-class Event < ActiveRecord::Base
+class Event < ApplicationRecord
   has_event_calendar
 end

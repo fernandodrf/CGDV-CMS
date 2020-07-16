@@ -23,7 +23,7 @@
 #  avatar                 :string(255)
 #
 
-class User < ActiveRecord::Base
+class User < ApplicationRecord
 	
   # Roles de usuarios
   easy_roles :roles
