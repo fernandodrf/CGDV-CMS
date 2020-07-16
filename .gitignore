@@ -10,8 +10,12 @@
 db/*.sqlite3*
 /db/*.sqlite3-journal
 /log/*
+/tmp/*
 !/log/.keep
-/tmp/
+!/tmp/.keep
+# Ignore Byebug command history file.
+.byebug_history
+
 doc/
 *.swp
 *~

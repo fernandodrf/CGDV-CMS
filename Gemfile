@@ -1,12 +1,12 @@
 source 'http://rubygems.org'
 
-gem 'rails', '4.2.11.3'
+gem 'rails', '~> 5.0.7', '>= 5.0.7.2'
 # User authentication
 gem "devise", "~> 4.7"
 # Pagination
 gem "kaminari", "~> 1.2"
 # Search
-gem 'ransack', '~> 1.8'
+gem 'ransack'#, '~> 1.8'
 
 gem 'cancancan'#, '~> 1.17'
 # Use postgresql as the database for Active Record
@@ -17,15 +17,12 @@ gem 'pg', '~> 0.21'
 gem "easy_roles", "~> 1.2.0"
 
 # Use rails-i18n for internacionalization
-gem 'rails-i18n', github: 'svenfuchs/rails-i18n', branch: 'rails-4-x' # For 4.x
+gem 'rails-i18n', github: 'svenfuchs/rails-i18n', branch: 'rails-5-x' # For 5.x
 
 gem 'devise-i18n'
 
-# ---- Rails 4 Upgrade ----
-# gem 'rails4_upgrade', github: 'alindeman/rails4_upgrade'
-# Keep until all runs under Strong Parameters
-# gem 'protected_attributes'
-# ---- Rails 4 Upgrade ----
+# Use Puma as the app server
+gem 'puma', '~> 3.0'
 
 #Secret
 #ENV Vars
@@ -46,7 +43,7 @@ gem "nested_form"
 gem "rails-jquery-autocomplete"
 
 # Update with Rails > 5.0
-gem "carrierwave", "~> 1.3.1"
+gem "carrierwave", "~> 2"
 
 # !! Instalar ImageMagick or GraphicsMagick 
 gem 'mini_magick'#, '~> 3.3'
@@ -64,7 +61,7 @@ gem 'sass-rails', '~> 5.0'
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
 # Use CoffeeScript for .coffee assets and views
-gem 'coffee-rails', '~> 4.1.0'
+gem 'coffee-rails', '~> 4.2'
 
 # See https://github.com/rails/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
@@ -73,10 +70,12 @@ gem 'coffee-rails', '~> 4.1.0'
 gem 'jquery-rails'#, '~> 2.0'
 gem 'jquery-ui-rails'
 
-# Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
-gem 'turbolinks'
+# Turbolinks makes navigating your web application faster. Read more: https://github.com/turbolinks/turbolinks
+gem 'turbolinks', '~> 5'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
-gem 'jbuilder', '~> 2.0'
+gem 'jbuilder', '~> 2.5'
+# Use Redis adapter to run Action Cable in production
+# gem 'redis', '~> 3.0'
 
 # bundle exec rake doc:rails generates the API under doc/api.
 gem 'sdoc', '~> 0.4.0', group: :doc
@@ -84,22 +83,16 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
-# Use Unicorn as the app server
-# gem 'unicorn'
-
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
-     
-group :development, :test do
-# Call 'byebug' anywhere in the code to stop execution and get a debugger console
-  gem 'byebug'
-end
-
 
 # EverydayRailsRspec
 group :development, :test do
-  gem "rspec-rails",  "~> 3.9"
+  gem "rspec-rails",  "~> 4"
   gem "factory_bot_rails",  "~> 5"
+  
+  # Call 'byebug' anywhere in the code to stop execution and get a debugger console
+  gem 'byebug', platform: :mri
 end
 
 group :test do
@@ -124,10 +117,12 @@ end
 
 group :development do
   # Access an IRB console on exception pages or by using <%= console %> in views
-  gem 'web-console', '~> 2.0'
+  gem 'web-console', '>= 3.3.0'
+  gem 'listen', '~> 3.0.5'
 
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
+  gem 'spring-watcher-listen', '~> 2.0.0'
   gem 'spring-commands-rspec'
   
   #  activerecord <= 4.3, >= 3.2 
@@ -135,3 +130,5 @@ group :development do
   # gem "nifty-generators", "~> 0.4.6"
 end
 
+# Windows does not include zoneinfo files, so bundle the tzinfo-data gem
+gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
