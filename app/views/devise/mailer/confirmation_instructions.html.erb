@@ -1,5 +1,5 @@
-<p>Hola <%= @resource.email %>!</p>
+<p><%= t('.greeting', recipient: @email) %></p>
 
-<p>Puede confirmar tu cuenta a través del siguiente enlace:</p>
+<p><%= t('.instruction') %></p>
 
-<p><%= link_to 'Confirmar mi cuenta', confirmation_url(@resource, :confirmation_token => @token) %></p>
+<p><%= link_to t('.action'), confirmation_url(@resource, confirmation_token: @token) %></p>

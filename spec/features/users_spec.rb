@@ -113,26 +113,21 @@ RSpec.feature "Users", :users => true, type: :feature do
   #FIXME: Has to be corrected, to many errors
   it "performs password recovery (creates a new password)", :passrec => true do
     visit new_user_session_path
-    # FIXME: Correct when installing Devise i18n
-    # expect(page).to have_content I18n.t('devise.passwords.new.forgot_your_password')
-    # click_link I18n.t('devise.passwords.new.forgot_your_password')
-    expect(page).to have_content('¿Olvidaste tu Contraseña?')
-    click_link('¿Olvidaste tu Contraseña?')
-    expect(page).to have_button('Enviarme correo electronico para cambiar mi contraseña') # I18n.t('devise.passwords.new.send_me_reset_password_instructions')
+    expect(page).to have_content I18n.t('devise.passwords.new.forgot_your_password')
+    click_link I18n.t('devise.passwords.new.forgot_your_password')
+    expect(page).to have_button I18n.t('devise.passwords.new.send_me_reset_password_instructions')
     fill_in I18n.t('activerecord.attributes.user.email'), with: user.email
-    click_button('Enviarme correo electronico para cambiar mi contraseña') # I18n.t('devise.passwords.new.send_me_reset_password_instructions')
+    click_button I18n.t('devise.passwords.new.send_me_reset_password_instructions')
     expect(page).to have_text I18n.t('devise.passwords.send_instructions')
     # Find email sent to the given recipient and set the current_email variable
     # try capybara-email
     # https://github.com/DavyJonesLocker/capybara-email
     open_email(user.email)
-    expect(current_email.subject).to eq('Instrucciones de recuperación de contraseña') # I18n.t('devise.mailer.reset_password_instructions.subject')
-    screenshot_and_save_page
-    current_email.click_link('Cambiar mi Contraseña') # I18n.t('devise.mailer.reset_password_instructions.action')
-
+    expect(current_email.subject).to eq I18n.t('devise.mailer.reset_password_instructions.subject')
+    current_email.click_link I18n.t('devise.mailer.reset_password_instructions.action')
     fill_in 'user_password', with: valid_attributes[:password] # I18n.t('devise.passwords.edit.new_password')
     fill_in 'user_password_confirmation', with: valid_attributes[:password] # I18n.t('devise.passwords.edit.confirm_new_password')
-    click_button('Cambiar tu Contraseña') # I18n.t('devise.passwords.edit.confirm_new_password')
+    click_button I18n.t('devise.passwords.edit.change_my_password')
     expect(page).to have_text I18n.t('devise.passwords.updated')
     expect(page).to have_current_path "/"
     # TODO: to test this set "config.send_password_change_notification = true" in initilizers/devise.rb
