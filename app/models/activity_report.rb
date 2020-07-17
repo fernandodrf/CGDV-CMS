@@ -16,15 +16,11 @@ class ActivityReport < ApplicationRecord
   before_create :get_week
   before_create :set_week
 
-  has_many :comments, :as => :commentable, :dependent => :destroy
+  has_many :comments, as: :commentable, dependent: :destroy
 
-  validates :volunteer_id, :presence => true
-  #Para contar que tenga minimo 1 y maximo 750 palabras
-  validates :reporte, :presence => true, :length => {
-    :minimum   => 1,
-    :maximum   => 750,
-    :tokenizer => lambda { |str| str.scan(/\w+/) }
-  }
+  validates :volunteer_id, presence: true
+  #FIXME: Contar que tenga minimo 1 y maximo 750 palabras
+  validates :reporte, presence: true, length: { minimum: 1 }
   
   private
 
