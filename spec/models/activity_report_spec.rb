@@ -32,6 +32,9 @@ RSpec.describe ActivityReport, type: :model do
     it { is_expected.to_not allow_value('').for(:volunteer_id) }
     it { is_expected.to allow_value(Faker::Lorem.paragraph(sentence_count: 10)).for(:reporte) }
     pending "contar maximo 750 palabras"
+    pending "validar con set_week"
+    pending "validar con get_week"
+    pending "validar que ya hay reporte esa semana"
   end
 
   describe "Associations" do
