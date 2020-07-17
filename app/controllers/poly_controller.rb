@@ -1,6 +1,6 @@
 class PolyController < ApplicationController
- before_filter :authenticate_user!
- before_filter :find_parent
+ before_action :authenticate_user!
+ before_action :find_parent
 
   def new
   	@title = t('helpers.submit.create', :model => @child.class.to_s)

@@ -1,12 +1,12 @@
 class PatientsController < ApplicationController
   include ApplicationHelper
   load_and_authorize_resource	
-  before_filter :authenticate_user!
-  before_filter :load_info, :only => [:show, :print]
-  before_filter :check_status, :only => :update
+  before_action :authenticate_user!
+  before_action :load_info, :only => [:show, :print]
+  before_action :check_status, :only => :update
       
   def index
-  	@search = Patient.search(params[:q])
+  	@search = Patient.ransack(params[:q])
   	@title = t('patient.index')
   	@patients = @search.result.order('cgdvcode DESC').page(params[:page])
   end
@@ -16,7 +16,7 @@ class PatientsController < ApplicationController
   
   def notas
   	@patient = Patient.find(params[:id])
-  	@search = @patient.notes.search(params[:q])
+  	@search = @patient.notes.ransack(params[:q])
   	@notes = @search.result.order('folio DESC').page(params[:page]).per(10)
   end
   

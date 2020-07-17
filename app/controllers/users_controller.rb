@@ -1,11 +1,11 @@
 class UsersController < ApplicationController
   load_and_authorize_resource
   # Added show protection in this case, only the user can see its profile.
-  before_filter :authenticate_user!, :only => [:new, :create, :index, :show, :edit, :update]
-  before_filter :correct_user, :only => [:show, :edit, :update]
-  before_filter :admin_user,   :only => [:new, :create, :index, :destroy]
+  before_action :authenticate_user!, :only => [:new, :create, :index, :show, :edit, :update]
+  before_action :correct_user, :only => [:show, :edit, :update]
+  before_action :admin_user,   :only => [:new, :create, :index, :destroy]
   # Para actualizar roles
-  after_filter :update_roles, :only => [:update]
+  after_action :update_roles, :only => [:update]
 
   def index
     @title = t('user.index')

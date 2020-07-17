@@ -86,7 +86,7 @@ let (:volunteer) { FactoryBot.create(:volunteer) }
   it "is succesfully saved when name, cgdvcode, sex, blood, birthdate and status are present" do
     volunteer = FactoryBot.build(:volunteer)
     volunteer.save
-    puts "Volunteer: #{volunteer.inspect}"
+    # puts "Volunteer: #{volunteer.inspect}"
     expect(volunteer).to be_valid
   end
 

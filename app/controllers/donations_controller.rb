@@ -1,9 +1,9 @@
 class DonationsController < ApplicationController
   load_and_authorize_resource	
-  before_filter :authenticate_user!
+  before_action :authenticate_user!
   
   def index
-  	@search = Donation.search(params[:q])
+  	@search = Donation.ransack(params[:q])
   	@title = t('donation2.index')
   	@donations = @search.result.order('folio DESC').page(params[:page]).per(10)  	
   end

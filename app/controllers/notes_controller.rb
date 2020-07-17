@@ -1,9 +1,9 @@
 class NotesController < ApplicationController
   load_and_authorize_resource	
-  before_filter :authenticate_user!
+  before_action :authenticate_user!
       
   def index
-  	@search = Note.search(params[:q])
+  	@search = Note.ransack(params[:q])
   	@title = t('note.index')
   	@notes = @search.result.order('folio DESC').page(params[:page]).per(10)
   end

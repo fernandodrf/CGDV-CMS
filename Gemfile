@@ -102,7 +102,6 @@ group :test do
   # no dependencies
   gem "faker", "~> 2"
   # Great to generate fast specs
-  # until rails 4.1
   gem 'shoulda-matchers', '~> 4'
   # depends on rspec
   gem "capybara"#, "~> 2.15.2"

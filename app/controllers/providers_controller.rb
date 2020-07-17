@@ -1,10 +1,10 @@
 class ProvidersController < ApplicationController
   load_and_authorize_resource
-  before_filter :authenticate_user!
-  before_filter :load_info, :only => :show
+  before_action :authenticate_user!
+  before_action :load_info, :only => :show
 
   def index
-  	@search = Provider.search(params[:q])
+  	@search = Provider.ransack(params[:q])
   	@title = t('provider.index')
   	@providers = @search.result.order('cgdvcode DESC').page(params[:page]).per(10)
   end

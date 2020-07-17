@@ -1,10 +1,10 @@
 class ContactsController < ApplicationController
   load_and_authorize_resource
-  before_filter :authenticate_user!
-  before_filter :load_info, :only => :show
+  before_action :authenticate_user!
+  before_action :load_info, :only => :show
 
   def index
-  	@search = Contact.search(params[:q])
+  	@search = Contact.ransack(params[:q])
   	@title = t('contact.index')
   	@contacts = @search.result.order('created_at DESC').page(params[:page]).per(10)
   end

@@ -1,10 +1,10 @@
 class DonorsController < ApplicationController
   load_and_authorize_resource
-  before_filter :authenticate_user!
-  before_filter :load_info, :only => :show
+  before_action :authenticate_user!
+  before_action :load_info, :only => :show
 
   def index
-  	@search = Donor.search(params[:q])
+  	@search = Donor.ransack(params[:q])
   	@title = t('donation.index')
   	@donors = @search.result.order('cgdvcode DESC').page(params[:page]).per(15)
   end

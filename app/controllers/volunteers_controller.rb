@@ -1,11 +1,11 @@
 class VolunteersController < ApplicationController
   load_and_authorize_resource
-  before_filter :authenticate_user!
-  before_filter :load_info, :only => :show
-  before_filter :check_status, :only => :update
+  before_action :authenticate_user!
+  before_action :load_info, :only => :show
+  before_action :check_status, :only => :update
 
   def index
-  	@search = Volunteer.search(params[:q])
+  	@search = Volunteer.ransack(params[:q])
   	@title = t('volunteer.index')
   	@volunteers = @search.result.order('cgdvcode DESC').page(params[:page]).per(15)
   end

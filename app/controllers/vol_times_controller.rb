@@ -1,9 +1,9 @@
 class VolTimesController < ApplicationController
   load_and_authorize_resource
-  before_filter :authenticate_user!
+  before_action :authenticate_user!
   
   def index
-  	@search = VolTime.search(params[:q])
+  	@search = VolTime.ransack(params[:q])
   	@title = t('header.timereport')
   	@voltimes = @search.result.order('created_at DESC').page(params[:page]).per(15)
   end

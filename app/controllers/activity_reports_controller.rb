@@ -1,15 +1,15 @@
 class ActivityReportsController < ApplicationController
   load_and_authorize_resource
-  before_filter :authenticate_user!	
+  before_action :authenticate_user!	
 
   def index
   	@activity_reports = []
   	if !current_user.volunteer_id.nil?
   	  if current_user.admin?
-  	  	@search = ActivityReport.search(params[:q])
+  	  	@search = ActivityReport.ransack(params[:q])
   	  	@activity_reports = @search.result.order('semana DESC').page(params[:page]).per(10)
   	  else
-  	  	@search = ActivityReport.where(:volunteer_id => current_user.volunteer_id).search(params[:q])
+  	  	@search = ActivityReport.where(:volunteer_id => current_user.volunteer_id).ransack(params[:q])
   	  	@activity_reports = @search.result.order('semana DESC').page(params[:page]).per(10)
   	  	if @activity_reports.nil?
   	  	  @activity_reports = []
