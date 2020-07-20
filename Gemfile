@@ -1,7 +1,7 @@
 source 'http://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-ruby '>= 2.3.0'
+ruby '>= 2.7.1'
 
 gem 'rails', '~> 5.2.4', '>= 5.2.4.3'
 # User authentication
@@ -84,7 +84,7 @@ gem 'jbuilder', '~> 2.5'
 # gem 'redis', '~> 4.0'
 
 # bundle exec rake doc:rails generates the API under doc/api.
-gem 'sdoc', '~> 0.4.0', group: :doc
+gem 'sdoc', '~> 1.1', group: :doc
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
