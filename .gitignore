@@ -14,6 +14,9 @@ db/*.sqlite3*
 !/log/.keep
 !/tmp/.keep
 
+# Ignore master key
+config/master.key
+
 # Ignore uploaded files in development
 /storage/*
 !/storage/.keep
