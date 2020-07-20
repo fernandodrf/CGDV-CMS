@@ -1,10 +1,13 @@
 require 'rails_helper'
 
-RSpec.describe "Patients", :patients => true, type: :feature do
-  let(:user) { FactoryBot.create(:user, :normal) }
+RSpec.describe "Patients", :patients => true, type: :system do
+  # Lazy loading of upper model
+  let (:volunteer) { FactoryBot.create(:volunteer, :vol) }
+
+  let(:user) { FactoryBot.create(:user, :normal, volunteer_id: volunteer.id) }
   let(:valid_attributes) { FactoryBot.attributes_for(:user) }
-  let(:second_user) { FactoryBot.create(:user, :normal) }
-  let(:user_admin) { FactoryBot.create(:user, :admin) }
+  let(:second_user) { FactoryBot.create(:user, :normal, volunteer_id: volunteer.id) }
+  let(:user_admin) { FactoryBot.create(:user, :admin, volunteer_id: volunteer.id) }
 
   describe "users with admin or oficina role" do
     before do

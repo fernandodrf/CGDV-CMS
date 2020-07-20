@@ -4,6 +4,6 @@ RSpec.configure do |config|
   end
   config.before(:each, type: :system, js: true) do
     # it could be  :selenium_chrome_headless but it does not works on WSL
-    driven_by :selenium_headless
+    driven_by :selenium_chrome_headless
   end
 end

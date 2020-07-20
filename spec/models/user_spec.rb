@@ -26,19 +26,22 @@
 require 'rails_helper'
 
 RSpec.describe User, :users => true, type: :model do
+  # Lazy loading of upper model
+  let (:volunteer) { FactoryBot.create(:volunteer, :vol) }
+
   it "has a valid factory" do
-    user = FactoryBot.build(:user)
+    user = FactoryBot.build(:user, volunteer_id: volunteer.id)
     expect(user).to be_valid
-#     puts "User: #{user.inspect}"
+    # puts "User: #{user.inspect}"
   end
   
-  let (:user) { FactoryBot.create(:user) }
+  let (:user) { FactoryBot.create(:user, volunteer_id: volunteer.id) }
   describe "ActiveModel Validations" do
     it { is_expected.to validate_presence_of :email }
     it { is_expected.to validate_presence_of :password }
+    it { is_expected.to validate_presence_of :volunteer_id }
     
-    # FIXME
-    xit { is_expected.to validate_uniqueness_of(:email).ignoring_case_sensitivity }
+    it { is_expected.to validate_uniqueness_of(:email).ignoring_case_sensitivity }
     
     it { expect(user).to allow_value(Faker::Internet.email).for(:email) }
     # min password size is 8 characters

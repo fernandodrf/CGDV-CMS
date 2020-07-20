@@ -84,7 +84,7 @@ class UsersController < ApplicationController
 
     # Paramaters that can be changed in the web forms
     def resource_params
-      params.require(:user).permit(:name, :password, :password_confirmation, :email, :avatar, :avatar_cache, :remove_avatar)
+      params.require(:user).permit(:name, :password, :password_confirmation, :email, :avatar, :avatar_cache, :remove_avatar, :volunteer_id)
     end
     
     #This method was modified to be overriden by admins.

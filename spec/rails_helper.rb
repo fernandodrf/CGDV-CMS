@@ -11,10 +11,10 @@ require 'rspec/rails'
 require 'capybara/rspec'
 require 'capybara/email/rspec'
 
-require 'capybara-screenshot/rspec'
+# require 'capybara-screenshot/rspec'
 # Better looking HTML capypara-screenshot
 # https://github.com/mattheworiordan/capybara-screenshot#better-looking-html-screenshots
-Capybara.asset_host = 'http://localhost:3000'
+# Capybara.asset_host = 'http://localhost:3000'
 
 # Requires supporting ruby files with custom matchers and macros, etc, in
 # spec/support/ and its subdirectories. Files matching `spec/**/*_spec.rb` are
@@ -66,7 +66,7 @@ RSpec.configure do |config|
   # Devise > 4.1.1
   config.include Devise::Test::ControllerHelpers, type: :controller
   config.include Devise::Test::ControllerHelpers, type: :view
-  config.include Devise::Test::IntegrationHelpers, type: :feature
+  config.include Devise::Test::IntegrationHelpers, type: :system
   
   # Shoulda Matchers
   Shoulda::Matchers.configure do |config|

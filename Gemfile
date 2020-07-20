@@ -112,8 +112,8 @@ group :test do
   gem "capybara"#, "~> 2.15.2"
   gem 'capybara-email'
   #  capybara >= 1.0, < 4 
-  gem 'capybara-screenshot', '~> 1.0.24'
-  # gem 'webdrivers'
+  # gem 'capybara-screenshot', '~> 1.0.24'
+  gem 'webdrivers'
   # no deps
   gem "launchy"#, "~> 2.2.0"
 

@@ -1,11 +1,13 @@
 require 'rails_helper'
 
-RSpec.feature "Users", :users => true, type: :feature do
+RSpec.feature "Users", :users => true, type: :system do
+  # Lazy loading of upper model
+  let (:volunteer) { FactoryBot.create(:volunteer, :vol) }
 
-  let(:user) { FactoryBot.create(:user, :normal) }
+  let(:user) { FactoryBot.create(:user, :normal, volunteer_id: volunteer.id) }
   let(:valid_attributes) { FactoryBot.attributes_for(:user) }
-  let(:second_user) { FactoryBot.create(:user, :normal) }
-  let(:user_admin) { FactoryBot.create(:user, :admin) }
+  let(:second_user) { FactoryBot.create(:user, :normal, volunteer_id: volunteer.id) }
+  let(:user_admin) { FactoryBot.create(:user, :admin, volunteer_id: volunteer.id) }
 
   it "users are able to see the landing page" do
     visit root_path
@@ -45,12 +47,15 @@ RSpec.feature "Users", :users => true, type: :feature do
     end
   end
 
-  describe "create new user process", :createuser => true do
+  describe "create new user process" do
     scenario "guest user should not be able to find link for sign-up (create new user)" do
       go_to_page(I18n.t('session.login'))
       expect(page).not_to have_content I18n.t('devise.registrations.new.sign_up')
     end
-    scenario "admin user is able to create new user succesfully" do
+    scenario "admin user is able to create new user succesfully", :createuser => true do
+      @vol1 = FactoryBot.create(:volunteer, :vol)
+      @vol2 = FactoryBot.create(:volunteer, :vol)
+      @vol3 = FactoryBot.create(:volunteer, :vol)
       @pass = Faker::Internet.password(min_length: 6, max_length: 20)
       sign_in user_admin
       visit new_user_path
@@ -62,37 +67,44 @@ RSpec.feature "Users", :users => true, type: :feature do
       # fill_in I18n.t('activerecord.attributes.user.password'), with: @pass
       fill_in I18n.t('user.confirmation'), with: @pass
       # fill_in I18n.t('activerecord.attributes.user.password_confirmation'), with: @pass
+      select @vol1.cgdvcode , from: 'user_volunteer_id'
       click_button 'Sign up' #I18n.t('helpers.create')
       expect(page).to have_content I18n.t('flash.success.create', :model => User.to_s)
       expect(page).to have_content I18n.t('home.title')
     end
     
-    scenario "admin is able to delete users", :deleteuser => true do
-      @user1 = FactoryBot.create(:user, :normal)
-      @admin = FactoryBot.create(:user, :admin)
+    scenario "admin is able to delete users", :deleteuser => true, js: true do
+      @vol1 = FactoryBot.create(:volunteer, :vol)
+      @vol2 = FactoryBot.create(:volunteer, :vol)
+      @user1 = FactoryBot.create(:user, :normal, volunteer_id: @vol1.id)
+      @admin = FactoryBot.create(:user, :admin, volunteer_id: @vol2.id)
       # puts "user count: #{@user1.inspect}"
       # puts "user count: #{@admin.inspect}"
       mysign_in(@admin.email,@admin.password)
       visit users_path
       # DEBUG screenshot
-      # screenshot_and_save_page
+      # take_screenshot
       expect(page).to have_content I18n.t('helpers.delete.msg', count: 2)
       click_link I18n.t('helpers.delete.msg'), href: "/users/#{@user1.id}" 
-      # screenshot_and_save_page
+      # take_screenshot
       expect(page).to have_content I18n.t('flash.success.destroy', :model => User.to_s)
       expect(page).to have_content I18n.t('helpers.delete.msg', count: 1)
     end
 
     # FIXME: Unable to run javascript tests
-    # Upgrade to capybara 3 and webdrivers
-    xscenario "admin users sees delete message before deleting user", js: true do
-      @user = FactoryBot.create(:user, :normal)
-      @admin = FactoryBot.create(:user, :admin)
-      # sign_in @admin
-      mysign_in(@admin.email,@admin.password)
+    xscenario "admin users sees delete message before deleting user", :deleteuser => true, js: true do
+      @vol1 = FactoryBot.create(:volunteer, :vol)
+      @vol2 = FactoryBot.create(:volunteer, :vol)
+      @user = FactoryBot.create(:user, :normal, volunteer_id: @vol1.id)
+      @admin = FactoryBot.create(:user, :admin, volunteer_id: @vol2.id)
+      sign_in @admin
+      # mysign_in(@admin.email,@admin.password)
       visit users_path
+      take_screenshot
       click_link I18n.t('helpers.delete.msg'), match: :first
+      take_screenshot
       expect(page.driver.browser.switch_to.alert.text).to eq(I18n.t('helpers.delete.conf'))
+      take_screenshot
       page.driver.browser.switch_to.alert.accept
       expect(page).to have_content I18n.t('flash.success.destroy', :model => User.to_s)
     end
@@ -309,20 +321,19 @@ RSpec.feature "Users", :users => true, type: :feature do
       end
     end 
 
-    #FIXME: No existe liga para que el usuario vea su perfil y cambie el password
-    # si la cuenta no esta ligada a un voluntario
-    xit "should be able to change its own password and sign_in again" do
+    #FIXME: No existe manera de que cambien su contraseña!
+    it "should be able to change its own password and sign_in again", current: true do
+      user.add_role!('ss')
+      puts "User: #{user.inspect}"
       @pass = Faker::Internet.password(min_length: 6, max_length: 20)
-      # FIXME: Not working on Devise 1.4
-      # sign_in user
-      # Work-around to make test work
-      mysign_in(user.email,user.password)
+      sign_in user
       visit root_path
       expect(page).to have_content "#{I18n.t('user.name')}: #{user.name}"
-      click_link "#{I18n.t('user.name')}: #{user.name}"
-      expect(page).to have_content I18n.t('user.name')
-      click_link I18n.t('helpers.edit')
-      expect(page).to have_content I18n.t('user.edit')
+      save_page
+      click_link 'Opciones' # "#{I18n.t('user.name')}: #{user.name}"
+      # expect(page).to have_content I18n.t('user.name')
+      # click_link I18n.t('helpers.edit')
+      # expect(page).to have_content I18n.t('user.edit')
       fill_in I18n.t('activerecord.attributes.user.password'), with: @pass
       fill_in I18n.t('activerecord.attributes.user.password_confirmation'), with: @pass
       click_button I18n.t('helpers.edit')

@@ -39,6 +39,8 @@ class User < ApplicationRecord
   # :token_authenticatable, :encryptable, :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable, :recoverable, :rememberable, :trackable, :timeoutable, :validatable
   
+  validates :volunteer_id, presence: true
+
   belongs_to :volunteer
   
   mount_uploader :avatar, ImageUploader

@@ -1,7 +1,9 @@
 require 'rails_helper'
 
-RSpec.feature "Volunteers", type: :feature do
-  let(:user) { FactoryBot.create(:user, :admin) }
+RSpec.feature "Volunteers", type: :system do
+  # Lazy loading of upper model
+  let (:volunteer) { FactoryBot.create(:volunteer, :vol) }
+  let(:user) { FactoryBot.create(:user, :admin, volunteer_id: volunteer.id) }
   # let(:valid_attributes) { FactoryBot.attributes_for(:user) }
 
   describe "users with admin or oficina role" do
