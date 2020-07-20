@@ -26,7 +26,7 @@
 class User < ApplicationRecord
 	
   # Roles de usuarios
-  easy_roles :roles
+  slow_your_roles :roles
   # ---- Roles activos ----
   # 1. ss = Servicio Social
   # 2. oficina = Oficina

@@ -20,9 +20,9 @@ gem 'travis'
 # For Roles, use with CanCan
 # FIXME: Migrate to Rolify
 # gem "easy_roles", "~> 1.2.0"
-gem 'easy_roles', git: 'https://github.com/aarona/easy_roles.git'
+# gem 'easy_roles', git: 'https://github.com/aarona/easy_roles.git'
 # Requires Rails >= 6.0
-# gem "slow_your_roles"
+gem "slow_your_roles"
 
 # Use rails-i18n for internacionalization
 gem 'rails-i18n', '~> 6.0.0'
