@@ -6,23 +6,29 @@
 
 
 .sass-cache/
+
+# Ignore bundler config.
 .bundle
+
+# Ignore the default SQLite database.
 db/*.sqlite3*
 /db/*.sqlite3-journal
+/db/*.sqlite3-*
+
+ # Ignore all logfiles and tempfiles.
 /log/*
 /tmp/*
 !/log/.keep
 !/tmp/.keep
 
-# Ignore master key
-config/master.key
+# Ignore pidfiles, but keep the directory.
+/tmp/pids/*
+!/tmp/pids/
+!/tmp/pids/.keep
 
 # Ignore uploaded files in development
 /storage/*
 !/storage/.keep
-
-/node_modules
-/yarn-error.log
 
 .byebug_history
 
@@ -41,10 +47,10 @@ attachments/
 # Ignore application configuration
 /config/application.yml
 
-# Ignore thin configuration
-/config/thin.yml
-
 /config/Letsencrypt-IMPORTANT-NOTES.txt
 
 # SimpleCov
 coverage
+
+# Ignore master key for decrypting credentials and more.
+/config/master.key
