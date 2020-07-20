@@ -15,6 +15,8 @@ gem 'cancancan'#, '~> 1.17'
 # Use postgresql as the database for Active Record
 gem 'pg', '>= 0.18', '< 2.0'
 
+gem 'travis'
+
 # For Roles, use with CanCan
 # FIXME: Migrate to Rolify
 # gem "easy_roles", "~> 1.2.0"
