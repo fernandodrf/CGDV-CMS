@@ -2,7 +2,7 @@ language: ruby
 cache:
   - bundler
 rvm:
-- 2.7.1
+  - 2.7.1
 gemfile:
   - Gemfile
 services:
@@ -10,9 +10,9 @@ services:
 addons:
   postresql: "9.5"
 before_script:
- — bundle install
- — bundle exec rake db:create
- — bundle exec rake db:schema:load
+ - bundle install
+ - bundle exec rake db:create
+ - bundle exec rake db:schema:load
  - bundle exec rake db:seed
 script:
- — bundle exec rspec
+ - bundle exec rspec
