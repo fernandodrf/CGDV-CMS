@@ -3,9 +3,15 @@ require 'rails_helper'
 RSpec.describe UsersController, :users => true, type: :controller do
   render_views
   
-  let(:user) { FactoryBot.create(:user, :normal) }
-  let(:second_user) { FactoryBot.create(:user, :normal) }
-  let(:user_admin) { FactoryBot.create(:user, :admin) }
+  # Lazy loading of upper model
+  let (:vol1) { FactoryBot.create(:volunteer, :vol) }
+  let (:vol2) { FactoryBot.create(:volunteer, :vol) }
+  let (:vol3) { FactoryBot.create(:volunteer, :vol) }
+
+  let(:user) { FactoryBot.create(:user, :normal, volunteer_id: vol1.id) }
+  let(:valid_attributes) { FactoryBot.attributes_for(:user) }
+  let(:second_user) { FactoryBot.create(:user, :normal, volunteer_id: vol2.id) }
+  let(:user_admin) { FactoryBot.create(:user, :admin, volunteer_id: vol3.id) }
   
   it { is_expected.to use_before_action(:authenticate_user!) }
   pending "specs for flash messages"
@@ -29,10 +35,10 @@ RSpec.describe UsersController, :users => true, type: :controller do
           sign_in user_admin
           get :index
         end
-        # FIXME
-        xit { should route(:get, '/users').to(action: :index) }
-        xit { is_expected.to render_template('index') }  
-        xit { is_expected.to respond_with(200) }
+
+        it { should route(:get, '/users').to(action: :index) }
+        it { is_expected.to render_template('index') }  
+        it { is_expected.to respond_with(200) }
       end   
       context "as normal user" do
         before(:each) do
@@ -49,10 +55,9 @@ RSpec.describe UsersController, :users => true, type: :controller do
         get :index
       end
       it { is_expected.to respond_with(302) }
-      # FIXME
-      xit { is_expected.to redirect_to "/d/users/sign_in" }
+      it { is_expected.to redirect_to "/" }
       #it "redirects to the sign-in page" do
-      #  expect(response).to redirect_to "/d/users/sign_in"
+      #  expect(response).to redirect_to "/"
       #end
     end
   end
@@ -69,19 +74,17 @@ RSpec.describe UsersController, :users => true, type: :controller do
           get :show, params: { id: user_admin.id }
         end
         context "own profile" do
-          # FIXME
-          xit { should route(:get, "/users/#{user_admin.id}").to(action: :show, id: user_admin.id) }
-          xit { is_expected.to render_template('show') }
-          xit { is_expected.to respond_with(200) }
+          it { should route(:get, "/users/#{user_admin.id}").to(action: :show, id: user_admin.id) }
+          it { is_expected.to render_template('show') }
+          it { is_expected.to respond_with(200) }
         end
         context "other user profile" do
           before(:each) do
             get :show, params: { id: second_user.id }
           end
-          # FIXME
-          xit { should route(:get, "/users/#{second_user.id}").to(action: :show, id: second_user.id) }
-          xit { is_expected.to render_template('show') } 
-          xit { is_expected.to respond_with(200) }
+          it { should route(:get, "/users/#{second_user.id}").to(action: :show, id: second_user.id) }
+          it { is_expected.to render_template('show') } 
+          it { is_expected.to respond_with(200) }
         end
       end
       context "normal user" do
@@ -90,8 +93,8 @@ RSpec.describe UsersController, :users => true, type: :controller do
           get :show, params: { id: user.id }
         end
         context "own profile" do
+          it { should route(:get, "/users/#{user.id}").to(action: :show, id: user.id) }
           # FIXME
-          xit { should route(:get, "/users/#{user.id}").to(action: :show, id: user.id) }
           xit { is_expected.to render_template('show') }  
           xit { is_expected.to respond_with(200) }
         end
@@ -99,9 +102,8 @@ RSpec.describe UsersController, :users => true, type: :controller do
           before(:each) do
             get :show, params: { id: second_user.id }
           end
-          # FIXME
-          xit { is_expected.to redirect_to('/') } 
-          xit { is_expected.to respond_with(302) }
+          it { is_expected.to redirect_to('/') } 
+          it { is_expected.to respond_with(302) }
         end
       end
     end
@@ -109,9 +111,8 @@ RSpec.describe UsersController, :users => true, type: :controller do
       before(:each) do
         get :show, params: { id: user.id }
       end
-      # FIXME
-      xit { is_expected.to respond_with(302) }
-      xit { is_expected.to redirect_to "/d/users/sign_in" }
+      it { is_expected.to respond_with(302) }
+      it { is_expected.to redirect_to "/" }
     end
   end  
 
@@ -126,10 +127,9 @@ RSpec.describe UsersController, :users => true, type: :controller do
           sign_in user_admin
           get :new
         end
-        # FIXME
-        xit { is_expected.to route(:get, "/users/new").to(action: :new) }
-        xit { is_expected.to render_template('new') }
-        xit { is_expected.to respond_with(200) }
+        it { is_expected.to route(:get, "/users/new").to(action: :new) }
+        it { is_expected.to render_template('new') }
+        it { is_expected.to respond_with(200) }
       end
       context "normal user" do
         before(:each) do
@@ -146,8 +146,7 @@ RSpec.describe UsersController, :users => true, type: :controller do
         get :new
       end
       it { is_expected.to respond_with(302) }
-      # FIXME
-      xit { is_expected.to redirect_to "/d/users/sign_in" }
+      it { is_expected.to redirect_to "/" }
     end
   end
 
@@ -164,20 +163,18 @@ RSpec.describe UsersController, :users => true, type: :controller do
           post :create, params: @params 
         end
         # FIXME
-        xit { is_expected.to route(:post, "/users").to(action: :create) }
-        xit do
+        it { is_expected.to route(:post, "/users").to(action: :create) }
+        it do
           should permit(:name, :password, :email).
             for(:create, params: @params )
         end
-        # FIXME
-        xit { is_expected.to render_template('new') }
+        it { is_expected.to render_template('new') }
         pending "set flash"
-        # FIXME
-        xit { is_expected.to respond_with(200) }
+        it { is_expected.to respond_with(200) }
       end
       context "normal user" do
         before(:each) do
-          @params = { user: { name: second_user.name, email: second_user.email, password: second_user.password } }
+          @params = { user: { name: second_user.name, email: second_user.email, password: second_user.password, volunteer_id: second_user.volunteer_id } }
           sign_in user
           post :create, params: @params 
         end
@@ -208,19 +205,18 @@ RSpec.describe UsersController, :users => true, type: :controller do
            sign_in user
            get :edit, params: { id: user.id }
           end
+          it { should route(:get, "/users/#{user.id}/edit").to(action: :edit, id: user.id) }
+          it { is_expected.to respond_with(302) }
           # FIXME
-          xit { should route(:get, "/users/#{user.id}/edit").to(action: :edit, id: user.id) }
           xit { is_expected.to render_template('edit') }
-          xit { is_expected.to respond_with(200) }
         end
         context "other profiles" do
           before(:each) do
            sign_in user
            get :edit, params: { id: second_user.id }
           end
-          # FIXME
-          xit { is_expected.to redirect_to('/') }
-          xit { is_expected.to respond_with(302) }
+          it { is_expected.to redirect_to('/') }
+          it { is_expected.to respond_with(302) }
         end
       end
     end
@@ -228,9 +224,8 @@ RSpec.describe UsersController, :users => true, type: :controller do
       before(:each) do
         get :edit, params: { id: user.id }
       end
-      # FIXME
-      xit { is_expected.to respond_with(302) }
-      xit { is_expected.to redirect_to "/d/users/sign_in" }
+      it { is_expected.to respond_with(302) }
+      it { is_expected.to redirect_to "/" }
     end
   end
 
@@ -245,17 +240,14 @@ RSpec.describe UsersController, :users => true, type: :controller do
           sign_in user_admin
           patch :update, params: { id: second_user.id, user: @params }
         end
-        # FIXME
-        xit { is_expected.to route(:patch, "/users/#{second_user.id}").to(action: :update, id: second_user.id) }
-        xit do
+        it { is_expected.to route(:patch, "/users/#{second_user.id}").to(action: :update, id: second_user.id) }
+        it do
           should permit(:name, :password, :email).
             for(:create, params: @params )
         end
-        # FIXME
-        xit { is_expected.to redirect_to("/users/#{second_user.id}") }
+        it { is_expected.to redirect_to("/users/#{second_user.id}") }
         pending "set flash"
-        # FIXME
-        xit { is_expected.to respond_with(302) }
+        it { is_expected.to respond_with(302) }
       end
     end
     context "normal user" do
@@ -264,18 +256,16 @@ RSpec.describe UsersController, :users => true, type: :controller do
         sign_in user
         patch :update, params: { id: second_user.id, user: @params }
       end  
-      # FIXME
-      xit { is_expected.to redirect_to("/") }
-      xit { is_expected.to respond_with(302) }
+      it { is_expected.to redirect_to("/") }
+      it { is_expected.to respond_with(302) }
     end
     context "as guest" do
       before(:each) do 
         @params = { user: { name: second_user.name, email: second_user.email, password: second_user.password } }
         patch :update, params: { id: second_user.id, user: @params }
       end 
-      # FIXME
-      xit { is_expected.to respond_with(302) }
-      xit { is_expected.to redirect_to "/d/users/sign_in" }
+      it { is_expected.to respond_with(302) }
+      it { is_expected.to redirect_to "/" }
     end
   end
 
@@ -293,7 +283,7 @@ RSpec.describe UsersController, :users => true, type: :controller do
           end
           pending "validate the users logs out"
           # FIXME
-          xit "user count should decrement by 1" do
+          it "user count should decrement by 1" do
             expect{
               delete :destroy, params: { id: user_admin.id }
               }.to change(User, :count).by(-1)
@@ -305,8 +295,8 @@ RSpec.describe UsersController, :users => true, type: :controller do
             delete :destroy, params: { id: second_user.id }
           end          
           # FIXME
-          xit { is_expected.to redirect_to("/users") }
-          xit { is_expected.to respond_with(302) }
+          it { is_expected.to redirect_to("/users") }
+          it { is_expected.to respond_with(302) }
         end
       end
       context "normal user" do
@@ -315,8 +305,8 @@ RSpec.describe UsersController, :users => true, type: :controller do
           delete :destroy, params: { id: user.id }
         end  
         # FIXME
-        xit { is_expected.to redirect_to("/") }
-        xit { is_expected.to respond_with(302) }
+        it { is_expected.to redirect_to("/") }
+        it { is_expected.to respond_with(302) }
       end
     end
     context "as guest" do
@@ -325,8 +315,8 @@ RSpec.describe UsersController, :users => true, type: :controller do
         patch :update, params: { id: second_user.id, user: @params }
       end 
       # FIXME
-      xit { is_expected.to respond_with(302) }
-      xit { is_expected.to redirect_to "/d/users/sign_in" }
+      it { is_expected.to respond_with(302) }
+      it { is_expected.to redirect_to "/" }
     end
   end
 end
