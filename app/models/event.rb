@@ -11,5 +11,4 @@
 #
 
 class Event < ApplicationRecord
-  has_event_calendar
 end

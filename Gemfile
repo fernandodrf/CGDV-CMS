@@ -36,12 +36,6 @@ gem 'puma', '~> 4.1'
 #ENV Vars
 gem "figaro"
 
-# USING RSPEC DEPRECATED
-#New Relic Monitoring
-#gem 'newrelic_rpm'
-# For ruby 2.3
-# gem 'test-unit', '~> 3.0'
-
 # FIXME: Needs to go eventually
 gem "nested_form"
 
@@ -54,9 +48,6 @@ gem "carrierwave", "~> 2"
 gem 'mini_magick'#, '~> 3.3'
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
-
-#Evento Calendar
-gem 'event-calendar', :require => 'event_calendar'
 
 # Maintenance Mode
 gem 'turnout'
