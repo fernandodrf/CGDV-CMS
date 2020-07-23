@@ -12,11 +12,11 @@
 // Read Sprockets README (https://github.com/rails/sprockets#sprockets-directives) for details
 // about supported directives.
 
+//= require jquery
+//= require jquery-ui
 //= require rails-ujs
 //= require activestorage
 //= require turbolinks
-//= require jquery-ui
-//= require autocomplete-rails
 //= require jquery_nested_form
 //= require jquery.textareaCounter.plugin
 //= require_self
