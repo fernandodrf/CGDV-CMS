@@ -39,7 +39,7 @@ class AttachmentsController < PolyController
   private
 
     def attachment_params
-      params.require(:attachment).permit(:name, :fileattachment, :remove_fileattachment)
+      params.require(:attachment).permit(:name, :fileattachment, :fileattachment_cache, :remove_fileattachment)
     end
   
 end

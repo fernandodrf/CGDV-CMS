@@ -39,8 +39,10 @@ doc/
 .DS_Store
 *.csv
 
+# Temps for attachments
 uploads/tmp
 
+# Attachments
 imagenes_expedientes/
 attachments/
 
@@ -54,3 +56,8 @@ coverage
 
 # Ignore master key for decrypting credentials and more.
 /config/master.key
+
+# Ignore local SSL certs
+openssl
+local.crt
+local.key
