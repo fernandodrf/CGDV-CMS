@@ -54,6 +54,8 @@ RSpec.describe "Patients", :patients => true, type: :system do
       # take_screenshot 
       # screenshot_and_save_page
     end
+    pending "create sub-modules"
+    pending "create attachments"
   end
 
 

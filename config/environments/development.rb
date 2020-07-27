@@ -6,6 +6,9 @@ Rails.application.configure do
   # since you don't have to restart the webserver when you make code changes.
   config.cache_classes = false
 
+  # Force SSL on devel enviroment
+  config.force_ssl = true
+  
   # Do not eager load code on boot.
   config.eager_load = false
 
