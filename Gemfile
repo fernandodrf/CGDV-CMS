@@ -32,10 +32,6 @@ gem 'devise-i18n'
 # Use Puma as the app server
 gem 'puma', '~> 4.1'
 
-#Secret
-#ENV Vars
-gem "figaro"
-
 # FIXME: Needs to go eventually
 gem "nested_form"
 
@@ -44,7 +40,7 @@ gem "rails-jquery-autocomplete"
 # Update with Rails > 5.0
 gem "carrierwave", "~> 2"
 
-# !! Instalar ImageMagick or GraphicsMagick 
+# !! Instalar ImageMagick or GraphicsMagick
 gem 'mini_magick'#, '~> 3.3'
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
@@ -88,14 +84,14 @@ gem 'bootsnap', '>= 1.4.2', require: false
 group :development, :test do
   gem "rspec-rails",  "~> 4"
   gem "factory_bot_rails"#,  "~> 5"
-  
+
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
 end
 
 group :test do
   gem 'rails-controller-testing' # If you are using Rails 5.x
-  
+
   # Generate faster factories
   # no dependencies
   gem "faker", "~> 2"
@@ -104,7 +100,7 @@ group :test do
   # depends on rspec
   gem "capybara"#, "~> 2.15.2"
   gem 'capybara-email'
-  #  capybara >= 1.0, < 4 
+  #  capybara >= 1.0, < 4
   # gem 'capybara-screenshot', '~> 1.0.24'
   gem 'webdrivers'
   # no deps
@@ -123,8 +119,8 @@ group :development do
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
   gem 'spring-commands-rspec'
-  
-  #  activerecord <= 4.3, >= 3.2 
+
+  #  activerecord <= 4.3, >= 3.2
   gem 'annotate'#, '~> 2.6'
   # gem "nifty-generators", "~> 0.4.6"
 end

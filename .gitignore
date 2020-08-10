@@ -46,16 +46,14 @@ uploads/tmp
 imagenes_expedientes/
 attachments/
 
-# Ignore application configuration
+# Ignore application credentials
 /config/application.yml
-
-/config/Letsencrypt-IMPORTANT-NOTES.txt
+/config/credentials.yml.enc
+# Ignore master key for decrypting credentials and more.
+/config/master.key
 
 # SimpleCov
 coverage
-
-# Ignore master key for decrypting credentials and more.
-/config/master.key
 
 # Ignore local SSL certs
 openssl

@@ -4,16 +4,16 @@ development:
   encoding: unicode
   database: cgdv_development
   pool: 5
-  username: <%= ENV["db_username"] %>
-  password: <%= ENV["db_password"] %>
+  username: <%= Rails.application.credentials.db_username %>
+  password: <%= Rails.application.credentials.db_password %>
 
 test:
   adapter: postgresql
   encoding: unicode
   database: cgdv_test
   pool: 5
-  username: <%= ENV["db_username"] %>
-  password: <%= ENV["db_password"] %>
+  username: <%= Rails.application.credentials.db_username %>
+  password: <%= Rails.application.credentials.db_password %>
 
 # Localhost
 production:
@@ -21,5 +21,5 @@ production:
   encoding: unicode
   database: cgdv_production
   pool: 5
-  username: <%= ENV["db_username"] %>
-  password: <%= ENV["db_password"] %>
+  username: <%= Rails.application.credentials.db_username %>
+  password: <%= Rails.application.credentials.db_password %>
