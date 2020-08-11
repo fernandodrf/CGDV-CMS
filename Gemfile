@@ -38,6 +38,7 @@ gem "nested_form"
 gem "rails-jquery-autocomplete"
 
 # Update with Rails > 5.0
+# Still a good alternative to ActiveStorage
 gem "carrierwave", "~> 2"
 
 # !! Instalar ImageMagick or GraphicsMagick
@@ -78,7 +79,7 @@ gem 'sdoc', '~> 1.1', group: :doc
 # gem 'bcrypt', '~> 3.1.7'
 
 # Reduces boot times through caching; required in config/boot.rb
-gem 'bootsnap', '>= 1.4.2', require: false
+gem 'bootsnap', '>= 1.4.7', require: false
 
 # EverydayRailsRspec
 group :development, :test do
