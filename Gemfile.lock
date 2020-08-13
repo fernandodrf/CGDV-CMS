@@ -88,13 +88,6 @@ GEM
       mimemagic (>= 0.3.0)
       mini_mime (>= 0.1.3)
     childprocess (3.0.0)
-    coffee-rails (5.0.0)
-      coffee-script (>= 2.2.0)
-      railties (>= 5.2.0)
-    coffee-script (2.4.1)
-      coffee-script-source
-      execjs
-    coffee-script-source (1.12.2)
     concurrent-ruby (1.1.7)
     connection_pool (2.2.3)
     crass (1.0.6)
@@ -111,7 +104,6 @@ GEM
     erubi (1.9.0)
     ethon (0.12.0)
       ffi (>= 1.3.0)
-    execjs (2.7.0)
     factory_bot (6.1.0)
       activesupport (>= 5.0.0)
     factory_bot_rails (6.1.0)
@@ -141,12 +133,6 @@ GEM
       ruby-vips (>= 2.0.17, < 3)
     jbuilder (2.10.0)
       activesupport (>= 5.0.0)
-    jquery-rails (4.4.0)
-      rails-dom-testing (>= 1, < 3)
-      railties (>= 4.2.0)
-      thor (>= 0.14, < 2.0)
-    jquery-ui-rails (6.0.1)
-      railties (>= 3.2.16)
     json (2.3.1)
     kaminari (1.2.1)
       activesupport (>= 4.1.0)
@@ -201,6 +187,8 @@ GEM
     rack (2.2.3)
     rack-accept (0.4.5)
       rack (>= 0.4)
+    rack-proxy (0.6.5)
+      rack
     rack-test (1.1.0)
       rack (>= 1.0, < 3)
     rails (6.0.3.2)
@@ -230,8 +218,6 @@ GEM
     rails-i18n (6.0.0)
       i18n (>= 0.7, < 2)
       railties (>= 6.0.0, < 7)
-    rails-jquery-autocomplete (1.0.5)
-      rails (>= 3.2)
     railties (6.0.3.2)
       actionpack (= 6.0.3.2)
       activesupport (= 6.0.3.2)
@@ -272,21 +258,12 @@ GEM
     ruby-vips (2.0.17)
       ffi (~> 1.9)
     rubyzip (2.3.0)
-    sass-rails (6.0.0)
-      sassc-rails (~> 2.1, >= 2.1.1)
-    sassc (2.4.0)
-      ffi (~> 1.9)
-    sassc-rails (2.1.2)
-      railties (>= 4.0.0)
-      sassc (>= 2.0)
-      sprockets (> 3.0)
-      sprockets-rails
-      tilt
     sdoc (1.1.0)
       rdoc (>= 5.0)
     selenium-webdriver (3.142.7)
       childprocess (>= 0.5, < 4.0)
       rubyzip (>= 1.2.2)
+    semantic_range (2.3.0)
     shoulda-matchers (4.3.0)
       activesupport (>= 4.2.0)
     simplecov (0.18.5)
@@ -332,8 +309,6 @@ GEM
       ethon (>= 0.8.0)
     tzinfo (1.2.7)
       thread_safe (~> 0.1)
-    uglifier (4.2.0)
-      execjs (>= 0.3.0, < 3)
     warden (1.2.8)
       rack (>= 2.0.6)
     web-console (4.0.4)
@@ -345,6 +320,11 @@ GEM
       nokogiri (~> 1.6)
       rubyzip (>= 1.3.0)
       selenium-webdriver (>= 3.0, < 4.0)
+    webpacker (5.1.1)
+      activesupport (>= 5.2)
+      rack-proxy (>= 0.6.1)
+      railties (>= 5.2)
+      semantic_range (>= 2.3.0)
     websocket (1.2.8)
     websocket-driver (0.7.3)
       websocket-extensions (>= 0.1.0)
@@ -364,14 +344,11 @@ DEPENDENCIES
   capybara
   capybara-email
   carrierwave (~> 2)
-  coffee-rails (~> 5)
   devise (~> 4.7)
   devise-i18n
   factory_bot_rails
   faker (~> 2)
   jbuilder (~> 2.7)
-  jquery-rails
-  jquery-ui-rails
   kaminari
   launchy
   listen (~> 3.2)
@@ -383,10 +360,8 @@ DEPENDENCIES
   rails (~> 6.0.3, >= 6.0.3.2)
   rails-controller-testing
   rails-i18n (~> 6.0.0)
-  rails-jquery-autocomplete
   ransack
   rspec-rails (~> 4)
-  sass-rails (>= 6)
   sdoc (~> 1.1)
   shoulda-matchers
   simplecov
@@ -398,9 +373,9 @@ DEPENDENCIES
   turbolinks (~> 5)
   turnout
   tzinfo-data
-  uglifier (>= 1.3.0)
   web-console (>= 3.3.0)
   webdrivers
+  webpacker (>= 5)
 
 RUBY VERSION
    ruby 2.7.1p83

@@ -8,7 +8,7 @@ Rails.application.configure do
 
   # Force SSL on devel enviroment
   config.force_ssl = true
-  
+
   # Do not eager load code on boot.
   config.eager_load = false
 
@@ -39,15 +39,15 @@ Rails.application.configure do
 
   # Raise an error on page load if there are pending migrations.
   config.active_record.migration_error = :page_load
-  
+
   # Highlight code that triggered database queries in logs.
   config.active_record.verbose_query_logs = true
 
   #Action Mailer
-  
+
   # Don't care if the mailer can't send.
   config.action_mailer.raise_delivery_errors = false
-  
+
   config.action_mailer.perform_caching = false
 
   config.action_mailer.perform_deliveries = true
@@ -78,9 +78,12 @@ Rails.application.configure do
 
   # Raises error for missing translations.
   # config.action_view.raise_on_missing_translations = true
-  
+
   # Use an evented file watcher to asynchronously detect changes in source code,
   # routes, locales, etc. This feature depends on the listen gem.
-  config.file_watcher = ActiveSupport::EventedFileUpdateChecker
-end
+  # config.file_watcher = ActiveSupport::EventedFileUpdateChecker
 
+  # Work with Vagrant VM
+  # uses polling:
+config.file_watcher = ActiveSupport::FileUpdateChecker
+end

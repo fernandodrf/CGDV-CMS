@@ -35,8 +35,6 @@ gem 'puma', '~> 4.1'
 # FIXME: Needs to go eventually
 gem "nested_form"
 
-gem "rails-jquery-autocomplete"
-
 # Update with Rails > 5.0
 # Still a good alternative to ActiveStorage
 gem "carrierwave", "~> 2"
@@ -51,19 +49,8 @@ gem 'turnout'
 # ?? https://nokogiri.org
 gem 'nokogiri'
 
-# Use SCSS for stylesheets
-gem 'sass-rails', '>= 6'
-# Use Uglifier as compressor for JavaScript assets
-gem 'uglifier', '>= 1.3.0'
-# Use CoffeeScript for .coffee assets and views
-gem 'coffee-rails', '~> 5'
-
 # Transpile app-like JavaScript. Read more: https://github.com/rails/webpacker
-# gem 'webpacker', '~> 5'
-
-# Use jquery as the JavaScript library
-gem 'jquery-rails'#, '~> 2.0'
-gem 'jquery-ui-rails'
+gem 'webpacker', '>= 5'
 
 # Turbolinks makes navigating your web application faster. Read more: https://github.com/turbolinks/turbolinks
 gem 'turbolinks', '~> 5'

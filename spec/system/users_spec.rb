@@ -72,7 +72,7 @@ RSpec.feature "Users", :users => true, type: :system do
       expect(page).to have_content I18n.t('flash.success.create', :model => User.to_s)
       expect(page).to have_content I18n.t('home.title')
     end
-    
+
     scenario "admin is able to delete users", :deleteuser => true, js: true do
       @vol1 = FactoryBot.create(:volunteer, :vol)
       @vol2 = FactoryBot.create(:volunteer, :vol)
@@ -85,7 +85,7 @@ RSpec.feature "Users", :users => true, type: :system do
       # DEBUG screenshot
       # take_screenshot
       expect(page).to have_content I18n.t('helpers.delete.msg', count: 2)
-      click_link I18n.t('helpers.delete.msg'), href: "/users/#{@user1.id}" 
+      click_link I18n.t('helpers.delete.msg'), href: "/users/#{@user1.id}"
       # take_screenshot
       expect(page).to have_content I18n.t('flash.success.destroy', :model => User.to_s)
       expect(page).to have_content I18n.t('helpers.delete.msg', count: 1)
@@ -296,13 +296,13 @@ RSpec.feature "Users", :users => true, type: :system do
         expect(page).to have_content I18n.t('header.donor')
         visit donors_path
         expect(page).to have_content I18n.t('donation.index')
-      
+
       end
       xit "manage time reports" do
         # visit vol_times_path
         # visit timereports_path
       end
-    end   
+    end
 
     describe "role managecontact" do
       # FIXME: Find a better way to add roles in fixtures
@@ -319,7 +319,7 @@ RSpec.feature "Users", :users => true, type: :system do
         # visit vol_times_path
         # visit timereports_path
       end
-    end 
+    end
 
     #FIXME: No existe manera de que cambien su contraseña!
     xit "should be able to change its own password and sign_in again", current: true do

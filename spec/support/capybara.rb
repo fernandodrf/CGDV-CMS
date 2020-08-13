@@ -3,7 +3,7 @@ RSpec.configure do |config|
     driven_by :rack_test
   end
   config.before(:each, type: :system, js: true) do
-    # it could be  :selenium_chrome_headless but it does not works on WSL
     driven_by :selenium_headless
+    page.driver.browser.manage.window.resize_to(1280,1280) # to set any window size.
   end
 end

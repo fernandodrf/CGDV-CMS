@@ -1,28 +1,28 @@
 module ApplicationHelper
-  
+
 	# Return title on per-page basis.
   def title
   @base_title = "CGDV"
     if @title.nil?
       @base_title
     else
-	  "#{@base_title} | #{@title}"    	
+	  "#{@base_title} | #{@title}"
     end
   end
-  
+
   def logo
-    image_tag("logo.jpg", :alt => "CGDV",:size => "152x62", :class => "round")
+    image_pack_tag("logo.jpg", :alt => "CGDV",:size => "152x62", :class => "navbar-brand")
   end
-  
+
     def logoprint
-    image_tag("logo.jpg", :alt => "CGDV",:size => "98x40", :class => "round")
+    image_pack_tag("logo.jpg", :alt => "CGDV",:size => "98x40", :class => "round")
   end
- 
+
   def edad(birthdate)
     age = Date.today.year - birthdate.year
     age -= 1 if Date.today < birthdate + age.years #for days before birthdate
     return age
-  end  
+  end
 
   def text_info(id)
     @text_status = Addinfo::ADDINFO[id-1][0]
@@ -35,7 +35,7 @@ module ApplicationHelper
   def text_diag(id)
   	diag = CatalogoDiagnostico.find(id).diagnostico
   end
-  
+
   def text_pais(id)
   	if id == 0
   	  pais = ""
@@ -44,7 +44,7 @@ module ApplicationHelper
   	end
   	return pais
   end
-  
+
   def cgdvcode(note)
     @cgdvcode = note.patient.cgdvcode
   end
@@ -52,11 +52,11 @@ module ApplicationHelper
   def cgdvcode_vol(timereport)
   	@cgdvcode = timereport.volunteer.cgdvcode
   end
-  
+
   def name_vol(timereport)
     @name = timereport.volunteer.name
   end
-	
+
   def name(note)
     @name = note.patient.name
   end
@@ -67,8 +67,8 @@ module ApplicationHelper
     else
       @subtotal = 0
   	end
-  end  
-   
+  end
+
   def pat_status(status)
     @text_status = Patient::STATUS[status-1][0]
   end
@@ -80,25 +80,25 @@ module ApplicationHelper
   def vol_status(status)
     @text_status = Volunteer::STATUS[status-1][0]
   end
-  
+
   def donation_tipo(id)
     @text = Donation::TIPO[id-1][0]
   end
-  
+
   def donation_motivo(id)
     @text = Donation::MOTIVO[id-1][0]
-  end  
+  end
 
   def donor_persona(per)
     @persona = Donor::Persona[per-1][0]
   end
-  
+
   def tiempo_total(timereports)
     hrs = 0
     mins = 0
   	for tr in timereports do
   	  hrs += tr.tiempo_num[0]
-  	  mins += tr.tiempo_num[1] 
+  	  mins += tr.tiempo_num[1]
   	  if mins >= 0.6
   	    hrs += 1
   	    mins -= 0.6
