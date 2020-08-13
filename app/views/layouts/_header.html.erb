@@ -1,67 +1,66 @@
-<nav class="navbar navbar-expand-lg navbar-dark fixed-top bg-dark">
+<nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
   <%= link_to image_pack_tag("logo.png", alt: "CGDV",size: "139x50", class: "navbar-brand", loading: "lazy"), root_path %>
-  <% if signed_in? %>
-    <span class="navbar-text"><%= t('user.name') %>: <%= current_user.name %>, No?</span>
-  <% end %>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
-
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
-      <li class="nav-item"><%= link_to t('header.home'), root_path, class:"nav-link" %></li>
+      <li class="nav-item dropdown">
+        <span class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <% if signed_in? %>
+            <%= current_user.name %>
+            <% else %>
+            Opciones
+          <% end %>
+        </span>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+          <% if signed_in? %>
+          <% if current_user.admin? %>
+          <%= link_to t('header.users'), users_path, class: "dropdown-item" %>
+          <%= link_to t('header.profile'), current_user, class: "dropdown-item" %>
+          <%= link_to t('header.settings'), edit_user_path(current_user), class: "dropdown-item" %>
+          <% end %>
+          <% if signed_in? and can? :trep, Volunteer %>
+          <%# FIXME: Correct this for tests %>
+          <% unless current_user.volunteer.nil? %>
+          <%# Workaround %>
+          <%= link_to "Mis Horas", trep_volunteer_path(current_user.volunteer), class: "dropdown-item" %>
+          <% end %>
+          <% end %>
+          <%= link_to t('session.logout'), destroy_user_session_path, :method => :delete, class: "dropdown-item" %>
+          <% else %>
+          <%= link_to t('session.login'), new_user_session_path, class: "dropdown-item" %>
+          <% end %>
+        </div>
+      </li>
       <% if signed_in? and can? :read, Patient %>
-        <li class="nav-item"><%= link_to t('header.patient'), patients_path, class:"nav-link" %></li>
+        <li class="nav-item"><%= link_to t('header.patient'), patients_path, class:"nav-link" + "#{' active' if params[:controller] == 'patients'}" %></li>
       <% end %>
       <% if signed_in? and can? :read, Note %>
-        <li class="nav-item"><%= link_to t('header.note'), notes_path, class:"nav-link" %></li>
+        <li class="nav-item"><%= link_to t('header.note'), notes_path, class:"nav-link" + "#{' active' if params[:controller] == 'notes'}" %></li>
       <% end %>
       <% if signed_in? and can? :read, Provider %>
-        <li class="nav-item"><%= link_to t('header.provider'), providers_path, class:"nav-link" %></li>
+        <li class="nav-item"><%= link_to t('header.provider'), providers_path, class:"nav-link" + "#{' active' if params[:controller] == 'providers'}" %></li>
       <% end %>
       <% if signed_in? and can? :read, Contact %>
-        <li class="nav-item"><%= link_to t('header.contact'), contacts_path, class:"nav-link" %></li>
+        <li class="nav-item"><%= link_to t('header.contact'), contacts_path, class:"nav-link" + "#{' active' if params[:controller] == 'contacts'}" %></li>
       <% end %>
       <% if signed_in? and can? :read, Volunteer %>
-        <li class="nav-item"><%= link_to t('header.volunteer'), volunteers_path, class:"nav-link" %></li>
+        <li class="nav-item"><%= link_to t('header.volunteer'), volunteers_path, class:"nav-link" + "#{' active' if params[:controller] == 'volunteers'}" %></li>
       <% end %>
       <% if signed_in? and (can? :read, Timereport or can? :read, VolTime) %>
-        <li class="nav-item"><%= link_to t('header.timereport'), times_path, class:"nav-link" %></li>
+        <li class="nav-item"><%= link_to t('header.timereport'), times_path, class:"nav-link" + "#{' active' if params[:controller] == 'timereports'}" %></li>
        <% end %>
       <% if signed_in? and can? :read, ActivityReport %>
-        <li class="nav-item"><%= link_to t('header.actrep'), activity_reports_path, class:"nav-link" %></li>
+        <li class="nav-item"><%= link_to t('header.actrep'), activity_reports_path, class:"nav-link" + "#{' active' if params[:controller] == 'activity_reports'}" %></li>
        <% end %>
       <% if signed_in? and can? :read, Donor %>
-        <li class="nav-item"><%= link_to t('header.donor'), donors_path, class:"nav-link" %></li>
+        <li class="nav-item"><%= link_to t('header.donor'), donors_path, class:"nav-link" + "#{' active' if params[:controller] == 'donors'}" %></li>
       <% end %>
       <% if signed_in? and can? :read, Donation %>
-        <li class="nav-item"><%= link_to t('header.donation'), donations_path, class:"nav-link" %></li>
+        <li class="nav-item"><%= link_to t('header.donation'), donations_path, class:"nav-link" + "#{' active' if params[:controller] == 'donations'}" %></li>
       <% end %>
     </ul>
   </div>
-// Convertir en dropdown
-  <div class="collapse navbar-collapse" id="navbarNav">
-  	<div class="navbar-nav mr-auto">
-      <% if signed_in? %>
-  	    <% if current_user.admin? %>
-          <%= link_to t('header.users'), users_path, class: "nav-link" %>
-          <%= link_to t('header.profile', class: "nav-link"), current_user, class: "nav-link" %>
-          <%= link_to t('header.settings', class: "nav-link"), edit_user_path(current_user), class: "nav-link" %>
-        <% end %>
-      <% if signed_in? and can? :trep, Volunteer %>
-        <%# FIXME: Correct this for tests %>
-        <% unless current_user.volunteer.nil? %>
-          <%# Workaround %>
-          <%= link_to "Mis Horas", trep_volunteer_path(current_user.volunteer), class: "nav-link" %>
-      <% end %>
-  	  <% end %>
-      <%= link_to t('session.logout'), destroy_user_session_path, :method => :delete, class: "nav-link active" %>
-      <% else %>
-      <%= link_to t('session.login'), new_user_session_path, class: "nav-link active" %>
-      <% end %>
-  	</div>
-  </div>
+
 </nav>

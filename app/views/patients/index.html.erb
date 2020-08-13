@@ -1,7 +1,7 @@
 <h1><%= t('patient.index') %></h1>
-<h6><%= link_to t('helpers.submit.create', :model => "Nuevo Paciente"), new_patient_path %></h6><br />
+<h6><%= link_to t('helpers.submit.create', model: "Nuevo Paciente"), new_patient_path, class: "btn btn-primary" %></h6><br />
 <%= search_form_for @search, :url => patients_path, :html => {:method => :get} do |f| %>
-  <h6><%= t('search.title') %></h6>	
+  <h6><%= t('search.title') %></h6>
   <%= f.label :name_cont, t('search.name') %>
   <%= f.text_field :name_cont %>
   <%= f.label :cgdvcode_eq, t('search.cgdvcode') %>
@@ -10,15 +10,22 @@
 <% end %>
 <strong><%= t('search.sort') %>	</strong>
 <%= paginate @patients %>
-<table>
-	<tr>
-	  <td><strong><%= sort_link @search, :cgdvcode, t('patient.cgdvcode'), :default_order => :desc %></strong></td>
-	  <td><strong><%= sort_link @search, :name, t('patient.name'), :default_order => :desc %></strong></td>
-	  <td class="smally"><strong><%= sort_link @search, :created_at, t('all.created_at'), :default_order => :desc %></strong></td>
-	  <td><strong><%= sort_link @search, :status, "Estatus" %></strong></td>
-	  <td><strong><%= t('header.notas') %></strong></td>
-    </tr>
-	<%= render @patients %>
-</table>
-
+<div class="table-responsive">
+  <table class="table table-hover">
+  	<thead>
+      <tr>
+  	    <th scope="col"><%= sort_link @search, :cgdvcode, t('patient.cgdvcode'), :default_order => :desc %></th>
+  	    <th scope="col"><%= sort_link @search, :name, t('patient.name'), :default_order => :desc %></th>
+  	    <th scope="col"><%= sort_link @search, :created_at, t('all.created_at'), :default_order => :desc %></th>
+  	    <th scope="col"><%= sort_link @search, :status, t('patient.status') %></th>
+  	    <th scope="col"><%= t('header.notas') %></th>
+        <th scope="col"></th>
+        <th scope="col"></th>
+      </tr>
+    </thead>
+    <tbody>
+  	   <%= render @patients %>
+    <tbody>
+  </table>
+</div>
 <%= paginate @patients %>

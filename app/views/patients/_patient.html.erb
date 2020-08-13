@@ -1,13 +1,11 @@
 <tr>
-  <td><%= link_to "#{patient.cgdvcode}", patient %></td>
+  <th scope="row"><%= link_to "#{patient.cgdvcode}", patient %></th>
   <td><%= link_to "#{patient.name}", patient %></td>
   <td><%= l patient.created_at, :format => :small %></td>
   <td><%= pat_status(patient.status) %></td>
-  <td class="smally"><%= link_to "#{t('header.note')}: #{patient.notes.count}", notas_patient_path(patient) %></td>
-  <td class="smally"><%= link_to t('helpers.print'), print_patient_path(patient) %></td>
+  <td><%= link_to "#{t('header.note')}: #{patient.notes.count}", notas_patient_path(patient) %></td>
+  <td><%= link_to t('helpers.print'), print_patient_path(patient) %></td>
   <% if can? :destroy, @patient %>
-  <td class="smally"><%= link_to t('helpers.delete.msg'), patient, :method => :delete, :confirm => t('helpers.delete.conf'), :title => "#{t('helpers.delete.msg')} #{patient.name}" %></td>
+  <td><%= link_to t('helpers.delete.msg'), patient, :method => :delete, :confirm => t('helpers.delete.conf'), :title => "#{t('helpers.delete.msg')} #{patient.name}" %></td>
   <% end %>
 </tr>
-
-
