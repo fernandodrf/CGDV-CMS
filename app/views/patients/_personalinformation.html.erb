@@ -1,29 +1,62 @@
-<table>
-  <tr>
-  	<th colspan=3><%= t('patient.info') %></th>
-  </tr>
-  <tr>
-    <td colspan=3><strong><%= link_to t('helpers.submit.update', :model => "Datos Principales"), edit_patient_path(@patient) %></strong></td>
-  </tr>
-  <tr>
-  	<td colspan=3><%= t('patient.status') %>: <%= pat_status(@patient.status) %></td>
-  </tr>
-  <tr>
-  	<td><%= t('patient.cgdvcode') %>: <%= @patient.cgdvcode %></td>
-  	<td colspan=2><%= t('all.created_at') %>: <%= l @patient.created_at, :format => :small %></td>
-  </tr>
-  <tr><td colspan=3><%= t('patient.name') %>: <%= @patient.name %></td></tr>
-  <tr>
-    <td><%= t('patient.blod') %>: <%= @patient.blod %></td>
-    <td><%= t('patient.sex') %>: <%= @patient.sex %></td>
-    <td><%= t('patient.age') %>: <%= t('datetime.distance_in_words.x_years', :count => edad(@patient.birthdate)) %></td>
-  </tr>
-  <tr><td colspan=3><%= t('patient.birthdate') %>: <%= l @patient.birthdate, :format => :long %></td></tr>
-  <% if @patient.status == 4 and !@patient.fdefuncion.nil? and !@patient.faviso.nil? and !@patient.montocon.nil? %>
-  <tr>
-    <td><%= t('patient.fdefuncion') %>: <%= l @patient.fdefuncion %></td>
-    <td><%= t('patient.faviso') %>: <%= l @patient.faviso %></td>
-    <td><%= t('patient.montocon') %>: <%= @patient.montocon %></td>
-  </tr>
-  <% end %>
+<table class="table table-borderless table-hover">
+  <thead>
+    <tr>
+    	<th scope="col" style="width: 20%;">
+        <h5><%= t('patient.info') %></h5>
+        </th>
+      <th scope="col">
+        <%= link_to t('helpers.submit.update', model: "Datos Principales"),
+        edit_patient_path(@patient),
+        class: "btn btn-secondary btn-sm" %>
+      </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th scope="row"><%= t('patient.status') %></th>
+      <td><%= pat_status(@patient.status) %></td>
+    </tr>
+    <tr>
+      <th scope="row"><%= t('patient.cgdvcode') %></th>
+      <td><%= @patient.cgdvcode %></td>
+    </tr>
+    <tr>
+      <th scope="row"><%= t('all.created_at') %></th>
+      <td><%= l @patient.created_at, format: :small %></td>
+    </tr>
+    <tr>
+      <th scope="row"><%= t('patient.name') %></th>
+      <td><%= @patient.name %></td>
+    </tr>
+    <tr>
+      <th scope="row"><%= t('patient.blod') %></th>
+      <td><%= @patient.blod %></td>
+    </tr>
+    <tr>
+      <th scope="row"><%= t('patient.sex') %></th>
+      <td><%= @patient.sex %></td>
+    </tr>
+    <tr>
+      <th scope="row"><%= t('patient.age') %></th>
+      <td><%= t('datetime.distance_in_words.x_years', :count => edad(@patient.birthdate)) %></td>
+    </tr>
+    <tr>
+      <th scope="row"><%= t('patient.birthdate') %></th>
+      <td><%= l @patient.birthdate, :format => :long %></td>
+    </tr>
+    <% if @patient.status == 4 and !@patient.fdefuncion.nil? and !@patient.faviso.nil? and !@patient.montocon.nil? %>
+    <tr>
+      <th scope="row"><%= t('patient.fdefuncion') %></th>
+      <td><%= l @patient.fdefuncion %></td>
+    </tr>
+    <tr>
+      <th scope="row"><%= t('patient.faviso') %></th>
+      <td><%= l @patient.faviso %></td>
+    </tr>
+    <tr>
+      <th scope="row"><%= t('patient.montocon') %></th>
+      <td><%= @patient.montocon %></td>
+    </tr>
+    <% end %>
+  </tbody>
 </table>

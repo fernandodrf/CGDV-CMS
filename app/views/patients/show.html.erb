@@ -1,19 +1,37 @@
 <h1><%= @patient.name %></h1>
-<strong><%= link_to t('helpers.print'), print_patient_path(@patient) %></strong> | 
-<strong><%= link_to t('note.patient'), notas_patient_path(@patient) %></strong>
+<h4><%= t('patient.cgdvcode') %>: <%= @patient.cgdvcode %></h4>
+<div class="btn-group" role="group" aria-label="mini-nav">
+  <%= link_to t('helpers.print'), print_patient_path(@patient), class: "btn btn-secondary" %>
+  <%= link_to t('note.patient'), notas_patient_path(@patient), class: "btn btn-info" %>
+</div>
+<hr/>
 <%= render 'personalinformation' %>
+<hr/>
 <%= render 'refclinicas/refclinicainfo' %>
+<hr/>
 <%= render 'telephones/telephoneinformation', :model => @patient %>
+<hr/>
 <%= render 'emails/emailinfo', :model => @patient %>
+<hr/>
 <%= render 'addresses/addressinformation', :model => @patient %>
+<hr/>
 <%= render 'derechohabientes/derechohabientes' %>
+<hr/>
 <%= render 'apoyos/apoyosinfo' %>
+<hr/>
 <%= render 'tratamientos/tratamientosinfo' %>
+<hr/>
 <%= render 'diagnosticos/diagnosticosinfo', :model => @patient %>
+<hr/>
 <%= render 'houses/houseinfo' %>
+<hr/>
 <%= render 'socioecos/socioecoinfo' %>
+<hr/>
 <%= render 'family_members/familymembers' %>
+<hr/>
 <%= render 'addinfos/additionalinformation', :model => @patient %>
+<hr/>
 <%= render 'comments/comments', :model => @patient %>
+<hr/>
 <%= render 'attachments/attachments', :model => @patient %>
 <strong><%= link_to t('helpers.print'), print_patient_path(@patient) %></strong>
