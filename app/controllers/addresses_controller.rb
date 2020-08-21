@@ -1,12 +1,10 @@
 class AddressesController < PolyController
-  
-  autocomplete :catestado, :estado, :full => true
 
   def new
   	@child = Address.new
   	super
   end
-  	
+
   def create
     @child  = @parent.addresses.create(resource_params)
     super
@@ -16,7 +14,7 @@ class AddressesController < PolyController
   	@child = Address.find(params[:id])
   	super
   end
-  
+
   def update
   	@child = Address.find(params[:id])
     @bandera = @child.update_attributes(resource_params)
@@ -33,5 +31,5 @@ class AddressesController < PolyController
     def resource_params
       params.require(:address).permit(:place, :codigopostal, :estado, :municipio, :colonia, :domicilio, :country)
     end
-  
+
 end
