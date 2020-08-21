@@ -1,11 +1,6 @@
 language: ruby
 os: linux
 dist: focal
-
-env:
-  global:
-    - PGPORT=5433
-
 cache:
   - bundler
 rvm:
@@ -15,7 +10,7 @@ gemfile:
 services:
   - postgresql
 addons:
-  postgresql: '12.2'
+  postgresql: '12'
 before_script:
  - bundle install
  - bundle exec rake db:create RAILS_ENV=test
