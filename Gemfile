@@ -15,6 +15,9 @@ gem 'cancancan'#, '~> 1.17'
 # Use postgresql as the database for Active Record
 gem 'pg', '>= 0.18', '< 2.0'
 
+# Use Puma as the app server
+gem 'puma', '~> 4.1'
+
 gem 'travis'
 
 # For Roles, use with CanCan
@@ -26,11 +29,10 @@ gem "slow_your_roles"
 
 # Use rails-i18n for internacionalization
 gem 'rails-i18n', '~> 6.0.0'
-
 gem 'devise-i18n'
 
-# Use Puma as the app server
-gem 'puma', '~> 4.1'
+# Devise views for Bootstrap
+gem 'devise-bootstrap-views'
 
 # FIXME: Needs to go eventually
 gem "nested_form"

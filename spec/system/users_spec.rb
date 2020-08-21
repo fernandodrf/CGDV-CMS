@@ -155,12 +155,12 @@ RSpec.feature "Users", :users => true, type: :system do
     end
     it "should not see the Users option in the navbar but only his/her name and logout link" do
       expect(page).not_to have_content I18n.t('header.users')
-      expect(page).to have_content "#{I18n.t('user.name')}: #{user.name}"
+      expect(page).to have_content "#{user.name}"
     end
 
     # FIXME: DRY Code!
     it "if user has no roles it should not see nor be able to use any function" do
-      expect(page).to have_content "#{I18n.t('user.name')}: #{user.name}"
+      expect(page).to have_content "#{user.name}"
       expect(page).not_to have_content I18n.t('header.users')
       expect(page).not_to have_content I18n.t('header.patient')
       expect(page).not_to have_content I18n.t('header.settings')
@@ -204,7 +204,7 @@ RSpec.feature "Users", :users => true, type: :system do
       end
       it "sees the appropiate links and can access them" do
         visit root_path
-        expect(page).to have_content "#{I18n.t('user.name')}: #{user.name}"
+        expect(page).to have_content "#{user.name}"
         expect(page).to have_content I18n.t('header.actrep')
         # FIXME: Crear factory de activity report para que Ransack no truene
         # visit activity_reports_path
@@ -226,7 +226,7 @@ RSpec.feature "Users", :users => true, type: :system do
       end
       it "sees the appropiate links and can access them" do
         visit root_path
-        expect(page).to have_content "#{I18n.t('user.name')}: #{user.name}"
+        expect(page).to have_content "#{user.name}"
         expect(page).to have_content I18n.t('header.patient')
         expect(page).to have_content I18n.t('header.note')
         expect(page).to have_content I18n.t('header.provider')
@@ -257,7 +257,7 @@ RSpec.feature "Users", :users => true, type: :system do
       end
       it "sees the appropiate links and can access them" do
         visit root_path
-        expect(page).to have_content "#{I18n.t('user.name')}: #{user.name}"
+        expect(page).to have_content "#{user.name}"
         expect(page).to have_content I18n.t('header.timereport')
         visit times_path
         expect(page).to have_content I18n.t('timereport.title')
@@ -275,7 +275,7 @@ RSpec.feature "Users", :users => true, type: :system do
       end
       it "sees the appropiate links and can access them" do
         visit root_path
-        expect(page).to have_content "#{I18n.t('user.name')}: #{user.name}"
+        expect(page).to have_content "#{user.name}"
         expect(page).to have_content I18n.t('header.timereport')
         visit times_path
         expect(page).to have_content I18n.t('timereport.title')

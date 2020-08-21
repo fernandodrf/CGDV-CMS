@@ -8,20 +8,21 @@ class UsersController < ApplicationController
   after_action :update_roles, :only => [:update]
 
   def index
+    @search = User.ransack(params[:q])
     @title = t('user.index')
-    @users = User.order('created_at DESC').page(params[:page]).per(10)
+    @users = @search.result.order('created_at DESC').page(params[:page])
   end
-	
+
   def image
   	@user = User.find(params[:id])
     send_file "#{Rails.root}/#{@user.avatar_url}",:disposition => 'inline', :type=>"application/jpg", :x_sendfile=>true
   end
-  
+
   def show
     @user = User.find(params[:id])
     @title = @user.name
   end
-	
+
   def new
   	@user = User.new
     @title = t('helpers.submit.create', :model => User.to_s)
@@ -50,11 +51,11 @@ class UsersController < ApplicationController
       render 'new'
     end
   end
-  
+
   def edit
     @title = t('helpers.submit.update', :model => User.to_s)
   end
-  
+
   def update
     @user = User.find(params[:id])
     ###DEVISE
@@ -73,26 +74,26 @@ class UsersController < ApplicationController
       render 'edit'
     end
   end
-  
+
   def destroy
     User.find(params[:id]).destroy
     flash[:success] = t('flash.success.destroy', :model => User.to_s)
     redirect_to users_path
   end
-  
+
   private
 
     # Paramaters that can be changed in the web forms
     def resource_params
       params.require(:user).permit(:name, :password, :password_confirmation, :email, :avatar, :avatar_cache, :remove_avatar, :volunteer_id)
     end
-    
+
     #This method was modified to be overriden by admins.
     def correct_user
       @user = User.find(params[:id])
       redirect_to(root_path) unless (current_user == @user) || current_user.admin?
     end
-    
+
     def admin_user
       redirect_to(root_path) unless current_user.admin?
     end

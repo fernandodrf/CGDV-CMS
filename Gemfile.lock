@@ -97,6 +97,7 @@ GEM
       railties (>= 4.1.0)
       responders
       warden (~> 1.2.3)
+    devise-bootstrap-views (1.1.0)
     devise-i18n (1.9.1)
       devise (>= 4.7.1)
     diff-lcs (1.4.4)
@@ -345,6 +346,7 @@ DEPENDENCIES
   capybara-email
   carrierwave (~> 2)
   devise (~> 4.7)
+  devise-bootstrap-views
   devise-i18n
   factory_bot_rails
   faker (~> 2)

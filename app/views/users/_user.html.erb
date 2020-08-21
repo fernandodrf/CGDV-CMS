@@ -1,6 +1,8 @@
 <tr>
   <td><%= link_to user.name, user %></td>
   <td><%= link_to user.email, user  %></td>
+  <td><%= localize(user.last_sign_in_at, format: :user, default: '---') %></td>
+  <td><%= user.sign_in_count %></td>
 <% if current_user.admin? %>
   <td><%= link_to t('helpers.edit'), edit_user_path(user) %></td>
   <td><%= link_to t('helpers.delete.msg'), user, :method => :delete, :confirm => t('helpers.delete.conf'),

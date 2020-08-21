@@ -46,13 +46,14 @@ es-MX:
     formats:
         small: "%d/%b/%y"
         rep: "%a, %d/%b/%Y a las %H:%M %p"
+        user: "%d/%b/%Y, %H:%M"
         hourmin:  "%H:%M %p"
 
   carrierwave:
     errors:
       integrity: 'No es una imagen'
       processing: 'No se puede cambiar el tamaño de la imagen'
-      
+
   all:
     created_at: "Fecha de Creación"
 
@@ -60,14 +61,14 @@ es-MX:
     attachment: "Archivo Adjunto"
     name: "Nombre del Archivo"
 
-  home: 
+  home:
     title: "Principal"
     paragraph: "Sistema de manejo de informacion de CGDV."
 
   timereport:
     title: "Tiempo Voluntarios y Servicio Social"
     volunteer: "Reportes de Tiempo"
-    
+
   header:
     home: "Principal"
     patient: "Pacientes"
@@ -82,16 +83,16 @@ es-MX:
     donor: "Donadores"
     actrep: "Reportes S.S."
     donation: "Donaciones"
-        
+
   session:
     login: "Iniciar Sesión"
     logout: "Cerrar Sesión"
-    
+
     flash:
       error: "Combinación de email/password incorrecta."
       notice: "Por favor inicie sesión para ver esta pagina."
       denied: "Acceso Denegado."
-      
+
   flash:
     success:
       create: "%{model} creado exitosamente."
@@ -104,12 +105,12 @@ es-MX:
     pautoriza: "Persona que Autoriza"
     pcontacto: "Persona de Contacto"
 
-  # FIXME: Cambiar de nombre    
+  # FIXME: Cambiar de nombre
   donation2:
     index: "Todas las Donaciones"
     frecepcion: "Fecha de Recepcion"
     title: "Donación"
-                  
+
   patient:
     status: "Estatus del Expediente"
     info: "Informacion Principal"
@@ -127,7 +128,7 @@ es-MX:
     apoyo: "Apoyo"
     tipo: "Tipo"
     comment: "Comentario"
-    comments: "Comentarios"    
+    comments: "Comentarios"
     not: "No se puede cambiar el Estatus: %{s}"
     age: "Edad"
     addinfo: "Información Adicional"
@@ -164,7 +165,7 @@ es-MX:
     tf: "Tiempo Total"
     evento: "Evento"
     status: "Tipo de Expediente"
-    
+
 
   subprogram:
     title: "Subprogramas en los que Participa"
@@ -184,7 +185,7 @@ es-MX:
     apoyofueraoficina: "Apoyo a Pacientes fuera de Hospitales"
     disenoweb: "Diseño Web"
     apoyocap: "Apoyo a Pacientes en CAP"
-    
+
   address:
     title: "Domicilios"
     place: "Lugar"
@@ -206,7 +207,7 @@ es-MX:
     medico: "Medico Tratante"
     referencia: "Fecha de Referencia"
     aceptado: "Aceptado por"
-    ayudas: "Recibe ayuda de"  
+    ayudas: "Recibe ayuda de"
 
   house:
     title: "Informacion de Vivienda"
@@ -247,7 +248,7 @@ es-MX:
     roles: "Roles de Usuario"
     confirmation: "Confirmar Contraseña"
     language: "Lenguaje"
-    
+
   search:
     title: "Busqueda"
     name: "Nombre:"
@@ -272,7 +273,7 @@ es-MX:
     del: "¿Eliminar?"
     add: "Añadir Elemento"
     patient: "Notas del Paciente"
-    
+
   views:
     pagination:
       first: "Inicio"
