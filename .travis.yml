@@ -1,6 +1,11 @@
 language: ruby
 os: linux
 dist: focal
+
+env:
+  global:
+    - PGPORT=5433
+
 cache:
   - bundler
 rvm:
@@ -10,8 +15,9 @@ gemfile:
 services:
   - postgresql
 addons:
-  postgresql: "12.2"
+  postgresql: '12.2'
 before_script:
+ - bundle install
  - bundle exec rake db:create RAILS_ENV=test
  - bundle exec rake db:schema:load RAILS_ENV=test
  - bundle exec rake db:seed RAILS_ENV=test
@@ -21,11 +27,10 @@ cache:
     - node_modules
   yarn: true
 install:
-  - bundle install
   - nvm install node
   - node -v
   - npm i -g yarn
   - yarn
 script:
- - bundle exec rails webpacker:compile  
+ - bundle exec rails webpacker:compile
  - bundle exec rspec
