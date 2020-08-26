@@ -1,30 +1,12 @@
-// This is a manifest file that'll be compiled into application.js, which will include all the files
+// Old manifest file compiled into application.js, which will include all the files
 // listed below.
-//
-// Any JavaScript/Coffee file within this directory, lib/assets/javascripts, or any plugin's
-// vendor/assets/javascripts directory can be referenced here using a relative path.
-//
-// It's not advisable to add code directly here, but if you do, it'll appear at the bottom of the
-// compiled file. JavaScript code in this file should be added after the last require_* statement.
-//
-// WARNING: THE FIRST BLANK LINE MARKS THE END OF WHAT'S TO BE PROCESSED, ANY BLANK LINE SHOULD
-// GO AFTER THE REQUIRES BELOW.
-// Read Sprockets README (https://github.com/rails/sprockets#sprockets-directives) for details
-// about supported directives.
 
-//= require jquery
-//= require jquery-ui
-//= require rails-ujs
-//= require activestorage
-//= require turbolinks
 //= require jquery_nested_form
 //= require jquery.textareaCounter.plugin
 //= require custom
 
-//Para clases es con .
-//Para ids es con #
-
-$(document).ready(function() {
+// To work with Turbolinks 5+
+$( document ).on('turbolinks:load', function() {
 
   var subtotal = new Array(0,0,0,0,0,0);
   var cuota = new Array(0,0,0,0,0,0);
@@ -219,12 +201,13 @@ $(document).ready(function() {
     }
   });
 
+  // FIXME: Necesita Plugin de jQuery
   //Contar Caracteres y Palabras en TextArea Comments
-  var opciones_count = {
-    'maxCharacterSize': -1,
-    'originalStyle': 'originalDisplayInfo',
-    'displayFormat': '#words Palabras | #input Caracteres'
-  };
-  $('#comment_comment').textareaCount(opciones_count);
-  $('#activity_report_reporte').textareaCount(opciones_count);
+  // var opciones_count = {
+    // 'maxCharacterSize': -1,
+    // 'originalStyle': 'originalDisplayInfo',
+    // 'displayFormat': '#words Palabras | #input Caracteres'
+  // };
+  // $('#comment_comment').textareaCount(opciones_count);
+  // $('#activity_report_reporte').textareaCount(opciones_count);
  });

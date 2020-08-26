@@ -14,6 +14,7 @@ require("turbolinks").start()
 
 import "bootstrap"
 import "../stylesheets/application"
+import "packs/custom"
 
 $(function () {
   console.log('Hello World from Webpacker');
