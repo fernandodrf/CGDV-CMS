@@ -1,7 +1,7 @@
 <h1><%= @patient.name %></h1>
-<h4><%= t('patient.cgdvcode') %>: <%= @patient.cgdvcode %></h4>
+<h4><%= Patient.human_attribute_name('patient.cgdvcode') %>: <%= @patient.cgdvcode %></h4>
 <div class="btn-group" role="group" aria-label="mini-nav">
-  <%= link_to t('helpers.print'), print_patient_path(@patient), class: "btn btn-secondary" %>
+  <%= link_to t('helpers..buttons.print'), print_patient_path(@patient), class: "btn btn-secondary" %>
   <%= link_to t('note.patient'), notas_patient_path(@patient), class: "btn btn-info" %>
 </div>
 <hr/>

@@ -1,4 +1,4 @@
-<h1><%= t('patient.index') %></h1>
+<h1><%= Patient.human_attribute_name('index') %></h1>
 <h6><%= link_to t('helpers.submit.create', model: "Nuevo Paciente"), new_patient_path, class: "btn btn-primary" %></h6><br />
 <%= search_form_for @search, :url => patients_path, :html => {:method => :get} do |f| %>
   <h6><%= t('search.title') %></h6>
@@ -14,10 +14,10 @@
   <table class="table table-hover">
   	<thead>
       <tr>
-  	    <th scope="col"><%= sort_link @search, :cgdvcode, t('patient.cgdvcode'), :default_order => :desc %></th>
-  	    <th scope="col"><%= sort_link @search, :name, t('patient.name'), :default_order => :desc %></th>
-  	    <th scope="col"><%= sort_link @search, :created_at, t('all.created_at'), :default_order => :desc %></th>
-  	    <th scope="col"><%= sort_link @search, :status, t('patient.status') %></th>
+  	    <th scope="col"><%= sort_link @search, :cgdvcode, Patient.human_attribute_name('cgdvcode'), :default_order => :desc %></th>
+  	    <th scope="col"><%= sort_link @search, :name, Patient.human_attribute_name('name'), :default_order => :desc %></th>
+  	    <th scope="col"><%= sort_link @search, :created_at, Patient.human_attribute_name('all.created_at'), :default_order => :desc %></th>
+  	    <th scope="col"><%= sort_link @search, :status, Patient.human_attribute_name('patient.status') %></th>
   	    <th scope="col"><%= t('header.notas') %></th>
         <th scope="col"></th>
         <th scope="col"></th>

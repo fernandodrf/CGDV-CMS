@@ -1,11 +1,57 @@
-<table class="table table-borderless table-hover">
-  <thead>
+<div class="row">
+  <div class="col-sm-4">
+    <h5><%= Patient.human_attribute_name('info') %></h5>
+  </div>
+  <div class="col-sm-8">
+    <%= link_to t('helpers.submit.update',
+      model: Patient.human_attribute_name('info')),
+      edit_patient_path(@patient),
+      class: "btn btn-secondary btn-sm" %>
+  </div>
+</div>
+<div class="row">
+  <div class="col-sm">
+    <%= Patient.human_attribute_name('patient.status') %>:
+    <%= pat_status(@patient.status) %>
+  </div>
+</div>
+<div class="row">
+  <div class="col-sm">
+    <%= Patient.human_attribute_name('patient.status') %>:
+    <%= pat_status(@patient.status) %>
+  </div>
+</div>
+<div class="row">
+  <div class="col-sm">
+    <%= Patient.human_attribute_name('patient.status') %>:
+    <%= pat_status(@patient.status) %>
+  </div>
+</div>
+<div class="row">
+  <div class="col-sm">
+    <%= Patient.human_attribute_name('patient.status') %>:
+    <%= pat_status(@patient.status) %>
+  </div>
+</div>
+<div class="row">
+  <div class="col-sm">
+    <%= Patient.human_attribute_name('patient.status') %>:
+    <%= pat_status(@patient.status) %>
+  </div>
+  <div class="col-sm">
+    <%= Patient.human_attribute_name('patient.status') %>:
+    <%= pat_status(@patient.status) %>
+  </div>
+</div>
+
+<table class="table table-sm table-borderless table-hover">
+  <thead class="thead-light">
     <tr>
     	<th scope="col" style="width: 20%;">
-        <h5><%= t('patient.info') %></h5>
+        <h5><%= Patient.human_attribute_name('info') %></h5>
         </th>
       <th scope="col">
-        <%= link_to t('helpers.submit.update', model: "Datos Principales"),
+        <%= link_to t('helpers.submit.update', model: Patient.human_attribute_name('info')),
         edit_patient_path(@patient),
         class: "btn btn-secondary btn-sm" %>
       </th>
@@ -13,11 +59,11 @@
   </thead>
   <tbody>
     <tr>
-      <th scope="row"><%= t('patient.status') %></th>
+      <th scope="row"><%= Patient.human_attribute_name('patient.status') %></th>
       <td><%= pat_status(@patient.status) %></td>
     </tr>
     <tr>
-      <th scope="row"><%= t('patient.cgdvcode') %></th>
+      <th scope="row"><%= Patient.human_attribute_name('patient.cgdvcode') %></th>
       <td><%= @patient.cgdvcode %></td>
     </tr>
     <tr>
@@ -25,36 +71,36 @@
       <td><%= l @patient.created_at, format: :small %></td>
     </tr>
     <tr>
-      <th scope="row"><%= t('patient.name') %></th>
+      <th scope="row"><%= Patient.human_attribute_name('patient.name') %></th>
       <td><%= @patient.name %></td>
     </tr>
     <tr>
-      <th scope="row"><%= t('patient.blod') %></th>
+      <th scope="row"><%= Patient.human_attribute_name('patient.blod') %></th>
       <td><%= @patient.blod %></td>
     </tr>
     <tr>
-      <th scope="row"><%= t('patient.sex') %></th>
+      <th scope="row"><%= Patient.human_attribute_name('patient.sex') %></th>
       <td><%= @patient.sex %></td>
     </tr>
     <tr>
-      <th scope="row"><%= t('patient.age') %></th>
+      <th scope="row"><%= Patient.human_attribute_name('patient.age') %></th>
       <td><%= t('datetime.distance_in_words.x_years', :count => edad(@patient.birthdate)) %></td>
     </tr>
     <tr>
-      <th scope="row"><%= t('patient.birthdate') %></th>
+      <th scope="row"><%= Patient.human_attribute_name('patient.birthdate') %></th>
       <td><%= l @patient.birthdate, :format => :long %></td>
     </tr>
     <% if @patient.status == 4 and !@patient.fdefuncion.nil? and !@patient.faviso.nil? and !@patient.montocon.nil? %>
     <tr>
-      <th scope="row"><%= t('patient.fdefuncion') %></th>
+      <th scope="row"><%= Patient.human_attribute_name('patient.fdefuncion') %></th>
       <td><%= l @patient.fdefuncion %></td>
     </tr>
     <tr>
-      <th scope="row"><%= t('patient.faviso') %></th>
+      <th scope="row"><%= Patient.human_attribute_name('patient.faviso') %></th>
       <td><%= l @patient.faviso %></td>
     </tr>
     <tr>
-      <th scope="row"><%= t('patient.montocon') %></th>
+      <th scope="row"><%= Patient.human_attribute_name('patient.montocon') %></th>
       <td><%= @patient.montocon %></td>
     </tr>
     <% end %>

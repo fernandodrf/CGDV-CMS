@@ -31,16 +31,50 @@
 
 es-MX:
   helpers:
-    back: "Regresar"
-    cancel: "Cancelar"
-    create: "Crear"
-    edit: "Editar"
-    print: "Imprimir"
-    new: "Nuevo"
     search: "Buscar"
-    delete:
-      msg: "Eliminar"
-      conf: "¿Estas segur@?"
+    buttons:
+      back: "Regresar"
+      reset: "Reestablecer"
+      create: "Crear"
+      edit: "Editar"
+      print: "Imprimir"
+      new: "Nuevo"
+      delete:
+        msg: "Eliminar"
+        conf: "¿Estas segur@?"
+
+  activerecord:
+    models:
+      patient:
+        one: "Paciente"
+        other: "Pacientes"
+    attributes:
+      patient:
+        status: "Estatus del Expediente"
+        info: "Informacion Principal"
+        title: "Paciente"
+        name: "Nombre"
+        cgdvcode: "Reg. CGDV"
+        index: "Índice de Pacientes"
+        sex: "Sexo"
+        blod: "Tipo de Sangre"
+        birthdate: "Fecha de Nacimiento"
+        place: "Lugar"
+        number: "Numero"
+        tels: "Telefonos"
+        apoyos: "Apoyos que Solicita"
+        apoyo: "Apoyo"
+        tipo: "Tipo"
+        comment: "Comentario"
+        comments: "Comentarios"
+        not: "No se puede cambiar el Estatus: %{s}"
+        age: "Edad"
+        addinfo: "Información Adicional"
+        info2: "Información"
+        fdefuncion: "Fecha de Defunción"
+        faviso: "Fecha de Aviso"
+        montocon: "Monto Condonado"
+
 
   time:
     formats:
@@ -110,32 +144,6 @@ es-MX:
     index: "Todas las Donaciones"
     frecepcion: "Fecha de Recepcion"
     title: "Donación"
-
-  patient:
-    status: "Estatus del Expediente"
-    info: "Informacion Principal"
-    title: "Paciente"
-    name: "Nombre"
-    cgdvcode: "Reg. CGDV"
-    index: "Todos los Pacientes"
-    sex: "Sexo"
-    blod: "Tipo de Sangre"
-    birthdate: "Fecha de Nacimiento"
-    place: "Lugar"
-    number: "Numero"
-    tels: "Telefonos"
-    apoyos: "Apoyos que Solicita"
-    apoyo: "Apoyo"
-    tipo: "Tipo"
-    comment: "Comentario"
-    comments: "Comentarios"
-    not: "No se puede cambiar el Estatus: %{s}"
-    age: "Edad"
-    addinfo: "Información Adicional"
-    info2: "Información"
-    fdefuncion: "Fecha de Defunción"
-    faviso: "Fecha de Aviso"
-    montocon: "Monto Condonado"
 
   provider:
     index: "Todos los Proveedores"

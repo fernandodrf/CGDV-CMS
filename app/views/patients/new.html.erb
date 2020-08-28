@@ -1,7 +1,6 @@
-<h1><%= t('helpers.submit.create', :model => Patient.to_s) %></h1>
-<%= form_for(@patient) do |f| %>
-  <%= render 'fields', :f => f %>
-  <div class="actions">
-    <%= f.submit t('helpers.create') %>
-  </div>
-<% end %>
+<h1><%= t('helpers.submit.create', model: Patient.model_name.human) %></h1>
+<%= link_to 'Back', patients_path %>
+
+<%= render 'form', patient: @patient %>
+
+<%= link_to 'Back', patients_path %>

@@ -1,0 +1,45 @@
+<%= simple_form_for @patient, wrapper: :horizontal_form  do |f| %>
+  <%= f.error_notification %>
+  <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
+
+  <%= f.input :status,
+              label: t('patient.status'),
+              collection: Patient::STATUS %>
+
+  <%= f.input :cgdvcode,
+              label: t('patient.cgdvcode'),
+              input_html: { value: @cgdvcode } %>
+
+  <%= f.input :name, label: t('patient.name') %>
+
+  <%= f.input :birthdate,
+              label: t('patient.birthdate'),
+              :order => [:day, :month, :year] ,
+              :start_year => Time.now.year - 100, :end_year => Time.now.year %>
+
+  <%= f.input :sex,
+              label: t('patient.sex'),
+              collection: Patient::SEX %>
+
+  <%= f.input :blod,
+              label: t('patient.blod'),
+              collection: Patient::BLOODTYPES %>
+
+  <div class="defunciones">
+  <%= f.input :fdefuncion,
+              label: t('patient.fdefuncion'),
+              :type => "hidden" %>
+
+  <%= f.input :faviso,
+              label: t('patient.faviso'),
+              :start_year => Time.now.year - 90, :end_year => Time.now.year %>
+
+  <%= f.input :montocon,
+              label: t('patient.montocon') %>
+  </div>
+
+  <%= f.submit t('helpers.submit.submit', model: Patient.model_name.human), { class: 'btn btn-primary' } %>
+  <%= f.button :button, t('helpers.buttons.reset'),
+               type: "reset",
+               class: "btn-outline-secondary" %>
+<% end %>
