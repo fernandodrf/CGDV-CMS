@@ -37,6 +37,9 @@ gem 'devise-bootstrap-views'
 # FIXME: Needs to go eventually
 gem "nested_form"
 
+# Simple Forms
+gem 'simple_form'
+
 # Update with Rails > 5.0
 # Still a good alternative to ActiveStorage
 gem "carrierwave", "~> 2"
