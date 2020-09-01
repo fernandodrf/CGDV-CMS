@@ -1,8 +1,8 @@
 # Sistema de manejo de información de Con Ganas de Vivir
 
-Para mas información acerca de la asociacion, visita: [Con Ganas de Vivir](https://www.cgdv.org) 
+Para mas información acerca de la asociacion, visita: [Con Ganas de Vivir](https://www.cgdv.org)
 
-##### Version 2.0.0
+[![Build Status](https://travis-ci.org/fernandodrf/CGDV-CMS.svg?branch=master)](https://travis-ci.org/fernandodrf/CGDV-CMS)
 
 # LICENSE
 
