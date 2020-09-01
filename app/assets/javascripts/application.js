@@ -25,7 +25,8 @@
 //Para clases es con .
 //Para ids es con #
 
-$(document).ready(function() {
+// To work with Turbolinks 5+
+$( document ).on('turbolinks:load', function() {
 
   var subtotal = new Array(0,0,0,0,0,0);
   var cuota = new Array(0,0,0,0,0,0);
@@ -35,33 +36,33 @@ $(document).ready(function() {
   var str_pre1 = "#note_elements_attributes_";
   var addclicks = parseInt($("#note_count").val());
   var rowCount = $('.note_container tr').length;
-  
+
   //Esconder Defuncion en carga depagina
   var sts;
   sts = parseFloat($("#patient_sts").val());
   if(sts != 4){
-    $('.defunciones').hide();	
+    $('.defunciones').hide();
   }
   //Esconder Parte Moral Donador
   sts = parseFloat($("#donor_persona").val());
   if(sts == 1){
-    $('.pmoral').hide();	
+    $('.pmoral').hide();
   } else {
-    $('.pmoral').show();	  	
+    $('.pmoral').show();
   }
-  
-  
-  
+
+
+
   //Hide Añadir Elementos al inicio de la pagina
   rowCount -= 2;
   if ((addclicks >= 6)||(rowCount >= 6)){
   	  $('.add_nested_fields').hide();
   }
-  
+
   if (rowCount > 0){
   	addclicks = rowCount;
   }
-  
+
   //Hide Añadir Elementos
   $(".add_nested_fields").click(function(){
   	addclicks += 1;
@@ -69,11 +70,11 @@ $(document).ready(function() {
   	  $('.add_nested_fields').hide();
   	}
   });
-  
-  //Metodo que calcula subtotales y totales	
+
+  //Metodo que calcula subtotales y totales
   $(".note_container").bind('change click', function(){
   var ST = 0;
-  
+
 	for( i=0; i < 6; i++){
 	  //Lee valores de cuotas y cantidades y revisa que sea numero.
 	  cuota[i] = parseFloat($(str_pre1 + i + "_cuota").val());
@@ -89,11 +90,11 @@ $(document).ready(function() {
 	  ST += subtotal[i];
 	}
     //Escribe subtotal
-    $('#note_subtotal').val(ST); 
+    $('#note_subtotal').val(ST);
     //Le adeudo
     adeudo = parseFloat($("#note_adeudo").val());
     if(isNaN(adeudo)){ adeudo = 0; }
-    //Escribe total    
+    //Escribe total
     total = parseFloat(ST) + parseFloat(adeudo);
     $('#note_total').val(total);
     //Le acuenta
@@ -101,7 +102,7 @@ $(document).ready(function() {
     if(isNaN(acuenta)){ acuenta = 0; }
     //Escribe restan
     restan = parseFloat(total) - parseFloat(acuenta);
-    $('#note_restan').val(restan);       
+    $('#note_restan').val(restan);
   });
 
   //Metodo que calcula totales
@@ -109,13 +110,13 @@ $(document).ready(function() {
   var ST2 = 0;
     //Lee subtotal
     ST2 = parseFloat($("#note_subtotal").val());
-    if(isNaN(ST2)){ 
+    if(isNaN(ST2)){
       //HACER ALGO!!!
-    } 
+    }
     //Lee adeudo
     adeudo = parseFloat($("#note_adeudo").val());
     if(isNaN(adeudo)){ adeudo = 0; }
-    //Escribe total   
+    //Escribe total
     total = parseFloat(ST2) + parseFloat(adeudo);
     $('#note_total').val(total);
     //Le acuenta
@@ -123,21 +124,21 @@ $(document).ready(function() {
     if(isNaN(acuenta)){ acuenta = 0; }
     //Escribe restan
     restan = parseFloat(total) - parseFloat(acuenta);
-    $('#note_restan').val(restan);       
+    $('#note_restan').val(restan);
   });
 
-  //Metodo que actualiza el nombre de paciente y fija el adeudo  
+  //Metodo que actualiza el nombre de paciente y fija el adeudo
   $("#note_patient_id").change( function(){
     var patid;
     //Lee patient_id
     patid = parseFloat($("#note_patient_id").val());
     //Manda patient_id y Fija el adeudo
     $.getJSON('/notes/new.json', { id: patid }, function(data) {
-      $('#note_adeudo').val(data[0]); 
-      $('#patient_name').html(data[1]); 
-    });   
+      $('#note_adeudo').val(data[0]);
+      $('#patient_name').html(data[1]);
+    });
   });
-  
+
   //Metodo que actualiza el nombre de Voluntario
   $("#timereport_volunteer_id").change( function(){
     var volid;
@@ -145,10 +146,10 @@ $(document).ready(function() {
     volid = parseFloat($("#timereport_volunteer_id").val());
     //Manda _id
     $.getJSON('/vol_times/new.json', { id: volid }, function(data) {
-      $('#volunteer_name').html(data[0]); 
-    });   
+      $('#volunteer_name').html(data[0]);
+    });
   });
-  
+
   //Metodo que actualiza el nombre de Donadores
   $("#donation_donor_id").change( function(){
     var volid;
@@ -156,11 +157,11 @@ $(document).ready(function() {
     volid = parseFloat($("#donation_donor_id").val());
     //Manda _id
     $.getJSON('/donations/new.json', { id: volid }, function(data) {
-      $('#donor_name').html(data[0]); 
-    });   
+      $('#donor_name').html(data[0]);
+    });
   });
-  
-  
+
+
   //Metodo que actualiza el nombre de Vol Times
   $("#vol_time_volunteer_id").change( function(){
     var volid;
@@ -168,9 +169,9 @@ $(document).ready(function() {
     volid = parseFloat($("#vol_time_volunteer_id").val());
     //Manda _id
     $.getJSON('/vol_times/new.json', { id: volid }, function(data) {
-      $('#volunteer_name').html(data[0]); 
-    });   
-  });  
+      $('#volunteer_name').html(data[0]);
+    });
+  });
 
   //Metodo que actualiza el nombre de Users
   $("#user_volunteer_id").change( function(){
@@ -179,20 +180,20 @@ $(document).ready(function() {
     volid = parseFloat($("#user_volunteer_id").val());
     //Manda _id
     $.getJSON('/vol_times/new.json', { id: volid }, function(data) {
-      $('#volunteer_name').html(data[0]); 
-    });   
+      $('#volunteer_name').html(data[0]);
+    });
   });
 
-  
+
   //Metodo para mostrar/ocultar campos de Servicio Social en Voluntarios
   $("#volunteer_status").change(function() {
   	var status;
   	status = parseFloat($("#volunteer_status").val());
 
     if(status == 1){
-      $('.serviciosocial').show();	
+      $('.serviciosocial').show();
     } else {
-	  $('.serviciosocial').hide();	
+	  $('.serviciosocial').hide();
     }
   });
 
@@ -202,9 +203,9 @@ $(document).ready(function() {
   	status = parseFloat($("#patient_status").val());
 
     if(status == 4){
-      $('.defunciones').show();	
+      $('.defunciones').show();
     } else {
-	  $('.defunciones').hide();	
+	  $('.defunciones').hide();
     }
   });
 
@@ -214,20 +215,18 @@ $(document).ready(function() {
   	status = parseFloat($("#donor_persona").val());
 
     if(status == 1){
-      $('.pmoral').hide();	
+      $('.pmoral').hide();
     } else {
-	  $('.pmoral').show();		
+	  $('.pmoral').show();
     }
   });
-  
+
   //Contar Caracteres y Palabras en TextArea Comments
-  var opciones_count = { 
-    'maxCharacterSize': -1,  
-    'originalStyle': 'originalDisplayInfo',  
-    'displayFormat': '#words Palabras | #input Caracteres' 
+  var opciones_count = {
+    'maxCharacterSize': -1,
+    'originalStyle': 'originalDisplayInfo',
+    'displayFormat': '#words Palabras | #input Caracteres'
   };
   $('#comment_comment').textareaCount(opciones_count);
   $('#activity_report_reporte').textareaCount(opciones_count);
  });
-
-
