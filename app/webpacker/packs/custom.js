@@ -1,6 +1,3 @@
-// Old manifest file compiled into application.js, which will include all the files
-// listed below.
-
 //= require jquery_nested_form
 //= require jquery.textareaCounter.plugin
 //= require custom
