@@ -1,0 +1,62 @@
+<nav id="sidebar" class="navbar navbar-expand-md navbar-light bg-light">
+  <button class="navbar-toggler" type="button" data-toggle="collapse"
+          data-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent"
+          aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav flex-column">
+      <% if signed_in? and can? :read, Patient %>
+      <li class="nav-item">
+        <%= link_to t('header.patient'), patients_path, class:"nav-link" + "#{' active' if params[:controller] == 'patients'}" %>
+      </li>
+      <% end %>
+      <% if signed_in? and can? :read, Note %>
+      <li class="nav-item">
+        <%= link_to t('header.note'), notes_path, class:"nav-link" + "#{' active' if params[:controller] == 'notes'}" %>
+      </li>
+      <% end %>
+      <% if signed_in? and can? :read, Provider %>
+      <li class="nav-item">
+        <%= link_to t('header.provider'), providers_path, class:"nav-link" + "#{' active' if params[:controller] == 'providers'}" %>
+      </li>
+      <% end %>
+      <% if signed_in? and can? :read, Contact %>
+      <li class="nav-item">
+        <%= link_to t('header.contact'), contacts_path, class:"nav-link" + "#{' active' if params[:controller] == 'contacts'}" %>
+      </li>
+      <% end %>
+      <% if signed_in? and can? :read, Volunteer %>
+      <li class="nav-item">
+        <%= link_to t('header.volunteer'), volunteers_path, class:"nav-link" + "#{' active' if params[:controller] == 'volunteers'}" %>
+      </li>
+      <% end %>
+      <% if signed_in? and (can? :read, Timereport or can? :read, VolTime) %>
+      <li class="nav-item">
+        <%= link_to t('header.timereport'), times_path, class:"nav-link" + "#{' active' if params[:controller] == 'timereports'}" %>
+      </li>
+      <% end %>
+      <% if signed_in? and can? :read, ActivityReport %>
+      <li class="nav-item">
+        <%= link_to t('header.actrep'), activity_reports_path, class:"nav-link" + "#{' active' if params[:controller] == 'activity_reports'}" %>
+      </li>
+      <% end %>
+      <% if signed_in? and can? :read, Donor %>
+      <li class="nav-item">
+        <%= link_to t('header.donor'), donors_path, class:"nav-link" + "#{' active' if params[:controller] == 'donors'}" %>
+      </li>
+      <% end %>
+      <% if signed_in? and can? :read, Donation %>
+      <li class="nav-item">
+        <%= link_to t('header.donation'), donations_path, class:"nav-link" + "#{' active' if params[:controller] == 'donations'}" %>
+      </li>
+      <% end %>
+      <% if signed_in? and current_user.admin? %>
+      <li class="nav-item">
+        <%= link_to t('header.users'), users_path, class:"nav-link" + "#{' active' if params[:controller] == 'users'}" %>
+      </li>
+      <% end %>
+    </ul>
+  </div>
+</nav>

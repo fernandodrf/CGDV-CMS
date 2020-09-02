@@ -96,8 +96,9 @@ es-MX:
     name: "Nombre del Archivo"
 
   home:
+    CGDV: "Con Ganas de Vivir"
     title: "Principal"
-    paragraph: "Sistema de manejo de informacion de CGDV."
+    paragraph: "Sistema de manejo de información de CGDV."
 
   timereport:
     title: "Tiempo Voluntarios y Servicio Social"

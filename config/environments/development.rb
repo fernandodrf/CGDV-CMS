@@ -85,5 +85,8 @@ Rails.application.configure do
 
   # Work with Vagrant VM
   # uses polling:
-config.file_watcher = ActiveSupport::FileUpdateChecker
+  config.file_watcher = ActiveSupport::FileUpdateChecker
+
+  # Allow Web-console in Vagrant VM
+  config.web_console.whitelisted_ips = '10.0.2.2'
 end

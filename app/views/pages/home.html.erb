@@ -1,12 +1,9 @@
-<h1><%= t('home.title') %></h1>
-<%- if signed_in? %>
-  <!--...<p>
-    <u>6 de mayo del 2013:</u> <strong></strong>=P<br />
-  </p>-->	
-<% else %>
-  <p>
-    <%= t('home.paragraph') %>
-  </p>
-
-  <%= link_to t('session.login'), new_user_session_path, :class => "signup_button round" %>
+<%- unless signed_in? %>
+  <div class="jumbotron">
+    <h1 class="display-4"><%= t('home.CGDV') %></h1>
+    <p class="lead"><%= t('home.paragraph') %></p>
+    <div class="col text-center">
+    <%= link_to t('session.login'), new_user_session_path, :class => "btn btn-primary btn-lg mx-auto" %>
+  </div>
+  </div>
 <% end %>
