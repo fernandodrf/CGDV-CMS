@@ -1,8 +1,6 @@
-<h1><%= t('helpers.submit.create', :model => User.to_s) %></h1>
+<h1><%= t('helpers.submit.create', model: User.model_name.human) %></h1>
+<%= link_to 'Back', users_path %>
 
-<%= form_for @user, :html => {:multipart => true} do |f| %>
-  <%= render 'fields', :f => f %>
-  <div class="actions">
-    <%= f.submit "Sign up" %>
-  </div>
-<% end %>
+<%= render 'form', patient: @user %>
+
+<%= link_to 'Back', users_path %>

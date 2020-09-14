@@ -1,0 +1,56 @@
+<%= simple_form_for @user, wrapper: :horizontal_form  do |f| %>
+  <%= f.error_notification %>
+  <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
+
+  <%= f.input :name, label: User.human_attribute_name('name') %>
+  <%= f.input :email, label: User.human_attribute_name('email') %>
+  <%= f.input :password %>
+  <%= f.input :password_confirmation %>
+
+  <%= f.input :volunteer_id, collection: Volunteer.order('cgdvcode'), value_method: :id, label_method: :cgdvcode,
+              label: Patient.human_attribute_name('cgdvcode') %>
+
+  <%= f.label :volunteer_id, t('patient.name') %><br />
+  <div id="volunteer_name"> </div><br />
+
+<% unless @user.admin? %>
+
+    <%= f.label :roles, t('user.roles') %><br />
+    <%= check_box_tag(:ss,1,@user.is_ss?) %>
+    <%= label_tag(:ss, "Servicio Social") %><br />
+
+    <%= check_box_tag(:oficina,1,@user.is_oficina?) %>
+    <%= label_tag(:oficina, "Oficina") %><br />
+
+    <%= check_box_tag(:timereport,1,@user.is_timereport?) %>
+    <%= label_tag(:timereport, "Crear Reportes") %><br />
+
+    <%= check_box_tag(:managetimereport,1,@user.is_managetimereport?) %>
+    <%= label_tag(:managetimereport, "Controlar Reportes") %><br />
+
+    <%= check_box_tag(:managedonor,1,@user.is_managedonor?) %>
+    <%= label_tag(:managedonor, "Controlar Donadores") %><br />
+
+    <%= check_box_tag(:managecontact,1,@user.is_managecontact?) %>
+    <%= label_tag(:managecontact, "Controlar Contactos") %><br />
+  </div>
+<% end %>
+<div>
+  <%= f.label :language, t('user.language') %><br />
+  <%= f.select :language, [['Español', 'sp'], ['English', 'en']] %>
+</div>
+<div>
+  <%= f.label :avatar, 'Foto' %><br />
+  <%= image_tag(image_user_path(@user)) if @user.avatar? %><br />
+  <%= f.file_field :avatar %><br />
+  <%= f.hidden_field :avatar_cache %><br />
+  <%= f.label :avatar, 'Eliminar Foto' %>
+  <%= f.check_box :remove_avatar %><br />
+</div>
+
+
+<%= f.submit t('helpers.submit.submit', model: User.model_name.human), { class: 'btn btn-primary' } %>
+<%= f.button :button, t('helpers.buttons.reset'),
+             type: "reset",
+             class: "btn-outline-secondary" %>
+<% end %>

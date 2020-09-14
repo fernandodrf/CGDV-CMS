@@ -48,6 +48,9 @@ es-MX:
       patient:
         one: "Paciente"
         other: "Pacientes"
+      user:
+        one: "Usuario"
+        other: "Usuarios"
     attributes:
       patient:
         status: "Estatus del Expediente"
@@ -74,7 +77,16 @@ es-MX:
         fdefuncion: "Fecha de Defunción"
         faviso: "Fecha de Aviso"
         montocon: "Monto Condonado"
-
+      user:
+        index: "Todos los Usuarios"
+        new: "Crear Nuevo Usuario"
+        edit: "Editar Usuario"
+        name: "Usuario"
+        email: "Correo electrónico"
+        password: "Contraseña"
+        roles: "Roles de Usuario"
+        confirmation: "Confirmar Contraseña"
+        language: "Lenguaje"
 
   time:
     formats:
@@ -246,17 +258,6 @@ es-MX:
     edad: "Edad"
     derechohabiente: "Derechohabiente"
     comentarios: "Comentarios"
-
-  user:
-    index: "Todos los Usuarios"
-    new: "Crear Nuevo Usuario"
-    edit: "Editar Usuario"
-    name: "Usuario"
-    email: "e-mail"
-    password: "Contraseña"
-    roles: "Roles de Usuario"
-    confirmation: "Confirmar Contraseña"
-    language: "Lenguaje"
 
   search:
     title: "Busqueda"
