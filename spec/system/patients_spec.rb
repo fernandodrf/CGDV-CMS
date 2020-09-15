@@ -51,7 +51,7 @@ RSpec.describe "Patients", :patients => true, type: :system do
       click_button I18n.t('helpers.create')
       # sees new patient
       expect(page).to have_content I18n.t('flash.success.create', :model => Patient.to_s)
-      # take_screenshot 
+      # take_screenshot
       # screenshot_and_save_page
     end
     pending "create sub-modules"
@@ -71,7 +71,7 @@ RSpec.describe "Patients", :patients => true, type: :system do
       mysign_in(user.email,user.password)
       visit patients_path
     end
-    
+
     it "admin user can delete records" do
       mysign_out
       mysign_in(user_admin.email,user_admin.password)
@@ -157,7 +157,7 @@ RSpec.describe "Patients", :patients => true, type: :system do
       expect(page).to have_content @place
       expect(page).to have_content @tel
     end
-    
+
     it "is able to create email" do
       @datos = Faker::Lorem.word
       @email = Faker::Internet.email
@@ -175,6 +175,7 @@ RSpec.describe "Patients", :patients => true, type: :system do
       @estado = Faker::Address.state
       @cp = Faker::Address.zip_code
       @pais = 'México'
+      # puts "seguro: #{@pais.inspect}"
       click_link I18n.t('helpers.submit.create', :model => "Direccion")
       fill_in I18n.t('address.domicilio'), with: @domicilio
       select @pais, from: 'address_country'
@@ -188,15 +189,15 @@ RSpec.describe "Patients", :patients => true, type: :system do
     end
 
     it "is able to create Derechohabiente" do
-      @seguro = ['IMSS', 'ISSSTE', 'Sedena','Beneficencia', 'Sector Salud Estatal', 'Semar', 'Privado', 'SSGDF', 'SSA', 'Otros', 'ISSEMYM', 'Seguro Popular'].sample
+      @seguro = CatalogoDerechohabiente.all.sample
+      # puts "seguro: #{@seguro.inspect}"
       @seguroid = Faker::IDNumber.valid
-      # puts "seguroid: #{@seguroid.inspect}"
       click_link I18n.t('helpers.submit.create', :model => "Derechohabiente")
-      select @seguro, from: 'derechohabiente_seguro'
+      select @seguro.seguro, from: 'derechohabiente_seguro'
       fill_in I18n.t('derechohabiente.afiliacion'), with: @seguroid
       click_button I18n.t('helpers.create')
       # verifies information
-      expect(page).to have_content @seguro
+      expect(page).to have_content @seguro.seguro
       expect(page).to have_content @seguroid
     end
 
@@ -212,6 +213,6 @@ RSpec.describe "Patients", :patients => true, type: :system do
     pending "is able to edit additional information"
     # edits Refclinica
     # sees updated information in user expedient
-  end 
+  end
 
 end
