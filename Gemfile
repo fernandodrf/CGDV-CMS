@@ -3,7 +3,7 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '>= 2.7.1'
 
-gem 'rails', '~> 6.0.3', '>= 6.0.3.3'
+gem 'rails', '~> 6.0.4', '>= 6.0.4'
 # User authentication
 gem "devise", "~> 4.7"
 # Pagination
@@ -30,7 +30,7 @@ gem 'rails-i18n', '~> 6.0.0'
 gem 'devise-i18n'
 
 # Use Puma as the app server
-gem 'puma', '~> 4.1'
+gem 'puma', '~> 4.3.8'
 
 # FIXME: Needs to go eventually
 gem "nested_form"
@@ -39,7 +39,7 @@ gem "rails-jquery-autocomplete"
 
 # Update with Rails > 5.0
 # Still a good alternative to ActiveStorage
-gem "carrierwave", "~> 2"
+gem "carrierwave", "~> 2.1.1"
 
 # !! Instalar ImageMagick or GraphicsMagick
 gem 'mini_magick'#, '~> 3.3'
@@ -49,7 +49,7 @@ gem 'mini_magick'#, '~> 3.3'
 # Maintenance Mode
 gem 'turnout'
 # ?? https://nokogiri.org
-gem 'nokogiri'
+gem "nokogiri", ">= 1.11.4"
 
 # Use SCSS for stylesheets
 gem 'sass-rails', '>= 6'
