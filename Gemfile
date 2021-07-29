@@ -5,7 +5,7 @@ ruby '>= 2.7.1'
 
 gem 'rails', '~> 6.0.4', '>= 6.0.4'
 # User authentication
-gem "devise", "~> 4.7"
+gem "devise", "~> 4.8"
 # Pagination
 gem "kaminari"#, "~> 1.2"
 # Search
@@ -30,7 +30,7 @@ gem 'rails-i18n', '~> 6.0.0'
 gem 'devise-i18n'
 
 # Use Puma as the app server
-gem 'puma', '~> 4.3.8'
+gem 'puma', '~> 5.3.2'
 
 # FIXME: Needs to go eventually
 gem "nested_form"
