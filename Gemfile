@@ -30,7 +30,7 @@ gem 'rails-i18n', '~> 6.0.0'
 gem 'devise-i18n'
 
 # Use Puma as the app server
-gem 'puma', '~> 5.3.2'
+gem 'puma', '~> 5.5.1'
 
 # FIXME: Needs to go eventually
 gem "nested_form"
