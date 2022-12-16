@@ -3,19 +3,20 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '>= 2.7.1'
 
-gem 'rails', '~> 6.0.4', '>= 6.0.4'
+gem 'rails', '~> 6.0.6', '>= 6.0.6'
 # User authentication
 gem "devise", "~> 4.8"
 # Pagination
 gem "kaminari"#, "~> 1.2"
 # Search
-gem 'ransack'#, '~> 1.8'
+gem 'ransack', '~> 3.1.0'
 
 gem 'cancancan'#, '~> 1.17'
 # Use postgresql as the database for Active Record
 gem 'pg', '>= 0.18', '< 2.0'
 
-gem 'travis'
+# Remove Travis, no longer free 
+#gem 'travis'
 
 # For Roles, use with CanCan
 # FIXME: Migrate to Rolify
@@ -30,7 +31,7 @@ gem 'rails-i18n', '~> 6.0.0'
 gem 'devise-i18n'
 
 # Use Puma as the app server
-gem 'puma', '~> 5.3.2'
+gem 'puma', '~> 5.6.5'
 
 # FIXME: Needs to go eventually
 gem "nested_form"
@@ -49,7 +50,7 @@ gem 'mini_magick'#, '~> 3.3'
 # Maintenance Mode
 gem 'turnout'
 # ?? https://nokogiri.org
-gem "nokogiri", ">= 1.11.4"
+gem "nokogiri", ">= 1.13.8"
 
 # Use SCSS for stylesheets
 gem 'sass-rails', '>= 6'
