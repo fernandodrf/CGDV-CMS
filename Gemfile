@@ -1,7 +1,7 @@
 source 'http://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-ruby '>= 2.7.1'
+ruby '>= 2.7.7'
 
 gem 'rails', '~> 6.0.6', '>= 6.0.6'
 # User authentication

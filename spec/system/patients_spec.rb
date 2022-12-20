@@ -175,7 +175,7 @@ RSpec.describe "Patients", :patients => true, type: :system do
       @estado = Faker::Address.state
       @cp = Faker::Address.zip_code
       @pais = 'México'
-      # puts "seguro: #{@pais.inspect}"
+      # puts "Pais: #{@pais.inspect}"
       click_link I18n.t('helpers.submit.create', :model => "Direccion")
       fill_in I18n.t('address.domicilio'), with: @domicilio
       select @pais, from: 'address_country'
