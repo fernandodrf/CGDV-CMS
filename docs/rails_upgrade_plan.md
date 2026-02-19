@@ -25,6 +25,11 @@ Upgrade to the latest stable Rails major release using **incremental major upgra
    - Confirm database backup/restore procedure.
    - Document one-command rollback path in deployment tooling.
 
+Phase 0 execution artifacts:
+- Audit output: `docs/rails_upgrade_phase0_report.md`
+- Working checklist: `docs/rails_upgrade_phase0_checklist.md`
+- Regeneration script: `scripts/rails_upgrade_phase0_audit.sh`
+
 ## Phase 1 — Prerequisites for modern Rails (1–2 days)
 1. Upgrade Ruby first (in a dedicated PR), because Rails 7+ and 8 require newer Rubies:
    - Recommended stepping path: `2.7.7` → `3.1` → `3.2/3.3`.
