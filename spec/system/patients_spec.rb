@@ -95,12 +95,23 @@ RSpec.describe "Patients", :patients => true, type: :system do
     end
   end
 
-  xdescribe "Existing patient file" do
-    # user signs-in
-    # visits patients section
-    # clicks on a patient expedient
-    # edits information
-    # verifies new information
+  describe "Existing patient file" do
+    it "is able to edit the main patient information" do
+      pat = FactoryBot.create(:patient, :active)
+      user.add_role!('oficina')
+      mysign_in(user.email, user.password)
+
+      visit patient_path(pat)
+      click_link I18n.t('helpers.submit.update', :model => "Datos Principales")
+
+      updated_name = "Paciente Editado #{SecureRandom.hex(3)}"
+      fill_in 'patient_name', with: updated_name
+      click_button I18n.t('helpers.edit')
+
+      expect(page).to have_content I18n.t('flash.success.edit', :model => Patient.to_s)
+      expect(page).to have_content updated_name
+      expect(page).to have_content pat.cgdvcode
+    end
   end
 
   describe "additional information on an existing patient file (sub-models)", :current => true do
@@ -174,11 +185,11 @@ RSpec.describe "Patients", :patients => true, type: :system do
       @domicilio = Faker::Address.street_address
       @estado = Faker::Address.state
       @cp = Faker::Address.zip_code
-      @pais = 'México'
-      # puts "Pais: #{@pais.inspect}"
+      CatalogoCountry.find_or_create_by!(country: 'México')
       click_link I18n.t('helpers.submit.create', :model => "Direccion")
       fill_in I18n.t('address.domicilio'), with: @domicilio
-      select @pais, from: 'address_country'
+      country_options = find('#address_country').all('option').map { |option| option.text.strip }.reject(&:empty?)
+      select country_options.first, from: 'address_country'
       fill_in I18n.t('address.estado'), with: @estado
       fill_in I18n.t('address.codigopostal'), with: @cp
       click_button I18n.t('helpers.create')
@@ -189,7 +200,7 @@ RSpec.describe "Patients", :patients => true, type: :system do
     end
 
     it "is able to create Derechohabiente" do
-      @seguro = CatalogoDerechohabiente.all.sample
+      @seguro = CatalogoDerechohabiente.first || FactoryBot.create(:catalogo_derechohabiente, seguro: 'IMSS')
       # puts "seguro: #{@seguro.inspect}"
       @seguroid = Faker::IDNumber.valid
       click_link I18n.t('helpers.submit.create', :model => "Derechohabiente")
@@ -208,6 +219,18 @@ RSpec.describe "Patients", :patients => true, type: :system do
       click_button I18n.t('helpers.create')
       # verifies information
       expect(page).to have_content @trat
+    end
+
+    it "is able to create attachments" do
+      attachment_name = "archivo-smoke-#{SecureRandom.hex(3)}"
+
+      click_link I18n.t('helpers.submit.create', :model => "Archivos Adjuntos")
+      fill_in 'attachment_name', with: attachment_name
+      attach_file 'attachment_fileattachment', Rails.root.join('spec/support/test_01.jpg')
+      click_button I18n.t('helpers.create')
+
+      expect(page).to have_content attachment_name
+      expect(@pat.attachments.reload.where(name: attachment_name)).to exist
     end
 
     pending "is able to edit additional information"
