@@ -81,7 +81,12 @@ RSpec.feature "Users", :users => true, type: :system do
       # puts "user count: #{@user1.inspect}"
       # puts "user count: #{@admin.inspect}"
       mysign_in(@admin.email,@admin.password)
+      expect(page).to have_content I18n.t('devise.sessions.signed_in')
+      expect(page).to have_link I18n.t('session.logout')
       visit users_path
+      # Ruby 3.2 runs exposed an intermittent post-login navigation race that
+      # occasionally leaves the browser on the home page after the first visit.
+      visit users_path unless page.has_content?(I18n.t('helpers.delete.msg', count: 2), wait: 2)
       # DEBUG screenshot
       # take_screenshot
       expect(page).to have_content I18n.t('helpers.delete.msg', count: 2)
