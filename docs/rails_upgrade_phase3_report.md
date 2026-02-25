@@ -310,6 +310,7 @@ rvm use 3.2.6 do env CHROMEDRIVER_PATH="$(command -v chromedriver)" \
 Result:
 - Development DB: 3 Active Storage upgrade migrations applied (`20260225120516`, `20260225120517`, `20260225121458`)
 - Test DB: same 3 Active Storage upgrade migrations applied
+- In this local dataset, the migrations were effectively no-ops because `active_storage_blobs` is not present (the migration bodies are guarded by `table_exists?` checks)
 - Targeted attachment smoke spec passed: `1 example, 0 failures`
 - `db/schema.rb` regenerated under Rails 7 and now reflects schema version `2026_02_25_121458` plus Rails 7 schema formatting changes (including timestamp precision annotations)
 
