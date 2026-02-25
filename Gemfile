@@ -1,9 +1,9 @@
-source 'http://rubygems.org'
+source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-ruby '>= 2.7.7'
+ruby '3.2.6'
 
-gem 'rails', '~> 6.0.6', '>= 6.0.6'
+gem 'rails', '~> 7.0.8'
 # User authentication
 gem "devise", "~> 4.8"
 # Pagination
@@ -26,7 +26,7 @@ gem 'pg', '>= 0.18', '< 2.0'
 gem "slow_your_roles"
 
 # Use rails-i18n for internacionalization
-gem 'rails-i18n', '~> 6.0.0'
+gem 'rails-i18n', '~> 7.0'
 
 gem 'devise-i18n'
 

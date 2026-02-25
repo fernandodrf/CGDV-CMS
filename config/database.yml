@@ -4,16 +4,28 @@ development:
   encoding: unicode
   database: cgdv_development
   pool: 5
-  username: <%= Rails.application.credentials.db_username %>
-  password: <%= Rails.application.credentials.db_password %>
+  username: <%= ENV['PGUSER'] || Rails.application.credentials.db_username %>
+  password: <%= ENV['PGPASSWORD'] || Rails.application.credentials.db_password %>
+  <% if ENV['PGHOST'] %>
+  host: <%= ENV['PGHOST'] %>
+  <% end %>
+  <% if ENV['PGPORT'] %>
+  port: <%= ENV['PGPORT'] %>
+  <% end %>
 
 test:
   adapter: postgresql
   encoding: unicode
   database: cgdv_test
   pool: 5
-  username: <%= Rails.application.credentials.db_username %>
-  password: <%= Rails.application.credentials.db_password %>
+  username: <%= ENV['PGUSER'] || Rails.application.credentials.db_username %>
+  password: <%= ENV['PGPASSWORD'] || Rails.application.credentials.db_password %>
+  <% if ENV['PGHOST'] %>
+  host: <%= ENV['PGHOST'] %>
+  <% end %>
+  <% if ENV['PGPORT'] %>
+  port: <%= ENV['PGPORT'] %>
+  <% end %>
 
 # Localhost
 production:
@@ -21,5 +33,11 @@ production:
   encoding: unicode
   database: cgdv_production
   pool: 5
-  username: <%= Rails.application.credentials.db_username %>
-  password: <%= Rails.application.credentials.db_password %>
+  username: <%= ENV['PGUSER'] || Rails.application.credentials.db_username %>
+  password: <%= ENV['PGPASSWORD'] || Rails.application.credentials.db_password %>
+  <% if ENV['PGHOST'] %>
+  host: <%= ENV['PGHOST'] %>
+  <% end %>
+  <% if ENV['PGPORT'] %>
+  port: <%= ENV['PGPORT'] %>
+  <% end %>

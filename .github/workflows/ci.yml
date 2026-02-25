@@ -1,0 +1,87 @@
+name: CI
+
+on:
+  push:
+    branches:
+      - master
+      - main
+      - codex/**
+  pull_request:
+  workflow_dispatch:
+
+concurrency:
+  group: ci-${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  rspec:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 45
+
+    services:
+      postgres:
+        image: postgres:14
+        env:
+          POSTGRES_USER: postgres
+          POSTGRES_PASSWORD: postgres
+        ports:
+          - 5432:5432
+        options: >-
+          --health-cmd "pg_isready -U postgres"
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 5
+
+    env:
+      RAILS_ENV: test
+      PGHOST: 127.0.0.1
+      PGPORT: "5432"
+      PGUSER: postgres
+      PGPASSWORD: postgres
+      SECRET_KEY_BASE: test-secret-key-base-for-ci-only
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: .ruby-version
+          bundler-cache: true
+
+      - name: Install OS dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y libpq-dev postgresql-client
+
+      - name: Ensure Chrome and chromedriver
+        run: |
+          if ! command -v chromedriver >/dev/null 2>&1; then
+            sudo apt-get update
+            sudo apt-get install -y chromium-driver
+          fi
+
+          if ! command -v google-chrome >/dev/null 2>&1 && \
+             ! command -v chromium-browser >/dev/null 2>&1 && \
+             ! command -v chromium >/dev/null 2>&1; then
+            sudo apt-get update
+            sudo apt-get install -y chromium || sudo apt-get install -y chromium-browser
+          fi
+
+          echo "CHROMEDRIVER_PATH=$(command -v chromedriver)" >> "$GITHUB_ENV"
+          echo "CHROME_BIN=$(command -v google-chrome || command -v chromium-browser || command -v chromium)" >> "$GITHUB_ENV"
+
+          chromedriver --version
+          "$CHROME_BIN" --version
+
+      - name: Prepare test database
+        run: |
+          bundle exec rails db:prepare
+          # db:prepare can load an older committed schema on a fresh DB; run migrations
+          # explicitly so newly-added upgrade migrations are applied before booting seeds/specs.
+          bundle exec rails db:migrate
+          bundle exec rails db:seed
+
+      - name: Run test suite
+        run: bundle exec rspec
