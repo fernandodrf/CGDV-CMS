@@ -8,11 +8,12 @@ Bundler.require(*Rails.groups)
 module Cgdv
   class Application < Rails::Application
     # Initialize configuration defaults for originally generated Rails version.
-    config.load_defaults 6.0
-    # Applied here (not only in the 6.1 defaults initializer) so Rails 7 deprecations
-    # are addressed during early boot.
-    config.action_controller.urlsafe_csrf_tokens = true
-    config.active_record.legacy_connection_handling = false
+    config.load_defaults 6.1
+    # No deployment/rollback target currently exists, so it's safe to adopt the
+    # Rails 7 cache entry format now.
+    config.active_support.cache_format_version = 7.0
+    # Validated under the local test suite during the Rails 7 defaults rollout.
+    config.active_support.disable_to_s_conversion = true
 
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration can go into files in config/initializers
