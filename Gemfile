@@ -3,7 +3,7 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '3.2.6'
 
-gem 'rails', '~> 7.0.8'
+gem 'rails', '~> 7.1.0'
 # User authentication
 gem "devise", "~> 4.8"
 # Pagination
@@ -84,7 +84,7 @@ gem 'bootsnap', '>= 1.4.7', require: false
 
 # EverydayRailsRspec
 group :development, :test do
-  gem "rspec-rails",  "~> 4"
+  gem "rspec-rails", "~> 6.1"
   gem "factory_bot_rails"#,  "~> 5"
 
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
