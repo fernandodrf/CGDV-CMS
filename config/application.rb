@@ -9,6 +9,10 @@ module Cgdv
   class Application < Rails::Application
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 6.0
+    # Applied here (not only in the 6.1 defaults initializer) so Rails 7 deprecations
+    # are addressed during early boot.
+    config.action_controller.urlsafe_csrf_tokens = true
+    config.active_record.legacy_connection_handling = false
 
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration can go into files in config/initializers

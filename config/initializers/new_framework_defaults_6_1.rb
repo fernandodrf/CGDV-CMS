@@ -13,11 +13,11 @@
 # Rails.application.config.active_storage.track_variants = true
 
 # Apply random variation to the delay when retrying failed jobs.
-# Rails.application.config.active_job.retry_jitter = 0.15
+Rails.application.config.active_job.retry_jitter = 0.15
 
 # Stop executing `after_enqueue`/`after_perform` callbacks if
 # `before_enqueue`/`before_perform` respectively halts with `throw :abort`.
-# Rails.application.config.active_job.skip_after_callbacks_if_terminated = true
+Rails.application.config.active_job.skip_after_callbacks_if_terminated = true
 
 # Specify cookies SameSite protection level: either :none, :lax, or :strict.
 #
@@ -29,6 +29,7 @@
 #
 # This change is not backwards compatible with earlier Rails versions.
 # It's best enabled when your entire app is migrated and stable on 6.1.
+# Configured in `config/application.rb` for early boot application under Rails 7.
 # Rails.application.config.action_controller.urlsafe_csrf_tokens = true
 
 # Specify whether `ActiveSupport::TimeZone.utc_to_local` returns a time with an
@@ -42,6 +43,7 @@
 # Use new connection handling API. For most applications this won't have any
 # effect. For applications using multiple databases, this new API provides
 # support for granular connection swapping.
+# Configured in `config/application.rb` for early boot application under Rails 7.
 # Rails.application.config.active_record.legacy_connection_handling = false
 
 # Make `form_with` generate non-remote forms by default.
@@ -64,4 +66,4 @@
 
 # Generate a `Link` header that gives a hint to modern browsers about
 # preloading assets when using `javascript_include_tag` and `stylesheet_link_tag`.
-# Rails.application.config.action_view.preload_links_header = true
+Rails.application.config.action_view.preload_links_header = true
