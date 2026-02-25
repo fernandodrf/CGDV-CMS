@@ -1,8 +1,8 @@
 # Rails Upgrade Phase 4 Report
 
-Generated at: 2026-02-25 15:21:18 UTC
-Git revision: 183c841
-Branch: codex/phase4-rails71-batch4
+Generated at: 2026-02-25 15:28:41 UTC
+Git revision: 04a7c88
+Branch: master (post-merge PR #39)
 
 Use this report to track Phase 4 from `docs/rails_upgrade_plan.md`:
 - Rails `7.0.x -> 7.1.x` framework upgrade
@@ -294,6 +294,15 @@ Change:
 - Result:
   - feature branch pushes with open PRs run one CI job path (`pull_request`) instead of two
 
+### CI validation evidence for Phase 4 closeout (PR #39)
+- PR `#39` (`codex/phase4-rails71-batch4` -> `master`) merged on `2026-02-25 15:27:30 UTC`.
+- GitHub Actions check:
+  - Workflow: `CI`
+  - Job: `rspec`
+  - Conclusion: `SUCCESS`
+  - Completed: `2026-02-25 15:23:49 UTC`
+  - URL: `https://github.com/fernandodrf/CGDV-CMS/actions/runs/22403330103/job/64855935612`
+
 ## 6) Phase 4 status summary (current checkpoint)
 - [x] Rails upgraded from `7.0.10` to `7.1.6`.
 - [x] App boots under Rails 7.1 / Ruby 3.2.6.
@@ -310,9 +319,16 @@ Change:
 - [x] Dependency-origin `DeprecatedConstantAccessor...` deprecation removed by upgrading `devise` to `4.9.4`.
 - [x] All non-rollout-sensitive Rails 7.1 defaults in `new_framework_defaults_7_1.rb` reviewed/enabled and validated locally.
 - [x] Rails 7.1 recommended `config.add_autoload_paths_to_load_path = false` enabled and validated in `config/application.rb`.
+- [x] GitHub Actions CI validation passed on the Phase 4 merge PR (`#39`) after trigger optimization.
 - [ ] Rollout-sensitive serializer/cache format defaults remain intentionally deferred (`active_support.message_serializer`, `use_message_serializer_for_metadata`, `active_record.marshalling_format_version`) while `config.load_defaults` remains `6.1`.
 
-## 7) Recommended next actions
-1. Re-run CI on this branch and confirm the new workflow trigger behavior reduces duplicate runs as expected.
-2. Decide whether to keep `config.load_defaults 6.1` + explicit staging through Phase 4, or advance to `7.0`/`7.1` in a dedicated rollout step with explicit overrides for serializer/cache-format settings.
+## 7) Phase 4 closeout decision
+- Phase 4 is complete on `Rails 7.1.6` / `Ruby 3.2.6`.
+- Local full suite is green (`538 examples, 0 failures, 79 pending`) with no Rails deprecation warnings in the latest captured logs.
+- CI is green on the Phase 4 merge PR (`#39`).
+- Deferred items are rollout-sensitive serializer/cache format changes and any future `config.load_defaults` advancement; these are tracked intentionally and should be handled as a separate rollout-focused step.
+
+## 8) Recommended next actions
+1. Start Phase 5 by deciding whether Rails 8.x is needed now, or hold/stabilize on Rails 7.1.6.
+2. If staying on 7.1 for now, consider a dedicated follow-up for rollout-sensitive serializer/cache format settings and a planned `config.load_defaults` advancement.
 3. Decide whether the ActiveRecord `serialize` compatibility shim should remain as a temporary Rails 7.1 bridge or be replaced by a gem upgrade/fork.
