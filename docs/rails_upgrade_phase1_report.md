@@ -1,7 +1,7 @@
 # Rails Upgrade Phase 1 Prerequisites Report
 
-Generated at: 2026-02-24 18:18:49 UTC
-Git revision: 6ca8617
+Generated at: 2026-02-25 11:53:38 UTC
+Git revision: 828c354
 Branch: codex/create-upgrade-plan-for-rails
 
 Use this report to track Phase 1 from `docs/rails_upgrade_plan.md`:
@@ -12,28 +12,30 @@ Use this report to track Phase 1 from `docs/rails_upgrade_plan.md`:
 
 ## 1) Current baseline carried forward from Phase 0
 - Rails (lockfile): 6.0.6
-- Repo .ruby-version: 3.1.6
-- Gemfile ruby constraint: 3.1.6
-- Lockfile Ruby version: ruby 3.1.6p260
+- Repo .ruby-version: 3.2.6
+- Gemfile ruby constraint: 3.2.6
+- Lockfile Ruby version: ruby 3.2.6p234
 - Lockfile Bundler version: 2.6.9
 - Latest local Phase 0 suite evidence: 538 examples, 0 failures, 79 pending
 
 ## 2) Runtime toolchain readiness (current environment)
 
 ### Active runtime
-- Ruby runtime: ruby 3.1.6p260 (2024-05-29 revision a777087be6) [x86_64-linux]
+- Ruby runtime: ruby 3.2.6 (2024-10-30 revision 63aeb018eb) [x86_64-linux]
 - Bundler runtime: Bundler version 2.6.9
-- RubyGems runtime: 3.3.27
+- RubyGems runtime: 3.4.19
 
 ### Installed Bundler gem versions (active Ruby)
 ```text
-bundler (2.6.9, default: 2.3.27, 2.1.4)
+bundler (2.6.9, default: 2.4.19)
 ```
 
 ### Installed Rubies (RVM)
 ```text
 ruby-3.1.6
+ruby-3.3.6
 ruby-2.7.7
+ruby-3.2.6
 ```
 
 ### Ruby 3.x executables on PATH
@@ -132,17 +134,41 @@ bundle exec rspec -f j -o rspec_phase1_ruby3.json
   - Result: `538 examples, 0 failures, 79 pending`
   - Non-blocking warnings observed: Rails autoload deprecation during initialization; `DidYouMean::SPELL_CHECKERS.merge!` deprecation from older dependencies.
 
+### Executed on 2026-02-25 (Ruby 3.2.6 switch + Ruby 3.3.6 trial)
+- Installed additional runtimes with RVM: `ruby-3.2.6` and `ruby-3.3.6` (binary installs on Ubuntu 24.04).
+- Installed `bundler 2.6.9` into both `ruby-3.2.6` and `ruby-3.3.6` gemsets.
+- Advanced the repo baseline from `3.1.6` to `3.2.6`:
+  - `.ruby-version` -> `3.2.6`
+  - `Gemfile` -> `ruby '3.2.6'`
+  - `Gemfile.lock` -> `RUBY VERSION ruby 3.2.6p234`
+- Validation under Ruby 3.2.6 / Bundler 2.6.9:
+  - `bundle install` -> passed
+  - `bundle _2.6.9_ update --ruby` -> passed
+  - `bundle exec rails -v` -> `Rails 6.0.6`
+  - `bundle exec rake -T` -> passed
+  - Full suite (`rspec_phase1_ruby326_switch.json`) -> `538 examples, 0 failures, 79 pending`
+- Ruby 3.2-specific regression handling:
+  - A flaky JS/system spec (`spec/system/users_spec.rb:76`) intermittently failed in full-suite runs.
+  - The scenario was hardened by waiting for confirmed sign-in state and retrying the first `visit users_path` once.
+  - Post-fix validation: targeted rerun passed repeatedly and the full suite passed under `Ruby 3.2.6`.
+- Ruby 3.3.6 trial result:
+  - `bundle install` failed before app boot due a native extension compile failure for `stringio 3.0.2`
+  - Observed dependency chain: `sdoc -> rdoc 6.4.0 -> psych 4.0.4 -> stringio`
+  - Conclusion: `Ruby 3.3.6` is not yet viable with the current lockfile/dependency set.
+
 ## 7) Phase 1 status summary (current branch)
 - [x] Phase 0 baseline + tests are green and documented (`538 examples, 0 failures, 79 pending`).
 - [x] Phase 1 prerequisite audit created (this report + checklist).
-- [x] Ruby 3.1 runtime installed in local dev environment (`ruby-3.1.6` via RVM).
-- [x] Bundler upgraded/aligned for Ruby 3.1 runtime (`bundler 2.6.9`).
-- [x] Repo updated to new Ruby version (`.ruby-version`, `Gemfile`, `Gemfile.lock` RUBY VERSION / BUNDLED WITH all aligned to Ruby `3.1.6` / Bundler `2.6.9`).
-- [x] Native gems rebuilt under Ruby 3.x (via fresh `bundle install` in Ruby 3.1.6 gemset; no blocking build errors).
-- [x] Full test suite rerun and captured under Ruby 3.x (`rspec_phase1_ruby3.json`: `538 examples, 0 failures, 79 pending`).
+- [x] Ruby 3.1, 3.2, and 3.3 runtimes installed locally via RVM (`ruby-3.1.6`, `ruby-3.2.6`, `ruby-3.3.6`).
+- [x] Bundler upgraded/aligned for Ruby 3.x runtimes (`bundler 2.6.9` installed for `3.1.6`, `3.2.6`, and `3.3.6`).
+- [x] Repo updated to new Ruby baseline (`.ruby-version`, `Gemfile`, `Gemfile.lock` aligned to Ruby `3.2.6` / Bundler `2.6.9`).
+- [x] Native gems rebuilt under Ruby 3.x (fresh `bundle install` succeeded in the Ruby `3.2.6` gemset; no blocking build errors on `3.2.6`).
+- [x] Full test suite rerun and captured under Ruby 3.x (`rspec_phase1_ruby326_switch.json`: `538 examples, 0 failures, 79 pending` under `Ruby 3.2.6`).
+- [x] Ruby 3.2 full-suite flake addressed (`spec/system/users_spec.rb` delete-user JS scenario stabilized).
+- [ ] Ruby 3.3 compatibility validation (blocked by `stringio 3.0.2` native extension build failure through `psych`/`rdoc`/`sdoc`).
 - [x] Infra image/CI/runtime docs updated (N/A rationale recorded: no active CI, no Docker image, app not currently deployed).
 
 ## 8) Next actions
-1. Decide whether to do the optional second Ruby hop now (`3.2.x` or `3.3.x`) before any Rails upgrade work; it is recommended for smoother Rails 7+/8 phases.
-2. If continuing immediately to Rails 6.1 first, start Phase 2 in a focused PR step (Rails `~> 6.1`, `bundle update rails`, `app:update`, deprecation fixes).
-3. Track and clean up non-blocking warnings observed under Ruby 3.1 (`DidYouMean` dependency deprecation and Rails autoload deprecation) during the Rails 6.1/7.0 phases.
+1. Start Phase 2 (Rails 6.1 upgrade) from the now-validated `Ruby 3.2.6` / `Bundler 2.6.9` baseline.
+2. Keep the `Ruby 3.3.6` trial blocker tracked for a later pass (likely requires updating the `sdoc` / `rdoc` / `psych` / `stringio` dependency chain).
+3. Track and clean up non-blocking warnings observed under Ruby 3.x (Rails autoload deprecation, plus older dependency deprecations) during the Rails 6.1/7.0 phases.
