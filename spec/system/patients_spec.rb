@@ -185,11 +185,10 @@ RSpec.describe "Patients", :patients => true, type: :system do
       @domicilio = Faker::Address.street_address
       @estado = Faker::Address.state
       @cp = Faker::Address.zip_code
-      CatalogoCountry.find_or_create_by!(country: 'México')
+      country = CatalogoCountry.find_or_create_by!(country: 'México')
       click_link I18n.t('helpers.submit.create', :model => "Direccion")
       fill_in I18n.t('address.domicilio'), with: @domicilio
-      country_options = find('#address_country').all('option').map { |option| option.text.strip }.reject(&:empty?)
-      select country_options.first, from: 'address_country'
+      find('#address_country').find("option[value='#{country.id}']", match: :first).select_option
       fill_in I18n.t('address.estado'), with: @estado
       fill_in I18n.t('address.codigopostal'), with: @cp
       click_button I18n.t('helpers.create')
@@ -204,7 +203,10 @@ RSpec.describe "Patients", :patients => true, type: :system do
       # puts "seguro: #{@seguro.inspect}"
       @seguroid = Faker::IDNumber.valid
       click_link I18n.t('helpers.submit.create', :model => "Derechohabiente")
-      select @seguro.seguro, from: 'derechohabiente_seguro'
+      find('#derechohabiente_seguro')
+        .all('option')
+        .find { |option| option.text.strip == @seguro.seguro }
+        .select_option
       fill_in I18n.t('derechohabiente.afiliacion'), with: @seguroid
       click_button I18n.t('helpers.create')
       # verifies information
