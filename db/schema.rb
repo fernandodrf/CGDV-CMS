@@ -2,16 +2,15 @@
 # of editing this file, please use the migrations feature of Active Record to
 # incrementally modify your database, and then regenerate this schema definition.
 #
-# This file is the source Rails uses to define your schema when running `rails
-# db:schema:load`. When creating a new database, `rails db:schema:load` tends to
+# This file is the source Rails uses to define your schema when running `bin/rails
+# db:schema:load`. When creating a new database, `bin/rails db:schema:load` tends to
 # be faster and is potentially less error prone than running all of your
 # migrations from scratch. Old migrations may fail to apply correctly if those
 # migrations use external dependencies or application code.
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[6.1].define(version: 2012_06_01_021943) do
-
+ActiveRecord::Schema[7.0].define(version: 2026_02_25_121458) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -19,8 +18,8 @@ ActiveRecord::Schema[6.1].define(version: 2012_06_01_021943) do
     t.text "reporte"
     t.integer "semana"
     t.integer "volunteer_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at", precision: nil, null: false
+    t.datetime "updated_at", precision: nil, null: false
   end
 
   create_table "addinfos", force: :cascade do |t|
@@ -28,8 +27,8 @@ ActiveRecord::Schema[6.1].define(version: 2012_06_01_021943) do
     t.string "info"
     t.integer "addinformation_id"
     t.string "addinformation_type"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at", precision: nil, null: false
+    t.datetime "updated_at", precision: nil, null: false
   end
 
   create_table "addresses", force: :cascade do |t|
@@ -38,8 +37,8 @@ ActiveRecord::Schema[6.1].define(version: 2012_06_01_021943) do
     t.string "municipio"
     t.string "colonia"
     t.string "domicilio"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at", precision: nil, null: false
+    t.datetime "updated_at", precision: nil, null: false
     t.integer "addresseable_id"
     t.string "addresseable_type"
     t.integer "country", default: 1
@@ -49,8 +48,8 @@ ActiveRecord::Schema[6.1].define(version: 2012_06_01_021943) do
   create_table "apoyos", force: :cascade do |t|
     t.string "tipo"
     t.integer "patient_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at", precision: nil, null: false
+    t.datetime "updated_at", precision: nil, null: false
   end
 
   create_table "attachments", force: :cascade do |t|
@@ -58,8 +57,8 @@ ActiveRecord::Schema[6.1].define(version: 2012_06_01_021943) do
     t.string "fileattachment"
     t.integer "attachable_id"
     t.string "attachable_type"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at", precision: nil, null: false
+    t.datetime "updated_at", precision: nil, null: false
   end
 
   create_table "catalogo_countries", force: :cascade do |t|
@@ -68,26 +67,26 @@ ActiveRecord::Schema[6.1].define(version: 2012_06_01_021943) do
 
   create_table "catalogo_derechohabientes", force: :cascade do |t|
     t.string "seguro"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at", precision: nil, null: false
+    t.datetime "updated_at", precision: nil, null: false
   end
 
   create_table "catalogo_diagnosticos", force: :cascade do |t|
     t.string "diagnostico"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at", precision: nil, null: false
+    t.datetime "updated_at", precision: nil, null: false
   end
 
   create_table "catestados", force: :cascade do |t|
     t.string "estado"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at", precision: nil, null: false
+    t.datetime "updated_at", precision: nil, null: false
   end
 
   create_table "comments", force: :cascade do |t|
     t.text "comment"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at", precision: nil, null: false
+    t.datetime "updated_at", precision: nil, null: false
     t.integer "commentable_id"
     t.string "commentable_type"
   end
@@ -97,16 +96,16 @@ ActiveRecord::Schema[6.1].define(version: 2012_06_01_021943) do
     t.string "company"
     t.string "position"
     t.date "birth"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at", precision: nil, null: false
+    t.datetime "updated_at", precision: nil, null: false
   end
 
   create_table "dailyschedules", force: :cascade do |t|
     t.time "begin"
     t.time "end"
     t.integer "volunteer_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at", precision: nil, null: false
+    t.datetime "updated_at", precision: nil, null: false
     t.integer "day"
   end
 
@@ -114,13 +113,13 @@ ActiveRecord::Schema[6.1].define(version: 2012_06_01_021943) do
     t.string "seguro"
     t.string "afiliacion"
     t.integer "patient_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at", precision: nil, null: false
+    t.datetime "updated_at", precision: nil, null: false
   end
 
   create_table "diagnosticos", force: :cascade do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at", precision: nil, null: false
+    t.datetime "updated_at", precision: nil, null: false
     t.integer "diagnostico"
     t.integer "diagnosticable_id"
     t.string "diagnosticable_type"
@@ -135,8 +134,8 @@ ActiveRecord::Schema[6.1].define(version: 2012_06_01_021943) do
     t.string "transaccion"
     t.string "finalidad"
     t.integer "motivo"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at", precision: nil, null: false
+    t.datetime "updated_at", precision: nil, null: false
     t.index ["donor_id"], name: "index_donations_on_donor_id"
   end
 
@@ -146,8 +145,8 @@ ActiveRecord::Schema[6.1].define(version: 2012_06_01_021943) do
     t.string "name"
     t.string "rfc"
     t.date "birth"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at", precision: nil, null: false
+    t.datetime "updated_at", precision: nil, null: false
     t.index ["cgdvcode"], name: "index_donors_on_cgdvcode", unique: true
   end
 
@@ -157,8 +156,8 @@ ActiveRecord::Schema[6.1].define(version: 2012_06_01_021943) do
     t.decimal "cuota", precision: 22, scale: 2
     t.string "descripcion"
     t.integer "note_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at", precision: nil, null: false
+    t.datetime "updated_at", precision: nil, null: false
     t.index ["note_id"], name: "index_elements_on_note_id"
   end
 
@@ -166,32 +165,32 @@ ActiveRecord::Schema[6.1].define(version: 2012_06_01_021943) do
     t.string "email"
     t.integer "emailable_id"
     t.string "emailable_type"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at", precision: nil, null: false
+    t.datetime "updated_at", precision: nil, null: false
     t.string "datos"
   end
 
   create_table "events", force: :cascade do |t|
     t.string "name"
-    t.datetime "start_at"
-    t.datetime "end_at"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "start_at", precision: nil
+    t.datetime "end_at", precision: nil
+    t.datetime "created_at", precision: nil, null: false
+    t.datetime "updated_at", precision: nil, null: false
   end
 
   create_table "extradonors", force: :cascade do |t|
     t.string "pautoriza"
     t.string "pcontacto"
     t.integer "donor_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at", precision: nil, null: false
+    t.datetime "updated_at", precision: nil, null: false
   end
 
   create_table "extravolunteers", force: :cascade do |t|
     t.string "profesion"
     t.integer "volunteer_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at", precision: nil, null: false
+    t.datetime "updated_at", precision: nil, null: false
   end
 
   create_table "family_members", force: :cascade do |t|
@@ -201,8 +200,8 @@ ActiveRecord::Schema[6.1].define(version: 2012_06_01_021943) do
     t.string "derechohabiente"
     t.string "comentarios"
     t.integer "patient_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at", precision: nil, null: false
+    t.datetime "updated_at", precision: nil, null: false
   end
 
   create_table "houses", force: :cascade do |t|
@@ -213,8 +212,8 @@ ActiveRecord::Schema[6.1].define(version: 2012_06_01_021943) do
     t.integer "menores"
     t.integer "economicaactivas"
     t.integer "patient_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at", precision: nil, null: false
+    t.datetime "updated_at", precision: nil, null: false
   end
 
   create_table "notes", force: :cascade do |t|
@@ -226,8 +225,8 @@ ActiveRecord::Schema[6.1].define(version: 2012_06_01_021943) do
     t.decimal "total", precision: 22, scale: 2
     t.date "fecha"
     t.integer "patient_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at", precision: nil, null: false
+    t.datetime "updated_at", precision: nil, null: false
     t.index ["folio"], name: "index_notes_on_folio", unique: true
     t.index ["patient_id"], name: "index_notes_on_patient_id"
   end
@@ -235,8 +234,8 @@ ActiveRecord::Schema[6.1].define(version: 2012_06_01_021943) do
   create_table "patients", force: :cascade do |t|
     t.string "name"
     t.integer "cgdvcode"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at", precision: nil, null: false
+    t.datetime "updated_at", precision: nil, null: false
     t.string "sex"
     t.date "birthdate"
     t.string "blod"
@@ -251,8 +250,8 @@ ActiveRecord::Schema[6.1].define(version: 2012_06_01_021943) do
     t.string "proveedor"
     t.integer "cgdvcode"
     t.string "name"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at", precision: nil, null: false
+    t.datetime "updated_at", precision: nil, null: false
     t.index ["cgdvcode"], name: "index_providers_on_cgdvcode", unique: true
   end
 
@@ -263,8 +262,8 @@ ActiveRecord::Schema[6.1].define(version: 2012_06_01_021943) do
     t.string "aceptado"
     t.string "ayudas"
     t.integer "patient_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at", precision: nil, null: false
+    t.datetime "updated_at", precision: nil, null: false
   end
 
   create_table "socialservices", force: :cascade do |t|
@@ -275,8 +274,8 @@ ActiveRecord::Schema[6.1].define(version: 2012_06_01_021943) do
     t.date "inicio"
     t.date "fin"
     t.integer "volunteer_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at", precision: nil, null: false
+    t.datetime "updated_at", precision: nil, null: false
   end
 
   create_table "socioecos", force: :cascade do |t|
@@ -289,8 +288,8 @@ ActiveRecord::Schema[6.1].define(version: 2012_06_01_021943) do
     t.string "televisionpaga"
     t.string "sgmm"
     t.integer "patient_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at", precision: nil, null: false
+    t.datetime "updated_at", precision: nil, null: false
   end
 
   create_table "subprograms", force: :cascade do |t|
@@ -304,8 +303,8 @@ ActiveRecord::Schema[6.1].define(version: 2012_06_01_021943) do
     t.boolean "sobrevivientes"
     t.boolean "fugarte"
     t.integer "volunteer_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at", precision: nil, null: false
+    t.datetime "updated_at", precision: nil, null: false
     t.boolean "sobreviviente"
     t.boolean "licencia"
     t.boolean "exposferias"
@@ -321,8 +320,8 @@ ActiveRecord::Schema[6.1].define(version: 2012_06_01_021943) do
   create_table "telephones", force: :cascade do |t|
     t.string "place"
     t.string "number"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at", precision: nil, null: false
+    t.datetime "updated_at", precision: nil, null: false
     t.integer "telephoneable_id"
     t.string "telephoneable_type"
   end
@@ -332,8 +331,8 @@ ActiveRecord::Schema[6.1].define(version: 2012_06_01_021943) do
     t.time "begin"
     t.time "end"
     t.integer "volunteer_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at", precision: nil, null: false
+    t.datetime "updated_at", precision: nil, null: false
     t.string "evento"
     t.index ["volunteer_id"], name: "index_timereports_on_volunteer_id"
   end
@@ -341,24 +340,24 @@ ActiveRecord::Schema[6.1].define(version: 2012_06_01_021943) do
   create_table "tratamientos", force: :cascade do |t|
     t.string "tipo"
     t.integer "patient_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at", precision: nil, null: false
+    t.datetime "updated_at", precision: nil, null: false
   end
 
   create_table "users", force: :cascade do |t|
     t.string "name"
     t.string "email"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at", precision: nil, null: false
+    t.datetime "updated_at", precision: nil, null: false
     t.string "encrypted_password", limit: 128, default: "", null: false
     t.boolean "admin", default: false
     t.string "language"
     t.string "reset_password_token"
-    t.datetime "reset_password_sent_at"
-    t.datetime "remember_created_at"
+    t.datetime "reset_password_sent_at", precision: nil
+    t.datetime "remember_created_at", precision: nil
     t.integer "sign_in_count", default: 0
-    t.datetime "current_sign_in_at"
-    t.datetime "last_sign_in_at"
+    t.datetime "current_sign_in_at", precision: nil
+    t.datetime "last_sign_in_at", precision: nil
     t.string "current_sign_in_ip"
     t.string "last_sign_in_ip"
     t.string "roles", default: "--- []"
@@ -372,8 +371,8 @@ ActiveRecord::Schema[6.1].define(version: 2012_06_01_021943) do
     t.string "evento"
     t.integer "horas"
     t.integer "volunteer_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at", precision: nil, null: false
+    t.datetime "updated_at", precision: nil, null: false
     t.index ["volunteer_id"], name: "index_vol_times_on_volunteer_id"
   end
 
@@ -384,8 +383,8 @@ ActiveRecord::Schema[6.1].define(version: 2012_06_01_021943) do
     t.string "blood"
     t.integer "status", default: 1
     t.date "birth"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at", precision: nil, null: false
+    t.datetime "updated_at", precision: nil, null: false
     t.string "avatar"
     t.index ["cgdvcode"], name: "index_volunteers_on_cgdvcode", unique: true
   end
