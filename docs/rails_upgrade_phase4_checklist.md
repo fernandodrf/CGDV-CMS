@@ -56,7 +56,7 @@ Use this checklist to complete Phase 4 ("Rails 7.1 upgrade") from `docs/rails_up
 - [x] `Rails.application.secrets` deprecation removed (legacy secrets file removed, Devise secret key lookup updated, test secret key base set explicitly).
 - [x] `slow_your_roles` / `serialize` positional-argument deprecation in `User` model path (handled via app-side ActiveRecord serialize compatibility shim).
 - [x] `DeprecatedConstantAccessor.deprecate_constant without a deprecator` warning removed by upgrading `devise` (`4.8.1` -> `4.9.4`).
-- [ ] Re-run CI on the Rails 7.1 branch and review failures/warnings.
+- [x] Re-run CI on the Rails 7.1 branch and review failures/warnings (PR `#39` GitHub Actions `rspec` check passed).
 
 ## Notes (2026-02-25)
 - Rails 7.1 upgrade became test-green after bumping `rspec-rails` from `4.1.2` to `6.1.5`.
@@ -94,9 +94,15 @@ Use this checklist to complete Phase 4 ("Rails 7.1 upgrade") from `docs/rails_up
   - updated Devise initializer secret lookup to avoid `Rails.application.secret_key_base` fallback
 - GitHub Actions CI trigger optimization:
   - `.github/workflows/ci.yml` now runs `push` only on `master`/`main` (feature branches use `pull_request` only), reducing duplicate runs on open PR branches
+- Phase 4 CI evidence (PR `#39`):
+  - GitHub Actions `CI / rspec`: `SUCCESS` (completed `2026-02-25 15:23:49 UTC`)
+  - Run URL: `https://github.com/fernandodrf/CGDV-CMS/actions/runs/22403330103/job/64855935612`
 - Devise patch upgrade for Rails 7.1 deprecation cleanup:
   - `devise 4.8.1 -> 4.9.4`
   - `responders 3.0.1 -> 3.2.0`
   - `bcrypt 3.1.18 -> 3.1.21`
 - `config.load_defaults` remains `6.1` from Phase 3; Rails 7.1 defaults are partially staged, not globally enabled.
 - `config.add_autoload_paths_to_load_path = false` was enabled in `config/application.rb` and validated with a full-suite rerun.
+- Phase 4 closeout decision:
+  - Phase 4 is considered complete on Rails `7.1.6` with zero deprecation warnings in local test logs.
+  - Rollout-sensitive serializer/cache-format defaults remain intentionally deferred and should be handled in a dedicated follow-up before any `config.load_defaults` jump.
