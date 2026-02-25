@@ -3,7 +3,7 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '3.2.6'
 
-gem 'rails', '~> 6.0.6', '>= 6.0.6'
+gem 'rails', '~> 6.1'
 # User authentication
 gem "devise", "~> 4.8"
 # Pagination
