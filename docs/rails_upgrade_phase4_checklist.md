@@ -53,7 +53,7 @@ Use this checklist to complete Phase 4 ("Rails 7.1 upgrade") from `docs/rails_up
 ## E) Remaining deprecations / follow-up
 - [x] `Rails.application.secrets` deprecation removed (legacy secrets file removed, Devise secret key lookup updated, test secret key base set explicitly).
 - [x] `slow_your_roles` / `serialize` positional-argument deprecation in `User` model path (handled via app-side ActiveRecord serialize compatibility shim).
-- [ ] `DeprecatedConstantAccessor.deprecate_constant without a deprecator` warning (identify gem source and patch/upgrade or accept).
+- [ ] `DeprecatedConstantAccessor.deprecate_constant without a deprecator` warning (source identified in `devise 4.8.1`; patch/upgrade or accept).
 - [ ] Re-run CI on the Rails 7.1 branch and review failures/warnings.
 
 ## Notes (2026-02-25)

@@ -223,7 +223,7 @@ Result:
 - `Rails.application.secrets` deprecation no longer appeared in suite output
 
 ### Remaining warnings after three Rails 7.1 defaults batches + deprecation cleanups (current state)
-- `DeprecatedConstantAccessor...` deprecation from a dependency (gem source still to identify)
+- `DeprecatedConstantAccessor...` deprecation from `devise 4.8.1` (`devise/rails/deprecated_constant_accessor.rb`)
 
 ### CI workflow optimization (GitHub Actions minutes)
 Problem:
@@ -249,10 +249,10 @@ Change:
 - [x] `slow_your_roles` / `serialize` positional-argument deprecation removed via app-side ActiveRecord serialize compatibility shim.
 - [x] `Rails.application.secrets` deprecation removed (legacy secrets file/settings removed; Devise secret key fallback updated).
 - [ ] Many Rails 7.1 defaults (`new_framework_defaults_7_1.rb`) remain unevaluated/commented (serialization/message-format/transaction/callback/sanitizer-impacting items).
-- [ ] Dependency-origin `DeprecatedConstantAccessor...` deprecation remains (source TBD).
+- [ ] Dependency-origin `DeprecatedConstantAccessor...` deprecation remains (`devise 4.8.1` source identified).
 
 ## 7) Recommended next actions
 1. Continue staged Rails 7.1 defaults in small batches; defer message/caching/serializer format toggles until rollback strategy is decided (`config.load_defaults` is still `6.1`).
-2. Identify the gem emitting `DeprecatedConstantAccessor...` and decide whether to upgrade, patch, or accept temporarily.
+2. Decide whether to upgrade/patch `devise` (current warning source: `devise 4.8.1` deprecated constant accessor) or accept the warning temporarily.
 3. Decide whether the ActiveRecord `serialize` compatibility shim should remain as a temporary Rails 7.1 bridge or be replaced by a gem upgrade/fork.
 4. Re-run CI on this branch and confirm the new workflow trigger behavior reduces duplicate runs as expected.
