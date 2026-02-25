@@ -37,8 +37,8 @@ Use this checklist to complete Phase 4 ("Rails 7.1 upgrade") from `docs/rails_up
   - `active_job.use_big_decimal_serializer = true`
   - `active_record.belongs_to_required_validates_foreign_key = false`
   - `dom_testing_default_html_version = :html5`
-- [ ] Continue reviewing and selectively enabling remaining `new_framework_defaults_7_1.rb` toggles in small batches.
-- [ ] Decide whether/when to advance `config.load_defaults` from `6.1` to `7.0` and then `7.1` (or keep explicit staged defaults).
+- [x] Continue reviewing and selectively enabling remaining `new_framework_defaults_7_1.rb` toggles in small batches (all non-rollout-sensitive toggles enabled/validated; serializer/cache-format toggles intentionally deferred).
+- [x] Decide whether/when to advance `config.load_defaults` from `6.1` to `7.0` and then `7.1` (decision for Phase 4: keep explicit staged defaults until rollout-sensitive serializer/cache settings are handled).
 
 ## D) Validation
 - [x] Run full RSpec suite immediately after the Rails 7.1 dependency bump (captured initial failures).
@@ -47,20 +47,22 @@ Use this checklist to complete Phase 4 ("Rails 7.1 upgrade") from `docs/rails_up
 - [x] Re-run full RSpec suite after the first Rails 7.1 defaults subset is enabled.
 - [x] Re-run full RSpec suite after the second Rails 7.1 defaults subset is enabled.
 - [x] Re-run full RSpec suite after the third Rails 7.1 defaults subset is enabled.
+- [x] Re-run full RSpec suite after the fourth Rails 7.1 defaults subset is enabled.
 - [x] Re-run full RSpec suite after adding the legacy `serialize` positional-argument compatibility shim.
+- [x] Re-run full RSpec suite after upgrading `devise` to remove the remaining dependency deprecation warning.
 - [x] Record local test evidence in `docs/rails_upgrade_phase4_report.md`.
 
 ## E) Remaining deprecations / follow-up
 - [x] `Rails.application.secrets` deprecation removed (legacy secrets file removed, Devise secret key lookup updated, test secret key base set explicitly).
 - [x] `slow_your_roles` / `serialize` positional-argument deprecation in `User` model path (handled via app-side ActiveRecord serialize compatibility shim).
-- [ ] `DeprecatedConstantAccessor.deprecate_constant without a deprecator` warning (identify gem source and patch/upgrade or accept).
+- [x] `DeprecatedConstantAccessor.deprecate_constant without a deprecator` warning removed by upgrading `devise` (`4.8.1` -> `4.9.4`).
 - [ ] Re-run CI on the Rails 7.1 branch and review failures/warnings.
 
 ## Notes (2026-02-25)
 - Rails 7.1 upgrade became test-green after bumping `rspec-rails` from `4.1.2` to `6.1.5`.
 - First full-suite result after Rails bump (before `rspec-rails` upgrade): `538 examples, 25 failures, 57 pending` (all failures shared the same controller spec view-rendering resolver incompatibility).
 - Latest local full-suite result:
-  - `CHROMEDRIVER_PATH="$(command -v chromedriver)" bundle exec rspec -f j -o rspec_phase4_rails71_after_ci_and_devise_fix.json`
+  - `CHROMEDRIVER_PATH="$(command -v chromedriver)" bundle exec rspec -f j -o rspec_phase4_rails71_autoload_paths_off.json`
   - Result: `538 examples, 0 failures, 79 pending`
 - Rails 7.1 defaults currently enabled in `config/initializers/new_framework_defaults_7_1.rb`:
   - `active_support.raise_on_invalid_cache_expiration_time = true`
@@ -76,6 +78,13 @@ Use this checklist to complete Phase 4 ("Rails 7.1 upgrade") from `docs/rails_up
   - `active_job.use_big_decimal_serializer = true`
   - `active_record.belongs_to_required_validates_foreign_key = false`
   - `dom_testing_default_html_version = :html5`
+  - `active_record.run_commit_callbacks_on_first_saved_instances_in_transaction = false`
+  - `active_record.before_committed_on_all_records = true`
+  - `active_record.default_column_serializer = nil`
+  - `active_record.run_after_transaction_callbacks_in_order_defined = true`
+  - `active_record.commit_transaction_on_non_local_return = true`
+  - `action_view.sanitizer_vendor = Rails::HTML::Sanitizer.best_supported_vendor`
+  - `action_text.sanitizer_vendor = Rails::HTML::Sanitizer.best_supported_vendor`
 - Local deprecation compatibility shim added:
   - `config/initializers/active_record_serialize_positional_compat.rb` (translates legacy `serialize :column, Array` calls to keyword form for Rails 7.1)
 - Rails/application secrets deprecation cleanup changes:
@@ -85,4 +94,9 @@ Use this checklist to complete Phase 4 ("Rails 7.1 upgrade") from `docs/rails_up
   - updated Devise initializer secret lookup to avoid `Rails.application.secret_key_base` fallback
 - GitHub Actions CI trigger optimization:
   - `.github/workflows/ci.yml` now runs `push` only on `master`/`main` (feature branches use `pull_request` only), reducing duplicate runs on open PR branches
+- Devise patch upgrade for Rails 7.1 deprecation cleanup:
+  - `devise 4.8.1 -> 4.9.4`
+  - `responders 3.0.1 -> 3.2.0`
+  - `bcrypt 3.1.18 -> 3.1.21`
 - `config.load_defaults` remains `6.1` from Phase 3; Rails 7.1 defaults are partially staged, not globally enabled.
+- `config.add_autoload_paths_to_load_path = false` was enabled in `config/application.rb` and validated with a full-suite rerun.

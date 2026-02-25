@@ -65,7 +65,7 @@ Rails.application.config.action_controller.allow_deprecated_parameters_hash_equa
 # state which matches what was committed to the database, typically the last
 # instance to save.
 #++
-# Rails.application.config.active_record.run_commit_callbacks_on_first_saved_instances_in_transaction = false
+Rails.application.config.active_record.run_commit_callbacks_on_first_saved_instances_in_transaction = false
 
 ###
 # Configures SQLite with a strict strings mode, which disables double-quoted string literals.
@@ -188,7 +188,7 @@ Rails.application.config.precompile_filter_parameters = true
 # The previous behavior was to only run the callbacks on the first copy of a record
 # if there were multiple copies of the same record enrolled in the transaction.
 #++
-# Rails.application.config.active_record.before_committed_on_all_records = true
+Rails.application.config.active_record.before_committed_on_all_records = true
 
 ###
 # Disable automatic column serialization into YAML.
@@ -196,7 +196,7 @@ Rails.application.config.precompile_filter_parameters = true
 # recommended to explicitly define the serialization method for each column
 # rather than to rely on a global default.
 #++
-# Rails.application.config.active_record.default_column_serializer = nil
+Rails.application.config.active_record.default_column_serializer = nil
 
 ###
 # Enable a performance optimization that serializes Active Record models
@@ -214,12 +214,12 @@ Rails.application.config.precompile_filter_parameters = true
 # This matches the behaviour of all other callbacks.
 # In previous versions of Rails, they ran in the inverse order.
 #++
-# Rails.application.config.active_record.run_after_transaction_callbacks_in_order_defined = true
+Rails.application.config.active_record.run_after_transaction_callbacks_in_order_defined = true
 
 ###
 # Whether a `transaction` block is committed or rolled back when exited via `return`, `break` or `throw`.
 #++
-# Rails.application.config.active_record.commit_transaction_on_non_local_return = true
+Rails.application.config.active_record.commit_transaction_on_non_local_return = true
 
 ###
 # Controls when to generate a value for <tt>has_secure_token</tt> declarations.
@@ -250,7 +250,7 @@ Rails.application.config.active_record.generate_secure_token_on = :initialize
 #
 # In previous versions of Rails, Action View always used `Rails::HTML4::Sanitizer` as its vendor.
 #++
-# Rails.application.config.action_view.sanitizer_vendor = Rails::HTML::Sanitizer.best_supported_vendor
+Rails.application.config.action_view.sanitizer_vendor = Rails::HTML::Sanitizer.best_supported_vendor
 
 ###
 # Configure Action Text to use an HTML5 standards-compliant sanitizer when it is supported on your
@@ -261,7 +261,7 @@ Rails.application.config.active_record.generate_secure_token_on = :initialize
 #
 # In previous versions of Rails, Action Text always used `Rails::HTML4::Sanitizer` as its vendor.
 #++
-# Rails.application.config.action_text.sanitizer_vendor = Rails::HTML::Sanitizer.best_supported_vendor
+Rails.application.config.action_text.sanitizer_vendor = Rails::HTML::Sanitizer.best_supported_vendor
 
 ###
 # Configure the log level used by the DebugExceptions middleware when logging
