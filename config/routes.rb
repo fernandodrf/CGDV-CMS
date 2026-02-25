@@ -8,7 +8,7 @@ Rails.application.routes.draw do
     resources :comments, :only => [:new, :edit, :update, :create, :destroy]
   end
 
-  devise_for :users, :path_prefix => 'd',:controllers => { :registrations => "registrations" }
+  devise_for :users, path_prefix: 'd', controllers: { registrations: "registrations" }
   resources :users do
   member do
   	  get 'image'
@@ -28,7 +28,8 @@ Rails.application.routes.draw do
   
   resources :notes do
   	member do
-  	  get 'print', 'image'
+  	  get 'print'
+      get 'image'
   	end
     resources :attachments do
   		member do
@@ -45,7 +46,8 @@ Rails.application.routes.draw do
   
   resources :patients do
     member do
-      get 'print', 'notas'
+      get 'print'
+      get 'notas'
     end
   	resources :addresses, :telephones, :emails, :derechohabientes, :apoyos, :tratamientos, :comments, :diagnosticos, :refclinicas, :houses, :socioecos, :family_members, :addinfos, :only => [:new, :edit, :update, :create, :destroy]
   	
@@ -60,7 +62,8 @@ Rails.application.routes.draw do
 
   resources :volunteers do
   	member do
-  	  get 'trep', 'image'
+  	  get 'trep'
+      get 'image'
   	end
     resources :addresses, :telephones, :emails, :comments, :addinfos, :subprograms, :diagnosticos, :dailyschedules, :only => [:new, :edit, :update, :create, :destroy]
   end
@@ -73,7 +76,7 @@ Rails.application.routes.draw do
     resources :addresses, :telephones, :emails, :comments, :addinfos, :only => [:new, :edit, :update, :create, :destroy]
   end
   
-  root :to => "pages#home", via: :get
+  root "pages#home"
   match '/times', :to => "pages#times", via: :get
 
 end

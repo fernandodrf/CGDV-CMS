@@ -1,15 +1,15 @@
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-ruby '3.2.6'
+ruby '3.3.6'
 
-gem 'rails', '~> 7.1.0'
+gem 'rails', '~> 8.1.0'
 # User authentication
-gem "devise", "~> 4.8"
+gem "devise", "~> 5.0"
 # Pagination
 gem "kaminari"#, "~> 1.2"
 # Search
-gem 'ransack', '~> 3.1.0'
+gem 'ransack', '~> 4.4'
 
 gem 'cancancan'#, '~> 1.17'
 # Use postgresql as the database for Active Record
@@ -26,7 +26,7 @@ gem 'pg', '>= 0.18', '< 2.0'
 gem "slow_your_roles"
 
 # Use rails-i18n for internacionalization
-gem 'rails-i18n', '~> 7.0'
+gem 'rails-i18n', '~> 8.0'
 
 gem 'devise-i18n'
 
@@ -40,7 +40,7 @@ gem "rails-jquery-autocomplete"
 
 # Update with Rails > 5.0
 # Still a good alternative to ActiveStorage
-gem "carrierwave", "~> 2.1.1"
+gem "carrierwave", "~> 3.1"
 
 # !! Instalar ImageMagick or GraphicsMagick
 gem 'mini_magick'#, '~> 3.3'
@@ -84,7 +84,7 @@ gem 'bootsnap', '>= 1.4.7', require: false
 
 # EverydayRailsRspec
 group :development, :test do
-  gem "rspec-rails", "~> 6.1"
+  gem "rspec-rails", "~> 8.0"
   gem "factory_bot_rails"#,  "~> 5"
 
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
