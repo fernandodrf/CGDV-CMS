@@ -1,8 +1,8 @@
 # Rails Upgrade Phase 4 Report
 
-Generated at: 2026-02-25 14:14:01 UTC
-Git revision: eb2483f
-Branch: codex/phase4-rails71
+Generated at: 2026-02-25 15:08:29 UTC
+Git revision: b425217
+Branch: codex/phase4-rails71-batch3
 
 Use this report to track Phase 4 from `docs/rails_upgrade_plan.md`:
 - Rails `7.0.x -> 7.1.x` framework upgrade
@@ -199,9 +199,42 @@ Result:
 - `538 examples, 0 failures, 79 pending`
 - The `serialize :roles, type: Array` deprecation message no longer appears in suite output
 
-### Remaining warnings after three Rails 7.1 defaults batches + serialize compat shim (current state)
-- `Rails.application.secrets` deprecation (legacy secrets API/file still present)
+### `Rails.application.secrets` deprecation cleanup
+Observed behavior:
+- The deprecation persisted after deleting `config/secrets.yml` alone, indicating another boot path was still touching the legacy secrets fallback.
+
+Root cause and fixes applied:
+- `config/initializers/devise.rb` used `Rails.application.secret_key_base` as a fallback for `config.secret_key`.
+  - On Rails 7.1, this can trigger the deprecated `Rails.application.secrets` fallback during initialization if no env var is present yet.
+- Changes made:
+  - removed `config/secrets.yml`
+  - removed deprecated `config.read_encrypted_secrets = true` from `config/environments/production.rb`
+  - set explicit `config.secret_key_base` in `config/environments/test.rb`
+  - updated `config/initializers/devise.rb` to prefer `DEVISE_SECRET_KEY` / `SECRET_KEY_BASE` / credentials and avoid `Rails.application.secret_key_base`
+
+Validation command:
+```bash
+rvm use 3.2.6 do env CHROMEDRIVER_PATH="$(command -v chromedriver)" \
+  bundle exec rspec -f j -o rspec_phase4_rails71_after_ci_and_devise_fix.json
+```
+
+Result:
+- `538 examples, 0 failures, 79 pending`
+- `Rails.application.secrets` deprecation no longer appeared in suite output
+
+### Remaining warnings after three Rails 7.1 defaults batches + deprecation cleanups (current state)
 - `DeprecatedConstantAccessor...` deprecation from a dependency (gem source still to identify)
+
+### CI workflow optimization (GitHub Actions minutes)
+Problem:
+- CI was running twice for feature branch updates with open PRs (`push` + `pull_request`), consuming extra GitHub Actions minutes.
+
+Change:
+- Updated `.github/workflows/ci.yml` so:
+  - `push` runs only on `master` / `main`
+  - `pull_request` runs for PR validation to `master` / `main`
+- Result:
+  - feature branch pushes with open PRs run one CI job path (`pull_request`) instead of two
 
 ## 6) Phase 4 status summary (kickoff checkpoint)
 - [x] Rails upgraded from `7.0.10` to `7.1.6`.
@@ -214,12 +247,12 @@ Result:
 - [x] Second low-risk Rails 7.1 defaults subset enabled and validated (`sqlite3_adapter_strict_strings_by_default`, `allow_deprecated_singular_associations_name`, `raise_on_assign_to_attr_readonly`, `generate_secure_token_on`).
 - [x] Third Rails 7.1 defaults subset enabled and validated (`default_headers`, `allow_deprecated_parameters_hash_equality`, `use_big_decimal_serializer`, `belongs_to_required_validates_foreign_key`, `dom_testing_default_html_version`).
 - [x] `slow_your_roles` / `serialize` positional-argument deprecation removed via app-side ActiveRecord serialize compatibility shim.
+- [x] `Rails.application.secrets` deprecation removed (legacy secrets file/settings removed; Devise secret key fallback updated).
 - [ ] Many Rails 7.1 defaults (`new_framework_defaults_7_1.rb`) remain unevaluated/commented (serialization/message-format/transaction/callback/sanitizer-impacting items).
-- [ ] `Rails.application.secrets` deprecation remains.
 - [ ] Dependency-origin `DeprecatedConstantAccessor...` deprecation remains (source TBD).
 
 ## 7) Recommended next actions
 1. Continue staged Rails 7.1 defaults in small batches; defer message/caching/serializer format toggles until rollback strategy is decided (`config.load_defaults` is still `6.1`).
-2. Migrate off `Rails.application.secrets` (remove `config/secrets.yml` usage or replace with credentials/env-only flow).
-3. Identify the gem emitting `DeprecatedConstantAccessor...` and decide whether to upgrade, patch, or accept temporarily.
-4. Decide whether the ActiveRecord `serialize` compatibility shim should remain as a temporary Rails 7.1 bridge or be replaced by a gem upgrade/fork.
+2. Identify the gem emitting `DeprecatedConstantAccessor...` and decide whether to upgrade, patch, or accept temporarily.
+3. Decide whether the ActiveRecord `serialize` compatibility shim should remain as a temporary Rails 7.1 bridge or be replaced by a gem upgrade/fork.
+4. Re-run CI on this branch and confirm the new workflow trigger behavior reduces duplicate runs as expected.

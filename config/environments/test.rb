@@ -5,6 +5,7 @@
 
 Rails.application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
+  config.secret_key_base = ENV.fetch('SECRET_KEY_BASE', 'test-secret-key-base-for-cgdv-cms-rails71')
   
   # Action Mailer config for Devise
   config.action_mailer.default_options = { from: 'noreply@mycustomdomain.com' }

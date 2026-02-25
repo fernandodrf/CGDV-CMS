@@ -51,7 +51,7 @@ Use this checklist to complete Phase 4 ("Rails 7.1 upgrade") from `docs/rails_up
 - [x] Record local test evidence in `docs/rails_upgrade_phase4_report.md`.
 
 ## E) Remaining deprecations / follow-up
-- [ ] `Rails.application.secrets` deprecation (migrate fully off legacy secrets API / file).
+- [x] `Rails.application.secrets` deprecation removed (legacy secrets file removed, Devise secret key lookup updated, test secret key base set explicitly).
 - [x] `slow_your_roles` / `serialize` positional-argument deprecation in `User` model path (handled via app-side ActiveRecord serialize compatibility shim).
 - [ ] `DeprecatedConstantAccessor.deprecate_constant without a deprecator` warning (identify gem source and patch/upgrade or accept).
 - [ ] Re-run CI on the Rails 7.1 branch and review failures/warnings.
@@ -60,7 +60,7 @@ Use this checklist to complete Phase 4 ("Rails 7.1 upgrade") from `docs/rails_up
 - Rails 7.1 upgrade became test-green after bumping `rspec-rails` from `4.1.2` to `6.1.5`.
 - First full-suite result after Rails bump (before `rspec-rails` upgrade): `538 examples, 25 failures, 57 pending` (all failures shared the same controller spec view-rendering resolver incompatibility).
 - Latest local full-suite result:
-  - `CHROMEDRIVER_PATH="$(command -v chromedriver)" bundle exec rspec -f j -o rspec_phase4_rails71_after_serialize_compat.json`
+  - `CHROMEDRIVER_PATH="$(command -v chromedriver)" bundle exec rspec -f j -o rspec_phase4_rails71_after_ci_and_devise_fix.json`
   - Result: `538 examples, 0 failures, 79 pending`
 - Rails 7.1 defaults currently enabled in `config/initializers/new_framework_defaults_7_1.rb`:
   - `active_support.raise_on_invalid_cache_expiration_time = true`
@@ -78,4 +78,11 @@ Use this checklist to complete Phase 4 ("Rails 7.1 upgrade") from `docs/rails_up
   - `dom_testing_default_html_version = :html5`
 - Local deprecation compatibility shim added:
   - `config/initializers/active_record_serialize_positional_compat.rb` (translates legacy `serialize :column, Array` calls to keyword form for Rails 7.1)
+- Rails/application secrets deprecation cleanup changes:
+  - removed `config/secrets.yml`
+  - removed deprecated `config.read_encrypted_secrets = true` in `config/environments/production.rb`
+  - set explicit test `config.secret_key_base` in `config/environments/test.rb`
+  - updated Devise initializer secret lookup to avoid `Rails.application.secret_key_base` fallback
+- GitHub Actions CI trigger optimization:
+  - `.github/workflows/ci.yml` now runs `push` only on `master`/`main` (feature branches use `pull_request` only), reducing duplicate runs on open PR branches
 - `config.load_defaults` remains `6.1` from Phase 3; Rails 7.1 defaults are partially staged, not globally enabled.
