@@ -78,6 +78,9 @@ jobs:
       - name: Prepare test database
         run: |
           bundle exec rails db:prepare
+          # db:prepare can load an older committed schema on a fresh DB; run migrations
+          # explicitly so newly-added upgrade migrations are applied before booting seeds/specs.
+          bundle exec rails db:migrate
           bundle exec rails db:seed
 
       - name: Run test suite
