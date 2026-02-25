@@ -16,6 +16,7 @@
 #
 
 class Donation < ApplicationRecord
+  ransack_allow_all!
   belongs_to :donor
   
   validates :donor_id, :presence => true

@@ -13,6 +13,7 @@
 #
 
 class Timereport < ApplicationRecord
+  ransack_allow_all!
   belongs_to :volunteer
 
   validates :day, :presence => true  

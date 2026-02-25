@@ -1,8 +1,8 @@
 # Rails Upgrade Phase 5 Report
 
-Generated at: 2026-02-25 17:08:34 UTC
-Git revision: e0d00c0
-Branch: codex/phase5-rails8-feasibility (working tree with uncommitted trial changes)
+Generated at: 2026-02-25 17:08:34 UTC (updated with Ransack hardening follow-up)
+Git revision: ca8b1f8 (master baseline after PR #40 merge)
+Branch: codex/phase5-ransack-hardening (working tree with uncommitted follow-up changes)
 
 Use this report to track Phase 5 from `docs/rails_upgrade_plan.md`:
 - Rails `7.1.x -> 8.x` decision and feasibility
@@ -108,10 +108,15 @@ Effect:
 Observed in system specs:
 - Runtime errors such as `Ransack needs Patient attributes explicitly allowlisted as searchable`
 
-Fix applied (temporary broad fallback):
+Initial fix applied (temporary broad fallback):
 - Added `ransackable_attributes` and `ransackable_associations` to `ApplicationRecord`.
-- This preserves current behavior during the Rails 8 upgrade and unblocks the suite.
-- TODO: Replace with per-model allowlists for tighter search exposure control.
+- This preserved current behavior during the Rails 8 upgrade and unblocked the suite.
+
+Hardening follow-up (current branch):
+- Removed the global fallback methods from `ApplicationRecord`.
+- Added explicit `ransack_allow_all!` opt-in on the models actually used by search forms/controllers:
+  - `Patient`, `Note`, `Volunteer`, `Donor`, `Donation`, `Contact`, `Provider`, `ActivityReport`, `Timereport`, `VolTime`
+- Kept a small helper macro in `ApplicationRecord` to avoid repeated boilerplate while keeping model-level opt-in explicit.
 
 Effect:
 - Full suite returned to green.
@@ -223,6 +228,9 @@ Result:
 3. After Ransack allowlist fallback:
    - `rspec_phase5_rails81_after_ransack_allowlist.json`
    - `538 examples, 0 failures, 79 pending`
+4. After replacing the global Ransack fallback with explicit model opt-ins:
+   - `rspec_phase5_ransack_hardening_batch1.json`
+   - `538 examples, 0 failures, 79 pending`
 
 ## 6) Current deprecations/warnings on the Rails 8.1 trial
 
@@ -247,12 +255,12 @@ These warnings do not currently fail the suite, but they should be tracked if th
 - [x] First Rails 8.1 defaults subset enabled and validated locally.
 - [x] Second Rails 8.1 defaults subset enabled and validated locally.
 - [x] All generated Rails 8.1 defaults in `config/initializers/new_framework_defaults_8_1.rb` enabled and validated locally.
-- [x] Temporary Ransack 4 allowlist fallback explicitly accepted for this backend-first checkpoint (per-model tightening deferred).
+- [x] Ransack 4 allowlisting hardened after the backend baseline merge (global fallback removed; explicit model opt-ins added for search-enabled models).
 - [x] `annotate` downgrade reviewed and accepted as a temporary dev-tool compromise (`annotate 3.2.0` would not resolve on this Rails 8.1 lockfile).
 - [ ] CI validation on a Rails 8 branch still pending.
 
 ## 8) Recommended next actions
 1. Review and stage the Rails 8.1 `app:update` generated artifacts (`config/ci.rb`, `bin/ci`, `bin/dev`, `public/*`, `new_framework_defaults_8_1.rb`) intentionally.
 2. Re-run GitHub Actions CI on this branch once network access/auth is available from the working session.
-3. Optionally replace the broad `ApplicationRecord` Ransack allowlist with per-model allowlists as a follow-up hardening pass.
+3. Re-run GitHub Actions CI on the Ransack hardening follow-up branch / PR.
 4. Consider a follow-up cleanup for Ruby 3.4 stdlib warnings (`factory_bot` / `spring`) if you plan to move beyond Ruby 3.3 soon.

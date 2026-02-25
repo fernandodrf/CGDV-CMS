@@ -23,7 +23,7 @@ Use this checklist to complete Phase 5 ("Rails 8.x decision + execution") from `
 - [x] Fix app boot blocker: `jbuilder 2.11.5` incompatible with removed ActiveSupport files in Rails 8.
 - [x] Fix app-owned Rails 8 test blocker: `active_record_serialize_positional_compat` shim must support Rails 8 `serialize` signature.
 - [x] Fix Rails 8 routing DSL breakage in `config/routes.rb` (legacy multi-argument `get`, `root ... via:`).
-- [x] Add temporary app-wide Ransack 4 allowlist fallback in `ApplicationRecord` to preserve current search behavior during upgrade.
+- [x] Add a temporary Ransack 4 allowlist bridge in `ApplicationRecord` to preserve current search behavior during upgrade.
 - [x] Fix residual Rails 8.2 routes deprecation warning by upgrading `devise` (warning originated inside Devise routing helpers).
 - [x] Fix residual Rails 8.2 `String#mb_chars` deprecation warning by upgrading `carrierwave` (warning originated in `CarrierWave::SanitizedFile`).
 
@@ -36,13 +36,14 @@ Use this checklist to complete Phase 5 ("Rails 8.x decision + execution") from `
 - [x] Re-run full RSpec suite after `devise 5.0.2` + `carrierwave 3.1.2` cleanup pass
 - [x] Re-run full RSpec suite after first Rails 8.1 defaults subset is enabled
 - [x] Re-run full RSpec suite after second Rails 8.1 defaults subset is enabled
+- [x] Re-run full RSpec suite after replacing the global Ransack fallback with explicit opt-in on search-enabled models
 
 ## E) Remaining follow-up (before declaring Phase 5 complete)
 - [x] Run `bin/rails app:update` for Rails 8.x and review diffs manually (executed with `yes n` no-overwrite mode; generated new Rails 8.1 artifacts).
 - [x] Generate/review Rails 8 framework defaults files (`new_framework_defaults_8_0.rb`, `8_1` if generated) and stage toggles (generated `config/initializers/new_framework_defaults_8_1.rb`; toggles still commented for staged rollout).
 - [x] Clean Rails 8.2 deprecations currently visible in suite output (`devise` routing helper hash-arg deprecation and `carrierwave` `mb_chars` deprecation no longer appear).
 - [x] Continue reviewing and selectively enabling Rails 8.1 defaults in `config/initializers/new_framework_defaults_8_1.rb` in small batches (all generated 8.1 toggles enabled/validated on this branch).
-- [x] Decide whether to keep the broad Ransack allowlist fallback or replace with per-model allowlists (decision for this backend-first checkpoint: keep temporary app-wide fallback, tighten later in a follow-up).
+- [x] Replace broad Ransack allowlist fallback with explicit model opt-in for search-enabled models (keep helper macro in `ApplicationRecord`, remove global fallback methods).
 - [x] Review lockfile-only unexpected changes (e.g. `annotate` downgrade) and pin/upgrade intentionally (accepted temporary `annotate 2.6.5`; Bundler would not resolve `3.2.0` on this Rails 8.1 lockfile).
 - [ ] Re-run GitHub Actions CI on the Rails 8 branch.
 
@@ -71,9 +72,10 @@ Use this checklist to complete Phase 5 ("Rails 8.x decision + execution") from `
   - `active_record.raise_on_missing_required_finder_order_columns = true`
   - `action_controller.action_on_path_relative_redirect = :raise`
 - All generated Rails 8.1 defaults toggles in `config/initializers/new_framework_defaults_8_1.rb` are enabled on this branch.
-- Ransack 4 allowlist decision for this checkpoint:
-  - keep the temporary `ApplicationRecord` fallback to preserve current search behavior and unblock backend upgrade work
-  - tighten to per-model allowlists in a dedicated follow-up before/after merge
+- Ransack 4 hardening pass (follow-up):
+  - removed the global `ApplicationRecord` fallback methods
+  - added explicit `ransack_allow_all!` opt-in to the models actually used by search forms/controllers (`Patient`, `Note`, `Volunteer`, `Donor`, `Donation`, `Contact`, `Provider`, `ActivityReport`, `Timereport`, `VolTime`)
+  - latest hardening validation: `rspec_phase5_ransack_hardening_batch1.json` -> `538 examples, 0 failures, 79 pending`
 - `annotate` lockfile note:
   - `bundle outdated` shows `annotate 3.2.0`, but Bundler keeps `2.6.5` on this Rails 8.1 lockfile (upgrade did not resolve)
   - accepted as a non-runtime dev-tool compromise for this checkpoint

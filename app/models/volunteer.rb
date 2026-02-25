@@ -15,6 +15,7 @@
 #
 
 class Volunteer < ApplicationRecord
+  ransack_allow_all!
   BLOODTYPES = ['NS', 'A+', 'A-', 'B+', 'B-', 'AB+', 'AB-', 'O+', 'O-']
   STATUS = [['Servicio Social',1],['Voluntario',2]] 
   

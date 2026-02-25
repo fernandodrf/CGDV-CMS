@@ -12,6 +12,7 @@
 #
 
 class Contact < ApplicationRecord
+  ransack_allow_all!
   has_many :telephones, :as => :telephoneable, :dependent => :destroy
   has_many :addresses, :as => :addresseable, :dependent => :destroy
   has_many :emails, :as => :emailable, :dependent => :destroy
