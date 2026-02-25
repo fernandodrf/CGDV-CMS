@@ -19,15 +19,27 @@ Use this checklist to complete Phase 4 ("Rails 7.1 upgrade") from `docs/rails_up
 
 ## C) Framework update task + defaults
 - [x] Run `bin/rails app:update` and review prompts manually (executed with `yes n` to avoid overwriting app-specific configs).
-- [x] Add `config/initializers/new_framework_defaults_7_1.rb` (generated; toggles remain commented).
+- [x] Add `config/initializers/new_framework_defaults_7_1.rb` (generated; toggles initially commented).
 - [x] Record whether `rails active_storage:update` produced new tracked artifacts (none in this pass).
-- [ ] Review and selectively enable `new_framework_defaults_7_1.rb` toggles in small batches.
+- [x] Enable and validate a first low-risk Rails 7.1 defaults subset:
+  - `active_support.raise_on_invalid_cache_expiration_time = true`
+  - `active_record.query_log_tags_format = :sqlcommenter`
+  - `precompile_filter_parameters = true`
+  - `action_dispatch.debug_exception_log_level = :error`
+- [x] Enable and validate a second low-risk Rails 7.1 defaults subset:
+  - `active_record.sqlite3_adapter_strict_strings_by_default = true` (no-op on PostgreSQL)
+  - `active_record.allow_deprecated_singular_associations_name = false`
+  - `active_record.raise_on_assign_to_attr_readonly = true`
+  - `active_record.generate_secure_token_on = :initialize` (no `has_secure_token` usage in this app)
+- [ ] Continue reviewing and selectively enabling remaining `new_framework_defaults_7_1.rb` toggles in small batches.
 - [ ] Decide whether/when to advance `config.load_defaults` from `6.1` to `7.0` and then `7.1` (or keep explicit staged defaults).
 
 ## D) Validation
 - [x] Run full RSpec suite immediately after the Rails 7.1 dependency bump (captured initial failures).
 - [x] Re-run full RSpec suite after `rspec-rails` compatibility upgrade.
 - [x] Re-run full RSpec suite after easy deprecation cleanup.
+- [x] Re-run full RSpec suite after the first Rails 7.1 defaults subset is enabled.
+- [x] Re-run full RSpec suite after the second Rails 7.1 defaults subset is enabled.
 - [x] Record local test evidence in `docs/rails_upgrade_phase4_report.md`.
 
 ## E) Remaining deprecations / follow-up
@@ -40,6 +52,15 @@ Use this checklist to complete Phase 4 ("Rails 7.1 upgrade") from `docs/rails_up
 - Rails 7.1 upgrade became test-green after bumping `rspec-rails` from `4.1.2` to `6.1.5`.
 - First full-suite result after Rails bump (before `rspec-rails` upgrade): `538 examples, 25 failures, 57 pending` (all failures shared the same controller spec view-rendering resolver incompatibility).
 - Latest local full-suite result in this Phase 4 kickoff pass:
-  - `CHROMEDRIVER_PATH="$(command -v chromedriver)" bundle exec rspec -f j -o rspec_phase4_rails71_after_easy_deprecations.json`
+  - `CHROMEDRIVER_PATH="$(command -v chromedriver)" bundle exec rspec -f j -o rspec_phase4_rails71_defaults_batch2.json`
   - Result: `538 examples, 0 failures, 79 pending`
-- `config.load_defaults` remains `6.1` from Phase 3; Rails 7.1 defaults are not enabled yet.
+- Rails 7.1 defaults currently enabled in `config/initializers/new_framework_defaults_7_1.rb`:
+  - `active_support.raise_on_invalid_cache_expiration_time = true`
+  - `active_record.query_log_tags_format = :sqlcommenter`
+  - `precompile_filter_parameters = true`
+  - `action_dispatch.debug_exception_log_level = :error`
+  - `active_record.sqlite3_adapter_strict_strings_by_default = true`
+  - `active_record.allow_deprecated_singular_associations_name = false`
+  - `active_record.raise_on_assign_to_attr_readonly = true`
+  - `active_record.generate_secure_token_on = :initialize`
+- `config.load_defaults` remains `6.1` from Phase 3; Rails 7.1 defaults are partially staged, not globally enabled.

@@ -1,7 +1,7 @@
 # Rails Upgrade Phase 4 Report
 
-Generated at: 2026-02-25 14:00:00 UTC
-Git revision: 34cb65c
+Generated at: 2026-02-25 13:55:26 UTC
+Git revision: fb0f2af
 Branch: codex/phase4-rails71
 
 Use this report to track Phase 4 from `docs/rails_upgrade_plan.md`:
@@ -71,7 +71,7 @@ rvm use 3.2.6 do bundle update rspec-rails
 - `config/initializers/new_framework_defaults_6_0.rb`
   - commented deprecated/no-op `active_storage.replace_on_assign_to_many = true`
 
-### Remaining warnings after cleanup (current Phase 4 kickoff state)
+### Remaining warnings after cleanup (before Rails 7.1 defaults staging)
 - `Rails.application.secrets` deprecation (legacy secrets API/file still present)
 - `serialize` positional argument deprecation from the `slow_your_roles` path in `User`
 - `DeprecatedConstantAccessor...` deprecation from a dependency (gem source still to identify)
@@ -132,6 +132,43 @@ Result:
 - `538 examples, 0 failures, 79 pending`
 - Warning noise reduced (fixture path / deprecated no-op config removed)
 
+### First Rails 7.1 defaults subset enabled and validated
+Enabled in `config/initializers/new_framework_defaults_7_1.rb`:
+- `Rails.application.config.active_support.raise_on_invalid_cache_expiration_time = true`
+- `Rails.application.config.active_record.query_log_tags_format = :sqlcommenter`
+- `Rails.application.config.precompile_filter_parameters = true`
+- `Rails.application.config.action_dispatch.debug_exception_log_level = :error`
+
+Validation command:
+```bash
+rvm use 3.2.6 do env CHROMEDRIVER_PATH="$(command -v chromedriver)" \
+  bundle exec rspec -f j -o rspec_phase4_rails71_defaults_batch1.json
+```
+
+Result:
+- `538 examples, 0 failures, 79 pending`
+
+### Second Rails 7.1 defaults subset enabled and validated
+Enabled in `config/initializers/new_framework_defaults_7_1.rb`:
+- `Rails.application.config.active_record.sqlite3_adapter_strict_strings_by_default = true` (no-op on PostgreSQL)
+- `Rails.application.config.active_record.allow_deprecated_singular_associations_name = false`
+- `Rails.application.config.active_record.raise_on_assign_to_attr_readonly = true`
+- `Rails.application.config.active_record.generate_secure_token_on = :initialize`
+
+Validation command:
+```bash
+rvm use 3.2.6 do env CHROMEDRIVER_PATH="$(command -v chromedriver)" \
+  bundle exec rspec -f j -o rspec_phase4_rails71_defaults_batch2.json
+```
+
+Result:
+- `538 examples, 0 failures, 79 pending`
+
+### Remaining warnings after two Rails 7.1 defaults batches (current state)
+- `Rails.application.secrets` deprecation (legacy secrets API/file still present)
+- `serialize` positional argument deprecation from the `slow_your_roles` path in `User`
+- `DeprecatedConstantAccessor...` deprecation from a dependency (gem source still to identify)
+
 ## 6) Phase 4 status summary (kickoff checkpoint)
 - [x] Rails upgraded from `7.0.10` to `7.1.6`.
 - [x] App boots under Rails 7.1 / Ruby 3.2.6.
@@ -139,13 +176,15 @@ Result:
 - [x] Rails 7.1 defaults initializer generated and retained for gradual rollout.
 - [x] Full local RSpec suite green on Rails 7.1 after `rspec-rails` compatibility upgrade.
 - [x] Easy app-owned Rails 7.1 deprecations cleaned up (`fixture_paths`, deprecated no-op Active Storage config, deprecated `disable_to_s_conversion` knob).
-- [ ] Rails 7.1 defaults (`new_framework_defaults_7_1.rb`) remain unevaluated/commented.
+- [x] First low-risk Rails 7.1 defaults subset enabled and validated (`raise_on_invalid_cache_expiration_time`, `query_log_tags_format`, `precompile_filter_parameters`, `debug_exception_log_level`).
+- [x] Second low-risk Rails 7.1 defaults subset enabled and validated (`sqlite3_adapter_strict_strings_by_default`, `allow_deprecated_singular_associations_name`, `raise_on_assign_to_attr_readonly`, `generate_secure_token_on`).
+- [ ] Many Rails 7.1 defaults (`new_framework_defaults_7_1.rb`) remain unevaluated/commented (serialization/message-format/transaction/callback/sanitizer-impacting items).
 - [ ] `Rails.application.secrets` deprecation remains.
 - [ ] `slow_your_roles` / `serialize` positional-argument deprecation remains.
 - [ ] Dependency-origin `DeprecatedConstantAccessor...` deprecation remains (source TBD).
 
 ## 7) Recommended next actions
-1. Start enabling low-risk Rails 7.1 defaults from `new_framework_defaults_7_1.rb` in small batches with full-suite reruns.
+1. Continue staged Rails 7.1 defaults in small batches; defer message/caching/serializer format toggles until rollback strategy is decided (`config.load_defaults` is still `6.1`).
 2. Migrate off `Rails.application.secrets` (remove `config/secrets.yml` usage or replace with credentials/env-only flow).
 3. Patch/upgrade the `slow_your_roles` serialization path to remove the positional `serialize` deprecation.
 4. Identify the gem emitting `DeprecatedConstantAccessor...` and decide whether to upgrade, patch, or accept temporarily.
