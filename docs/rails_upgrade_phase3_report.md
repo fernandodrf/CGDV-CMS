@@ -1,8 +1,8 @@
 # Rails Upgrade Phase 3 Report
 
-Generated at: 2026-02-25 12:35:00 UTC
-Git revision: 75ffd2c
-Branch: codex/create-upgrade-plan-for-rails
+Generated at: 2026-02-25 13:21:01 UTC
+Git revision: 2681495
+Branch: codex/phase3-defaults-batch2
 
 Use this report to track Phase 3 from `docs/rails_upgrade_plan.md`:
 - Rails `6.1.x -> 7.0.x` framework upgrade
@@ -104,7 +104,7 @@ yes n | rvm use 3.2.6 do bundle exec rails app:update
 ### Defaults strategy for Rails 7
 - `config/application.rb` still uses `config.load_defaults 6.0`
 - `new_framework_defaults_6_1.rb` contains a small enabled subset plus deferred high-impact toggles
-- `new_framework_defaults_7_0.rb` is present with all toggles commented
+- `new_framework_defaults_7_0.rb` was generated with all toggles commented, then enabled incrementally in small validated batches
 - Recommendation: keep staging defaults through the two initializer files, then move `config.load_defaults` later after explicit validation
 
 ## 5) Local regression validation (Rails 7.0)
@@ -158,6 +158,22 @@ Result:
 - `538 examples, 0 failures, 79 pending`
 - CSRF explicit-assignment deprecator warning still present (expected with current staged defaults strategy)
 
+### Second Rails 7 defaults subset enabled and validated
+Enabled in `config/initializers/new_framework_defaults_7_0.rb`:
+- `Rails.application.config.active_support.remove_deprecated_time_with_zone_name = true`
+- `Rails.application.config.active_record.verify_foreign_keys_for_fixtures = true`
+- `Rails.application.config.active_support.use_rfc4122_namespaced_uuids = true`
+
+Validation command:
+```bash
+rvm use 3.2.6 do env CHROMEDRIVER_PATH="$(command -v chromedriver)" \
+  bundle exec rspec -f j -o rspec_phase3_rails70_defaults_batch2.json
+```
+
+Result:
+- `538 examples, 0 failures, 79 pending`
+- CSRF explicit-assignment deprecator warning still present (expected with current staged defaults strategy)
+
 ## 6) Phase 3 status summary (current branch)
 - [x] Rails upgraded from `6.1.7.10` to `7.0.10`.
 - [x] `rails-i18n` upgraded to a Rails 7-compatible version (`7.0.10`).
@@ -168,12 +184,13 @@ Result:
 - [x] Full local RSpec suite green on Rails 7.0 (`538 examples, 0 failures, 79 pending`) before and after `app:update`.
 - [x] Deferred 6.1 defaults causing Rails 7 deprecations were explicitly enabled/validated in `config/application.rb` (`urlsafe_csrf_tokens`, `legacy_connection_handling`).
 - [x] First low-risk Rails 7 defaults subset enabled and validated (`apply_stylesheet_media_default`, `smtp_timeout`).
+- [x] Second low-risk Rails 7 defaults subset enabled and validated (`remove_deprecated_time_with_zone_name`, `verify_foreign_keys_for_fixtures`, `use_rfc4122_namespaced_uuids`).
 - [ ] One CSRF deprecator warning remains due explicit assignment while `config.load_defaults` is still `6.0`.
-- [ ] Most Rails 7 defaults (`new_framework_defaults_7_0.rb`) remain unevaluated/commented (small low-risk subset enabled).
+- [ ] Several Rails 7 defaults (`new_framework_defaults_7_0.rb`) remain unevaluated/commented (two low-risk subsets enabled).
 - [ ] Active Storage migrations (6.1 + 7.0) still need execution/verification against real data.
 
 ## 7) Recommended next actions
 1. Decide whether to tolerate the remaining CSRF explicit-assignment deprecator warning until a later defaults bump, or advance part of the defaults strategy to eliminate it.
-2. Continue reviewing `new_framework_defaults_7_0.rb` and enable additional flags in small batches (keep request/redirect/cookie/cache-impacting options for later explicit verification).
+2. Continue reviewing `new_framework_defaults_7_0.rb` and enable additional flags in small batches (keep request/redirect/cookie/cache/message-digest-impacting options for later explicit verification).
 3. Run the pending Active Storage migrations against a real local DB copy and verify upload/variant flows manually.
 4. After selected Rails 7 defaults are validated, decide whether to continue to Phase 4 (Rails 7.1) or spend a short stabilization cycle on Rails 7.0 first.
