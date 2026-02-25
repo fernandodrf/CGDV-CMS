@@ -9,6 +9,7 @@ module Cgdv
   class Application < Rails::Application
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 6.1
+    config.add_autoload_paths_to_load_path = false
     # No deployment/rollback target currently exists, so it's safe to adopt the
     # Rails 7 cache entry format now.
     config.active_support.cache_format_version = 7.0
