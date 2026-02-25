@@ -11,6 +11,7 @@
 #
 
 class ActivityReport < ApplicationRecord
+  ransack_allow_all!
   belongs_to :volunteer
   
   before_create :set_week

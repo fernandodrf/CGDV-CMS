@@ -11,6 +11,7 @@
 #
 
 class VolTime < ApplicationRecord
+  ransack_allow_all!
   belongs_to :volunteer
   
   validates :horas, :presence => true, :numericality => true

@@ -17,6 +17,7 @@
 #
 
 class Patient < ApplicationRecord
+  ransack_allow_all!
   BLOODTYPES = ['NS', 'A+', 'A-', 'B+', 'B-', 'AB+', 'AB-', 'O+', 'O-']
   STATUS = [['Activo',1],['Abandono',2],['Reglamentaria',3],['Defuncion',4],['Remision',5],['Acceso Seguridad Social',6]]  
   

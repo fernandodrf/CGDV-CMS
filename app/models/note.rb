@@ -16,6 +16,7 @@
 #
 
 class Note < ApplicationRecord
+  ransack_allow_all!
   before_save :check_status
   
   belongs_to :patient
