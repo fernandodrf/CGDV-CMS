@@ -12,4 +12,12 @@
 <tr>
   <td colspan=2><%= t('house.economicaactivas') %>: <%= house.economicaactivas %></td>
 </tr>
-<tr><td colspan=2><%= link_to t('helpers.delete.msg'), patient_house_path(@patient,house), :method => :delete, :confirm => t('helpers.delete.conf') %></td></tr>
+<tr>
+  <td colspan=2>
+    <%= link_to t('helpers.delete.msg'),
+                patient_house_path(@patient,house),
+                :method => :delete,
+                :confirm => t('helpers.delete.conf'),
+                class: "btn btn-outline-danger btn-sm" %>
+  </td>
+</tr>

@@ -1,7 +1,7 @@
 <tr>
   <td><%= apoyo.tipo %></td>
-  <td><%= link_to t('helpers.edit'), edit_patient_apoyo_path(@patient, apoyo) %></td>
+  <td><%= link_to t('helpers.edit'), edit_patient_apoyo_path(@patient, apoyo), class: "btn btn-outline-primary btn-sm" %></td>
   <td>
-  	<%= link_to t('helpers.delete.msg'), patient_apoyo_path(@patient,apoyo), :method => :delete, :confirm => t('helpers.delete.conf'), :title => "#{t('helpers.delete.msg')} #{apoyo.tipo}" %>
+  	<%= link_to t('helpers.delete.msg'), patient_apoyo_path(@patient,apoyo), :method => :delete, :confirm => t('helpers.delete.conf'), :title => "#{t('helpers.delete.msg')} #{apoyo.tipo}", class: "btn btn-outline-danger btn-sm" %>
   </td>
 </tr>
