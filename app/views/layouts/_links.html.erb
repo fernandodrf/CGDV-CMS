@@ -1,13 +1,13 @@
-<li><%= link_to t('header.home'), root_path %></li>
+<li class="nav-item"><%= link_to t('header.home'), root_path, class: "nav-link" %></li>
 <% if signed_in? and can? :read, Patient %>
-  <li><%= link_to t('header.patient'), patients_path %></li>
+  <li class="nav-item"><%= link_to t('header.patient'), patients_path, class: "nav-link" %></li>
 <% end %>
 <% if signed_in? and can? :read, Note %>
-  <li><%= link_to t('header.note'), notes_path %></li>
+  <li class="nav-item"><%= link_to t('header.note'), notes_path, class: "nav-link" %></li>
 <% end %>
 <% if signed_in? and can? :read, Provider %>
-  <li><%= link_to t('header.provider'), providers_path %></li>
+  <li class="nav-item"><%= link_to t('header.provider'), providers_path, class: "nav-link" %></li>
 <% end %>
 <% if signed_in? and can? :read, Contact %>
-  <li><%= link_to t('header.contact'), contacts_path %></li>
+  <li class="nav-item"><%= link_to t('header.contact'), contacts_path, class: "nav-link" %></li>
 <% end %>

@@ -1,27 +1,35 @@
-<header>
-    <%= link_to logoprint, root_path %>
-    <nav class='inline round'>
-  	<ul>
-      <% if signed_in? %>  		
-  	  <li><strong><%= t('user.name') %>:</strong> <%= current_user.name %>, No?</li>
-  	  <% if current_user.admin? %>
-      <li><%= link_to t('header.users'), users_path %></li>
-      <li><%= link_to t('header.profile'), current_user %></li>
-      <li><%= link_to t('header.settings'), edit_user_path(current_user) %></li>
-      <% end %>
-      <% if signed_in? and can? :trep, Volunteer %>
- 	  <li>
-      <%# FIXME: Correct this for tests %>
-      <% unless current_user.volunteer.nil? %>
-      <%# Workaround %>
-        <%= link_to "Mis Horas", trep_volunteer_path(current_user.volunteer) %>
-      <% end %>
-    </li>
-	  <% end %>
-      <li><%= link_to t('session.logout'), destroy_user_session_path, :method => :delete %></li>
-      <% else %>
-      <li><%= link_to t('session.login'), new_user_session_path %></li>
-      <% end %>
-  	</ul>
-  </nav>
+<header class="card border-0 shadow-sm mb-3 app-header">
+  <div class="card-body py-3">
+    <div class="d-flex flex-column flex-lg-row align-items-start align-items-lg-center justify-content-between gap-3">
+      <div class="app-logo">
+        <%= link_to logoprint, root_path, class: "d-inline-block" %>
+      </div>
+      <nav aria-label="User navigation" class="w-100 w-lg-auto">
+        <ul class="nav justify-content-start justify-content-lg-end align-items-center flex-wrap gap-1">
+          <% if signed_in? %>
+            <li class="nav-item">
+              <span class="badge text-bg-light border px-3 py-2">
+                <strong><%= t('user.name') %>:</strong> <%= current_user.name %>, No?
+              </span>
+            </li>
+            <% if current_user.admin? %>
+              <li class="nav-item"><%= link_to t('header.users'), users_path, class: "nav-link px-2" %></li>
+              <li class="nav-item"><%= link_to t('header.profile'), current_user, class: "nav-link px-2" %></li>
+              <li class="nav-item"><%= link_to t('header.settings'), edit_user_path(current_user), class: "nav-link px-2" %></li>
+            <% end %>
+            <% if signed_in? and can? :trep, Volunteer %>
+              <% unless current_user.volunteer.nil? %>
+                <li class="nav-item"><%= link_to "Mis Horas", trep_volunteer_path(current_user.volunteer), class: "nav-link px-2" %></li>
+              <% end %>
+            <% end %>
+            <li class="nav-item">
+              <%= link_to t('session.logout'), destroy_user_session_path, :method => :delete, class: "btn btn-outline-secondary btn-sm ms-lg-2" %>
+            </li>
+          <% else %>
+            <li class="nav-item"><%= link_to t('session.login'), new_user_session_path, class: "btn btn-primary btn-sm" %></li>
+          <% end %>
+        </ul>
+      </nav>
+    </div>
+  </div>
 </header>
