@@ -284,6 +284,67 @@ body {
   white-space: normal;
 }
 
+.page-toolbar .btn {
+  white-space: nowrap;
+}
+
+.search-panel .form-label {
+  font-weight: 600;
+  color: #6b4b0a;
+}
+
+.search-panel .form-control:focus {
+  border-color: #d8a13a;
+  box-shadow: 0 0 0 0.2rem rgba(191, 143, 48, 0.15);
+}
+
+.list-card {
+  overflow: hidden;
+}
+
+.app-table thead th {
+  white-space: nowrap;
+  color: #5a3f0c;
+}
+
+.app-table tbody td {
+  background: #fff;
+}
+
+.app-table tbody tr:hover td {
+  background: #fff9ea;
+}
+
+.app-table tfoot th,
+.app-table tfoot td {
+  white-space: nowrap;
+}
+
+.pagination-wrap .pagination {
+  margin: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+  align-items: center;
+}
+
+.pagination-wrap .pagination a,
+.pagination-wrap .pagination span {
+  display: inline-block;
+  padding: 0.3rem 0.65rem;
+  border-radius: 999px;
+  border: 1px solid rgba(191, 143, 48, 0.25);
+  background: #fffaf0;
+  color: #6b4b0a;
+  text-decoration: none;
+}
+
+.pagination-wrap .pagination .current {
+  background: #bf8f30;
+  border-color: #bf8f30;
+  color: #fff;
+}
+
 .app-footer {
   color: #5c420d;
 }

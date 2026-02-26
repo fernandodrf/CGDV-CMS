@@ -1,24 +1,53 @@
-<h1><%= t('patient.index') %></h1>
-<h6><%= link_to t('helpers.submit.create', :model => "Nuevo Paciente"), new_patient_path %></h6><br />
-<%= search_form_for @search, :url => patients_path, :html => {:method => :get} do |f| %>
-  <h6><%= t('search.title') %></h6>	
-  <%= f.label :name_cont, t('search.name') %>
-  <%= f.text_field :name_cont %>
-  <%= f.label :cgdvcode_eq, t('search.cgdvcode') %>
-  <%= f.text_field :cgdvcode_eq, :size => 10 %>
-  <%= f.submit t('helpers.search') %><br /><br />
-<% end %>
-<strong><%= t('search.sort') %>	</strong>
-<%= paginate @patients %>
-<table>
-	<tr>
-	  <td><strong><%= sort_link @search, :cgdvcode, t('patient.cgdvcode'), :default_order => :desc %></strong></td>
-	  <td><strong><%= sort_link @search, :name, t('patient.name'), :default_order => :desc %></strong></td>
-	  <td class="smally"><strong><%= sort_link @search, :created_at, t('all.created_at'), :default_order => :desc %></strong></td>
-	  <td><strong><%= sort_link @search, :status, "Estatus" %></strong></td>
-	  <td><strong><%= t('header.notas') %></strong></td>
-    </tr>
-	<%= render @patients %>
-</table>
+<div class="page-toolbar mb-3">
+  <div class="d-flex flex-column flex-md-row justify-content-between align-items-start align-items-md-center gap-2">
+    <h1 class="h2 mb-0"><%= t('patient.index') %></h1>
+    <%= link_to t('helpers.submit.create', :model => "Nuevo Paciente"), new_patient_path, class: "btn btn-primary btn-sm" %>
+  </div>
+</div>
 
-<%= paginate @patients %>
+<div class="card border-0 shadow-sm mb-3 search-panel">
+  <div class="card-body">
+    <%= search_form_for @search, :url => patients_path, :html => {:method => :get, :class => "row g-3 align-items-end"} do |f| %>
+      <div class="col-12">
+        <h6 class="text-uppercase text-muted mb-1"><%= t('search.title') %></h6>
+      </div>
+      <div class="col-12 col-md-5">
+        <%= f.label :name_cont, t('search.name'), class: "form-label" %>
+        <%= f.text_field :name_cont, class: "form-control" %>
+      </div>
+      <div class="col-12 col-md-4">
+        <%= f.label :cgdvcode_eq, t('search.cgdvcode'), class: "form-label" %>
+        <%= f.text_field :cgdvcode_eq, :size => 10, class: "form-control" %>
+      </div>
+      <div class="col-12 col-md-3">
+        <%= f.submit t('helpers.search'), class: "btn btn-outline-primary w-100" %>
+      </div>
+    <% end %>
+  </div>
+</div>
+
+<div class="d-flex justify-content-between align-items-center mb-2">
+  <strong class="text-muted small"><%= t('search.sort') %></strong>
+  <div class="pagination-wrap"><%= paginate @patients %></div>
+</div>
+
+<div class="card border-0 shadow-sm list-card">
+  <div class="table-responsive">
+    <table class="table table-hover align-middle mb-0 app-table">
+      <thead class="table-light">
+        <tr>
+          <th><%= sort_link @search, :cgdvcode, t('patient.cgdvcode'), :default_order => :desc %></th>
+          <th><%= sort_link @search, :name, t('patient.name'), :default_order => :desc %></th>
+          <th class="smally"><%= sort_link @search, :created_at, t('all.created_at'), :default_order => :desc %></th>
+          <th><%= sort_link @search, :status, "Estatus" %></th>
+          <th colspan="3"><%= t('header.notas') %></th>
+        </tr>
+      </thead>
+      <tbody>
+        <%= render @patients %>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<div class="pagination-wrap mt-3"><%= paginate @patients %></div>
