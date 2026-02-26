@@ -1,5 +1,9 @@
 <tr>
   <td><%= derechohabiente.seguro %>: <%= derechohabiente.afiliacion %></td>
-  <td><%= link_to t('helpers.edit'), edit_patient_derechohabiente_path(@patient, derechohabiente), class: "btn btn-outline-primary btn-sm" %></td>
-  <td><%= link_to t('helpers.delete.msg'), patient_derechohabiente_path(@patient,derechohabiente), :method => :delete, :confirm => t('helpers.delete.conf'), class: "btn btn-outline-danger btn-sm" %></td>
+  <td class="text-end">
+    <div class="d-inline-flex gap-1 flex-wrap justify-content-end">
+      <%= link_to t('helpers.edit'), edit_patient_derechohabiente_path(@patient, derechohabiente), class: "btn btn-outline-primary btn-sm" %>
+      <%= link_to t('helpers.delete.msg'), patient_derechohabiente_path(@patient, derechohabiente), :method => :delete, :confirm => t('helpers.delete.conf'), class: "btn btn-outline-danger btn-sm" %>
+    </div>
+  </td>
 </tr>
