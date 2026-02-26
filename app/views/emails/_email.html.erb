@@ -1,10 +1,14 @@
 <tr>
   <% if !email.datos.nil? and !email.datos.blank? %>
-  <td><%= "#{email.datos}: #{email.email}" %></td>	
+  <td><%= "#{email.datos}: #{email.email}" %></td>
   <% else %>
   <td><%= email.email %></td>
   <% end %>
-  <td><%= link_to t('helpers.edit'), edit_polymorphic_path([model,email]) %></td>
-  <td><%= link_to t('helpers.delete.msg'), polymorphic_path([model,email]) , :method => :delete, :confirm => t('helpers.delete.conf'),
-                                :title => "#{t('helpers.delete.msg')} #{email.email}" %></td>
+  <td class="text-end">
+    <div class="d-inline-flex gap-1 flex-wrap justify-content-end">
+      <%= link_to t('helpers.edit'), edit_polymorphic_path([model,email]), class: "btn btn-outline-primary btn-sm" %>
+      <%= link_to t('helpers.delete.msg'), polymorphic_path([model,email]) , :method => :delete, :confirm => t('helpers.delete.conf'),
+                                  :title => "#{t('helpers.delete.msg')} #{email.email}", class: "btn btn-outline-danger btn-sm" %>
+    </div>
+  </td>
 </tr>

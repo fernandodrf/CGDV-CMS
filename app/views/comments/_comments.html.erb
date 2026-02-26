@@ -1,11 +1,21 @@
-<table class="comments" align=center>
-  <tr>
-    <th><%= t('patient.comments') %></th>
+<div class="card border-0 shadow-sm detail-section-card comments">
+  <div class="card-header d-flex justify-content-between align-items-center gap-2">
+    <strong><%= t('patient.comments') %></strong>
     <% if can? :create, Comment %>
-	<td colspan=2 nowrap><%= link_to t('helpers.submit.create', :model => "Comentarios"), new_polymorphic_path([model,Comment]) %></td>
-	<% end %>
-  </tr>  
-  <% unless model.comments.empty? and can? :read, Comment %>
-  <%= render @comments, :model => model %>
-  <% end %>
-</table>
+      <%= link_to t('helpers.submit.create', :model => "Comentarios"), new_polymorphic_path([model,Comment]), class: "btn btn-outline-primary btn-sm" %>
+    <% end %>
+  </div>
+  <div class="table-responsive">
+    <table class="table mb-0 app-table">
+      <tbody>
+        <% if can? :read, Comment %>
+          <% unless model.comments.empty? %>
+            <%= render @comments, :model => model %>
+          <% else %>
+            <tr><td class="text-muted">Sin comentarios.</td></tr>
+          <% end %>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>

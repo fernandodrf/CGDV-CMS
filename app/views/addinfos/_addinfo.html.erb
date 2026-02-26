@@ -1,6 +1,10 @@
 <tr>
   <td><%= text_info(addinfo.tipo) %>: <%= addinfo.info %></td>
-  <td><%= link_to t('helpers.edit'), edit_polymorphic_path([model,addinfo]) %></td>
-  <td><%= link_to t('helpers.delete.msg'), polymorphic_path([model,addinfo]), :method => :delete, :confirm => t('helpers.delete.conf'),
-                                :title => "#{t('helpers.delete.msg')} #{addinfo.info}" %></td>
+  <td class="text-end">
+    <div class="d-inline-flex gap-1 flex-wrap justify-content-end">
+      <%= link_to t('helpers.edit'), edit_polymorphic_path([model,addinfo]), class: "btn btn-outline-primary btn-sm" %>
+      <%= link_to t('helpers.delete.msg'), polymorphic_path([model,addinfo]), :method => :delete, :confirm => t('helpers.delete.conf'),
+                                  :title => "#{t('helpers.delete.msg')} #{addinfo.info}", class: "btn btn-outline-danger btn-sm" %>
+    </div>
+  </td>
 </tr>
