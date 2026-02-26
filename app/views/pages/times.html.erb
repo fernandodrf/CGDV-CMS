@@ -1,7 +1,35 @@
-<h1><%= t('timereport.title') %></h1><br />
-<% if signed_in? and can? :read, VolTime %>
-  <h4><%= link_to "Añadir/Acumular Tiempo", vol_times_path %></h4>
-<% end %>
-<% if signed_in? and can? :read, Timereport %>
-  <h4><%= link_to "Restar/Reportar de Tiempo", timereports_path %></h4>
-<% end %>
+<div class="page-toolbar mb-3">
+  <h1 class="h2 mb-0"><%= t('timereport.title') %></h1>
+</div>
+
+<div class="card border-0 shadow-sm times-page-card">
+  <div class="card-body p-3 p-md-4">
+    <% if signed_in? %>
+      <div class="row g-3">
+        <% if can? :read, VolTime %>
+          <div class="col-12 col-md-6">
+            <%= link_to vol_times_path, class: "btn btn-outline-primary w-100 py-3 times-page-link" do %>
+              <span class="d-block fw-semibold">Añadir/Acumular Tiempo</span>
+              <small class="text-muted">Registrar tiempo pendiente para voluntariado</small>
+            <% end %>
+          </div>
+        <% end %>
+        <% if can? :read, Timereport %>
+          <div class="col-12 col-md-6">
+            <%= link_to timereports_path, class: "btn btn-outline-secondary w-100 py-3 times-page-link" do %>
+              <span class="d-block fw-semibold">Restar/Reportar de Tiempo</span>
+              <small class="text-muted">Aplicar tiempo a actividades o servicios</small>
+            <% end %>
+          </div>
+        <% end %>
+      </div>
+
+      <% unless can?(:read, VolTime) || can?(:read, Timereport) %>
+        <p class="mb-0 text-muted">No tienes permisos para ver módulos de tiempo.</p>
+      <% end %>
+    <% else %>
+      <p class="mb-3">Inicia sesión para acceder a los módulos de tiempo.</p>
+      <%= link_to t('session.login'), new_user_session_path, class: "btn btn-primary" %>
+    <% end %>
+  </div>
+</div>

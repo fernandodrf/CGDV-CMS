@@ -6,14 +6,19 @@
     <%= stylesheet_link_tag 'customprint', :media => "screen, print, projection" %>
     <%= csrf_meta_tag %>
   </head>
-  <body>
-    <div align="center">
-      <h1><%= @att.name %></h1>
-				<%  unless @att.fileattachment.to_s.nil? %>
-					<%= image_tag(image_attachment_path(@att), :alt => "Archivo Adjunto", :class => "avatar round") %><br />
-				<% end %>
+  <body class="print-preview-body attachment-preview-body">
+    <div id="wrap" class="print-preview-shell attachment-preview-shell">
+      <div id="header" class="attachment-preview-header">
+        <h1><%= @att.name %></h1>
+      </div>
+      <div class="attachment-preview-content">
+        <% unless @att.fileattachment.to_s.nil? %>
+          <%= image_tag(image_attachment_path(@att), :alt => "Archivo Adjunto", :class => "avatar round attachment-preview-image") %>
+        <% else %>
+          <p class="attachment-preview-empty">Sin vista previa disponible.</p>
+        <% end %>
+      </div>
     </div>
   </body>
 </html>
-
 

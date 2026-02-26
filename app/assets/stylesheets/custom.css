@@ -524,6 +524,16 @@ button:focus-visible,
   vertical-align: top;
 }
 
+.attachments-section .app-table td:first-child a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.attachments-section .app-table td:first-child a:hover,
+.attachments-section .app-table td:first-child a:focus {
+  text-decoration: underline;
+}
+
 .detail-divider td {
   padding: 0.35rem;
   background: #fff7e1;
@@ -601,6 +611,29 @@ button:focus-visible,
   font-size: 2rem;
   background: #fff7e1;
   border: 1px solid rgba(191, 143, 48, 0.2);
+}
+
+.attachment-preview-thumb {
+  max-width: 220px;
+  max-height: 220px;
+  background: #fff;
+}
+
+.home-hero-card .card-body {
+  background: linear-gradient(180deg, #ffffff 0%, #fffaf0 100%);
+}
+
+.times-page-card .card-body {
+  background: linear-gradient(180deg, #fffdf7 0%, #fff9ee 100%);
+}
+
+.times-page-link {
+  text-align: left;
+  border-radius: 0.8rem;
+}
+
+.times-page-link small {
+  color: #7a6b52 !important;
 }
 
 .volunteer-show-avatar {
@@ -732,6 +765,10 @@ table th {
 
   .page-toolbar .btn {
     width: 100%;
+  }
+
+  .times-page-link {
+    text-align: center;
   }
 
   .pagination-wrap .pagination a,

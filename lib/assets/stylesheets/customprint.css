@@ -207,6 +207,39 @@ hr {
     margin-top: 8px;
   }
 
+  #wrap.attachment-preview-shell {
+    width: 100%;
+    max-width: 920px;
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    border-radius: 12px;
+    box-shadow: 0 12px 30px rgba(44, 34, 9, 0.12);
+    background: #fff;
+  }
+
+  .attachment-preview-header {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+    margin-bottom: 8px;
+  }
+
+  .attachment-preview-content {
+    display: flex;
+    justify-content: center;
+    padding: 8px 12px 14px;
+  }
+
+  .attachment-preview-image {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 2px 14px rgba(0, 0, 0, 0.08);
+    background: #fff;
+  }
+
+  .attachment-preview-empty {
+    margin: 0;
+    color: #5d5344;
+  }
+
   hr {
     margin: 16px 0;
   }
