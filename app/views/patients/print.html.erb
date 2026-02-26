@@ -1,23 +1,27 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <!--[if lt IE 8]><%= stylesheet_link_tag 'blueprint/ie' %><![endif]-->
 	<%= stylesheet_link_tag 'customprint', :media => "screen, print, projection" %>
 	<%= csrf_meta_tag %>
 	</head>
-    <body>	
-	<div id="wrap">
-	  <div id="header">
-	    <table align=center border=0>
-		  <tr><td><%= logoprint %></td><td><h1><%= @patient.cgdvcode %>: <%= @patient.name %></h1></td></tr>
-	    </table>
+    <body class="print-preview-body">	
+	<div id="wrap" class="print-preview-shell patient-print-shell">
+	  <div id="header" class="print-preview-header">
+      <div class="patient-print-title">
+        <div class="patient-print-logo"><%= logoprint %></div>
+        <div class="patient-print-heading">
+          <h1><%= @patient.cgdvcode %>: <%= @patient.name %></h1>
+        </div>
+      </div>
 	  </div>
-	  <div class="patientprint" id="mainleft">
+	  <div class="patientprint patientprint-column" id="mainleft">
 		<%= render 'personalinformation' %>
 		<%= render 'houses/houseinfo' %>
 	    <%= render 'family_members/familymembers' %>
 	  </div>
-	  <div class="patientprint" id="mainright">
+	  <div class="patientprint patientprint-column" id="mainright">
 	    <%= render 'refclinicas/refclinicainfo' %>
 	    <%= render 'socioecos/socioecoinfo' %>
 	    <%= render 'diagnosticos/diagnosticosinfo', :model => @patient  %>
