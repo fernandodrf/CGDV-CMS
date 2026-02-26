@@ -244,6 +244,27 @@ body {
   max-width: 1180px;
 }
 
+.app-nav-row {
+  margin: 0;
+}
+
+.app-nav-row + .app-nav-row {
+  margin-top: 0.55rem;
+}
+
+.app-main-card {
+  margin-top: 0.85rem;
+  border-radius: 0.9rem;
+}
+
+.app-nav-row-bottom {
+  margin-top: 1rem;
+}
+
+.app-nav-row-bottom + .app-nav-row-bottom {
+  margin-top: 0.55rem;
+}
+
 .btn-primary {
   --bs-btn-bg: var(--cgdv-primary);
   --bs-btn-border-color: var(--cgdv-primary);
@@ -385,10 +406,6 @@ button:focus-visible,
   background: #ffe6b3;
   border-color: rgba(191, 143, 48, 0.45);
   text-decoration: none;
-}
-
-.app-main-card {
-  border-radius: 0.9rem;
 }
 
 .app-main-card .card-body {
@@ -649,6 +666,10 @@ button:focus-visible,
   background: linear-gradient(180deg, #fffaf0 0%, #fff5df 100%);
 }
 
+.app-footer-nav .app-section-nav {
+  margin-bottom: 0;
+}
+
 .app-footer-nav .app-section-nav .nav-link {
   text-align: center;
 }
@@ -677,6 +698,18 @@ table th {
 }
 
 @media (max-width: 768px) {
+  .app-main-card {
+    margin-top: 0.7rem;
+  }
+
+  .app-nav-row + .app-nav-row {
+    margin-top: 0.45rem;
+  }
+
+  .app-nav-row-bottom {
+    margin-top: 0.85rem;
+  }
+
   .main {
     padding: 0;
   }
