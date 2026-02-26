@@ -1,23 +1,41 @@
-<%= search_form_for @search, :url => notas_patient_path(patient), :html => {:method => :get} do |f| %>
-  
-  <h6><%= t('search.title') %></h6>	
-  <%= f.label :folio_cont, t('note.folio') %>
-  <%= f.text_field :folio_eq %>
-  <%= f.submit t('helpers.search') %><br /><br />
-<% end %>
+<div class="card border-0 shadow-sm mb-3 search-panel">
+  <div class="card-body">
+    <%= search_form_for @search, :url => notas_patient_path(patient), :html => {:method => :get, :class => "row g-3 align-items-end"} do |f| %>
+      <div class="col-12">
+        <h6 class="text-uppercase text-muted mb-1"><%= t('search.title') %></h6>
+      </div>
+      <div class="col-12 col-md-6">
+        <%= f.label :folio_cont, t('note.folio'), class: "form-label" %>
+        <%= f.text_field :folio_eq, class: "form-control" %>
+      </div>
+      <div class="col-12 col-md-3">
+        <%= f.submit t('helpers.search'), class: "btn btn-outline-primary w-100" %>
+      </div>
+    <% end %>
+  </div>
+</div>
 
-<strong><%= t('search.sort') %>	</strong>
+<div class="d-flex justify-content-between align-items-center mb-2">
+  <strong class="text-muted small"><%= t('search.sort') %></strong>
+  <div class="pagination-wrap"><%= paginate @notes %></div>
+</div>
 
-<%= paginate @notes %>
+<div class="card border-0 shadow-sm list-card">
+  <div class="table-responsive">
+    <table class="table table-hover align-middle mb-0 app-table">
+      <thead class="table-light">
+        <tr>
+          <th><%= sort_link @search, :folio, t('note.folio') %></th>
+          <th><%= t('patient.cgdvcode') %></th>
+          <th><%= sort_link @search, :created_at, t('all.created_at') %></th>
+          <th colspan="2"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <%= render @notes %>
+      </tbody>
+    </table>
+  </div>
+</div>
 
-<table>
-	<tr>
-	  <td><strong><%= sort_link @search, :folio, t('note.folio') %></strong></td>
-	  <td><strong><%= t('patient.cgdvcode') %></strong></td>
-	  <td><strong><%= sort_link @search, :created_at, t('all.created_at') %></strong></td>
-    </tr>
-	<%= render @notes %>
-</table>
-
-
-<%= paginate @notes %>
+<div class="pagination-wrap mt-3"><%= paginate @notes %></div>

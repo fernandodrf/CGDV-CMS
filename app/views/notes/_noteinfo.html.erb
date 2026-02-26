@@ -1,13 +1,24 @@
-<table>
-  <tr>
-  	<td><strong><%= t('patient.cgdvcode') %>:</strong> <%= cgdvcode(@note) %></td>
-    <td><strong><%= t('patient.name') %>:</strong> <%= name(@note) %></td>
-  </tr>
-  <tr>
-    <td><strong><%= t('note.folio') %>:</strong> <%= @note.folio %></td>
-    <td><strong><%= t('note.fecha') %>:</strong> <%= l @note.fecha, :format => :long %></td>
-  </tr>
-</table>
-<table>
-<%= render 'notebody' %>
-</table>
+<div class="card border-0 shadow-sm mb-3">
+  <div class="card-body p-0">
+    <table class="table mb-0 app-table">
+      <tbody>
+        <tr>
+          <td><strong><%= t('patient.cgdvcode') %>:</strong> <%= cgdvcode(@note) %></td>
+          <td><strong><%= t('patient.name') %>:</strong> <%= name(@note) %></td>
+        </tr>
+        <tr>
+          <td><strong><%= t('note.folio') %>:</strong> <%= @note.folio %></td>
+          <td><strong><%= t('note.fecha') %>:</strong> <%= l @note.fecha, :format => :long %></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<div class="card border-0 shadow-sm mb-3">
+  <div class="table-responsive">
+    <table class="table align-middle mb-0 app-table">
+      <%= render 'notebody' %>
+    </table>
+  </div>
+</div>

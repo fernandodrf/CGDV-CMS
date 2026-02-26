@@ -1,10 +1,9 @@
 <tr>
-  <td><%= link_to "#{note.folio}", note %></td>
+  <td><%= link_to "#{note.folio}", note, class: "fw-semibold" %></td>
   <td><%= link_to "#{t('patient.cgdvcode')}: #{cgdvcode(note)}", note %></td>
-  <td><%= l note.fecha %></td>
+  <td class="text-muted"><%= l note.fecha %></td>
   <% if can? :delete, @note %>
-  <td><%= link_to t('helpers.delete.msg'), note, :method => :delete, :confirm => t('helpers.delete.conf'), :title => "#{t('helpers.delete.msg')} #{note.folio}" %></td>
+  <td><%= link_to t('helpers.delete.msg'), note, :method => :delete, :confirm => t('helpers.delete.conf'), :title => "#{t('helpers.delete.msg')} #{note.folio}", class: "btn btn-outline-danger btn-sm" %></td>
   <% end %>
-  <td><%= link_to t('helpers.print'), print_note_path(note) %></td>
+  <td><%= link_to t('helpers.print'), print_note_path(note), class: "btn btn-outline-secondary btn-sm" %></td>
 </tr>
-
