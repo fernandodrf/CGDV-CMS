@@ -202,6 +202,7 @@ GEM
       drb (~> 2.0)
       prism (~> 1.5)
     msgpack (1.6.0)
+    mutex_m (0.3.0)
     nested_form (0.3.2)
     net-imap (0.6.3)
       date
@@ -216,6 +217,7 @@ GEM
     nokogiri (1.19.1)
       mini_portile2 (~> 2.8.2)
       racc (~> 1.4)
+    observer (0.1.2)
     orm_adapter (0.5.0)
     pg (1.4.5)
     pp (0.6.3)
@@ -424,8 +426,10 @@ DEPENDENCIES
   launchy
   listen (~> 3.2)
   mini_magick
+  mutex_m
   nested_form
   nokogiri (>= 1.13.8)
+  observer
   pg (>= 0.18, < 2.0)
   puma (~> 5.6.5)
   rails (~> 8.1.0)
