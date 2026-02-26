@@ -1,7 +1,21 @@
-<h1><%= t('helpers.submit.update', :model => "Reporte de Tiempo") %></h1>
-<%= nested_form_for(@voltime) do |f| %>
-  <%= render 'fields', :f => f %>
-  <div class="actions">
-    <%= f.submit t('helpers.edit') %>
+<div class="page-toolbar mb-3">
+  <div class="d-flex flex-column flex-lg-row justify-content-between align-items-start align-items-lg-center gap-2">
+    <h1 class="h2 mb-0"><%= t('helpers.submit.update', :model => "Reporte de Tiempo") %></h1>
+    <div class="d-flex flex-wrap gap-2">
+      <%= link_to "Añadir/Acumular Tiempo", vol_times_path, class: "btn btn-secondary btn-sm" %>
+      <% if can? :read, Timereport %>
+        <%= link_to "Reportar/Restar Tiempo", timereports_path, class: "btn btn-outline-secondary btn-sm" %>
+      <% end %>
+    </div>
   </div>
-<% end %>
+</div>
+<div class="card border-0 shadow-sm app-form-card">
+  <div class="card-body p-3 p-md-4">
+    <%= nested_form_for(@voltime, html: { class: "app-form" }) do |f| %>
+      <%= render 'fields', :f => f %>
+      <div class="d-flex justify-content-end gap-2 mt-3">
+        <%= f.submit t('helpers.edit'), class: "btn btn-primary" %>
+      </div>
+    <% end %>
+  </div>
+</div>

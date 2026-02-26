@@ -1,15 +1,28 @@
-<h1><%= name_vol(@timereport) %>: <%= l @timereport.day %></h1>
-<strong><%= link_to t('helpers.submit.update', :model => "Reporte de Tiempo"), edit_timereport_path(@timereport) %></strong>
-<table>
-<tr><td><strong><%= t('patient.cgdvcode') %>: </strong><%= cgdvcode_vol(@timereport) %></td></tr>
-<tr><td><strong><%= t('volunteer.evento') %>: </strong><%= @timereport.evento %></td></tr>
-<tr><td><strong><%= t('volunteer.day') %>: </strong><%= l @timereport.day %></td></tr>
-<tr><td><strong><%= t('volunteer.begin') %>: </strong><%= l @timereport.begin, :format => :hourmin %></td></tr>
-<tr><td><strong><%= t('volunteer.end') %>: </strong><%= l @timereport.end, :format => :hourmin %></td></tr>
-<tr><td><strong><%= t('volunteer.tiempo') %>: </strong><%= @timereport.tiempo %></td>
-</tr>	
-</table>
+<div class="page-toolbar mb-3">
+  <div class="d-flex flex-column flex-lg-row justify-content-between align-items-start align-items-lg-center gap-2">
+    <h1 class="h2 mb-0"><%= name_vol(@timereport) %>: <%= l @timereport.day %></h1>
+    <div class="d-flex flex-wrap gap-2">
+      <%= link_to t('helpers.submit.update', :model => "Reporte de Tiempo"), edit_timereport_path(@timereport), class: "btn btn-primary btn-sm" %>
+      <% if can? :read, Timereport %>
+        <%= link_to "Regresar a Reportar/Restar Tiempo", timereports_path, class: "btn btn-outline-secondary btn-sm" %>
+      <% end %>
+    </div>
+  </div>
+</div>
 
-<% if can? :read, Timereport %>
-  <%= link_to "Regresar a Reportar/Restar Tiempo", timereports_path %>
-<% end %>
+<div class="card border-0 shadow-sm">
+  <div class="card-body p-0">
+    <div class="table-responsive">
+      <table class="table mb-0 app-table">
+        <tbody>
+          <tr><th class="table-light w-25"><%= t('patient.cgdvcode') %></th><td><%= cgdvcode_vol(@timereport) %></td></tr>
+          <tr><th class="table-light"><%= t('volunteer.evento') %></th><td><%= @timereport.evento %></td></tr>
+          <tr><th class="table-light"><%= t('volunteer.day') %></th><td><%= l @timereport.day %></td></tr>
+          <tr><th class="table-light"><%= t('volunteer.begin') %></th><td><%= l @timereport.begin, :format => :hourmin %></td></tr>
+          <tr><th class="table-light"><%= t('volunteer.end') %></th><td><%= l @timereport.end, :format => :hourmin %></td></tr>
+          <tr><th class="table-light"><%= t('volunteer.tiempo') %></th><td><%= @timereport.tiempo %></td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

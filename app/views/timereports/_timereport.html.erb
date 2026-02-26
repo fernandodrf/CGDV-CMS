@@ -1,18 +1,20 @@
 <tr>
   <% if can? :read, Volunteer %>
-  <td><%= link_to cgdvcode_vol(timereport), volunteer_path(timereport.volunteer_id) %></td>
+  <td><%= link_to cgdvcode_vol(timereport), volunteer_path(timereport.volunteer_id), class: "fw-semibold" %></td>
   <% end %>
   <td><%= link_to l(timereport.day), timereport %></td>
   <td><%= link_to l(timereport.begin, :format => :hourmin), timereport %></td>
   <td><%= link_to l(timereport.end, :format => :hourmin), timereport %></td>
   <td><%= link_to timereport.tiempo, timereport %></td>
   <td><%= link_to timereport.evento, timereport %></td>
-  <% if can? :edit, timereport %>
-  <td class="smally"><%= link_to t('helpers.edit'), edit_timereport_path(timereport) %></td>
-  <% end %>
-  <% if can? :destroy, timereport %>
-  <td class="smally">
-  	<%= link_to t('helpers.delete.msg'), timereport_path(timereport), :method => :delete, :confirm => t('helpers.delete.conf'), :title => "#{t('helpers.delete.msg')} #{timereport.begin}" %>
+  <td class="smally text-end">
+    <div class="d-inline-flex gap-1 flex-wrap justify-content-end">
+      <% if can? :edit, timereport %>
+        <%= link_to t('helpers.edit'), edit_timereport_path(timereport), class: "btn btn-outline-primary btn-sm" %>
+      <% end %>
+      <% if can? :destroy, timereport %>
+        <%= link_to t('helpers.delete.msg'), timereport_path(timereport), :method => :delete, :confirm => t('helpers.delete.conf'), :title => "#{t('helpers.delete.msg')} #{timereport.begin}", class: "btn btn-outline-danger btn-sm" %>
+      <% end %>
+    </div>
   </td>
-  <% end %>
-</tr>	
+</tr>

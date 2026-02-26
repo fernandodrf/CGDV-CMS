@@ -1,21 +1,45 @@
-<h1><%= "Reporte de la Semana #{@activity_report.semana}"  %></h1>
-<% if can? :edit, @activity_report %>
-<%= link_to t('helpers.submit.update', :model => "Reporte"), edit_activity_report_path(@activity_report) %><br />
-<% end %>
-<%= link_to "Regresar a Reportes de Actividades", activity_reports_path %><br /><br />
-<table>
-<tr>
-  <th><%= t('patient.name') %></th>
-  <th><%= t('note.fecha') %></th>
-</tr>
-<tr>
-  <td><%= @activity_report.volunteer.name %></td>
-  <td><%= l(@activity_report.created_at,:format => :long) %></td>
-</tr>
-<tr><th colspan=2>Reporte</th></tr>
-</table>
-<p><%= simple_format(@activity_report.reporte) %></p>
+<div class="page-toolbar mb-3">
+  <div class="d-flex flex-column flex-lg-row justify-content-between align-items-start align-items-lg-center gap-2">
+    <h1 class="h2 mb-0"><%= "Reporte de la Semana #{@activity_report.semana}" %></h1>
+    <div class="d-flex flex-wrap gap-2">
+      <% if can? :edit, @activity_report %>
+        <%= link_to t('helpers.submit.update', :model => "Reporte"), edit_activity_report_path(@activity_report), class: "btn btn-primary btn-sm" %>
+      <% end %>
+      <%= link_to "Regresar a Reportes de Actividades", activity_reports_path, class: "btn btn-outline-secondary btn-sm" %>
+    </div>
+  </div>
+</div>
+
+<div class="card border-0 shadow-sm mb-3">
+  <div class="card-body p-0">
+    <div class="table-responsive">
+      <table class="table mb-0 app-table">
+        <thead class="table-light">
+          <tr>
+            <th><%= t('patient.name') %></th>
+            <th><%= t('note.fecha') %></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><%= @activity_report.volunteer.name %></td>
+            <td><%= l(@activity_report.created_at,:format => :long) %></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+<div class="card border-0 shadow-sm mb-3">
+  <div class="card-header"><strong>Reporte</strong></div>
+  <div class="card-body">
+    <%= simple_format(@activity_report.reporte) %>
+  </div>
+</div>
 
 <%= render 'comments/comments', :model => @activity_report %>
 
-<%= link_to "Regresar a Reportes de Actividades", activity_reports_path %>
+<div class="mt-3">
+  <%= link_to "Regresar a Reportes de Actividades", activity_reports_path, class: "btn btn-outline-secondary btn-sm" %>
+</div>
