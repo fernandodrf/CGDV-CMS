@@ -1,10 +1,12 @@
-<h1><%= @provider.proveedor %></h1>
-<strong><%= link_to t('helpers.submit.update', :model => "Proveedor"), edit_provider_path(@provider) %></strong>
-<table>
+<div class="page-toolbar mb-3">
+  <div class="d-flex flex-column flex-lg-row justify-content-between align-items-start align-items-lg-center gap-2">
+    <h1 class="h2 mb-0"><%= @provider.proveedor %></h1>
+    <%= link_to t('helpers.submit.update', :model => "Proveedor"), edit_provider_path(@provider), class: "btn btn-primary btn-sm" %>
+  </div>
+</div>
 <%= render 'providerinfo' %>
 <%= render 'addinfos/additionalinformation', :model => @provider  %>
 <%= render 'telephones/telephoneinformation', :model => @provider %>
 <%= render 'addresses/addressinformation', :model => @provider %>
 <%= render 'emails/emailinfo', :model => @provider  %>
 <%= render 'comments/comments', :model => @provider  %>
-</table>

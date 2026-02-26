@@ -1,13 +1,15 @@
 <%= render 'shared/error_messages', :object => f.object %>
-<div class="field">
-  <%= f.label :proveedor, t('provider.proveedor') %><br />
-  <%= f.text_field :proveedor %>
-</div>
-<div class="field">
-  <%= f.label :name, t('patient.name') %><br />
-  <%= f.text_field :name %>
-</div>
-<div class="field">
-  <%= f.label :cgdvcode, t('patient.cgdvcode') %><br />
-  <%= f.text_field :cgdvcode %>
+<div class="row g-3">
+  <div class="col-12 col-md-6">
+    <%= f.label :proveedor, t('provider.proveedor'), class: "form-label" %>
+    <%= f.text_field :proveedor, class: "form-control" %>
+  </div>
+  <div class="col-12 col-md-6">
+    <%= f.label :name, t('patient.name'), class: "form-label" %>
+    <%= f.text_field :name, class: "form-control" %>
+  </div>
+  <div class="col-12 col-md-4">
+    <%= f.label :cgdvcode, t('patient.cgdvcode'), class: "form-label" %>
+    <%= f.text_field :cgdvcode, class: "form-control" %>
+  </div>
 </div>

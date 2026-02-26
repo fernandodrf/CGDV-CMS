@@ -1,8 +1,8 @@
 <tr>
-  <td><%= link_to donor.name, donor %></td>
+  <td><%= link_to donor.name, donor, class: "fw-semibold" %></td>
   <td><%= link_to donor.cgdvcode, donor %></td>
-  <td><%= link_to donor_persona(donor.persona), donor %></td>
+  <td><span class="badge text-bg-light border"><%= donor_persona(donor.persona) %></span></td>
   <% if can? :destroy, @donor %>
-  <td class="smally"><%= link_to t('helpers.delete.msg'), donor, :method => :delete, :confirm => t('helpers.delete.conf'), :title => "#{t('helpers.delete.msg')} #{donor.rfc}" %></td>
+  <td class="smally text-end"><%= link_to t('helpers.delete.msg'), donor, :method => :delete, :confirm => t('helpers.delete.conf'), :title => "#{t('helpers.delete.msg')} #{donor.rfc}", class: "btn btn-outline-danger btn-sm" %></td>
   <% end %>
 </tr>
