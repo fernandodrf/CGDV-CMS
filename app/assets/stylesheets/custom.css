@@ -353,6 +353,45 @@ body {
   --bs-table-bg: #fff7e1;
 }
 
+.role-checklist .form-check {
+  background: #fffaf0;
+  border: 1px solid rgba(191, 143, 48, 0.2);
+  border-radius: 0.6rem;
+  padding: 0.6rem 0.75rem 0.6rem 2rem;
+  min-height: 2.75rem;
+  display: flex;
+  align-items: center;
+}
+
+.role-checklist .form-check-input {
+  margin-top: 0;
+}
+
+.user-avatar-preview,
+.volunteer-avatar-preview {
+  max-width: 180px;
+  max-height: 180px;
+}
+
+.user-avatar-placeholder {
+  width: 96px;
+  height: 96px;
+  border-radius: 50%;
+  margin: 0 auto;
+  display: grid;
+  place-items: center;
+  font-size: 2rem;
+  background: #fff7e1;
+  border: 1px solid rgba(191, 143, 48, 0.2);
+}
+
+.volunteer-show-avatar {
+  width: 64px;
+  height: 64px;
+  object-fit: cover;
+  border: 2px solid rgba(191, 143, 48, 0.35);
+}
+
 .note-form-table td,
 .note-form-table th,
 .note-form-summary td,

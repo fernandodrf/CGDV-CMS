@@ -168,6 +168,17 @@ RSpec.describe "Upgrade regression: auth and search flows", type: :request do
       expect(response.body).to include("Pendiente Alpha Search")
       expect(response.body).not_to include("Pendiente Beta Search")
     end
+
+    it "filters volunteers by name on the volunteers index" do
+      matching = FactoryBot.create(:volunteer, cgdvcode: 970001, name: "Volunteer Search Alpha")
+      FactoryBot.create(:volunteer, cgdvcode: 970002, name: "Volunteer Search Beta")
+
+      get volunteers_path, params: { q: { name_cont: "Alpha" } }
+
+      expect(response).to have_http_status(:ok)
+      expect(response.body).to include(matching.name)
+      expect(response.body).not_to include("Volunteer Search Beta")
+    end
   end
 
   describe "resource form pages" do
@@ -225,6 +236,24 @@ RSpec.describe "Upgrade regression: auth and search flows", type: :request do
       expect(response.body).to include("vol_time_evento")
       expect(response.body).to include("vol_time_horas")
       expect(response.body).to include("vol_time_volunteer_id")
+    end
+
+    it "renders the new volunteer form" do
+      get new_volunteer_path
+
+      expect(response).to have_http_status(:ok)
+      expect(response.body).to include("volunteer_name")
+      expect(response.body).to include("volunteer_cgdvcode")
+      expect(response.body).to include("volunteer_status")
+    end
+
+    it "renders the new user form" do
+      get new_user_path
+
+      expect(response).to have_http_status(:ok)
+      expect(response.body).to include("user_name")
+      expect(response.body).to include("user_email")
+      expect(response.body).to include("user_volunteer_id")
     end
   end
 end
