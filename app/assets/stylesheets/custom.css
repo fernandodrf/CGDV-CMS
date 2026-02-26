@@ -583,6 +583,87 @@ div.field, div.actions {
   margin-bottom: 10px;
 }
 
+div.field label {
+  display: block;
+  margin-bottom: 0.35rem;
+  font-weight: 600;
+  color: #4a3f2b;
+}
+
+div.field input[type="text"]:not(.form-control),
+div.field input[type="email"]:not(.form-control),
+div.field input[type="number"]:not(.form-control),
+div.field input[type="date"]:not(.form-control),
+div.field input[type="password"]:not(.form-control),
+div.field input[type="search"]:not(.form-control),
+div.field input[type="url"]:not(.form-control),
+div.field input[type="tel"]:not(.form-control),
+div.field select:not(.form-select),
+div.field textarea:not(.form-control) {
+  display: block;
+  width: 100%;
+  max-width: 44rem;
+  padding: 0.48rem 0.7rem;
+  border: 1px solid #cfc8bc;
+  border-radius: 0.55rem;
+  background: #fff;
+  color: #2f2a22;
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.02);
+  transition: border-color 120ms ease, box-shadow 120ms ease;
+}
+
+div.field textarea:not(.form-control) {
+  min-height: 8rem;
+  max-width: 100%;
+  resize: vertical;
+}
+
+div.field select[multiple]:not(.form-select) {
+  min-height: 10rem;
+}
+
+div.field input[type="text"]:not(.form-control):focus,
+div.field input[type="email"]:not(.form-control):focus,
+div.field input[type="number"]:not(.form-control):focus,
+div.field input[type="date"]:not(.form-control):focus,
+div.field input[type="password"]:not(.form-control):focus,
+div.field input[type="search"]:not(.form-control):focus,
+div.field input[type="url"]:not(.form-control):focus,
+div.field input[type="tel"]:not(.form-control):focus,
+div.field select:not(.form-select):focus,
+div.field textarea:not(.form-control):focus {
+  outline: 0;
+  border-color: rgba(191, 143, 48, 0.7);
+  box-shadow: 0 0 0 0.2rem rgba(191, 143, 48, 0.15);
+}
+
+div.actions input[type="submit"]:not(.btn),
+div.actions button:not(.btn) {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.35rem;
+  border: 1px solid #b37a13;
+  border-radius: 0.55rem;
+  background: #c88917;
+  color: #fff;
+  font-weight: 600;
+  padding: 0.48rem 0.9rem;
+  cursor: pointer;
+  transition: filter 120ms ease, box-shadow 120ms ease;
+}
+
+div.actions input[type="submit"]:not(.btn):hover,
+div.actions button:not(.btn):hover {
+  filter: brightness(0.96);
+}
+
+div.actions input[type="submit"]:not(.btn):focus-visible,
+div.actions button:not(.btn):focus-visible {
+  outline: 0;
+  box-shadow: 0 0 0 0.2rem rgba(191, 143, 48, 0.2);
+}
+
 .field_with_errors {
   margin-top: 0;
   padding: 0;
