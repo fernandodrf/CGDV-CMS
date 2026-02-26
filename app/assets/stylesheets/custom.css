@@ -267,6 +267,23 @@ body {
   margin-bottom: 0.75rem;
 }
 
+.devise-card .card-body {
+  background: linear-gradient(180deg, #ffffff 0%, #fffaf0 100%);
+}
+
+.devise-card h2 {
+  color: #6a4700;
+}
+
+.devise-form .form-control:focus {
+  border-color: #d8a13a;
+  box-shadow: 0 0 0 0.2rem rgba(191, 143, 48, 0.2);
+}
+
+.devise-links .btn {
+  white-space: normal;
+}
+
 .app-footer {
   color: #5c420d;
 }
