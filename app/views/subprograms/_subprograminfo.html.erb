@@ -1,15 +1,15 @@
-<table class="subprogram">
+<table class="table app-table mb-3 subprogram">
   <tr>
-    <th colspan=3>
-      <strong><%= t('subprogram.title') %></strong>
+    <th colspan=3 class="table-light">
+      <%= t('subprogram.title') %>
 	</th>
   </tr>	
   <tr>
 	<td colspan=3><strong>
 	  <% if @subprogram == nil %>
-	    <%= link_to t('helpers.submit.create', :model => "Subprogramas"), new_volunteer_subprogram_path(@volunteer) %>
+	    <%= link_to t('helpers.submit.create', :model => "Subprogramas"), new_volunteer_subprogram_path(@volunteer), class: "btn btn-outline-primary btn-sm" %>
 	  <% else %>
-	    <%= link_to t('helpers.edit'), edit_volunteer_subprogram_path(@volunteer, @subprogram) %>
+	    <%= link_to t('helpers.edit'), edit_volunteer_subprogram_path(@volunteer, @subprogram), class: "btn btn-outline-primary btn-sm" %>
 	  <% end %>
 	</strong></td>
   </tr>

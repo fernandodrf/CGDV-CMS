@@ -1,23 +1,25 @@
-<table class="schedules" align=center>
+<table class="table app-table mb-3 schedules" align=center>
   <tr>
-    <th><%= t('volunteer.horario') %></th>
-	<td colspan=5><%= link_to t('helpers.submit.create', :model => "Horario por Dia"), new_volunteer_dailyschedule_path(@volunteer) %></td>
+    <th class="table-light"><%= t('volunteer.horario') %></th>
+	<td colspan=5 class="table-light"><%= link_to t('helpers.submit.create', :model => "Horario por Dia"), new_volunteer_dailyschedule_path(@volunteer), class: "btn btn-outline-primary btn-sm" %></td>
   </tr>
   <% unless @volunteer.dailyschedules.empty? %>
-<tr>
-  <td><%= t('volunteer.day') %></td>
-  <td><%= t('volunteer.begin') %></td>
-  <td><%= t('volunteer.end') %></td>
-  <td><%= t('volunteer.tiempo') %></td>
-  <td></td>
-  <td></td>
-</tr>
-  <%= render @dailyschedules %>
-  <td></td>
-  <td></td>
-  <td></td>
-  <td><%= @volunteer.dt %></td>
-  <td></td>
-  <td></td>  
+    <tr>
+      <th><%= t('volunteer.day') %></th>
+      <th><%= t('volunteer.begin') %></th>
+      <th><%= t('volunteer.end') %></th>
+      <th><%= t('volunteer.tiempo') %></th>
+      <th></th>
+      <th></th>
+    </tr>
+    <%= render @dailyschedules %>
+    <tr>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td><strong><%= @volunteer.dt %></strong></td>
+      <td></td>
+      <td></td>
+    </tr>
   <% end %>
 </table>

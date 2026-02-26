@@ -38,5 +38,6 @@
   <td><%= t('subprogram.apoyofueraoficina') %>: <%= subprogram.apoyofueraoficina ? "Si" : "No" %></td>
   <td></td> 
 </tr>
-<tr><td colspan=2><%= link_to t('helpers.delete.msg'), volunteer_subprogram_path(@volunteer,@subprogram), :method => :delete, :confirm => t('helpers.delete.conf') %></td></tr>
-
+<tr>
+  <td colspan=2><%= link_to t('helpers.delete.msg'), volunteer_subprogram_path(@volunteer,@subprogram), :method => :delete, :confirm => t('helpers.delete.conf'), class: "btn btn-outline-danger btn-sm" %></td>
+</tr>
