@@ -1,25 +1,27 @@
 <%= render 'shared/error_messages', :object => f.object %>
-<div class="field">
-  <%= f.label :tipo, t('house.tipo') %><br />
-  <%= f.select :tipo, House::TIPOS %>
-</div>
-<div class="field">
-  <%= f.label :habitaciones, t('house.habitaciones') %><br />
-  <%= f.text_field :habitaciones %>
-</div>
-<div class="field">
-  <%= f.label :habitantes, t('house.habitantes') %><br />
-  <%= f.text_field :habitantes %>
-</div>
-<div class="field">
-  <%= f.label :familiares, t('house.familiares') %><br />
-  <%= f.text_field :familiares %>
-</div>
-<div class="field">
-  <%= f.label :menores, t('house.menores') %><br />
-  <%= f.text_field :menores %>
-</div>
-<div class="field">
-  <%= f.label :economicaactivas, t('house.economicaactivas') %><br />
-  <%= f.text_field :economicaactivas %>
+<div class="row g-3">
+  <div class="col-md-4">
+    <%= f.label :tipo, t('house.tipo'), class: "form-label" %>
+    <%= f.select :tipo, House::TIPOS, {}, { class: "form-select" } %>
+  </div>
+  <div class="col-md-4">
+    <%= f.label :habitaciones, t('house.habitaciones'), class: "form-label" %>
+    <%= f.text_field :habitaciones, class: "form-control" %>
+  </div>
+  <div class="col-md-4">
+    <%= f.label :habitantes, t('house.habitantes'), class: "form-label" %>
+    <%= f.text_field :habitantes, class: "form-control" %>
+  </div>
+  <div class="col-md-4">
+    <%= f.label :familiares, t('house.familiares'), class: "form-label" %>
+    <%= f.text_field :familiares, class: "form-control" %>
+  </div>
+  <div class="col-md-4">
+    <%= f.label :menores, t('house.menores'), class: "form-label" %>
+    <%= f.text_field :menores, class: "form-control" %>
+  </div>
+  <div class="col-md-4">
+    <%= f.label :economicaactivas, t('house.economicaactivas'), class: "form-label" %>
+    <%= f.text_field :economicaactivas, class: "form-control" %>
+  </div>
 </div>
