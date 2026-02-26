@@ -641,6 +641,14 @@ button:focus-visible,
   color: #5c420d;
 }
 
+.app-footer-nav .app-section-nav .card-body {
+  background: linear-gradient(180deg, #fffaf0 0%, #fff5df 100%);
+}
+
+.app-footer-nav .app-section-nav .nav-link {
+  text-align: center;
+}
+
 .app-footer .nav-link {
   color: #6b4b0a;
   padding: 0.25rem 0.65rem;
