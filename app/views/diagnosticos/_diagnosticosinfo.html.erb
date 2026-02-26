@@ -1,7 +1,7 @@
-<table class="diagnosticos" align=center>
+<table class="table app-table mb-3 diagnosticos" align=center>
   <tr>
-    <th ><%= t('patient.diagnosticos') %></th>
-	<td colspan=2><%= link_to t('helpers.submit.create', :model => "Diagnostico"), new_polymorphic_path([model,Diagnostico]) %></td>
+    <th class="table-light"><%= t('patient.diagnosticos') %></th>
+	<td colspan=2 class="table-light"><%= link_to t('helpers.submit.create', :model => "Diagnostico"), new_polymorphic_path([model,Diagnostico]), class: "btn btn-outline-primary btn-sm" %></td>
   </tr>
   <% unless model.diagnosticos.empty? %>
     <%= render @diagnosticos, :model => model %>
