@@ -24,6 +24,10 @@ h1 {
   border-color: black;
 }
 
+.noteprint-orgline {
+  width: 100%;
+}
+
 .nota th td {
   border-width: 1px;
   border-color: red;
@@ -149,6 +153,29 @@ hr {
     background: #fff;
     border-radius: 8px;
     padding: 8px 10px;
+  }
+
+  .note-print-copy .nota,
+  .note-print-copy .noteprint-orgline {
+    width: 100%;
+    border-collapse: collapse;
+  }
+
+  .note-print-copy .nota-header {
+    margin-bottom: 6px;
+  }
+
+  .note-print-copy .noteprint-orgline {
+    margin-bottom: 8px;
+  }
+
+  .note-print-copy .nota-body,
+  .note-print-copy .nota-totals {
+    background: #fff;
+  }
+
+  .note-print-copy .nota-legal {
+    margin-top: 8px;
   }
 
   hr {
