@@ -1,11 +1,13 @@
-<table class="house">
-  <tr><th colspan=2><%= t('house.title') %></strong></th></tr>
+<table class="table app-table mb-3 house">
+  <tr>
+    <th colspan=2 class="table-light"><%= t('house.title') %></th>
+  </tr>
   <tr>
 	<td colspan=2>
 	  <% if @house == nil %>
-	  <%= link_to t('helpers.submit.create', :model => "Informacion de Vivienda"), new_patient_house_path(@patient) %>
+	  <%= link_to t('helpers.submit.create', :model => "Informacion de Vivienda"), new_patient_house_path(@patient), class: "btn btn-outline-primary btn-sm" %>
 	  <% else %>
-	  <%= link_to t('helpers.edit'), edit_patient_house_path(@patient, @house) %>
+	  <%= link_to t('helpers.edit'), edit_patient_house_path(@patient, @house), class: "btn btn-outline-primary btn-sm" %>
 	  <% end %>
 	</td>
   </tr>

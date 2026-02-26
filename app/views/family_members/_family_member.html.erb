@@ -11,7 +11,6 @@
   <td colspan=2><%= t('familymember.comentarios') %>: <%= family_member.comentarios %></td>
 </tr>
 <tr>
-  <td><%= link_to t('helpers.edit'), edit_patient_family_member_path(@patient, family_member) %></td>
-  <td><%= link_to t('helpers.delete.msg'), patient_family_member_path(@patient,family_member), :method => :delete, :confirm => t('helpers.delete.conf') %></td>
+  <td><%= link_to t('helpers.edit'), edit_patient_family_member_path(@patient, family_member), class: "btn btn-outline-primary btn-sm" %></td>
+  <td><%= link_to t('helpers.delete.msg'), patient_family_member_path(@patient,family_member), :method => :delete, :confirm => t('helpers.delete.conf'), class: "btn btn-outline-danger btn-sm" %></td>
 </tr>
-

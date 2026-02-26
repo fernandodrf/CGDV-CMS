@@ -1,10 +1,18 @@
-<table class="Family Members">
-  <tr><th colspan=2><%= t('familymember.title') %></th></tr>
-  <tr><td colspan=2><strong><%= link_to t('helpers.submit.create', :model => "Familiar"), new_patient_family_member_path(@patient) %></strong></td></tr>
+<table class="table app-table mb-3 Family Members">
+  <tr><th colspan=2 class="table-light"><%= t('familymember.title') %></th></tr>
+  <tr>
+    <td colspan=2>
+      <strong><%= link_to t('helpers.submit.create', :model => "Familiar"), new_patient_family_member_path(@patient), class: "btn btn-outline-primary btn-sm" %></strong>
+    </td>
+  </tr>
   <% unless @patient.family_members.empty? %>
     <%= render @familymembers %>
   <% end %>
   <% unless @patient.family_members.empty? %>
-  <tr><td colspan=2><strong><%= link_to t('helpers.submit.create', :model => "Familiar"), new_patient_family_member_path(@patient) %></strong></td></tr>
+  <tr>
+    <td colspan=2>
+      <strong><%= link_to t('helpers.submit.create', :model => "Familiar"), new_patient_family_member_path(@patient), class: "btn btn-outline-primary btn-sm" %></strong>
+    </td>
+  </tr>
 <% end %>
 </table>
