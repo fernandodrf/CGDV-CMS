@@ -1,7 +1,7 @@
 <tr>
-  <td><%= link_to "#{contact.name}", contact %></td>
+  <td><%= link_to "#{contact.name}", contact, class: "fw-semibold" %></td>
   <td><%= link_to "#{contact.company}", contact %></td>
   <% if can? :destroy, @contact %>
-  <td><%= link_to t('helpers.delete.msg'), contact, :method => :delete, :confirm => t('helpers.delete.conf'), :title => "#{t('helpers.delete.msg')} #{contact.name}" %></td>
+  <td class="text-end"><%= link_to t('helpers.delete.msg'), contact, :method => :delete, :confirm => t('helpers.delete.conf'), :title => "#{t('helpers.delete.msg')} #{contact.name}", class: "btn btn-outline-danger btn-sm" %></td>
   <% end %>
 </tr>

@@ -1,27 +1,52 @@
-<h1><%= t('donation.index') %></h1>
-<h6><%= link_to t('helpers.submit.create', :model => "Nuevo Donador"), new_donor_path %></h6><br />
+<div class="page-toolbar mb-3">
+  <div class="d-flex flex-column flex-md-row justify-content-between align-items-start align-items-md-center gap-2">
+    <h1 class="h2 mb-0"><%= t('donation.index') %></h1>
+    <%= link_to t('helpers.submit.create', :model => "Nuevo Donador"), new_donor_path, class: "btn btn-primary btn-sm" %>
+  </div>
+</div>
 
-<%= search_form_for @search, :url => donors_path, :html => {:method => :get} do |f| %>
-  
-  <h6><%= t('search.title') %></h6>	
-  <%= f.label :name_cont, t('patient.name') %>
-  <%= f.text_field :name_cont %>
-  <%= f.label :cgdvcode_eq, t('patient.cgdvcode') %>
-  <%= f.text_field :cgdvcode_eq %>
-  <%= f.submit t('helpers.search') %><br /><br />
-<% end %>
+<div class="card border-0 shadow-sm mb-3 search-panel">
+  <div class="card-body">
+    <%= search_form_for @search, :url => donors_path, :html => {:method => :get, :class => "row g-3 align-items-end"} do |f| %>
+      <div class="col-12">
+        <h6 class="text-uppercase text-muted mb-1"><%= t('search.title') %></h6>
+      </div>
+      <div class="col-12 col-md-5">
+        <%= f.label :name_cont, t('patient.name'), class: "form-label" %>
+        <%= f.text_field :name_cont, class: "form-control" %>
+      </div>
+      <div class="col-12 col-md-4">
+        <%= f.label :cgdvcode_eq, t('patient.cgdvcode'), class: "form-label" %>
+        <%= f.text_field :cgdvcode_eq, class: "form-control" %>
+      </div>
+      <div class="col-12 col-md-3">
+        <%= f.submit t('helpers.search'), class: "btn btn-outline-primary w-100" %>
+      </div>
+    <% end %>
+  </div>
+</div>
 
-<strong><%= t('search.sort') %>	</strong>
+<div class="d-flex justify-content-between align-items-center mb-2">
+  <strong class="text-muted small"><%= t('search.sort') %></strong>
+  <div class="pagination-wrap"><%= paginate @donors %></div>
+</div>
 
-<%= paginate @donors %>
+<div class="card border-0 shadow-sm list-card">
+  <div class="table-responsive">
+    <table class="table table-hover align-middle mb-0 app-table">
+      <thead class="table-light">
+        <tr>
+          <th><%= sort_link @search, :name, t('patient.name') %></th>
+          <th><%= sort_link @search, :cgdvcode, t('patient.cgdvcode') %></th>
+          <th><%= sort_link @search, :persona, t('donor.persona') %></th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <%= render @donors %>
+      </tbody>
+    </table>
+  </div>
+</div>
 
-<table>
-	<tr>
-	  <td><strong><%= sort_link @search, :name, t('patient.name') %></strong></td>
-	  <td><strong><%= sort_link @search, :cgdvcode, t('patient.cgdvcode') %></strong></td>
-	  <td><strong><%= sort_link @search, :persona, t('donor.persona') %></strong></td>
-    </tr>
-	<%= render @donors %>
-</table>
-
-<%= paginate @donors %>
+<div class="pagination-wrap mt-3"><%= paginate @donors %></div>

@@ -1,26 +1,42 @@
 <%= render 'shared/error_messages', :object => f.object %>
-<div class="donante">
-  <%= f.label :persona %><br />
-  <%= f.select :persona, Donor::Persona %><br />
-
-  <%= f.label :cgdvcode, t('patient.cgdvcode') %><br />
-  <%= f.text_field :cgdvcode, :value => @cgdvcode %><br />
-
-  <%= f.label :name, t('patient.name') %><br />
-  <%= f.text_field :name %><br />
-
-  <%= f.label :rfc, t('donation.rfc') %><br />
-  <%= f.text_field :rfc %><br />
-
-  <%= f.label :birth, t('patient.birthdate') %><br />
-  <%= f.date_select :birth, :order => [:day, :month, :year], :start_year => Time.now.year - 100, :end_year => Time.now.year %><br />
+<div class="row g-3 donante">
+  <div class="col-12 col-md-4">
+    <%= f.label :persona, class: "form-label" %>
+    <%= f.select :persona, Donor::Persona, {}, class: "form-select" %>
+  </div>
+  <div class="col-12 col-md-4">
+    <%= f.label :cgdvcode, t('patient.cgdvcode'), class: "form-label" %>
+    <%= f.text_field :cgdvcode, :value => @cgdvcode, class: "form-control" %>
+  </div>
+  <div class="col-12 col-md-8">
+    <%= f.label :name, t('patient.name'), class: "form-label" %>
+    <%= f.text_field :name, class: "form-control" %>
+  </div>
+  <div class="col-12 col-md-4">
+    <%= f.label :rfc, t('donation.rfc'), class: "form-label" %>
+    <%= f.text_field :rfc, class: "form-control" %>
+  </div>
+  <div class="col-12 col-md-4">
+    <%= f.label :birth, t('patient.birthdate'), class: "form-label d-block" %>
+    <div class="date-select-inline">
+      <%= f.date_select :birth, {:order => [:day, :month, :year], :start_year => Time.now.year - 100, :end_year => Time.now.year}, {:class => "form-select d-inline-block w-auto"} %>
+    </div>
+  </div>
 </div>
 <%= f.fields_for :extradonors do |e| %>
-  <div class="pmoral">
-    <%= e.label :pautoriza, t('donation.pautoriza') %><br />
-    <%= e.text_field :pautoriza %><br />
-
-    <%= e.label :pcontacto, t('donation.pcontacto') %><br />
-    <%= e.text_field :pcontacto %><br />
-  </div>  
+  <div class="pmoral card border-0 shadow-sm mt-3">
+    <div class="card-header"><strong><%= t('donor.persona') %> Moral</strong></div>
+    <div class="card-body">
+      <div class="row g-3">
+        <div class="col-12 col-md-6">
+          <%= e.label :pautoriza, t('donation.pautoriza'), class: "form-label" %>
+          <%= e.text_field :pautoriza, class: "form-control" %>
+        </div>
+        <div class="col-12 col-md-6">
+          <%= e.label :pcontacto, t('donation.pcontacto'), class: "form-label" %>
+          <%= e.text_field :pcontacto, class: "form-control" %>
+        </div>
+      </div>
+    </div>
+  </div>
 <% end %>

@@ -308,6 +308,10 @@ body {
   margin-bottom: 0.35rem;
 }
 
+.app-error-box {
+  border-radius: 0.75rem;
+}
+
 .search-panel .form-label {
   font-weight: 600;
   color: #6b4b0a;
