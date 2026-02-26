@@ -1,5 +1,7 @@
 <%= render 'shared/error_messages', :object => f.object %>
-<div>
-  <%= f.label :tipo, t('patient.tipo') %><br />
-  <%= f.select :tipo, Tratamiento::TIPOS  %>
+<div class="row g-3">
+  <div class="col-md-6">
+    <%= f.label :tipo, t('patient.tipo'), class: "form-label" %>
+    <%= f.select :tipo, Tratamiento::TIPOS, {}, { class: "form-select" } %>
+  </div>
 </div>

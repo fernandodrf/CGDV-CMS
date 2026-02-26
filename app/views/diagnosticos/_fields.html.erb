@@ -1,5 +1,7 @@
 <%= render 'shared/error_messages', :object => f.object %>
-<div>
-  <%= f.label :diagnostico, t('patient.diagnostico') %><br />
-  <%= f.select :diagnostico, CatalogoDiagnostico.all.collect {|d| [d.diagnostico,d.id] }  %>
+<div class="row g-3">
+  <div class="col-12">
+    <%= f.label :diagnostico, t('patient.diagnostico'), class: "form-label" %>
+    <%= f.select :diagnostico, CatalogoDiagnostico.all.collect {|d| [d.diagnostico,d.id] }, {}, { class: "form-select" } %>
+  </div>
 </div>

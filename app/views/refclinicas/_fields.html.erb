@@ -1,21 +1,27 @@
 <%= render 'shared/error_messages', :object => f.object %>
-<div class="field">
-  <%= f.label :hospital, t('refclinica.hospital') %><br />
-  <%= f.text_field :hospital %>
-</div>
-<div class="field">
-  <%= f.label :medico, t('refclinica.medico') %><br />
-  <%= f.text_field :medico %>
-</div>
-<div class="field">
-  <%= f.label :aceptado, t('refclinica.aceptado') %><br />
-  <%= f.text_field :aceptado %>
-</div>
-<div>
-  <%= f.label :referencia, t('refclinica.referencia') %><br />
-  <%= f.date_select :referencia, :order => [:day, :month, :year],:start_year => Time.now.year - 20 %>
-</div>
-<div class="field">
-  <%= f.label :ayudas, t('refclinica.ayudas') %><br />
-  <%= f.text_field :ayudas %>
+<div class="row g-3">
+  <div class="col-md-6">
+    <%= f.label :hospital, t('refclinica.hospital'), class: "form-label" %>
+    <%= f.text_field :hospital, class: "form-control" %>
+  </div>
+  <div class="col-md-6">
+    <%= f.label :medico, t('refclinica.medico'), class: "form-label" %>
+    <%= f.text_field :medico, class: "form-control" %>
+  </div>
+  <div class="col-md-6">
+    <%= f.label :aceptado, t('refclinica.aceptado'), class: "form-label" %>
+    <%= f.text_field :aceptado, class: "form-control" %>
+  </div>
+  <div class="col-md-6">
+    <%= f.label :referencia, t('refclinica.referencia'), class: "form-label" %>
+    <div class="d-flex flex-wrap gap-2">
+      <%= f.date_select :referencia,
+                        { :order => [:day, :month, :year], :start_year => Time.now.year - 20 },
+                        { class: "form-select w-auto" } %>
+    </div>
+  </div>
+  <div class="col-12">
+    <%= f.label :ayudas, t('refclinica.ayudas'), class: "form-label" %>
+    <%= f.text_field :ayudas, class: "form-control" %>
+  </div>
 </div>
