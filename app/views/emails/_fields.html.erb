@@ -1,8 +1,11 @@
 <%= render 'shared/error_messages', :object => f.object %>
-<div class="field">
-  <%= f.label :datos %><br />
-  <%= f.text_field :datos %><br />
-
-  <%= f.label :email %><br />
-  <%= f.text_field :email %><br />
+<div class="row g-3">
+  <div class="col-md-5">
+    <%= f.label :datos, class: "form-label" %>
+    <%= f.text_field :datos, class: "form-control" %>
+  </div>
+  <div class="col-md-7">
+    <%= f.label :email, class: "form-label" %>
+    <%= f.text_field :email, class: "form-control" %>
+  </div>
 </div>

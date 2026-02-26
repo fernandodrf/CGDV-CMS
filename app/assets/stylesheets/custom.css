@@ -677,6 +677,23 @@ ul.users {
 	color: #96201A;
 }
 
+.subrecord-form-wrap {
+  max-width: 820px;
+  margin: 0 auto;
+}
+
+.subrecord-form-card {
+  border-radius: 1rem;
+}
+
+.subrecord-form .form-label {
+  font-weight: 600;
+}
+
+.subrecord-form textarea.form-control {
+  min-height: 9rem;
+}
+
 @media (prefers-reduced-motion: reduce) {
   *,
   *::before,
