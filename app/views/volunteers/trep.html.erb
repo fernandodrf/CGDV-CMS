@@ -1,35 +1,79 @@
-<h1><%= @volunteer.name %></h1>
-<h4><%= t('volunteer.tr') %>: <%= @volunteer.tr %></h4>
-<h4><%= t('volunteer.ta') %>: <%= @volunteer.ta %></h4>
-<h4><%= t('volunteer.tf') %>: <%= @volunteer.tiempo_final %></h4>
-<table>
-<tr>
-  <% if can? :read, Volunteer %>
-  <td><strong><%= t('patient.cgdvcode') %></strong></td>
-  <% end %>	
-  <td><strong><%= t('all.created_at') %></strong></td>
-  <td><strong><%= t('voltime.horas') %></strong></td>
-  <td><strong><%= t('voltime.evento') %></strong></td>
-  <% if can? :edit, Timereport %>
-  <td></td>
-  <% end %>
-  <% if can? :destroy, Timereport %>
-  <td></td>
-  <% end %>
-</tr>
-	<%= render 'vol_times/volunteer', :volunteer => @volunteer %>
-<tr>
-</table>
-<table>
-	<tr>
-	  <% if can? :read, Volunteer %>
-	  <td><strong><%= t('patient.cgdvcode') %></strong></td>
-	  <% end %>	
-	  <td><strong><%= t('volunteer.day') %></strong></td>
-	  <td><strong><%= t('volunteer.begin') %></strong></td>
-	  <td><strong><%= t('volunteer.end') %></strong></td>
-	  <td><strong><%= t('volunteer.tiempo') %></strong></td>
-	  <td><strong><%= t('volunteer.evento') %></strong></td>
-	</tr>
-	<%= render 'timereports/volunteer', :volunteer => @volunteer %>
-</table>
+<div class="page-toolbar mb-3">
+  <div class="d-flex flex-column flex-lg-row justify-content-between align-items-start align-items-lg-center gap-2">
+    <h1 class="h2 mb-0"><%= @volunteer.name %></h1>
+    <%= link_to t('helpers.submit.update', :model => "Voluntario"), @volunteer, class: "btn btn-outline-primary btn-sm" %>
+  </div>
+</div>
+
+<div class="row g-3 mb-3">
+  <div class="col-12 col-md-4">
+    <div class="card border-0 shadow-sm">
+      <div class="card-body">
+        <div class="text-muted small"><%= t('volunteer.tr') %></div>
+        <div class="h4 mb-0"><%= @volunteer.tr %></div>
+      </div>
+    </div>
+  </div>
+  <div class="col-12 col-md-4">
+    <div class="card border-0 shadow-sm">
+      <div class="card-body">
+        <div class="text-muted small"><%= t('volunteer.ta') %></div>
+        <div class="h4 mb-0"><%= @volunteer.ta %></div>
+      </div>
+    </div>
+  </div>
+  <div class="col-12 col-md-4">
+    <div class="card border-0 shadow-sm">
+      <div class="card-body">
+        <div class="text-muted small"><%= t('volunteer.tf') %></div>
+        <div class="h4 mb-0"><%= @volunteer.tiempo_final %></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="card border-0 shadow-sm list-card mb-3">
+  <div class="card-header"><strong>Tiempo Pendiente</strong></div>
+  <div class="table-responsive">
+    <table class="table table-hover align-middle mb-0 app-table">
+      <thead class="table-light">
+        <tr>
+          <% if can? :read, Volunteer %>
+            <th><%= t('patient.cgdvcode') %></th>
+          <% end %>
+          <th><%= t('all.created_at') %></th>
+          <th><%= t('voltime.horas') %></th>
+          <th><%= t('voltime.evento') %></th>
+          <% if can? :edit, Timereport %><th></th><% end %>
+          <% if can? :destroy, Timereport %><th></th><% end %>
+        </tr>
+      </thead>
+      <tbody>
+        <%= render 'vol_times/volunteer', :volunteer => @volunteer %>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<div class="card border-0 shadow-sm list-card">
+  <div class="card-header"><strong>Reportes de Tiempo</strong></div>
+  <div class="table-responsive">
+    <table class="table table-hover align-middle mb-0 app-table">
+      <thead class="table-light">
+        <tr>
+          <% if can? :read, Volunteer %>
+            <th><%= t('patient.cgdvcode') %></th>
+          <% end %>
+          <th><%= t('volunteer.day') %></th>
+          <th><%= t('volunteer.begin') %></th>
+          <th><%= t('volunteer.end') %></th>
+          <th><%= t('volunteer.tiempo') %></th>
+          <th><%= t('volunteer.evento') %></th>
+        </tr>
+      </thead>
+      <tbody>
+        <%= render 'timereports/volunteer', :volunteer => @volunteer %>
+      </tbody>
+    </table>
+  </div>
+</div>

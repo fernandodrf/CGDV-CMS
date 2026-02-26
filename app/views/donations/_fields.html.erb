@@ -1,35 +1,41 @@
 <%= render 'shared/error_messages', :object => f.object %>
-  <div>
-    <%= f.label :folio %><br />
-    <%= f.text_field :folio, :value => @folio, :size => 3 %>
+<div class="row g-3 app-form">
+  <div class="col-12 col-md-3">
+    <%= f.label :folio, class: "form-label" %>
+    <%= f.text_field :folio, :value => @folio, :size => 3, class: "form-control" %>
   </div>
-  <div>
-    <%= f.label :donor_id %><br />
-  	<%= f.collection_select :donor_id, Donor.order('cgdvcode'), :id, :cgdvcode %><br />
-  	<%= f.label :donor_id %><br />
-    <div id="donor_name"> </div><br />
+  <div class="col-12 col-md-4">
+    <%= f.label :donor_id, class: "form-label" %>
+    <%= f.collection_select :donor_id, Donor.order('cgdvcode'), :id, :cgdvcode, {}, class: "form-select" %>
   </div>
-  <div>
-    <%= f.label :frecepcion %><br />
-    <%= f.date_select :frecepcion, :order => [:day, :month, :year], :start_year => Time.now.year - 10 %>
+  <div class="col-12 col-md-5">
+    <%= f.label :donor_id, class: "form-label" %>
+    <div id="donor_name" class="form-control bg-light"> </div>
   </div>
-  <div>
-    <%= f.label :motivo %><br />
-    <%= f.select :motivo, Donation::MOTIVO %>
+  <div class="col-12 col-md-6">
+    <%= f.label :frecepcion, class: "form-label d-block" %>
+    <div class="date-select-inline">
+      <%= f.date_select :frecepcion, { :order => [:day, :month, :year], :start_year => Time.now.year - 10 }, { :class => "form-select d-inline-block w-auto" } %>
+    </div>
   </div>
-  <div>
-    <%= f.label :tipo %><br />
-    <%= f.select :tipo, Donation::TIPO %>
+  <div class="col-12 col-md-3">
+    <%= f.label :motivo, class: "form-label" %>
+    <%= f.select :motivo, Donation::MOTIVO, {}, class: "form-select" %>
   </div>
-  <div>
-    <%= f.label :transaccion %><br />
-    <%= f.text_field :transaccion, :size => 10 %>
+  <div class="col-12 col-md-3">
+    <%= f.label :tipo, class: "form-label" %>
+    <%= f.select :tipo, Donation::TIPO, {}, class: "form-select" %>
   </div>
-  <div>
-    <%= f.label :monto %><br />
-    <%= f.text_field :monto, :size => 10 %>
+  <div class="col-12 col-md-4">
+    <%= f.label :transaccion, class: "form-label" %>
+    <%= f.text_field :transaccion, :size => 10, class: "form-control" %>
   </div>
-  <div>
-    <%= f.label :finalidad %><br />
-    <%= f.text_field :finalidad, :size => 50 %>
+  <div class="col-12 col-md-3">
+    <%= f.label :monto, class: "form-label" %>
+    <%= f.text_field :monto, :size => 10, class: "form-control" %>
   </div>
+  <div class="col-12 col-md-5">
+    <%= f.label :finalidad, class: "form-label" %>
+    <%= f.text_field :finalidad, :size => 50, class: "form-control" %>
+  </div>
+</div>
