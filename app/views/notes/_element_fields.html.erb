@@ -1,9 +1,9 @@
 <tr>
-  <td><%= f.text_field :codigo, :size => 5 %></td>
-  <td><%= f.text_field :descripcion, :size => 30 %></td>
-  <td><%= f.text_field :cuota, :size => 3 %></td>
-  <td><%= f.text_field :cantidad, :size => 3 %></td>
+  <td><%= f.text_field :codigo, :size => 5, class: "form-control form-control-sm" %></td>
+  <td><%= f.text_field :descripcion, :size => 30, class: "form-control form-control-sm" %></td>
+  <td><%= f.text_field :cuota, :size => 3, class: "form-control form-control-sm" %></td>
+  <td><%= f.text_field :cantidad, :size => 3, class: "form-control form-control-sm" %></td>
   <td id=<%= "'subtotal_#{index}'" %>></td>	 
-  <td><%= f.label :_destroy, t('note.del') %></td>
-  <td><%= f.check_box :_destroy %></td>
+  <td><%= f.label :_destroy, t('note.del'), class: "form-label small mb-0" %></td>
+  <td><%= f.check_box :_destroy, class: "form-check-input" %></td>
 </tr>

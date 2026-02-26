@@ -1,50 +1,82 @@
 <%= render 'shared/error_messages', :object => f.object %>
-<table width="500">
-  <tr>
-  	<td><%= f.label :patient_id, t('patient.cgdvcode') %></td>
-  	<td><%=f.label :name, t('patient.name') %></td>
-    <td><%= f.label :fecha, t('note.fecha') %></td>
-    <td><%= f.label :folio, t('note.folio') %></td>
-  </tr>
-  <tr>
-  	<td><%= f.collection_select :patient_id, Patient.order('cgdvcode'), :id, :cgdvcode %></td>
-  	<td><div id="patient_name"> </div></td>
-    <td><%= f.date_select :fecha, :order => [:day, :month, :year],:start_year => Time.now.year - 10 %></td>
-	<td><%= f.text_field :folio, :value => @folio, :size => 3 %></td>
-  </tr>
-</table>
-<table class="note_container" width="500">
-  <tr>
-    <td><strong><%= t('note.codigo') %></strong></td>
-    <td><strong><%= t('note.descripcion') %></strong></td>
-    <td><strong><%= t('note.cuota') %></strong></td>
-    <td><strong><%= t('note.cantidad') %></strong></td>
-    <td><strong>Subtotal</strong></td>
-    <td></td>
-    <td><%= f.hidden_field :count, :value => @note.elements.count %></td>	
-  </tr>
-  <% index = 0 %>
-  <%= f.fields_for :elements do |e| %>
-  <%= render "element_fields", :f => e, :index => index %>
-    <% index += 1 %> 	  
-  <% end %>
-  <tr><td id="#add_element" colspan=7><%= f.link_to_add t('note.add'), :elements %></td></tr>
-</table>
-<table width="500">
-  <tr>
-    <td><strong><%= t('note.subtotal') %></strong></td>
-    <td><strong><%= t('note.adeudo') %></strong></td>
-    <td><strong><%= t('note.total') %></strong></td>
-    <td><strong><%= t('note.acuenta') %></strong></td>
-    <td><strong><%= t('note.restan') %></strong></td>
-  </tr>
-</table>
-<table class="note_container2" width="500">
-  <tr>
-    <td><%= f.text_field :subtotal, :size => 5 %></td>
-    <td><%= f.text_field :adeudo, :size => 5 %></td>
-    <td><%= f.text_field :total, :size => 5 %></td>
-    <td><%= f.text_field :acuenta, :size => 5 %></td>
-    <td><%= f.text_field :restan, :size => 5 %></td>
-  </tr>
-</table>
+<div class="card border-0 shadow-sm mb-3">
+  <div class="card-body">
+    <div class="row g-3 align-items-end">
+      <div class="col-12 col-md-3">
+        <%= f.label :patient_id, t('patient.cgdvcode'), class: "form-label" %>
+        <%= f.collection_select :patient_id, Patient.order('cgdvcode'), :id, :cgdvcode, {}, class: "form-select" %>
+      </div>
+      <div class="col-12 col-md-4">
+        <%= f.label :name, t('patient.name'), class: "form-label" %>
+        <div id="patient_name" class="form-control-plaintext border rounded px-2 py-2 bg-light"> </div>
+      </div>
+      <div class="col-12 col-md-3">
+        <%= f.label :fecha, t('note.fecha'), class: "form-label d-block" %>
+        <div class="date-select-inline">
+          <%= f.date_select :fecha, {:order => [:day, :month, :year], :start_year => Time.now.year - 10}, {:class => "form-select d-inline-block w-auto"} %>
+        </div>
+      </div>
+      <div class="col-12 col-md-2">
+        <%= f.label :folio, t('note.folio'), class: "form-label" %>
+        <%= f.text_field :folio, :value => @folio, :size => 3, class: "form-control" %>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="card border-0 shadow-sm mb-3">
+  <div class="table-responsive">
+    <table class="table align-middle mb-0 note_container note-form-table">
+      <thead class="table-light">
+        <tr>
+          <th><%= t('note.codigo') %></th>
+          <th><%= t('note.descripcion') %></th>
+          <th><%= t('note.cuota') %></th>
+          <th><%= t('note.cantidad') %></th>
+          <th>Subtotal</th>
+          <th colspan="2"></th>
+          <th class="d-none"><%= f.hidden_field :count, :value => @note.elements.count %></th>
+        </tr>
+      </thead>
+      <tbody>
+        <% index = 0 %>
+        <%= f.fields_for :elements do |e| %>
+          <%= render "element_fields", :f => e, :index => index %>
+          <% index += 1 %>
+        <% end %>
+      </tbody>
+      <tfoot>
+        <tr>
+          <td id="#add_element" colspan="8">
+            <%= f.link_to_add t('note.add'), :elements, class: "btn btn-outline-primary btn-sm" %>
+          </td>
+        </tr>
+      </tfoot>
+    </table>
+  </div>
+</div>
+
+<div class="card border-0 shadow-sm">
+  <div class="card-body p-0">
+    <table class="table mb-0 note-form-summary">
+      <thead class="table-light">
+        <tr>
+          <th><%= t('note.subtotal') %></th>
+          <th><%= t('note.adeudo') %></th>
+          <th><%= t('note.total') %></th>
+          <th><%= t('note.acuenta') %></th>
+          <th><%= t('note.restan') %></th>
+        </tr>
+      </thead>
+      <tbody class="note_container2">
+        <tr>
+          <td><%= f.text_field :subtotal, :size => 5, class: "form-control form-control-sm" %></td>
+          <td><%= f.text_field :adeudo, :size => 5, class: "form-control form-control-sm" %></td>
+          <td><%= f.text_field :total, :size => 5, class: "form-control form-control-sm" %></td>
+          <td><%= f.text_field :acuenta, :size => 5, class: "form-control form-control-sm" %></td>
+          <td><%= f.text_field :restan, :size => 5, class: "form-control form-control-sm" %></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

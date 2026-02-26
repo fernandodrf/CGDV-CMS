@@ -288,6 +288,26 @@ body {
   white-space: nowrap;
 }
 
+.app-form-card .card-body {
+  background: linear-gradient(180deg, #ffffff 0%, #fffaf0 100%);
+}
+
+.app-form .form-label {
+  font-weight: 600;
+  color: #6b4b0a;
+}
+
+.app-form .form-control:focus,
+.app-form .form-select:focus {
+  border-color: #d8a13a;
+  box-shadow: 0 0 0 0.2rem rgba(191, 143, 48, 0.15);
+}
+
+.date-select-inline select {
+  margin-right: 0.35rem;
+  margin-bottom: 0.35rem;
+}
+
 .search-panel .form-label {
   font-weight: 600;
   color: #6b4b0a;
@@ -318,6 +338,25 @@ body {
 .app-table tfoot th,
 .app-table tfoot td {
   white-space: nowrap;
+}
+
+.note-form-table td,
+.note-form-table th,
+.note-form-summary td,
+.note-form-summary th {
+  vertical-align: middle;
+}
+
+.note-form-table .form-control-sm {
+  min-width: 5.5rem;
+}
+
+.note-form-table td:nth-child(2) .form-control-sm {
+  min-width: 14rem;
+}
+
+.note-form-summary .form-control-sm {
+  min-width: 5.5rem;
 }
 
 .pagination-wrap .pagination {
@@ -387,6 +426,10 @@ table th {
 
   form.new_activity_report, form.edit_activity_report textarea {
     width: 100%;
+  }
+
+  .note-form-table td:nth-child(2) .form-control-sm {
+    min-width: 10rem;
   }
 }
 

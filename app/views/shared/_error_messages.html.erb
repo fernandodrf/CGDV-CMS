@@ -1,8 +1,8 @@
 <% if object.errors.any? %>
-  <div id="error_explanation">
-    <h2><%= t('activerecord.errors.template.header', :count => object.errors.count, :model => object.class.to_s.underscore.humanize.downcase) %></h2>    
-    <p><%= t('activerecord.errors.template.body') %></p>
-    <ul>
+  <div id="error_explanation" class="alert alert-danger app-error-box" role="alert">
+    <h2 class="h6 mb-2"><%= t('activerecord.errors.template.header', :count => object.errors.count, :model => object.class.to_s.underscore.humanize.downcase) %></h2>
+    <p class="mb-2"><%= t('activerecord.errors.template.body') %></p>
+    <ul class="mb-0 ps-3">
     <% object.errors.full_messages.each do |msg| %>
       <li><%= msg %></li>
     <% end %>
