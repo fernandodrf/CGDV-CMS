@@ -639,6 +639,10 @@ button:focus-visible,
 
 .app-footer {
   color: #5c420d;
+  width: auto;
+  margin-left: 0;
+  margin-right: 0;
+  font-size: inherit;
 }
 
 .app-footer-nav .app-section-nav .card-body {
