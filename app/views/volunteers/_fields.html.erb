@@ -1,62 +1,100 @@
 <%= render 'shared/error_messages', :object => f.object %>
-<div class="field">
-  <%= f.label :avatar, 'Foto' %><br />
-  <%= image_tag(image_volunteer_path(@volunteer), :alt => "Avatar", :class => "avatar round") if @volunteer.avatar? %><br />
-  <%= f.file_field :avatar %>
-  <%= f.check_box :remove_avatar %>
-  <%= f.label :avatar, 'Eliminar Foto?' %><br />
-  <%= f.hidden_field :avatar_cache %>
-</div>
-<div class="field">
-  <%= f.label :status, t('patient.status') %><br />
-  <%= f.select :status, Volunteer::STATUS %>
-</div>
-<div class="field">
-  <%= f.label :name, t('patient.name') %><br />
-  <%= f.text_field :name %>
-</div>
-<div class="field">
-  <%= f.label :cgdvcode, t('patient.cgdvcode') %><br />
-  <%= f.text_field :cgdvcode, :value => @cgdvcode %>
-</div>
-<div>
-  <%= f.label :sex, t('patient.sex') %><br />
-  <%= f.select :sex, ['F', 'M'] %>
-</div>
-<div>
-  <%= f.label :blood, t('patient.blod') %><br />
-  <%= f.select :blood, Volunteer::BLOODTYPES %>
-</div>
-<div>
-  <%= f.label :birth, t('patient.birthdate') %><br />
-  <%= f.date_select :birth, :order => [:day, :month, :year], :start_year => Time.now.year - 100, :end_year => Time.now.year %>
-</div>
-
-<%= f.fields_for :extravolunteers do |e| %>
-  <div>
-    <%= e.label :profesion, t('volunteer.profesion') %><br />
-    <%= e.text_field :profesion %>
+<div class="row g-3 app-form">
+  <div class="col-12">
+    <div class="card border-0 shadow-sm">
+      <div class="card-header"><strong>Foto</strong></div>
+      <div class="card-body">
+        <% if @volunteer.avatar? %>
+          <div class="mb-2"><%= image_tag(image_volunteer_path(@volunteer), :alt => "Avatar", :class => "img-thumbnail volunteer-avatar-preview") %></div>
+        <% end %>
+        <div class="mb-2">
+          <%= f.file_field :avatar, class: "form-control" %>
+        </div>
+        <div class="form-check">
+          <%= f.check_box :remove_avatar, class: "form-check-input" %>
+          <%= f.label :remove_avatar, 'Eliminar Foto?', class: "form-check-label" %>
+        </div>
+        <%= f.hidden_field :avatar_cache %>
+      </div>
+    </div>
   </div>
-<% end %>
-<%= f.fields_for :socialservices do |ss| %>
-  <div class="serviciosocial">
-    <%= ss.label :escuela, t('volunteer.escuela') %><br />
-    <%= ss.text_field :escuela %><br />
 
-    <%= ss.label :carrera, t('volunteer.carrera') %><br />
-    <%= ss.text_field :carrera %><br />
-
-    <%= ss.label :matricula, t('volunteer.matricula') %><br />
-    <%= ss.text_field :matricula %><br />
-
-    <%= ss.label :semestre, t('volunteer.semestre') %><br />
-    <%= ss.text_field :semestre %><br />
-
-    <%= ss.label :inicio, t('volunteer.inicio') %><br />
-    <%= ss.date_select :inicio, :order => [:day, :month, :year] %><br />
-
-    <%= ss.label :fin, t('volunteer.fin') %><br />
-    <%= ss.date_select :fin, :order => [:day, :month, :year] %><br />
+  <div class="col-12 col-md-4">
+    <%= f.label :status, t('patient.status'), class: "form-label" %>
+    <%= f.select :status, Volunteer::STATUS, {}, class: "form-select" %>
   </div>
-<% end %>
+  <div class="col-12 col-md-8">
+    <%= f.label :name, t('patient.name'), class: "form-label" %>
+    <%= f.text_field :name, class: "form-control" %>
+  </div>
+  <div class="col-12 col-md-4">
+    <%= f.label :cgdvcode, t('patient.cgdvcode'), class: "form-label" %>
+    <%= f.text_field :cgdvcode, :value => @cgdvcode, class: "form-control" %>
+  </div>
+  <div class="col-12 col-md-4">
+    <%= f.label :sex, t('patient.sex'), class: "form-label" %>
+    <%= f.select :sex, ['F', 'M'], {}, class: "form-select" %>
+  </div>
+  <div class="col-12 col-md-4">
+    <%= f.label :blood, t('patient.blod'), class: "form-label" %>
+    <%= f.select :blood, Volunteer::BLOODTYPES, {}, class: "form-select" %>
+  </div>
+  <div class="col-12 col-lg-6">
+    <%= f.label :birth, t('patient.birthdate'), class: "form-label d-block" %>
+    <div class="date-select-inline">
+      <%= f.date_select :birth, { :order => [:day, :month, :year], :start_year => Time.now.year - 100, :end_year => Time.now.year }, { :class => "form-select d-inline-block w-auto" } %>
+    </div>
+  </div>
 
+  <%= f.fields_for :extravolunteers do |e| %>
+    <div class="col-12">
+      <div class="card border-0 shadow-sm">
+        <div class="card-header"><strong>Información adicional</strong></div>
+        <div class="card-body">
+          <%= e.label :profesion, t('volunteer.profesion'), class: "form-label" %>
+          <%= e.text_field :profesion, class: "form-control" %>
+        </div>
+      </div>
+    </div>
+  <% end %>
+
+  <%= f.fields_for :socialservices do |ss| %>
+    <div class="col-12">
+      <div class="serviciosocial card border-0 shadow-sm">
+        <div class="card-header"><strong><%= t('volunteer.ss') %></strong></div>
+        <div class="card-body">
+          <div class="row g-3">
+            <div class="col-12 col-md-6">
+              <%= ss.label :escuela, t('volunteer.escuela'), class: "form-label" %>
+              <%= ss.text_field :escuela, class: "form-control" %>
+            </div>
+            <div class="col-12 col-md-6">
+              <%= ss.label :carrera, t('volunteer.carrera'), class: "form-label" %>
+              <%= ss.text_field :carrera, class: "form-control" %>
+            </div>
+            <div class="col-12 col-md-4">
+              <%= ss.label :matricula, t('volunteer.matricula'), class: "form-label" %>
+              <%= ss.text_field :matricula, class: "form-control" %>
+            </div>
+            <div class="col-12 col-md-4">
+              <%= ss.label :semestre, t('volunteer.semestre'), class: "form-label" %>
+              <%= ss.text_field :semestre, class: "form-control" %>
+            </div>
+            <div class="col-12 col-md-6">
+              <%= ss.label :inicio, t('volunteer.inicio'), class: "form-label d-block" %>
+              <div class="date-select-inline">
+                <%= ss.date_select :inicio, { :order => [:day, :month, :year] }, { :class => "form-select d-inline-block w-auto" } %>
+              </div>
+            </div>
+            <div class="col-12 col-md-6">
+              <%= ss.label :fin, t('volunteer.fin'), class: "form-label d-block" %>
+              <div class="date-select-inline">
+                <%= ss.date_select :fin, { :order => [:day, :month, :year] }, { :class => "form-select d-inline-block w-auto" } %>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  <% end %>
+</div>

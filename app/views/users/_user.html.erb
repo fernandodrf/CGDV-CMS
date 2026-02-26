@@ -1,9 +1,13 @@
 <tr>
-  <td><%= link_to user.name, user %></td>
-  <td><%= link_to user.email, user  %></td>
-<% if current_user.admin? %>
-  <td><%= link_to t('helpers.edit'), edit_user_path(user) %></td>
-  <td><%= link_to t('helpers.delete.msg'), user, :method => :delete, :confirm => t('helpers.delete.conf'),
-                                :title => "#{t('helpers.delete.msg')} #{user.name}" %></td>
-<% end %>
+  <td><%= link_to user.name, user, class: "fw-semibold" %></td>
+  <td><%= link_to user.email, user %></td>
+  <td class="text-end">
+    <% if current_user.admin? %>
+      <div class="d-inline-flex gap-1 flex-wrap justify-content-end">
+        <%= link_to t('helpers.edit'), edit_user_path(user), class: "btn btn-outline-primary btn-sm" %>
+        <%= link_to t('helpers.delete.msg'), user, :method => :delete, :confirm => t('helpers.delete.conf'),
+                                  :title => "#{t('helpers.delete.msg')} #{user.name}", class: "btn btn-outline-danger btn-sm" %>
+      </div>
+    <% end %>
+  </td>
 </tr>

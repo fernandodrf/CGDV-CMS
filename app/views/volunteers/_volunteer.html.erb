@@ -1,11 +1,17 @@
 <tr>
-  <td><%= image_tag(image_volunteer_path(volunteer), :size =>"20x20", :alt => "Avatar", :class => "avatarsmally") if volunteer.avatar? %><%= link_to "#{volunteer.name}", volunteer %></td>
+  <td>
+    <%= image_tag(image_volunteer_path(volunteer), :size =>"20x20", :alt => "Avatar", :class => "avatarsmally rounded-circle me-1") if volunteer.avatar? %><%= link_to "#{volunteer.name}", volunteer, class: "fw-semibold" %>
+  </td>
   <td><%= link_to "#{volunteer.cgdvcode}", volunteer %></td>
-  <td class="smally"><%= vol_status(volunteer.status) %></td>
-  <% if can? :edit, @volunteer %>
-  <td class="smally"><%= link_to t('helpers.submit.update', :model => "Datos"), edit_volunteer_path(volunteer) %></td>
-  <% end %>
-  <% if can? :destroy, @volunteer %>
-  <td class="smally"><%= link_to t('helpers.delete.msg'), volunteer, :method => :delete, :confirm => t('helpers.delete.conf'), :title => "#{t('helpers.delete.msg')} #{volunteer.name}" %></td>
-  <% end %>
+  <td class="smally"><span class="badge text-bg-light border"><%= vol_status(volunteer.status) %></span></td>
+  <td class="smally text-end">
+    <div class="d-inline-flex gap-1 flex-wrap justify-content-end">
+      <% if can? :edit, @volunteer %>
+        <%= link_to t('helpers.submit.update', :model => "Datos"), edit_volunteer_path(volunteer), class: "btn btn-outline-primary btn-sm" %>
+      <% end %>
+      <% if can? :destroy, @volunteer %>
+        <%= link_to t('helpers.delete.msg'), volunteer, :method => :delete, :confirm => t('helpers.delete.conf'), :title => "#{t('helpers.delete.msg')} #{volunteer.name}", class: "btn btn-outline-danger btn-sm" %>
+      <% end %>
+    </div>
+  </td>
 </tr>

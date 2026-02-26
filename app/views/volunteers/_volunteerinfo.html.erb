@@ -1,24 +1,35 @@
-<table>
-  <tr>
-  	<th colspan=3><%= t('patient.info') %></th>
-  </tr>
-  <tr>
-  	<td><%= t('volunteer.status') %>: <%= vol_status(@volunteer.status) %></td>
-  	<td><%= t('patient.cgdvcode') %>: <%= @volunteer.cgdvcode %></td>
-  </tr>
-  <tr>
-    <td><%= t('patient.name') %>: <%= @volunteer.name %></td>
-    <td><%= t('patient.sex') %>: <%= @volunteer.sex %></td> 
-  </tr>
-  <tr>
-    <td><%= t('patient.birthdate') %>: <%= l @volunteer.birth %></td>
-    <td><%= t('patient.age') %>: <%= t('datetime.distance_in_words.x_years', :count => edad(@volunteer.birth)) %></td>
-    <td></td>
-  </tr>
-  <% unless @volunteer.extravolunteers.empty? %>
-  <tr>
-  	<td><%= t('volunteer.profesion') %>: <%= @volunteer.extravolunteers.first.profesion %></td>
-  	<td><%= t('patient.blod') %>: <%= @volunteer.blood %></td>
-  </tr>  
-  <% end %>
-</table>
+<div class="card border-0 shadow-sm">
+  <div class="card-header"><strong><%= t('patient.info') %></strong></div>
+  <div class="card-body p-0">
+    <div class="table-responsive">
+      <table class="table mb-0 app-table">
+        <tbody>
+          <tr>
+            <th class="table-light w-25"><%= t('volunteer.status') %></th>
+            <td><span class="badge text-bg-light border"><%= vol_status(@volunteer.status) %></span></td>
+            <th class="table-light w-25"><%= t('patient.cgdvcode') %></th>
+            <td><%= @volunteer.cgdvcode %></td>
+          </tr>
+          <tr>
+            <th class="table-light"><%= t('patient.name') %></th>
+            <td><%= @volunteer.name %></td>
+            <th class="table-light"><%= t('patient.sex') %></th>
+            <td><%= @volunteer.sex %></td>
+          </tr>
+          <tr>
+            <th class="table-light"><%= t('patient.birthdate') %></th>
+            <td><%= l @volunteer.birth %></td>
+            <th class="table-light"><%= t('patient.age') %></th>
+            <td><%= t('datetime.distance_in_words.x_years', :count => edad(@volunteer.birth)) %></td>
+          </tr>
+          <tr>
+            <th class="table-light"><%= t('volunteer.profesion') %></th>
+            <td><%= @volunteer.extravolunteers.first.profesion unless @volunteer.extravolunteers.empty? %></td>
+            <th class="table-light"><%= t('patient.blod') %></th>
+            <td><%= @volunteer.blood %></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

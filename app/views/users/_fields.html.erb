@@ -1,59 +1,101 @@
 <%= render 'shared/error_messages', :object => f.object %>
-<div class="field">
-  <%= f.label :name, t('user.name') %><br />
-  <%= f.text_field :name %>
-</div>
-<div class="field">
-  <%= f.label :email, t('user.email') %><br />
-  <%= f.text_field :email %>
-</div>
-<div class="field">
-  <%= f.label :password, t('user.password') %><br />
-  <%= f.password_field :password %>
-</div>
-<div class="field">
-  <%= f.label :password_confirmation, t('user.confirmation') %><br />
-  <%= f.password_field :password_confirmation %>
-</div>
-<div>
-<%= f.label :volunteer_id, t('patient.cgdvcode') %><br />	
-  <%= f.collection_select :volunteer_id, Volunteer.order('cgdvcode'), :id, :cgdvcode %><br />
-</div>
-<div>  
-  <%= f.label :volunteer_id, t('patient.name') %><br />
-  <div id="volunteer_name"> </div><br />
-</div>
-<% unless @user.admin? %>
-  <div class="field">
-    <%= f.label :roles, t('user.roles') %><br />
-    <%= check_box_tag(:ss,1,@user.is_ss?) %>
-    <%= label_tag(:ss, "Servicio Social") %><br />
-
-    <%= check_box_tag(:oficina,1,@user.is_oficina?) %>
-    <%= label_tag(:oficina, "Oficina") %><br />
-
-    <%= check_box_tag(:timereport,1,@user.is_timereport?) %>
-    <%= label_tag(:timereport, "Crear Reportes") %><br />
-
-    <%= check_box_tag(:managetimereport,1,@user.is_managetimereport?) %>
-    <%= label_tag(:managetimereport, "Controlar Reportes") %><br />
-
-    <%= check_box_tag(:managedonor,1,@user.is_managedonor?) %>
-    <%= label_tag(:managedonor, "Controlar Donadores") %><br />
-
-    <%= check_box_tag(:managecontact,1,@user.is_managecontact?) %>
-    <%= label_tag(:managecontact, "Controlar Contactos") %><br />
+<div class="row g-3 app-form">
+  <div class="col-12 col-lg-6">
+    <%= f.label :name, t('user.name'), class: "form-label" %>
+    <%= f.text_field :name, class: "form-control" %>
   </div>
-<% end %>
-<div>
-  <%= f.label :language, t('user.language') %><br />
-  <%= f.select :language, [['Español', 'sp'], ['English', 'en']] %>
-</div>
-<div>
-  <%= f.label :avatar, 'Foto' %><br />
-  <%= image_tag(image_user_path(@user)) if @user.avatar? %><br />
-  <%= f.file_field :avatar %><br />
-  <%= f.hidden_field :avatar_cache %><br />
-  <%= f.label :avatar, 'Eliminar Foto' %>
-  <%= f.check_box :remove_avatar %><br />
+  <div class="col-12 col-lg-6">
+    <%= f.label :email, t('user.email'), class: "form-label" %>
+    <%= f.text_field :email, class: "form-control" %>
+  </div>
+
+  <div class="col-12 col-md-6">
+    <%= f.label :password, t('user.password'), class: "form-label" %>
+    <%= f.password_field :password, class: "form-control" %>
+  </div>
+  <div class="col-12 col-md-6">
+    <%= f.label :password_confirmation, t('user.confirmation'), class: "form-label" %>
+    <%= f.password_field :password_confirmation, class: "form-control" %>
+  </div>
+
+  <div class="col-12 col-md-4">
+    <%= f.label :volunteer_id, t('patient.cgdvcode'), class: "form-label" %>
+    <%= f.collection_select :volunteer_id, Volunteer.order('cgdvcode'), :id, :cgdvcode, {}, class: "form-select" %>
+  </div>
+  <div class="col-12 col-md-8">
+    <%= f.label :volunteer_id, t('patient.name'), class: "form-label" %>
+    <div id="volunteer_name" class="form-control bg-light"> </div>
+  </div>
+
+  <% unless @user.admin? %>
+    <div class="col-12">
+      <div class="card border-0 shadow-sm">
+        <div class="card-header"><strong><%= t('user.roles') %></strong></div>
+        <div class="card-body">
+          <div class="row g-2 role-checklist">
+            <div class="col-12 col-md-6">
+              <div class="form-check">
+                <%= check_box_tag(:ss, 1, @user.is_ss?, class: "form-check-input") %>
+                <%= label_tag(:ss, "Servicio Social", class: "form-check-label") %>
+              </div>
+            </div>
+            <div class="col-12 col-md-6">
+              <div class="form-check">
+                <%= check_box_tag(:oficina, 1, @user.is_oficina?, class: "form-check-input") %>
+                <%= label_tag(:oficina, "Oficina", class: "form-check-label") %>
+              </div>
+            </div>
+            <div class="col-12 col-md-6">
+              <div class="form-check">
+                <%= check_box_tag(:timereport, 1, @user.is_timereport?, class: "form-check-input") %>
+                <%= label_tag(:timereport, "Crear Reportes", class: "form-check-label") %>
+              </div>
+            </div>
+            <div class="col-12 col-md-6">
+              <div class="form-check">
+                <%= check_box_tag(:managetimereport, 1, @user.is_managetimereport?, class: "form-check-input") %>
+                <%= label_tag(:managetimereport, "Controlar Reportes", class: "form-check-label") %>
+              </div>
+            </div>
+            <div class="col-12 col-md-6">
+              <div class="form-check">
+                <%= check_box_tag(:managedonor, 1, @user.is_managedonor?, class: "form-check-input") %>
+                <%= label_tag(:managedonor, "Controlar Donadores", class: "form-check-label") %>
+              </div>
+            </div>
+            <div class="col-12 col-md-6">
+              <div class="form-check">
+                <%= check_box_tag(:managecontact, 1, @user.is_managecontact?, class: "form-check-input") %>
+                <%= label_tag(:managecontact, "Controlar Contactos", class: "form-check-label") %>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  <% end %>
+
+  <div class="col-12 col-md-4">
+    <%= f.label :language, t('user.language'), class: "form-label" %>
+    <%= f.select :language, [['Español', 'sp'], ['English', 'en']], {}, class: "form-select" %>
+  </div>
+
+  <div class="col-12">
+    <div class="card border-0 shadow-sm">
+      <div class="card-header"><strong>Foto</strong></div>
+      <div class="card-body">
+        <% if @user.avatar? %>
+          <div class="mb-2"><%= image_tag(image_user_path(@user), class: "img-thumbnail user-avatar-preview") %></div>
+        <% end %>
+        <div class="mb-2">
+          <%= f.file_field :avatar, class: "form-control" %>
+        </div>
+        <%= f.hidden_field :avatar_cache %>
+        <div class="form-check">
+          <%= f.check_box :remove_avatar, class: "form-check-input" %>
+          <%= f.label :remove_avatar, 'Eliminar Foto', class: "form-check-label" %>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
