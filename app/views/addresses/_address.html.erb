@@ -1,12 +1,16 @@
-<tr><td colspan=2><%= t('address.place') %>: <%= address.place %></td></tr>
-<tr><td colspan=2><%= t('address.pais') %>: <%= text_pais(address.country) %></td></tr>
-<tr><td colspan=2><%= t('address.domicilio') %>: <%= address.domicilio %></td></tr>
-<tr><td colspan=2><%= t('address.estado') %>: <%= address.estado %></td></tr>
-<tr><td colspan=2><%= t('address.municipio') %>: <%= address.municipio %></td></tr>
-<tr><td colspan=2><%= t('address.colonia') %>: <%= address.colonia %></td></tr>
-<tr><td colspan=2><%= t('address.codigopostal') %>: <%= address.codigopostal %></td></tr>
+<tr><td colspan=2><strong><%= t('address.place') %>:</strong> <%= address.place %></td></tr>
+<tr><td colspan=2><strong><%= t('address.pais') %>:</strong> <%= text_pais(address.country) %></td></tr>
+<tr><td colspan=2><strong><%= t('address.domicilio') %>:</strong> <%= address.domicilio %></td></tr>
+<tr><td colspan=2><strong><%= t('address.estado') %>:</strong> <%= address.estado %></td></tr>
+<tr><td colspan=2><strong><%= t('address.municipio') %>:</strong> <%= address.municipio %></td></tr>
+<tr><td colspan=2><strong><%= t('address.colonia') %>:</strong> <%= address.colonia %></td></tr>
+<tr><td colspan=2><strong><%= t('address.codigopostal') %>:</strong> <%= address.codigopostal %></td></tr>
 <tr>
-  <td><%= link_to t('helpers.edit'), edit_polymorphic_path([model,address]) %></td>
-  <td><%= link_to t('helpers.delete.msg'), polymorphic_path([model,address]), :method => :delete, :confirm => t('helpers.delete.conf') %></td>
+  <td colspan="2" class="text-end">
+    <div class="d-inline-flex gap-1 flex-wrap justify-content-end">
+      <%= link_to t('helpers.edit'), edit_polymorphic_path([model,address]), class: "btn btn-outline-primary btn-sm" %>
+      <%= link_to t('helpers.delete.msg'), polymorphic_path([model,address]), :method => :delete, :confirm => t('helpers.delete.conf'), class: "btn btn-outline-danger btn-sm" %>
+    </div>
+  </td>
 </tr>
-<tr><td colspan=2><strong><%= link_to t('helpers.submit.create', :model => "Direccion"), new_polymorphic_path([model,Address]) %></strong></td><tr>
+<tr class="detail-divider"><td colspan="2"></td></tr>

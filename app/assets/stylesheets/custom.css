@@ -370,6 +370,30 @@ button:focus-visible,
   border-radius: 0.9rem;
 }
 
+.detail-section-card {
+  border-radius: 0.9rem;
+}
+
+.detail-section-card .card-header {
+  background: linear-gradient(180deg, #fffdf7 0%, #fff6de 100%);
+  border-bottom: 1px solid rgba(191, 143, 48, 0.16);
+  color: #5a3f0c;
+}
+
+.detail-section-card .card-header .btn {
+  white-space: nowrap;
+}
+
+.detail-section-card .app-table td {
+  vertical-align: top;
+}
+
+.detail-divider td {
+  padding: 0.35rem;
+  background: #fff7e1;
+  border-bottom: 1px solid rgba(191, 143, 48, 0.14);
+}
+
 .app-table thead th {
   white-space: nowrap;
   color: #5a3f0c;

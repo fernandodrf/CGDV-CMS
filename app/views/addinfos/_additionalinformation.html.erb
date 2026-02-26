@@ -1,10 +1,17 @@
-<table class="addinfos">
-  <tr>
-  	<th><%= t('patient.addinfo') %></th>
-  	<td><strong><%= link_to t('helpers.submit.create', :model => "Informacion Adicional"), new_polymorphic_path([model,Addinfo]) %></strong></td>
-  </tr>
-  <% unless model.addinfos.empty? %>
-  <%= render @addinfos, :model => model %>
-  <tr><td colspan=3><strong><%= link_to t('helpers.submit.create', :model => "Informacion Adicional"), new_polymorphic_path([model,Addinfo]) %></strong></td></tr>
-  <% end %>
-</table>
+<div class="card border-0 shadow-sm detail-section-card addinfos">
+  <div class="card-header d-flex justify-content-between align-items-center gap-2">
+    <strong><%= t('patient.addinfo') %></strong>
+    <%= link_to t('helpers.submit.create', :model => "Informacion Adicional"), new_polymorphic_path([model,Addinfo]), class: "btn btn-outline-primary btn-sm" %>
+  </div>
+  <div class="table-responsive">
+    <table class="table mb-0 app-table">
+      <tbody>
+        <% unless model.addinfos.empty? %>
+          <%= render @addinfos, :model => model %>
+        <% else %>
+          <tr><td class="text-muted">Sin información adicional registrada.</td></tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>

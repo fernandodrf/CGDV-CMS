@@ -1,6 +1,12 @@
 <tr>
-  <td><%= telephone.place %>: <%= telephone.number %></td>
-  <td><%= link_to t('helpers.edit'), edit_polymorphic_path([model,telephone]) %></td>
-  <td><%= link_to t('helpers.delete.msg'), polymorphic_path([model,telephone]), :method => :delete, :confirm => t('helpers.delete.conf'),
-                                :title => "#{t('helpers.delete.msg')} #{telephone.number}" %></td>
+  <td>
+    <%= telephone.place %>: <%= telephone.number %>
+  </td>
+  <td class="text-end">
+    <div class="d-inline-flex gap-1 flex-wrap justify-content-end">
+      <%= link_to t('helpers.edit'), edit_polymorphic_path([model,telephone]), class: "btn btn-outline-primary btn-sm" %>
+      <%= link_to t('helpers.delete.msg'), polymorphic_path([model,telephone]), :method => :delete, :confirm => t('helpers.delete.conf'),
+                                  :title => "#{t('helpers.delete.msg')} #{telephone.number}", class: "btn btn-outline-danger btn-sm" %>
+    </div>
+  </td>
 </tr>

@@ -1,9 +1,13 @@
 <tr>
   <td><%= comment.comment %></td>
-  <% if can? :edit, Comment %>
-  <td><%= link_to t('helpers.edit'), edit_polymorphic_path([model,comment]) %></td>
-  <% end %>
-  <% if can? :destroy, Comment %>
-  <td><%= link_to t('helpers.delete.msg'), polymorphic_path([model,comment]), :method => :delete, :confirm => t('helpers.delete.conf'), :title => "#{t('helpers.delete.msg')} #{comment.comment}" %></td>
-  <% end %>
+  <td class="text-end">
+    <div class="d-inline-flex gap-1 flex-wrap justify-content-end">
+      <% if can? :edit, Comment %>
+        <%= link_to t('helpers.edit'), edit_polymorphic_path([model,comment]), class: "btn btn-outline-primary btn-sm" %>
+      <% end %>
+      <% if can? :destroy, Comment %>
+        <%= link_to t('helpers.delete.msg'), polymorphic_path([model,comment]), :method => :delete, :confirm => t('helpers.delete.conf'), :title => "#{t('helpers.delete.msg')} #{comment.comment}", class: "btn btn-outline-danger btn-sm" %>
+      <% end %>
+    </div>
+  </td>
 </tr>

@@ -1,11 +1,17 @@
-<table class="addresses">
-  <tr><th colspan=4><%= t('address.title') %></th></tr>
-  <tr>
-	<td colspan=4><strong>
-	  <%= link_to t('helpers.submit.create', :model => "Direccion"), new_polymorphic_path([model,Address]) %>
-	</strong></td>
-  </tr>
-  <% unless model.addresses.empty? %>
-  <%= render @addresses, :model => model %>
-  <% end %>
-</table>
+<div class="card border-0 shadow-sm detail-section-card addresses">
+  <div class="card-header d-flex justify-content-between align-items-center gap-2">
+    <strong><%= t('address.title') %></strong>
+    <%= link_to t('helpers.submit.create', :model => "Direccion"), new_polymorphic_path([model,Address]), class: "btn btn-outline-primary btn-sm" %>
+  </div>
+  <div class="table-responsive">
+    <table class="table mb-0 app-table">
+      <tbody>
+        <% unless model.addresses.empty? %>
+          <%= render @addresses, :model => model %>
+        <% else %>
+          <tr><td class="text-muted">Sin direcciones registradas.</td></tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>
