@@ -1,137 +1,28 @@
 <%= render 'shared/error_messages', :object => f.object %>
-<table>
-  <tr>
-  	<td>
-	  <div class="field">
-	    <%= f.check_box :sobreviviente %>
-		<%= f.label :sobreviviente, t('volunteer.sobreviviente') %>
-	  </div>
-    </td>
-  	<td>
-	  <div class="field">
-	    <%= f.check_box :licencia%>
-		<%= f.label :licencia, t('volunteer.licencia') %>
-	  </div>
-    </td>
-  </tr>
-  <tr>
-  	<td>
-	  <div class="field">
-	    <%= f.check_box :donador %>
-		<%= f.label :donador, t('subprogram.donador') %>
-	  </div>
-    </td>
-  	<td>
-	  <div class="field">
-	    <%= f.check_box :eventos %>
-	    <%= f.label :eventos, t('subprogram.eventos') %>
-	  </div>
-    </td>
-  </tr>
-  <tr>
-  	<td>
-	  <div class="field">
-	    <%= f.check_box :hospitales %>
-	    <%= f.label :hospitales, t('subprogram.hospitales') %>
-	  </div>
-    </td>
-  	<td>
-	  <div class="field">
-	    <%= f.check_box :suenosdeseos %>
-	    <%= f.label :suenosdeseos, t('subprogram.suenosdeseos') %>
-	  </div>
-    </td>
-  </tr>
-  <tr>
-  	<td>
-	  <div class="field">
-	    <%= f.check_box :fondos %>
-	    <%= f.label :fondos, t('subprogram.fondos') %>
-	  </div>
-    </td>
-  	<td>
-	  <div class="field">
-	    <%= f.check_box :administrativas %>
-	    <%= f.label :administrativas, t('subprogram.administrativas') %>
-	  </div>
-    </td>
-  </tr>
-  <tr>
-  	<td>
-	  <div class="field">
-	    <%= f.check_box :autoayuda %>
-	    <%= f.label :autoayuda, t('subprogram.autoayuda') %>
-	  </div>
-    </td>
-  	<td>
-	  <div class="field">
-	    <%= f.check_box :sobrevivientes %>
-	    <%= f.label :sobrevivientes, t('subprogram.sobrevivientes') %>
-	  </div>
-    </td>
-  </tr>
-  <tr>
-  	<td>	
-	  <div class="field">
-	    <%= f.check_box :fugarte %>
-	    <%= f.label :fugarte, t('subprogram.fugarte') %>
-	  </div>
-    </td>
-    <td>
-      <div class="field">
-    	<%= f.check_box :licencia %>
-		<%= f.label :licencia, t('volunteer.licencia') %>
-	  </div>
-	</td>
-  </tr>
-  <tr>
-  	<td>	
-	  <div class="field">
-	    <%= f.check_box :disenografico %>
-	    <%= f.label :disenografico, t('subprogram.disenografico') %>
-	  </div>
-    </td>
-    <td>
-      <div class="field">
-    	<%= f.check_box :abogacia %>
-		<%= f.label :abogacia, t('subprogram.abogacia') %>
-	  </div>
-	</td>
-  </tr>
-  <tr>
-  	<td>	
-	  <div class="field">
-	    <%= f.check_box :invdocumental %>
-	    <%= f.label :invdocumental, t('subprogram.invdocumental') %>
-	  </div>
-    </td>
-    <td>
-      <div class="field">
-    	<%= f.check_box :invmedica %>
-		<%= f.label :invmedica, t('subprogram.invmedica') %>
-	  </div>
-	</td>
-  </tr>
-  <tr>
-  	<td>	
-	  <div class="field">
-	    <%= f.check_box :disenoweb %>
-	    <%= f.label :disenoweb, t('subprogram.disenoweb') %>
-	  </div>
-    </td>
-    <td>
-      <div class="field">
-    	<%= f.check_box :apoyocap %>
-		<%= f.label :apoyocap, t('subprogram.apoyocap') %>
-	  </div>
-	</td>
-  </tr>
-  <tr>
-  	<td>	
-	  <div class="field">
-	    <%= f.check_box :apoyofueraoficina %>
-	    <%= f.label :apoyofueraoficina, t('subprogram.apoyofueraoficina') %>
-	  </div>
-    </td>
-  </tr>
-</table>
+<%
+  subprogram_pairs = [
+    [[:sobreviviente, t('volunteer.sobreviviente')], [:licencia, t('volunteer.licencia')]],
+    [[:donador, t('subprogram.donador')], [:eventos, t('subprogram.eventos')]],
+    [[:hospitales, t('subprogram.hospitales')], [:suenosdeseos, t('subprogram.suenosdeseos')]],
+    [[:fondos, t('subprogram.fondos')], [:administrativas, t('subprogram.administrativas')]],
+    [[:autoayuda, t('subprogram.autoayuda')], [:sobrevivientes, t('subprogram.sobrevivientes')]],
+    [[:fugarte, t('subprogram.fugarte')], [:licencia, t('volunteer.licencia')]],
+    [[:disenografico, t('subprogram.disenografico')], [:abogacia, t('subprogram.abogacia')]],
+    [[:invdocumental, t('subprogram.invdocumental')], [:invmedica, t('subprogram.invmedica')]],
+    [[:disenoweb, t('subprogram.disenoweb')], [:apoyocap, t('subprogram.apoyocap')]],
+    [[:apoyofueraoficina, t('subprogram.apoyofueraoficina')], nil]
+  ]
+%>
+
+<div class="row g-2 role-checklist">
+  <% subprogram_pairs.each do |left, right| %>
+    <% [left, right].compact.each do |field_name, label_text| %>
+      <div class="col-12 col-md-6">
+        <div class="form-check">
+          <%= f.check_box field_name, class: "form-check-input" %>
+          <%= f.label field_name, label_text, class: "form-check-label" %>
+        </div>
+      </div>
+    <% end %>
+  <% end %>
+</div>
