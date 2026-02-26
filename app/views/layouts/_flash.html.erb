@@ -1,0 +1,15 @@
+<% flash.each do |key, value| %>
+  <% bootstrap_class =
+    case key.to_s
+    when "notice", "success"
+      "alert-success"
+    when "alert", "error"
+      "alert-danger"
+    when "warning"
+      "alert-warning"
+    else
+      "alert-info"
+    end
+  %>
+  <div class="alert <%= bootstrap_class %> app-flash" role="alert"><%= value %></div>
+<% end %>
