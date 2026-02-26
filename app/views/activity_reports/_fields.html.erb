@@ -1,5 +1,7 @@
 <%= render 'shared/error_messages', :object => f.object %>
-<div>
-  <%= f.label :reporte %><br />
-  <%= f.text_area :reporte %>
+<div class="app-form">
+  <div class="mb-3">
+    <%= f.label :reporte, class: "form-label" %>
+    <%= f.text_area :reporte, class: "form-control" %>
+  </div>
 </div>

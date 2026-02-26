@@ -120,6 +120,54 @@ RSpec.describe "Upgrade regression: auth and search flows", type: :request do
       expect(response.body).to include(matching.proveedor)
       expect(response.body).not_to include("Proveedor Search Beta")
     end
+
+    it "filters activity reports by volunteer code on the activity reports index" do
+      matching = FactoryBot.create(:activity_report, volunteer: volunteer, reporte: "Alpha weekly log")
+      other_volunteer = FactoryBot.create(:volunteer, cgdvcode: 960002, name: "Activity Search Other")
+      FactoryBot.create(:activity_report, volunteer: other_volunteer, reporte: "Beta weekly log")
+
+      get activity_reports_path, params: { q: { volunteer_cgdvcode_eq: volunteer.cgdvcode } }
+
+      expect(response).to have_http_status(:ok)
+      expect(response.body).to include(matching.reporte)
+      expect(response.body).not_to include("Beta weekly log")
+    end
+
+    it "filters timereports by event on the timereports index" do
+      Timereport.create!(
+        volunteer: volunteer,
+        day: Date.current,
+        begin: "09:00",
+        end: "11:00",
+        evento: "Evento Alpha Search"
+      )
+      other_volunteer = FactoryBot.create(:volunteer, cgdvcode: 960004, name: "Time Search Other")
+      Timereport.create!(
+        volunteer: other_volunteer,
+        day: Date.current,
+        begin: "10:00",
+        end: "12:00",
+        evento: "Evento Beta Search"
+      )
+
+      get timereports_path, params: { q: { evento_cont: "Alpha" } }
+
+      expect(response).to have_http_status(:ok)
+      expect(response.body).to include("Evento Alpha Search")
+      expect(response.body).not_to include("Evento Beta Search")
+    end
+
+    it "filters pending time entries by event on the vol_times index" do
+      VolTime.create!(volunteer: volunteer, evento: "Pendiente Alpha Search", horas: 4)
+      other_volunteer = FactoryBot.create(:volunteer, cgdvcode: 960006, name: "Pending Time Other")
+      VolTime.create!(volunteer: other_volunteer, evento: "Pendiente Beta Search", horas: 2)
+
+      get vol_times_path, params: { q: { evento_cont: "Alpha" } }
+
+      expect(response).to have_http_status(:ok)
+      expect(response.body).to include("Pendiente Alpha Search")
+      expect(response.body).not_to include("Pendiente Beta Search")
+    end
   end
 
   describe "resource form pages" do
@@ -152,6 +200,31 @@ RSpec.describe "Upgrade regression: auth and search flows", type: :request do
       expect(response.body).to include("provider_proveedor")
       expect(response.body).to include("provider_name")
       expect(response.body).to include("provider_cgdvcode")
+    end
+
+    it "renders the new activity report form" do
+      get new_activity_report_path
+
+      expect(response).to have_http_status(:ok)
+      expect(response.body).to include("activity_report_reporte")
+    end
+
+    it "renders the new timereport form" do
+      get new_timereport_path
+
+      expect(response).to have_http_status(:ok)
+      expect(response.body).to include("timereport_evento")
+      expect(response.body).to include("timereport_volunteer_id")
+      expect(response.body).to include("timereport_day_1i")
+    end
+
+    it "renders the new pending-time form" do
+      get new_vol_time_path
+
+      expect(response).to have_http_status(:ok)
+      expect(response.body).to include("vol_time_evento")
+      expect(response.body).to include("vol_time_horas")
+      expect(response.body).to include("vol_time_volunteer_id")
     end
   end
 end

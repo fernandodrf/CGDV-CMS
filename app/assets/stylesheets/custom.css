@@ -344,6 +344,15 @@ body {
   white-space: nowrap;
 }
 
+.app-table tbody th {
+  white-space: nowrap;
+  color: #5a3f0c;
+}
+
+.app-table .table-light {
+  --bs-table-bg: #fff7e1;
+}
+
 .note-form-table td,
 .note-form-table th,
 .note-form-summary td,
