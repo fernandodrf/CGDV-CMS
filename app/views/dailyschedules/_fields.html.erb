@@ -1,13 +1,19 @@
 <%= render 'shared/error_messages', :object => f.object %>
-<div>
-  <%= f.label :day, t('volunteer.day') %><br />
-  <%= f.select :day, Dailyschedule::DAYS %>
-</div>
-<div>
-  <%= f.label :begin, t('volunteer.begin') %><br />
-  <%= f.time_select :begin %>
-</div>
-<div>
-  <%= f.label :end, t('volunteer.end') %><br />
-  <%= f.time_select :end %>
+<div class="row g-3">
+  <div class="col-md-4">
+    <%= f.label :day, t('volunteer.day'), class: "form-label" %>
+    <%= f.select :day, Dailyschedule::DAYS, {}, { class: "form-select" } %>
+  </div>
+  <div class="col-md-4">
+    <%= f.label :begin, t('volunteer.begin'), class: "form-label" %>
+    <div class="d-flex flex-wrap gap-2">
+      <%= f.time_select :begin, {}, { class: "form-select w-auto" } %>
+    </div>
+  </div>
+  <div class="col-md-4">
+    <%= f.label :end, t('volunteer.end'), class: "form-label" %>
+    <div class="d-flex flex-wrap gap-2">
+      <%= f.time_select :end, {}, { class: "form-select w-auto" } %>
+    </div>
+  </div>
 </div>
