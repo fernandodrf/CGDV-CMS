@@ -1,18 +1,18 @@
-<tr>
+<tr class="noteprint-totals-head">
   <th width="149" align="center"><%= t('note.subtotal') %></th>
   <th width="242" align="center"><%= t('note.adeudo') %></th>
   <th width="242" align="center"><%= t('note.total') %></th>
   <th width="182" align="center"><%= t('note.acuenta') %></th>
   <th width="175" align="center"><%= t('note.restan') %></th>
 </tr>
-<tr align="center">
+<tr align="center" class="noteprint-totals-values">
   <td><%= number_to_currency(@note.subtotal) %></td>
   <td><%= number_to_currency(@note.adeudo) %></td>
   <td><%= number_to_currency(@note.total) %></td>
   <td><%= number_to_currency(@note.acuenta) %></td>
   <td><%= number_to_currency(@note.restan) %></td>
 </tr>
-<tr>
+<tr class="noteprint-signature-row">
  <th height="35" align="right">Recibí</th>
  <td height="35" colspan="4"></td>
 </tr>

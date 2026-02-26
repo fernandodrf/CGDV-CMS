@@ -174,6 +174,35 @@ hr {
     background: #fff;
   }
 
+  .note-print-copy .noteprint-header-row th,
+  .note-print-copy .noteprint-header-row td {
+    padding: 2px 4px;
+    vertical-align: middle;
+  }
+
+  .note-print-copy .noteprint-brand {
+    color: #5a3f0c;
+    letter-spacing: 0.02em;
+  }
+
+  .note-print-copy .noteprint-patient-row th,
+  .note-print-copy .noteprint-patient-row td,
+  .note-print-copy .noteprint-columns-row td,
+  .note-print-copy .noteprint-item-row td,
+  .note-print-copy .noteprint-subtotal-row th,
+  .note-print-copy .noteprint-subtotal-row td,
+  .note-print-copy .noteprint-totals-head th,
+  .note-print-copy .noteprint-totals-values td,
+  .note-print-copy .noteprint-signature-row th,
+  .note-print-copy .noteprint-signature-row td {
+    padding: 4px 6px;
+  }
+
+  .note-print-copy .noteprint-columns-row td,
+  .note-print-copy .noteprint-totals-head th {
+    background: #fff7e1;
+  }
+
   .note-print-copy .nota-legal {
     margin-top: 8px;
   }
