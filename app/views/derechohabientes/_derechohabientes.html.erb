@@ -1,8 +1,8 @@
-<table align=center>
+<table class="table app-table mb-3" align=center>
   <tr>
-    <th><%= t('derechohabiente.title') %></th>
-	<td colspan=2>
-	  <%= link_to t('helpers.submit.create', :model => "Derechohabiente"), new_patient_derechohabiente_path(@patient) %>
+    <th class="table-light"><%= t('derechohabiente.title') %></th>
+	<td colspan=2 class="table-light">
+	  <%= link_to t('helpers.submit.create', :model => "Derechohabiente"), new_patient_derechohabiente_path(@patient), class: "btn btn-outline-primary btn-sm" %>
 	</td>
   </tr>
   <% unless @patient.derechohabientes.empty? %>

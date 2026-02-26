@@ -1,5 +1,5 @@
 <tr>
   <td><%= derechohabiente.seguro %>: <%= derechohabiente.afiliacion %></td>
-  <td><%= link_to t('helpers.edit'), edit_patient_derechohabiente_path(@patient, derechohabiente) %></td>
-  <td><%= link_to t('helpers.delete.msg'), patient_derechohabiente_path(@patient,derechohabiente), :method => :delete, :confirm => t('helpers.delete.conf') %></td>
+  <td><%= link_to t('helpers.edit'), edit_patient_derechohabiente_path(@patient, derechohabiente), class: "btn btn-outline-primary btn-sm" %></td>
+  <td><%= link_to t('helpers.delete.msg'), patient_derechohabiente_path(@patient,derechohabiente), :method => :delete, :confirm => t('helpers.delete.conf'), class: "btn btn-outline-danger btn-sm" %></td>
 </tr>

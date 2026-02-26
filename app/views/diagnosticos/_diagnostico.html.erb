@@ -1,7 +1,7 @@
 <tr>
   <td><%= text_diag(diagnostico.diagnostico) %></td>
-  <td><%= link_to t('helpers.edit'), edit_polymorphic_path([model,diagnostico]) %></td>
+  <td><%= link_to t('helpers.edit'), edit_polymorphic_path([model,diagnostico]), class: "btn btn-outline-primary btn-sm" %></td>
   <td>
-  	<%= link_to t('helpers.delete.msg'), polymorphic_path([model,diagnostico]), :method => :delete, :confirm => t('helpers.delete.conf'), :title => "#{t('helpers.delete.msg')} #{diagnostico.diagnostico}" %>
+  	<%= link_to t('helpers.delete.msg'), polymorphic_path([model,diagnostico]), :method => :delete, :confirm => t('helpers.delete.conf'), :title => "#{t('helpers.delete.msg')} #{diagnostico.diagnostico}", class: "btn btn-outline-danger btn-sm" %>
   </td>
 </tr>
