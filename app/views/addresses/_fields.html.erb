@@ -1,29 +1,31 @@
 <%= render 'shared/error_messages', :object => f.object %>
-<div class="field">
-  <%= f.label :place, t('address.place') %><br />
-  <%= f.text_field :place %>
-</div>
-<div class="field">
-  <%= f.label :country, t('address.country') %><br />
-  <%= f.select :country, CatalogoCountry.all.collect {|c| [c.country,c.id] } %>
-</div>
-<div class="field">
-  <%= f.label :domicilio, t('address.domicilio') %><br />
-  <%= f.text_field :domicilio %>
-</div>
-<div class="field">
-  <%= f.label :estado, t('address.estado') %><br />
-  <%= f.autocomplete_field :estado, autocomplete_catestado_estado_addresses_path %>
-</div>
-<div class="field">
-  <%= f.label :municipio, t('address.municipio') %><br />
-  <%= f.text_field :municipio %>
-</div>
-<div class="field">
-  <%= f.label :colonia, t('address.colonia') %><br />
-  <%= f.text_field :colonia %>
-</div>
-<div class="field">
-  <%= f.label :codigopostal, t('address.codigopostal') %><br />
-  <%= f.text_field :codigopostal %>
+<div class="row g-3">
+  <div class="col-md-4">
+    <%= f.label :place, t('address.place'), class: "form-label" %>
+    <%= f.text_field :place, class: "form-control" %>
+  </div>
+  <div class="col-md-4">
+    <%= f.label :country, t('address.country'), class: "form-label" %>
+    <%= f.select :country, CatalogoCountry.all.collect {|c| [c.country,c.id] }, {}, { class: "form-select" } %>
+  </div>
+  <div class="col-md-4">
+    <%= f.label :codigopostal, t('address.codigopostal'), class: "form-label" %>
+    <%= f.text_field :codigopostal, class: "form-control" %>
+  </div>
+  <div class="col-12">
+    <%= f.label :domicilio, t('address.domicilio'), class: "form-label" %>
+    <%= f.text_field :domicilio, class: "form-control" %>
+  </div>
+  <div class="col-md-4">
+    <%= f.label :estado, t('address.estado'), class: "form-label" %>
+    <%= f.autocomplete_field :estado, autocomplete_catestado_estado_addresses_path, class: "form-control" %>
+  </div>
+  <div class="col-md-4">
+    <%= f.label :municipio, t('address.municipio'), class: "form-label" %>
+    <%= f.text_field :municipio, class: "form-control" %>
+  </div>
+  <div class="col-md-4">
+    <%= f.label :colonia, t('address.colonia'), class: "form-label" %>
+    <%= f.text_field :colonia, class: "form-control" %>
+  </div>
 </div>
