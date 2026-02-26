@@ -215,10 +215,24 @@ body {
   background:
     radial-gradient(circle at top left, #ffd98a 0%, #ffcc66 35%, #f6b93b 65%, #ef9f1f 100%);
   min-height: 100vh;
+  line-height: 1.45;
 }
 
 .app-shell {
   max-width: 1180px;
+}
+
+a {
+  text-underline-offset: 0.15em;
+}
+
+a:focus-visible,
+button:focus-visible,
+.btn:focus-visible,
+.form-control:focus-visible,
+.form-select:focus-visible {
+  outline: 2px solid rgba(191, 143, 48, 0.45);
+  outline-offset: 2px;
 }
 
 .app-header .card-body {
@@ -267,6 +281,12 @@ body {
   margin-bottom: 0.75rem;
 }
 
+.app-flash .alert {
+  border-radius: 0.8rem;
+  border-width: 1px;
+  box-shadow: 0 6px 18px rgba(78, 55, 8, 0.07);
+}
+
 .devise-card .card-body {
   background: linear-gradient(180deg, #ffffff 0%, #fffaf0 100%);
 }
@@ -288,6 +308,12 @@ body {
   white-space: nowrap;
 }
 
+.page-toolbar h1,
+.page-toolbar .h2 {
+  color: #5a3f0c;
+  letter-spacing: -0.01em;
+}
+
 .app-form-card .card-body {
   background: linear-gradient(180deg, #ffffff 0%, #fffaf0 100%);
 }
@@ -295,6 +321,15 @@ body {
 .app-form .form-label {
   font-weight: 600;
   color: #6b4b0a;
+}
+
+.app-form .form-control,
+.app-form .form-select,
+.search-panel .form-control,
+.search-panel .form-select {
+  border-radius: 0.65rem;
+  border-color: rgba(191, 143, 48, 0.2);
+  transition: border-color 120ms ease, box-shadow 120ms ease, background-color 120ms ease;
 }
 
 .app-form .form-control:focus,
@@ -317,6 +352,10 @@ body {
   color: #6b4b0a;
 }
 
+.search-panel .card-body {
+  background: linear-gradient(180deg, #fffdf7 0%, #fff8e7 100%);
+}
+
 .search-panel .form-control:focus {
   border-color: #d8a13a;
   box-shadow: 0 0 0 0.2rem rgba(191, 143, 48, 0.15);
@@ -324,19 +363,38 @@ body {
 
 .list-card {
   overflow: hidden;
+  border-radius: 0.9rem;
+}
+
+.list-card .table-responsive {
+  border-radius: 0.9rem;
 }
 
 .app-table thead th {
   white-space: nowrap;
   color: #5a3f0c;
+  font-weight: 700;
+  vertical-align: middle;
 }
 
 .app-table tbody td {
   background: #fff;
+  vertical-align: middle;
+  line-height: 1.35;
 }
 
 .app-table tbody tr:hover td {
   background: #fff9ea;
+}
+
+.app-table td:last-child {
+  white-space: nowrap;
+}
+
+.app-table td .btn,
+.app-table th .btn {
+  --bs-btn-padding-y: 0.22rem;
+  --bs-btn-padding-x: 0.55rem;
 }
 
 .app-table tfoot th,
@@ -422,7 +480,7 @@ body {
 .pagination-wrap .pagination a,
 .pagination-wrap .pagination span {
   display: inline-block;
-  padding: 0.3rem 0.65rem;
+  padding: 0.38rem 0.75rem;
   border-radius: 999px;
   border: 1px solid rgba(191, 143, 48, 0.25);
   background: #fffaf0;
@@ -483,6 +541,15 @@ table th {
   .note-form-table td:nth-child(2) .form-control-sm {
     min-width: 10rem;
   }
+
+  .page-toolbar .btn {
+    width: 100%;
+  }
+
+  .pagination-wrap .pagination a,
+  .pagination-wrap .pagination span {
+    padding-inline: 0.6rem;
+  }
 }
 
 /* User show page */
@@ -493,33 +560,43 @@ div.field, div.actions {
 }
 
 .field_with_errors {
-  margin-top: 10px;
-  padding: 2px;
-  background-color: red;
-  display: table;
+  margin-top: 0;
+  padding: 0;
+  background: transparent;
+  display: block;
 }
 
 .field_with_errors label {
-  color: #fff;
+  color: #b42318;
+}
+
+.field_with_errors input,
+.field_with_errors select,
+.field_with_errors textarea,
+.field_with_errors .form-control,
+.field_with_errors .form-select {
+  border-color: #d92d20 !important;
+  box-shadow: 0 0 0 0.15rem rgba(217, 45, 32, 0.1);
 }
 
 #error_explanation {
-  width: 400px;
-  border: 2px solid red;
-  padding: 7px;
-  padding-bottom: 12px;
+  width: auto;
+  max-width: 100%;
+  border: 1px solid rgba(217, 45, 32, 0.35);
+  border-radius: 0.8rem;
+  padding: 12px 14px;
   margin-bottom: 20px;
-  background-color: #f0f0f0;
+  background: #fff5f4;
 }
 
 #error_explanation h2 {
   text-align: left;
-  font-weight: bold;
-  padding: 5px 5px 5px 15px;
-  font-size: 12px;
-  margin: -7px;
-  background-color: #c00;
-  color: #fff;
+  font-weight: 700;
+  padding: 0;
+  font-size: 0.95rem;
+  margin: 0 0 0.35rem 0;
+  background: transparent;
+  color: #b42318;
 }
 
 #error_explanation p {
@@ -542,13 +619,14 @@ ul.users {
 }
 
 .avatar {
-  border: 1px dashed #000;
+  border: 1px solid rgba(191, 143, 48, 0.3);
   margin: 0px 30px 0px 0px;
   float: left;
+  border-radius: 0.5rem;
 }
 
 .avatarsmally {
-  border: 1px dashed #000;
+  border: 1px solid rgba(191, 143, 48, 0.3);
   margin: 0px 10px 0px 0px;
   float: left;
 }
@@ -558,7 +636,7 @@ ul.users {
 }
 
 .useravatar {
-  border: 1px dashed #000;
+  border: 1px solid rgba(191, 143, 48, 0.25);
 }
 
 /* Para el Javascript de contar palabras y caracteres */
@@ -573,4 +651,14 @@ ul.users {
 	text-align: right;
 	font-size: 12px;
 	color: #96201A;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    transition: none !important;
+    animation: none !important;
+    scroll-behavior: auto !important;
+  }
 }
