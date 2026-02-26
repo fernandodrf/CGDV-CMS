@@ -1,7 +1,7 @@
-<tr>
-  <th align="left" class="nota_title">Con Ganas de Vivir A.C.</th>
-  <th align="right"><%= t('note.fecha') %>: </th>
-  <td align="left"><%= l @note.fecha, :format => :long %></td>
-  <th align="right" class="nota_title"><%= t('note.folio') %></th>
-  <td align="left" class="nota_title"><u><strong><%= @note.folio %></strong></u></td>
+<tr class="noteprint-header-row">
+  <th align="left" class="nota_title noteprint-brand">Con Ganas de Vivir A.C.</th>
+  <th align="right" class="noteprint-meta-label"><%= t('note.fecha') %>: </th>
+  <td align="left" class="noteprint-meta-value"><%= l @note.fecha, :format => :long %></td>
+  <th align="right" class="nota_title noteprint-meta-label"><%= t('note.folio') %></th>
+  <td align="left" class="nota_title noteprint-folio"><u><strong><%= @note.folio %></strong></u></td>
 </tr>
