@@ -1,9 +1,15 @@
 <tr>
-  <td><%= link_to attachment.name, polymorphic_path([model,attachment]) %></td>
-  <% if can? :edit, Attachment %>
-  <td><%= link_to t('helpers.edit'), edit_polymorphic_path([model,attachment]) %></td>
-  <% end %>
-  <% if can? :destroy, Attachment %>
-  <td><%= link_to t('helpers.delete.msg'), polymorphic_path([model,attachment]), :method => :delete, :confirm => t('helpers.delete.conf'), :title => "#{t('helpers.delete.msg')} #{attachment.name}" %></td>
-  <% end %>
+  <td>
+    <%= link_to attachment.name, polymorphic_path([model, attachment]), class: "fw-semibold" %>
+  </td>
+  <td class="text-end">
+    <div class="d-inline-flex gap-1 flex-wrap justify-content-end">
+      <% if can? :edit, Attachment %>
+        <%= link_to t('helpers.edit'), edit_polymorphic_path([model, attachment]), class: "btn btn-outline-primary btn-sm" %>
+      <% end %>
+      <% if can? :destroy, Attachment %>
+        <%= link_to t('helpers.delete.msg'), polymorphic_path([model, attachment]), :method => :delete, :confirm => t('helpers.delete.conf'), :title => "#{t('helpers.delete.msg')} #{attachment.name}", class: "btn btn-outline-danger btn-sm" %>
+      <% end %>
+    </div>
+  </td>
 </tr>

@@ -1,11 +1,21 @@
-<table class="attachments" align=center>
-  <tr>
-    <th><%= t('attachment.name') %></th>
+<div class="card border-0 shadow-sm detail-section-card attachments-section">
+  <div class="card-header d-flex justify-content-between align-items-center gap-2">
+    <strong><%= t('attachment.name') %></strong>
     <% if can? :create, Attachment %>
-	<td colspan=2 nowrap><%= link_to t('helpers.submit.create', :model => "Archivos Adjuntos"), new_polymorphic_path([model,Attachment]) %></td>
-	<% end %>
-  </tr>  
-  <% unless model.attachments.empty? and can? :read, Attachment %>
-  <%= render @attachments, :model => model %>
-  <% end %>
-</table>
+      <%= link_to t('helpers.submit.create', :model => "Archivos Adjuntos"), new_polymorphic_path([model, Attachment]), class: "btn btn-outline-primary btn-sm" %>
+    <% end %>
+  </div>
+  <div class="table-responsive">
+    <table class="table mb-0 app-table">
+      <tbody>
+        <% if can? :read, Attachment %>
+          <% unless model.attachments.empty? %>
+            <%= render @attachments, :model => model %>
+          <% else %>
+            <tr><td class="text-muted">Sin archivos adjuntos.</td></tr>
+          <% end %>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>
