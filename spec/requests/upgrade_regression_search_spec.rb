@@ -179,6 +179,29 @@ RSpec.describe "Upgrade regression: auth and search flows", type: :request do
       expect(response.body).to include(matching.name)
       expect(response.body).not_to include("Volunteer Search Beta")
     end
+
+    it "filters donations by donor name on the donations index" do
+      alpha_donor = Donor.create!(
+        cgdvcode: 980001,
+        persona: 1,
+        name: "Donation Donor Alpha",
+        birth: Date.new(1985, 1, 1)
+      )
+      beta_donor = Donor.create!(
+        cgdvcode: 980002,
+        persona: 1,
+        name: "Donation Donor Beta",
+        birth: Date.new(1986, 1, 1)
+      )
+      Donation.create!(folio: 810001, donor: alpha_donor, frecepcion: Date.current, tipo: 1, motivo: 1, finalidad: "Alpha finalidad")
+      Donation.create!(folio: 810002, donor: beta_donor, frecepcion: Date.current, tipo: 1, motivo: 1, finalidad: "Beta finalidad")
+
+      get donations_path, params: { q: { donor_name_cont: "Alpha" } }
+
+      expect(response).to have_http_status(:ok)
+      expect(response.body).to include("810001")
+      expect(response.body).not_to include("810002")
+    end
   end
 
   describe "resource form pages" do
@@ -254,6 +277,33 @@ RSpec.describe "Upgrade regression: auth and search flows", type: :request do
       expect(response.body).to include("user_name")
       expect(response.body).to include("user_email")
       expect(response.body).to include("user_volunteer_id")
+    end
+
+    it "renders the new donation form" do
+      get new_donation_path
+
+      expect(response).to have_http_status(:ok)
+      expect(response.body).to include("donation_folio")
+      expect(response.body).to include("donation_donor_id")
+      expect(response.body).to include("donation_finalidad")
+    end
+  end
+
+  describe "volunteer time summary page" do
+    before do
+      sign_in admin_user
+    end
+
+    it "renders the volunteer time report summary page" do
+      VolTime.create!(volunteer: volunteer, evento: "Trep Pending", horas: 3)
+      Timereport.create!(volunteer: volunteer, day: Date.current, begin: "09:00", end: "10:00", evento: "Trep Worked")
+
+      get trep_volunteer_path(volunteer)
+
+      expect(response).to have_http_status(:ok)
+      expect(response.body).to include(volunteer.name)
+      expect(response.body).to include("Trep Pending")
+      expect(response.body).to include("Trep Worked")
     end
   end
 end

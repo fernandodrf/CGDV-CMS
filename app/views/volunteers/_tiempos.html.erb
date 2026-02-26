@@ -1,10 +1,21 @@
-<table>
-  <tr><th><%= t('timereport.title') %></th></tr>
-  <tr>
-  	<td><%= link_to "Añadir/Acumular Tiempo", vol_times_path %></td>
-  	<td><%= link_to "Restar/Reportar Tiempo", timereports_path %></td>  
-  </tr>
-  <tr><td colspan=2><%= t('volunteer.tr') %>: <%= link_to @volunteer.tr, trep_volunteer_path(@volunteer) %></td></tr>
-  <tr><td colspan=2><%= t('volunteer.ta') %>: <%= link_to @volunteer.ta, trep_volunteer_path(@volunteer) %></td></tr>
-  <tr><td colspan=2><%= t('volunteer.tf') %>: <%= link_to @volunteer.tiempo_final %></td></tr>
-</table>
+<div class="card border-0 shadow-sm">
+  <div class="card-header"><strong><%= t('timereport.title') %></strong></div>
+  <div class="card-body">
+    <div class="d-flex flex-wrap gap-2 mb-3">
+      <%= link_to "Añadir/Acumular Tiempo", vol_times_path, class: "btn btn-outline-secondary btn-sm" %>
+      <%= link_to "Restar/Reportar Tiempo", timereports_path, class: "btn btn-outline-secondary btn-sm" %>
+      <%= link_to t('timereport.volunteer'), trep_volunteer_path(@volunteer), class: "btn btn-primary btn-sm" %>
+    </div>
+    <div class="row g-2">
+      <div class="col-12 col-md-4">
+        <div class="p-2 rounded border bg-light"><strong><%= t('volunteer.tr') %>:</strong> <%= link_to @volunteer.tr, trep_volunteer_path(@volunteer) %></div>
+      </div>
+      <div class="col-12 col-md-4">
+        <div class="p-2 rounded border bg-light"><strong><%= t('volunteer.ta') %>:</strong> <%= link_to @volunteer.ta, trep_volunteer_path(@volunteer) %></div>
+      </div>
+      <div class="col-12 col-md-4">
+        <div class="p-2 rounded border bg-light"><strong><%= t('volunteer.tf') %>:</strong> <%= @volunteer.tiempo_final %></div>
+      </div>
+    </div>
+  </div>
+</div>
