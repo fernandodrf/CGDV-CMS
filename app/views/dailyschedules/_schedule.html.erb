@@ -1,25 +1,37 @@
-<table class="table app-table mb-3 schedules" align=center>
-  <tr>
-    <th class="table-light"><%= t('volunteer.horario') %></th>
-	<td colspan=5 class="table-light"><%= link_to t('helpers.submit.create', :model => "Horario por Dia"), new_volunteer_dailyschedule_path(@volunteer), class: "btn btn-outline-primary btn-sm" %></td>
-  </tr>
-  <% unless @volunteer.dailyschedules.empty? %>
-    <tr>
-      <th><%= t('volunteer.day') %></th>
-      <th><%= t('volunteer.begin') %></th>
-      <th><%= t('volunteer.end') %></th>
-      <th><%= t('volunteer.tiempo') %></th>
-      <th></th>
-      <th></th>
-    </tr>
-    <%= render @dailyschedules %>
-    <tr>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td><strong><%= @volunteer.dt %></strong></td>
-      <td></td>
-      <td></td>
-    </tr>
-  <% end %>
-</table>
+<div class="card border-0 shadow-sm detail-section-card schedules">
+  <div class="card-header d-flex justify-content-between align-items-center gap-2">
+    <strong><%= t('volunteer.horario') %></strong>
+    <%= link_to t('helpers.submit.create', :model => "Horario por Dia"), new_volunteer_dailyschedule_path(@volunteer), class: "btn btn-outline-primary btn-sm" %>
+  </div>
+  <div class="table-responsive">
+    <table class="table mb-0 app-table">
+      <% unless @volunteer.dailyschedules.empty? %>
+        <thead class="table-light">
+          <tr>
+            <th><%= t('volunteer.day') %></th>
+            <th><%= t('volunteer.begin') %></th>
+            <th><%= t('volunteer.end') %></th>
+            <th><%= t('volunteer.tiempo') %></th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+          <%= render @dailyschedules %>
+        </tbody>
+        <tfoot>
+          <tr>
+            <td></td>
+            <td></td>
+            <td class="text-end"><strong>Total</strong></td>
+            <td><strong><%= @volunteer.dt %></strong></td>
+            <td></td>
+          </tr>
+        </tfoot>
+      <% else %>
+        <tbody>
+          <tr><td class="text-muted">Sin horarios registrados.</td></tr>
+        </tbody>
+      <% end %>
+    </table>
+  </div>
+</div>

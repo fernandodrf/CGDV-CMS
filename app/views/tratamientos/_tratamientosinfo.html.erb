@@ -1,9 +1,17 @@
-<table class="table app-table mb-3 tratamientos" align=center>
-  <tr>
-    <th class="table-light"><%= t('patient.tratamientos') %></th>
-	<td colspan=2 class="table-light"><%= link_to t('helpers.submit.create', :model => "Tratamiento"), new_patient_tratamiento_path(@patient), class: "btn btn-outline-primary btn-sm" %></td>
-  </tr>
-  <% unless @patient.tratamientos.empty? %>
-    <%= render @tratamientos %>
-  <% end %>
-</table>
+<div class="card border-0 shadow-sm detail-section-card tratamientos">
+  <div class="card-header d-flex justify-content-between align-items-center gap-2">
+    <strong><%= t('patient.tratamientos') %></strong>
+    <%= link_to t('helpers.submit.create', :model => "Tratamiento"), new_patient_tratamiento_path(@patient), class: "btn btn-outline-primary btn-sm" %>
+  </div>
+  <div class="table-responsive">
+    <table class="table mb-0 app-table">
+      <tbody>
+        <% unless @patient.tratamientos.empty? %>
+          <%= render @tratamientos %>
+        <% else %>
+          <tr><td class="text-muted">Sin tratamientos.</td></tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>

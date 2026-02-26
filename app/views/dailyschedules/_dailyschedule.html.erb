@@ -3,8 +3,10 @@
   <td><%= l dailyschedule.begin, :format => :hourmin %></td>
   <td><%= l dailyschedule.end, :format => :hourmin %></td>
   <td><%= dailyschedule.tiempo %></td>
-  <td><%= link_to t('helpers.edit'), edit_volunteer_dailyschedule_path(@volunteer,dailyschedule), class: "btn btn-outline-primary btn-sm" %></td>
-  <td>
-  	<%= link_to t('helpers.delete.msg'), volunteer_dailyschedule_path(@volunteer,dailyschedule), :method => :delete, :confirm => t('helpers.delete.conf'), :title => "#{t('helpers.delete.msg')} #{dailyschedule.day}", class: "btn btn-outline-danger btn-sm" %>
+  <td class="text-end">
+    <div class="d-inline-flex gap-1 flex-wrap justify-content-end">
+      <%= link_to t('helpers.edit'), edit_volunteer_dailyschedule_path(@volunteer, dailyschedule), class: "btn btn-outline-primary btn-sm" %>
+      <%= link_to t('helpers.delete.msg'), volunteer_dailyschedule_path(@volunteer, dailyschedule), :method => :delete, :confirm => t('helpers.delete.conf'), :title => "#{t('helpers.delete.msg')} #{dailyschedule.day}", class: "btn btn-outline-danger btn-sm" %>
+    </div>
   </td>
 </tr>
