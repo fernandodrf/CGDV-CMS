@@ -1,7 +1,13 @@
-<h1><%= t('helpers.submit.create', :model => "Diagnostico") %></h1>
-<%= form_for([@parent, @child]) do |f| %>
-  <%= render 'fields', :f => f %>
-  <div class="actions">
-    <%= f.submit t('helpers.create') %>
+<div class="subrecord-form-wrap">
+  <div class="card border-0 shadow-sm subrecord-form-card">
+    <div class="card-body p-4">
+      <h1 class="h4 mb-4"><%= t('helpers.submit.create', :model => "Diagnostico") %></h1>
+      <%= form_for([@parent, @child], html: { class: "subrecord-form" }) do |f| %>
+        <%= render 'fields', :f => f %>
+        <div class="d-flex justify-content-end mt-4">
+          <%= f.submit t('helpers.create'), class: "btn btn-primary" %>
+        </div>
+      <% end %>
+    </div>
   </div>
-<% end %>
+</div>
