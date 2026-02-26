@@ -1,17 +1,20 @@
 <!DOCTYPE html>
 <html>
   <head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />
     <!--[if lt IE 8]><%= stylesheet_link_tag 'blueprint/ie' %><![endif]-->
     <%= stylesheet_link_tag 'customprint', :media => "screen, print, projection" %>
     <%= csrf_meta_tag %>
   </head>
-  <body>
-    <div id="wrap">
-      <div id="header" align="center">
-        <%= render 'noteprint' %><hr />
-        <%= render 'noteprint' %><hr />
-        <%= render 'noteprint' %>
+  <body class="print-preview-body">
+    <div id="wrap" class="print-preview-shell note-print-shell">
+      <div id="header" align="center" class="print-preview-header">
+        <div class="note-print-copy"><%= render 'noteprint' %></div>
+        <hr />
+        <div class="note-print-copy"><%= render 'noteprint' %></div>
+        <hr />
+        <div class="note-print-copy"><%= render 'noteprint' %></div>
       </div>
     </div>
   </body>
