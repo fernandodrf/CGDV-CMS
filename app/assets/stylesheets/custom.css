@@ -211,6 +211,48 @@ footer nav {
 
 /* Bootstrap migration (pass 1): shared layout chrome */
 
+:root {
+  --bs-primary: #bf8f30;
+  --bs-primary-rgb: 191, 143, 48;
+  --bs-link-color: #8a5b00;
+  --bs-link-color-rgb: 138, 91, 0;
+  --bs-link-hover-color: #6a4700;
+  --bs-link-hover-color-rgb: 106, 71, 0;
+}
+
+.btn-primary {
+  --bs-btn-bg: #bf8f30;
+  --bs-btn-border-color: #bf8f30;
+  --bs-btn-hover-bg: #a97c23;
+  --bs-btn-hover-border-color: #9f741f;
+  --bs-btn-active-bg: #976c1c;
+  --bs-btn-active-border-color: #8f6619;
+  --bs-btn-focus-shadow-rgb: 191, 143, 48;
+}
+
+.btn-outline-primary {
+  --bs-btn-color: #8a5b00;
+  --bs-btn-border-color: #bf8f30;
+  --bs-btn-hover-bg: #bf8f30;
+  --bs-btn-hover-border-color: #bf8f30;
+  --bs-btn-active-bg: #a97c23;
+  --bs-btn-active-border-color: #a97c23;
+  --bs-btn-focus-shadow-rgb: 191, 143, 48;
+}
+
+.text-primary {
+  color: #8a5b00 !important;
+}
+
+.link-primary {
+  color: #8a5b00 !important;
+}
+
+.link-primary:hover,
+.link-primary:focus {
+  color: #6a4700 !important;
+}
+
 body {
   background:
     radial-gradient(circle at top left, #ffd98a 0%, #ffcc66 35%, #f6b93b 65%, #ef9f1f 100%);
