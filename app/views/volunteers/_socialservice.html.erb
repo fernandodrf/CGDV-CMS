@@ -1,17 +1,23 @@
-<table class="table app-table mb-3">
-  <tr>
-  	<th colspan=2 class="table-light"><%= t('volunteer.ss') %></th>
-  </tr>
-  <tr>
-    <td><%= t('volunteer.escuela') %>: <%= @volunteer.socialservices.first.escuela %></td>
-    <td><%= t('volunteer.carrera') %>: <%= @volunteer.socialservices.first.carrera %></td>
-  </tr>
-  <tr>
-    <td><%= t('volunteer.matricula') %>: <%= @volunteer.socialservices.first.matricula %></td>
-    <td><%= t('volunteer.semestre') %>: <%= @volunteer.socialservices.first.semestre %></td>
-  </tr>
-  <tr>
-    <td><%= t('volunteer.inicio') %>: <%= l @volunteer.socialservices.first.inicio %></td>
-    <td><%= t('volunteer.fin') %>: <%= l @volunteer.socialservices.first.fin %></td>
-  </tr> 
-</table>
+<div class="card border-0 shadow-sm detail-section-card volunteer-socialservice">
+  <div class="card-header">
+    <strong><%= t('volunteer.ss') %></strong>
+  </div>
+  <div class="table-responsive">
+    <table class="table mb-0 app-table">
+      <tbody>
+        <tr>
+          <td><%= t('volunteer.escuela') %>: <%= @volunteer.socialservices.first.escuela %></td>
+          <td><%= t('volunteer.carrera') %>: <%= @volunteer.socialservices.first.carrera %></td>
+        </tr>
+        <tr>
+          <td><%= t('volunteer.matricula') %>: <%= @volunteer.socialservices.first.matricula %></td>
+          <td><%= t('volunteer.semestre') %>: <%= @volunteer.socialservices.first.semestre %></td>
+        </tr>
+        <tr>
+          <td><%= t('volunteer.inicio') %>: <%= l @volunteer.socialservices.first.inicio %></td>
+          <td><%= t('volunteer.fin') %>: <%= l @volunteer.socialservices.first.fin %></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
