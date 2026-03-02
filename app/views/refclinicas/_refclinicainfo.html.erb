@@ -1,22 +1,21 @@
-<table class="table app-table mb-3 refclinica">
-  <tr>
-    <th colspan=2 class="table-light">
-      <%= t('refclinica.title') %>
-	</th>
-  </tr>	
-  <tr>
-	<td colspan=2><strong>
-	  <% if @refclinica == nil %>
-	  <%= link_to t('helpers.submit.create', :model => "Referencia Clinica"), new_patient_refclinica_path(@patient), class: "btn btn-outline-primary btn-sm" %>
-	  <% else %>
-	  <%= link_to t('helpers.edit'), edit_patient_refclinica_path(@patient, @refclinica), class: "btn btn-outline-primary btn-sm" %>
-	  <% end %>
-	</strong></td>
-  </tr>
-  <% if @refclinica != nil %>
-  <%= render @refclinica %>
-  <tr>
-    <td colspan=2><%= link_to t('helpers.delete.msg'), patient_refclinica_path(@patient,@refclinica), :method => :delete, :confirm => t('helpers.delete.conf'), class: "btn btn-outline-danger btn-sm" %></td>
-  </tr>
-  <% end %>
-</table>
+<div class="card border-0 shadow-sm detail-section-card refclinica">
+  <div class="card-header d-flex justify-content-between align-items-center gap-2">
+    <strong><%= t('refclinica.title') %></strong>
+    <% if @refclinica.nil? %>
+      <%= link_to t('helpers.submit.create', :model => "Referencia Clinica"), new_patient_refclinica_path(@patient), class: "btn btn-outline-primary btn-sm" %>
+    <% else %>
+      <%= link_to t('helpers.edit'), edit_patient_refclinica_path(@patient, @refclinica), class: "btn btn-outline-primary btn-sm" %>
+    <% end %>
+  </div>
+  <div class="table-responsive">
+    <table class="table mb-0 app-table">
+      <tbody>
+        <% if @refclinica.nil? %>
+          <tr><td class="text-muted">Sin referencia clínica.</td></tr>
+        <% else %>
+          <%= render @refclinica %>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>

@@ -1,24 +1,28 @@
-<table class="table app-table mb-3 socioeco">
-  <tr>
-    <th colspan=2 class="table-light">
-      <%= t('socioeco.title') %>
-	</th>
-  </tr>
-  <tr>
-  	<td colspan=2>
-	  <% if @socioeco == nil %>
-	  <%= link_to t('helpers.submit.create', :model => "Informacion Socioeconomica"), new_patient_socioeco_path(@patient), class: "btn btn-outline-primary btn-sm" %>
-	  <% else %>
-	  <%= link_to t('helpers.edit'), edit_patient_socioeco_path(@patient, @socioeco), class: "btn btn-outline-primary btn-sm" %>
-	  <% end %>
-	</td>
-  </tr>
-  <% if @socioeco != nil %>
-  <%= render @socioeco %>
-  <tr>
-    <td colspan=2>
-      <%= link_to t('helpers.delete.msg'), patient_socioeco_path(@patient,@socioeco), :method => :delete, :confirm => t('helpers.delete.conf'), class: "btn btn-outline-danger btn-sm" %>	   
-    </td>
-  </tr>
-  <% end %>
-</table>
+<div class="card border-0 shadow-sm detail-section-card socioeco">
+  <div class="card-header d-flex justify-content-between align-items-center gap-2">
+    <strong><%= t('socioeco.title') %></strong>
+    <% if @socioeco.nil? %>
+      <%= link_to t('helpers.submit.create', :model => "Informacion Socioeconomica"), new_patient_socioeco_path(@patient), class: "btn btn-outline-primary btn-sm" %>
+    <% else %>
+      <%= link_to t('helpers.edit'), edit_patient_socioeco_path(@patient, @socioeco), class: "btn btn-outline-primary btn-sm" %>
+    <% end %>
+  </div>
+  <div class="table-responsive">
+    <table class="table mb-0 app-table">
+      <tbody>
+        <% if @socioeco.nil? %>
+          <tr><td class="text-muted">Sin información socioeconómica.</td></tr>
+        <% else %>
+          <%= render @socioeco %>
+          <tr>
+            <td colspan=2>
+              <div class="d-flex justify-content-end">
+                <%= link_to t('helpers.delete.msg'), patient_socioeco_path(@patient, @socioeco), :method => :delete, :confirm => t('helpers.delete.conf'), class: "btn btn-outline-danger btn-sm" %>
+              </div>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>

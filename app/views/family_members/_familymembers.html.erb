@@ -1,18 +1,17 @@
-<table class="table app-table mb-3 Family Members">
-  <tr><th colspan=2 class="table-light"><%= t('familymember.title') %></th></tr>
-  <tr>
-    <td colspan=2>
-      <strong><%= link_to t('helpers.submit.create', :model => "Familiar"), new_patient_family_member_path(@patient), class: "btn btn-outline-primary btn-sm" %></strong>
-    </td>
-  </tr>
-  <% unless @patient.family_members.empty? %>
-    <%= render @familymembers %>
-  <% end %>
-  <% unless @patient.family_members.empty? %>
-  <tr>
-    <td colspan=2>
-      <strong><%= link_to t('helpers.submit.create', :model => "Familiar"), new_patient_family_member_path(@patient), class: "btn btn-outline-primary btn-sm" %></strong>
-    </td>
-  </tr>
-<% end %>
-</table>
+<div class="card border-0 shadow-sm detail-section-card familymembers">
+  <div class="card-header d-flex justify-content-between align-items-center gap-2">
+    <strong><%= t('familymember.title') %></strong>
+    <%= link_to t('helpers.submit.create', :model => "Familiar"), new_patient_family_member_path(@patient), class: "btn btn-outline-primary btn-sm" %>
+  </div>
+  <div class="table-responsive">
+    <table class="table mb-0 app-table">
+      <tbody>
+        <% unless @patient.family_members.empty? %>
+          <%= render @familymembers %>
+        <% else %>
+          <tr><td class="text-muted">Sin familiares registrados.</td></tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>

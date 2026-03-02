@@ -39,5 +39,9 @@
   <td></td> 
 </tr>
 <tr>
-  <td colspan=2><%= link_to t('helpers.delete.msg'), volunteer_subprogram_path(@volunteer,@subprogram), :method => :delete, :confirm => t('helpers.delete.conf'), class: "btn btn-outline-danger btn-sm" %></td>
+  <td colspan=2>
+    <div class="d-flex justify-content-end">
+      <%= link_to t('helpers.delete.msg'), volunteer_subprogram_path(@volunteer, @subprogram), :method => :delete, :confirm => t('helpers.delete.conf'), class: "btn btn-outline-danger btn-sm" %>
+    </div>
+  </td>
 </tr>
